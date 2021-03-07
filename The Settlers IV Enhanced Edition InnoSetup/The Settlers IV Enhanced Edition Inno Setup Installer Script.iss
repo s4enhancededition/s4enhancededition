@@ -472,9 +472,9 @@ var
 begin
 #ifdef UseEdgeWebView2
   if not RegQueryStringValue(HKEY_LOCAL_MACHINE, 'SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\Clients\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}', 'pv', EdgeVersion) then begin
-   AddDependency('MicrosoftEdgeWebview2Setup.exe Evergreen',
+   AddDependency('MicrosoftEdgeWebview2Setup.exe',
       '/silent /install',
-      'Microsoft Edge WebView2 (this can take some time)',
+      'Microsoft Edge WebView2 Evergreen',
       GetString('https://go.microsoft.com/fwlink/p/?LinkId=2124703', 'https://go.microsoft.com/fwlink/p/?LinkId=2124703'),
       '', False, False, False);
   end;
