@@ -47,7 +47,11 @@ namespace S4EE
                 Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Enhanced_History_Edition_ENG_200px.png", UriKind.RelativeOrAbsolute));
             }
             Title = Properties.Resources.App_Name;
-            //Langtext.Content = Properties.Resources.App_Language;
+        }
+
+        public bool Installer()
+        {
+            return true;
         }
         /// <summary>
         /// Navigation zur Play Page
@@ -55,8 +59,14 @@ namespace S4EE
         private void Button_PlayClick(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(AppStart);
-            //ToDo WorkerAPI
-            Process.Start(S4_AppPath + @"\S4_Main.exe");
+            if (Installer())
+            {
+                Process.Start(S4_AppPath + @"\S4_Main.exe");
+            }
+            else
+            {
+                //ToDo Error message
+            }
         }
         /// <summary>
         /// Navigation zur News Page

@@ -117,48 +117,50 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="App_Language" xml:space="preserve">
-    <value>Deutsch</value>
-    <comment>en-US</comment>
+  <data name="App_Edition_EGE" xml:space="preserve">
+    <value>Die Siedler IV – Enhanced Gold Edition</value>
   </data>
-  <data name="App_LanguageChange" xml:space="preserve">
-    <value>Change</value>
+  <data name="App_Edition_EHE" xml:space="preserve">
+    <value>Die Siedler IV – Enhanced History Edition</value>
+  </data>
+  <data name="App_Edition_GE" xml:space="preserve">
+    <value>Die Siedler IV – Gold Edition</value>
+  </data>
+  <data name="App_Edition_HE" xml:space="preserve">
+    <value>Die Siedler IV – History Edition</value>
+  </data>
+  <data name="App_Edition_Title" xml:space="preserve">
+    <value>Edition</value>
+  </data>
+  <data name="App_Language_de-DE" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
+  <data name="App_Language_en-US" xml:space="preserve">
+    <value>Englisch</value>
   </data>
   <data name="App_Name" xml:space="preserve">
     <value>Die Siedler IV – Enhanced Edition Launcher</value>
   </data>
-  <data name="App_Version_EGE" xml:space="preserve">
-    <value>Die Siedler IV –  Enhanced Gold Edition</value>
+  <data name="App_Textures_NW" xml:space="preserve">
+    <value>Neue Welt Texturen (überall)</value>
   </data>
-  <data name="App_Version_EHE" xml:space="preserve">
-    <value>Die Siedler IV – Enhanced History Edition</value>
+  <data name="App_Textures_ORG" xml:space="preserve">
+    <value>Orginale Texturen</value>
   </data>
-  <data name="App_Version_GE" xml:space="preserve">
-    <value>Die Siedler IV – Gold Edition</value>
+  <data name="App_Textures_Title" xml:space="preserve">
+    <value>Texturen</value>
   </data>
-  <data name="App_Version_HE" xml:space="preserve">
-    <value>Die Siedler IV – History Edition</value>
+  <data name="MSB_Error" xml:space="preserve">
+    <value>Kritischer Fehler</value>
   </data>
-  <data name="App_Webseite" xml:space="preserve">
-    <value>www.diesiedler4.de</value>
+  <data name="MSB_Error_Text" xml:space="preserve">
+    <value>Kritischer Fehler der Anwendung</value>
   </data>
   <data name="MSB_Missionen" xml:space="preserve">
     <value>Missionen Freischalten?</value>
   </data>
   <data name="MSB_Missionen_Text" xml:space="preserve">
     <value>Alle Missionen Freischalten?</value>
-  </data>
-  <data name="MSB_Neutstart" xml:space="preserve">
-    <value>Neustart der App notwendig!</value>
-  </data>
-  <data name="MSB_Neutstart_Text" xml:space="preserve">
-    <value>Für die Übernahme der Einstellungen muss die Anwendung neugestartet werden.</value>
-  </data>
-  <data name="MSB_NotSupported" xml:space="preserve">
-    <value>Not Supported</value>
-  </data>
-  <data name="MSB_NotSupported_Text" xml:space="preserve">
-    <value>Not Supported</value>
   </data>
   <data name="MSB_S3" xml:space="preserve">
     <value>S3 OK</value>

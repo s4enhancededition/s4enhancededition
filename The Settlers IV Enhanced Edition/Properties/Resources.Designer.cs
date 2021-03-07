@@ -61,20 +61,65 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die English ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Enhanced Gold Edition ähnelt.
         /// </summary>
-        public static string App_Language {
+        public static string App_Edition_EGE {
             get {
-                return ResourceManager.GetString("App_Language", resourceCulture);
+                return ResourceManager.GetString("App_Edition_EGE", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Change ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Enhanced History Edition ähnelt.
         /// </summary>
-        public static string App_LanguageChange {
+        public static string App_Edition_EHE {
             get {
-                return ResourceManager.GetString("App_LanguageChange", resourceCulture);
+                return ResourceManager.GetString("App_Edition_EHE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Gold Edition ähnelt.
+        /// </summary>
+        public static string App_Edition_GE {
+            get {
+                return ResourceManager.GetString("App_Edition_GE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – History Edition ähnelt.
+        /// </summary>
+        public static string App_Edition_HE {
+            get {
+                return ResourceManager.GetString("App_Edition_HE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Edition ähnelt.
+        /// </summary>
+        public static string App_Edition_Title {
+            get {
+                return ResourceManager.GetString("App_Edition_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die German ähnelt.
+        /// </summary>
+        public static string App_Language_de_DE {
+            get {
+                return ResourceManager.GetString("App_Language_de-DE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die English ähnelt.
+        /// </summary>
+        public static string App_Language_en_US {
+            get {
+                return ResourceManager.GetString("App_Language_en-US", resourceCulture);
             }
         }
         
@@ -88,47 +133,47 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Enhanced Gold Edition ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die NewWorld Textures (overall) ähnelt.
         /// </summary>
-        public static string App_Version_EGE {
+        public static string App_Textures_NW {
             get {
-                return ResourceManager.GetString("App_Version_EGE", resourceCulture);
+                return ResourceManager.GetString("App_Textures_NW", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Enhanced History Edition ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Original Textures  ähnelt.
         /// </summary>
-        public static string App_Version_EHE {
+        public static string App_Textures_ORG {
             get {
-                return ResourceManager.GetString("App_Version_EHE", resourceCulture);
+                return ResourceManager.GetString("App_Textures_ORG", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Gold Edition ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Textures ähnelt.
         /// </summary>
-        public static string App_Version_GE {
+        public static string App_Textures_Title {
             get {
-                return ResourceManager.GetString("App_Version_GE", resourceCulture);
+                return ResourceManager.GetString("App_Textures_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – History Edition ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fatal Error ähnelt.
         /// </summary>
-        public static string App_Version_HE {
+        public static string MSB_Error {
             get {
-                return ResourceManager.GetString("App_Version_HE", resourceCulture);
+                return ResourceManager.GetString("MSB_Error", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die www.diesiedler4.de ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fatal Error of App ähnelt.
         /// </summary>
-        public static string App_Webseite {
+        public static string MSB_Error_Text {
             get {
-                return ResourceManager.GetString("App_Webseite", resourceCulture);
+                return ResourceManager.GetString("MSB_Error_Text", resourceCulture);
             }
         }
         
@@ -147,42 +192,6 @@ namespace S4EE.Properties {
         public static string MSB_Missionen_Text {
             get {
                 return ResourceManager.GetString("MSB_Missionen_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Restart of the app necessary! ähnelt.
-        /// </summary>
-        public static string MSB_Neutstart {
-            get {
-                return ResourceManager.GetString("MSB_Neutstart", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The application must be restarted to apply the settings. ähnelt.
-        /// </summary>
-        public static string MSB_Neutstart_Text {
-            get {
-                return ResourceManager.GetString("MSB_Neutstart_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Not Supported ähnelt.
-        /// </summary>
-        public static string MSB_NotSupported {
-            get {
-                return ResourceManager.GetString("MSB_NotSupported", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Not Supported ähnelt.
-        /// </summary>
-        public static string MSB_NotSupported_Text {
-            get {
-                return ResourceManager.GetString("MSB_NotSupported_Text", resourceCulture);
             }
         }
         

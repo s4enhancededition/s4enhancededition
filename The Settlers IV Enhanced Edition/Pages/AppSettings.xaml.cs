@@ -19,31 +19,12 @@ namespace S4EE
         public AppSettings()
         {
             InitializeComponent();
-            if (S4_AppPath == null)
-            {
-                Environment.Exit(1);
-                //ToDO Siedler Fixen
-            }
-
         }
         private readonly SHA256 Sha256 = SHA256.Create();
         private byte[] GetHashSha256(string filename)
         {
             using FileStream stream = File.OpenRead(filename);
             return Sha256.ComputeHash(stream);
-        }
-
-        private void Button_PlayClick(object sender, RoutedEventArgs e)
-        {
-
-            try
-            {
-                Process.Start(S4_AppPath + @"\S4_Main.exe");
-            }
-            catch
-            {
-
-            }
         }
         private void Button_Maps(object sender, RoutedEventArgs e)
         {
@@ -64,7 +45,7 @@ namespace S4EE
             }
             else
             {
-                MessageBox.Show(Properties.Resources.MSB_NotSupported_Text, Properties.Resources.MSB_NotSupported, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
@@ -139,9 +120,23 @@ namespace S4EE
                     (window as AppWindow).VersionChange();
                 }
             }
-            //MessageBox.Show(Properties.Resources.MSB_Neutstart, Properties.Resources.MSB_Neutstart, MessageBoxButton.OK, MessageBoxImage.Information);
+
+            LangChange();
             Properties.Settings.Default.EditorInstalled = false;
             Properties.Settings.Default.Save();
         }
-    }
+        private void LangChange()
+        {
+            App_Edition_Title.Content = Properties.Resources.App_Edition_Title;
+            App_Edition_EHE.Content = Properties.Resources.App_Edition_EHE;
+            App_Edition_EGE.Content = Properties.Resources.App_Edition_EGE;
+            App_Edition_HE.Content = Properties.Resources.App_Edition_HE;
+            App_Edition_GE.Content = Properties.Resources.App_Edition_GE;
+            App_Textures_Title.Content = Properties.Resources.App_Textures_Title;
+            App_Textures_ORG.Content = Properties.Resources.App_Textures_ORG;
+            App_Textures_NW.Content = Properties.Resources.App_Textures_NW;
+
+        }
+
+    } 
 }
