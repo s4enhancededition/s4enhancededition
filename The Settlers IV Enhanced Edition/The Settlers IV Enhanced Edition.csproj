@@ -18,8 +18,19 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Button_Check_off.png" />
+    <None Remove="Resources\Button_Check_on.png" />
+    <None Remove="Resources\Button_Radio_Check_off.png" />
+    <None Remove="Resources\Button_Radio_Check_on.png" />
+  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.705.50" />
@@ -36,12 +47,16 @@
     <Resource Include="Resources\AppStartBackground.png" />
     <Resource Include="Resources\Button_CHANGELOG.png" />
     <Resource Include="Resources\Button_CHANGELOG_hell.png" />
+    <Resource Include="Resources\Button_Check_off.png" />
+    <Resource Include="Resources\Button_Check_on.png" />
     <Resource Include="Resources\Button_EDITOR+.png" />
     <Resource Include="Resources\Button_EDITOR+_hell.png" />
     <Resource Include="Resources\Button_NEWS.png" />
     <Resource Include="Resources\Button_NEWS_hell.png" />
     <Resource Include="Resources\Button_PLAY.png" />
     <Resource Include="Resources\Button_PLAY_hell.png" />
+    <Resource Include="Resources\Button_Radio_Check_off.png" />
+    <Resource Include="Resources\Button_Radio_Check_on.png" />
     <Resource Include="Resources\Button_SETTINGS.png" />
     <Resource Include="Resources\Button_SETTINGS_hell.png" />
     <Resource Include="Resources\Button_Setting_Edition1.png" />
