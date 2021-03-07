@@ -435,8 +435,15 @@
             </TabControl>
         </StackPanel>
         <Image Margin="0,0,0,0"
-               Height="435"
+               Height="93"
                Width="241"
+               Stretch="Uniform"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Source="/Resources/AppSettingsSiedler2.png" />
+        <Image Margin="0,0,0,0"
+               Height="435"
+               Width="217"
                Stretch="Uniform"
                VerticalAlignment="Bottom"
                HorizontalAlignment="Left"

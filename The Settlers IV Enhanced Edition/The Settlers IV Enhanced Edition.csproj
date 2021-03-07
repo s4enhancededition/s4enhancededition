@@ -26,6 +26,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\AppSettingsSiedler3.png" />
     <None Remove="Resources\Button_Check_off.png" />
     <None Remove="Resources\Button_Check_on.png" />
     <None Remove="Resources\Button_Radio_Check_off.png" />
@@ -42,6 +43,7 @@
 
   <ItemGroup>
     <Resource Include="Resources\AppBackground.png" />
+    <Resource Include="Resources\AppSettingsSiedler2.png" />
     <Resource Include="Resources\AppSettingsSiedler3.png" />
     <Resource Include="Resources\AppSettingsSiedler4.png" />
     <Resource Include="Resources\AppStartBackground.png" />

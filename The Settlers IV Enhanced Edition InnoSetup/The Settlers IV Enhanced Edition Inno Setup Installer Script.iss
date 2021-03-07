@@ -76,8 +76,11 @@ SetupIconFile=Inno\S4EE_ICON.ico
 UninstallDisplayIcon={app}\The Settlers IV Enhanced Edition.EXE
 WizardImageFile=Inno\S4EE_Side.bmp
 WizardSmallImageFile=Inno\S4EE_ICON.bmp   
-DisableWelcomePage=no 
+DisableWelcomePage=no
 InfoBeforeFile=Inno\ReadMe.txt
+DisableDirPage=yes
+DisableProgramGroupPage=yes
+;Compression=lzma2/ultra64
 
 [Dirs]
 Name: "{app}" ; Permissions: users-modify
