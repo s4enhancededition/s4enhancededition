@@ -61,6 +61,15 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die CLASSIC ähnelt.
+        /// </summary>
+        public static string App_Edition_Classic_Title {
+            get {
+                return ResourceManager.GetString("App_Edition_Classic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ENHANCED GOLD EDITION ähnelt.
         /// </summary>
         public static string App_Edition_EGE {
@@ -79,7 +88,16 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die GOLD EDITION ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ENHANCED ähnelt.
+        /// </summary>
+        public static string App_Edition_Enhanced_Title {
+            get {
+                return ResourceManager.GetString("App_Edition_Enhanced_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die GOLD EDITION (2003) ähnelt.
         /// </summary>
         public static string App_Edition_GE {
             get {
@@ -88,20 +106,11 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die HISTORY EDITION ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die HISTORY EDITION (2018) ähnelt.
         /// </summary>
         public static string App_Edition_HE {
             get {
                 return ResourceManager.GetString("App_Edition_HE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die EDITION ähnelt.
-        /// </summary>
-        public static string App_Edition_Title {
-            get {
-                return ResourceManager.GetString("App_Edition_Title", resourceCulture);
             }
         }
         

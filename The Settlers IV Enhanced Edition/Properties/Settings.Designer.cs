@@ -62,24 +62,48 @@ namespace S4EE.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string InstalledVersion {
+        public string EditionInstalled {
             get {
-                return ((string)(this["InstalledVersion"]));
+                return ((string)(this["EditionInstalled"]));
             }
             set {
-                this["InstalledVersion"] = value;
+                this["EditionInstalled"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string QueuedVersion {
+        public string EditionNew {
             get {
-                return ((string)(this["QueuedVersion"]));
+                return ((string)(this["EditionNew"]));
             }
             set {
-                this["QueuedVersion"] = value;
+                this["EditionNew"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TexturesInstalled {
+            get {
+                return ((string)(this["TexturesInstalled"]));
+            }
+            set {
+                this["TexturesInstalled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TexturesNew {
+            get {
+                return ((string)(this["TexturesNew"]));
+            }
+            set {
+                this["TexturesNew"] = value;
             }
         }
     }

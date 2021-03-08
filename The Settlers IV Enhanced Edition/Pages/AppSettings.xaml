@@ -81,63 +81,88 @@
                             </Setter>
                         </Style>
                     </TabItem.Style>
-                    <StackPanel Margin="20,5,20,5">
+                    <StackPanel Margin="6">
                         <Label Foreground="#b4875e"
                                Background="Black"
-                               FontSize="20"
-                               Name="App_Edition_Title"
+                               FontSize="24"
+                               Name="App_Edition_Enhanced_Title"
                                FontWeight="Bold"
                                Margin="3"
-                               Padding="10,15,10,15"
-                               Content="{x:Static p:Resources.App_Edition_Title}" />
-                        <Grid Background="Black"
-                              Margin="3">
-                            <RadioButton Margin="12,3,3,3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Edition_Enhanced_Title}" />
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Edition_EHE_Button_Checked">
+                            <RadioButton Margin="24,3,0,3"
                                          VerticalContentAlignment="Center"
-                                         IsChecked="True">
+                                         Name="App_Edition_EHE_Button"
+                                         Checked="App_Edition_EHE_Button_Checked">
                                 <Label  Content="{x:Static p:Resources.App_Edition_EHE}"
                                         Name="App_Edition_EHE"
                                         Foreground="White"
-                                        FontSize="15"
-                                        Margin="10,10,10,10"
-                                        FontWeight="Bold" />
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" />
                             </RadioButton>
-                        </Grid>
-                        <RadioButton>
-                            <StackPanel>
+                        </StackPanel>
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Edition_EGE_Button_Checked">
+                            <RadioButton Margin="24,3,0,3"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Edition_EGE_Button"
+                                         Checked="App_Edition_EGE_Button_Checked">
                                 <Label  Content="{x:Static p:Resources.App_Edition_EGE}"
                                         Name="App_Edition_EGE"
-                                        FontSize="14"
                                         Foreground="White"
-                                        Margin="-5,-10,0,10" />
-                            </StackPanel>
-                        </RadioButton>
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" />
+                            </RadioButton>
+                        </StackPanel>
                         <Label Foreground="#b4875e"
                                Background="Black"
-                               FontSize="20"
-                               Margin="10,10,10,10"
-                               Name="App_Edition_Title2"
+                               FontSize="24"
+                               Name="App_Edition_Classic_Title"
                                FontWeight="Bold"
-                               Padding="10,15,10,15"
-                               Content="{x:Static p:Resources.App_Edition_Title}" />
-                        <RadioButton>
-                            <StackPanel>
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Edition_Classic_Title}" />
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Edition_HE_Button_Checked">
+                            <RadioButton Margin="24,3,0,3"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Edition_HE_Button"
+                                         Checked="App_Edition_HE_Button_Checked">
                                 <Label  Content="{x:Static p:Resources.App_Edition_HE}"
                                         Name="App_Edition_HE"
-                                        FontSize="14"
                                         Foreground="White"
-                                        Margin="-5,-10,0,10" />
-                            </StackPanel>
-                        </RadioButton>
-                        <RadioButton>
-                            <StackPanel Orientation="Horizontal">
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" />
+                            </RadioButton>
+                        </StackPanel>
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Edition_GE_Button_Checked">
+                            <RadioButton Margin="24,3,0,3"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Edition_GE_Button"
+                                         Checked="App_Edition_GE_Button_Checked">
                                 <Label  Content="{x:Static p:Resources.App_Edition_GE}"
                                         Name="App_Edition_GE"
-                                        FontSize="14"
                                         Foreground="White"
-                                        Margin="-5,-10,0,10" />
-                            </StackPanel>
-                        </RadioButton>
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" 
+                                        />
+                            </RadioButton>
+                        </StackPanel>
                     </StackPanel>
                 </TabItem>
                 <TabItem Height="36"
@@ -194,34 +219,47 @@
                             </Setter>
                         </Style>
                     </TabItem.Style>
-                    <StackPanel Margin="20,5,5,5">
-                        <Label Foreground="White"
-                               FontSize="28"
-                               Margin="0,0,0,10"
+                    <StackPanel Margin="6">
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
                                Name="App_Textures_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
                                Content="{x:Static p:Resources.App_Textures_Title}" />
-                        <RadioButton>
-                            <ComboBoxItem>
-                                <StackPanel>
-                                    <Label  Content="{x:Static p:Resources.App_Textures_ORG}"
-                                            Name="App_Textures_ORG"
-                                            FontSize="14"
-                                            Foreground="White"
-                                            Margin="-5,-10,0,10" />
-                                </StackPanel>
-                            </ComboBoxItem>
-                        </RadioButton>
-                        <RadioButton>
-                            <ComboBoxItem>
-                                <StackPanel>
-                                    <Label  Content="{x:Static p:Resources.App_Textures_NW}"
-                                            Name="App_Textures_NW"
-                                            FontSize="14"
-                                            Foreground="White"
-                                            Margin="-5,-10,0,10" />
-                                </StackPanel>
-                            </ComboBoxItem>
-                        </RadioButton>
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Textures_ORG_Button_Checked">
+                            <RadioButton Margin="24,3,0,3"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Textures_ORG_Button"
+                                         Checked="App_Textures_ORG_Button_Checked">
+                                <Label  Content="{x:Static p:Resources.App_Textures_ORG}"
+                                        Name="App_Textures_ORG"
+                                        Foreground="White"
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" />
+                            </RadioButton>
+                        </StackPanel>
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Textures_NW_Button_Checked">
+                            <RadioButton Margin="24,3,0,3"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Textures_NW_Button"
+                                         Checked="App_Textures_NW_Button_Checked">
+                                <Label  Content="{x:Static p:Resources.App_Textures_NW}"
+                                        Name="App_Textures_NW"
+                                        Foreground="White"
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" />
+                            </RadioButton>
+                        </StackPanel>
                     </StackPanel>
                 </TabItem>
                 <TabItem Height="36"

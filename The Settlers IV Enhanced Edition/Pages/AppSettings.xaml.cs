@@ -13,12 +13,141 @@ namespace S4EE
     /// </summary>
     public partial class AppSettings : Page
     {
+        bool load;
         public AppSettings()
         {
             InitializeComponent();
+            Load(true);
+            load = false;
         }
+
+        public void Load(bool lload)
+        {
+            load = lload;
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("EHE"):
+                    App_Edition_EHE_Button.IsChecked = true;
+                    break;
+                case ("EGE"):
+                    App_Edition_EGE_Button.IsChecked = true;
+                    break;
+                case ("HE"):
+                    App_Edition_HE_Button.IsChecked = true;
+                    break;
+                case ("GE"):
+                    App_Edition_GE_Button.IsChecked = true;
+                    break;
+            }
+            switch (Properties.Settings.Default.TexturesInstalled)
+            {
+                case ("ORG"):
+                    App_Textures_ORG_Button.IsChecked = true;
+                    break;
+                case ("NW"):
+                    App_Textures_NW_Button.IsChecked = true;
+                    break;
+            }
+        }
+        #region App_Edition
+        private void App_Edition_EHE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            App_Edition_EHE_Button.IsChecked = true;
+            //EHE
+        }
+        private void App_Edition_EHE_Button_Checked(object sender, RoutedEventArgs e)
+        {
+            //EHE
+            App_Edition_EGE_Button.IsChecked = false;
+            App_Edition_HE_Button.IsChecked = false;
+            App_Edition_GE_Button.IsChecked = false;
+            Properties.Settings.Default.EditionNew = "EHE";
+            SomeThingChange();
+            Debug.WriteLine("App_Edition_EHE_Button_Checked");
+
+        }
+
+        private void App_Edition_EGE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            App_Edition_EGE_Button.IsChecked = true;
+            //EGE
+        }
+        private void App_Edition_EGE_Button_Checked(object sender, RoutedEventArgs e)
+        {
+            App_Edition_EHE_Button.IsChecked = false;
+            //EGE
+            App_Edition_HE_Button.IsChecked = false;
+            App_Edition_GE_Button.IsChecked = false;
+            Properties.Settings.Default.EditionNew = "EGE";
+            SomeThingChange();
+            Debug.WriteLine("App_Edition_EGE_Button_Checked");
+
+        }
+        private void App_Edition_HE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            App_Edition_HE_Button.IsChecked = true;
+            //HE
+        }
+        private void App_Edition_HE_Button_Checked(object sender, RoutedEventArgs e)
+        {
+            App_Edition_EHE_Button.IsChecked = false;
+            App_Edition_EGE_Button.IsChecked = false;
+            //HE
+            App_Edition_GE_Button.IsChecked = false;
+            Properties.Settings.Default.EditionNew = "HE";
+            SomeThingChange();
+            Debug.WriteLine("App_Edition_HE_Button_Checked");
+
+        }
+        private void App_Edition_GE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            App_Edition_GE_Button.IsChecked = true;
+            //GE
+        }
+
+        private void App_Edition_GE_Button_Checked(object sender, RoutedEventArgs e)
+        {
+            App_Edition_EHE_Button.IsChecked = false;
+            App_Edition_EGE_Button.IsChecked = false;
+            App_Edition_HE_Button.IsChecked = false;
+            Properties.Settings.Default.EditionNew = "GE";
+            SomeThingChange();
+            Debug.WriteLine("App_Edition_GE_Button_Checked");
+
+            //GE
+        }
+        #endregion
+
+
+        #region App_Textures
+        private void App_Textures_ORG_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            App_Textures_ORG_Button.IsChecked = true;
+        }
+        private void App_Textures_ORG_Button_Checked(object sender, RoutedEventArgs e)
+        {
+            App_Textures_NW_Button.IsChecked = false;
+            Properties.Settings.Default.TexturesNew = "ORG";
+            SomeThingChange();
+            Debug.WriteLine("App_Textures_ORG_Button_Checked");
+
+        }
+
+        private void App_Textures_NW_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            App_Textures_NW_Button.IsChecked = true;
+        }
+        private void App_Textures_NW_Button_Checked(object sender, RoutedEventArgs e)
+        {
+            App_Textures_ORG_Button.IsChecked = false;
+            Properties.Settings.Default.TexturesNew = "NW";
+            SomeThingChange();
+            Debug.WriteLine("App_Textures_NW_Button_Checked");
+        }
+
+        #endregion
         private readonly SHA256 Sha256 = SHA256.Create();
-        private byte[] GetHashSha256(string filename)
+        public byte[] GetHashSha256(string filename)
         {
             using FileStream stream = File.OpenRead(filename);
             return Sha256.ComputeHash(stream);
@@ -100,6 +229,11 @@ namespace S4EE
 
         private void Button_LangChangeClick(object sender, RoutedEventArgs e)
         {
+            LangChange();
+        }
+
+        public void LangChange()
+        {
             if (Properties.Settings.Default.Language == "de-DE")
             {
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
@@ -112,29 +246,47 @@ namespace S4EE
                 Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
                 Properties.Settings.Default.Language = "de-DE";
             }
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window.GetType() == typeof(AppWindow))
-                {
-                    (window as AppWindow).VersionChange();
-                }
-            }
-
-            LangChange();
+            SomeThingChange();
             Properties.Settings.Default.EditorInstalled = false;
             Properties.Settings.Default.Save();
         }
-        private void LangChange()
+
+        public void LangSet()
         {
-            App_Edition_Title.Content = Properties.Resources.App_Edition_Title;
+            if (Properties.Settings.Default.Language == "de-DE")
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
+            }
+            else
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+            }
+            SomeThingChange();
+        }
+        private void SomeThingChange()
+        {
+
+            App_Edition_Enhanced_Title.Content = Properties.Resources.App_Edition_Enhanced_Title;
             App_Edition_EHE.Content = Properties.Resources.App_Edition_EHE;
             App_Edition_EGE.Content = Properties.Resources.App_Edition_EGE;
+            App_Edition_Classic_Title.Content = Properties.Resources.App_Edition_Classic_Title;
             App_Edition_HE.Content = Properties.Resources.App_Edition_HE;
             App_Edition_GE.Content = Properties.Resources.App_Edition_GE;
             App_Textures_Title.Content = Properties.Resources.App_Textures_Title;
             App_Textures_ORG.Content = Properties.Resources.App_Textures_ORG;
             App_Textures_NW.Content = Properties.Resources.App_Textures_NW;
+
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(AppWindow))
+                {
+                    (window as AppWindow).VersionChange(load);
+                }
+            }
         }
+
 
     }
 }

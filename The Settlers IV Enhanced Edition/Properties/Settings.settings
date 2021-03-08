@@ -11,10 +11,16 @@
     <Setting Name="EditorInstalled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="InstalledVersion" Type="System.String" Scope="User">
+    <Setting Name="EditionInstalled" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="QueuedVersion" Type="System.String" Scope="User">
+    <Setting Name="EditionNew" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TexturesInstalled" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TexturesNew" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

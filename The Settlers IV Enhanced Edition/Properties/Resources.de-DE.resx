@@ -117,20 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="App_Edition_Classic_Title" xml:space="preserve">
+    <value>CLASSIC</value>
+  </data>
   <data name="App_Edition_EGE" xml:space="preserve">
     <value>ENHANCED GOLD EDITION</value>
   </data>
   <data name="App_Edition_EHE" xml:space="preserve">
     <value>ENHANCED HISTORY EDITION</value>
   </data>
+  <data name="App_Edition_Enhanced_Title" xml:space="preserve">
+    <value>ENHANCED</value>
+  </data>
   <data name="App_Edition_GE" xml:space="preserve">
-    <value>GOLD EDITION</value>
+    <value>GOLD EDITION (2003)</value>
   </data>
   <data name="App_Edition_HE" xml:space="preserve">
-    <value>HISTORY EDITION</value>
-  </data>
-  <data name="App_Edition_Title" xml:space="preserve">
-    <value>EDITION</value>
+    <value>HISTORY EDITION (2018)</value>
   </data>
   <data name="App_Language_de-DE" xml:space="preserve">
     <value>Deutsch</value>

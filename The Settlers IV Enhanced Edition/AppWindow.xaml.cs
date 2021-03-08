@@ -5,12 +5,13 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
-using System.Threading;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace S4EE
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -19,6 +20,7 @@ namespace S4EE
         readonly AppStart AppStart;
         readonly AppWebView AppWebView;
         readonly AppSettings AppSettings;
+        private static readonly SHA256 Sha256 = SHA256.Create();
 
 
         /// <summary>
@@ -27,31 +29,166 @@ namespace S4EE
         public AppWindow()
         {
             InitializeComponent();
+            Writer.LogWriter("Start", "-------------------------------------");
 
-            if (App.S4HE_AppPath == null)
-            {
-                Environment.Exit(1);
-            }
             AppStart = new AppStart();
             AppWebView = new AppWebView();
             AppSettings = new AppSettings();
-            VersionChange();
+            VersionChange(true);
             FrameContent.Navigate(AppStart);
 
             // Versionsinfo der Assembly
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
-        public void VersionChange()
+        public void VersionChange(bool load = false)
         {
-            if (Properties.Settings.Default.Language == "de-DE")
-            {              
-                Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Enhanced_History_Edition_GER_200px.png", UriKind.RelativeOrAbsolute));
-            }
-            else
-            {
-                Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Enhanced_History_Edition_ENG_200px.png", UriKind.RelativeOrAbsolute));
-            }
             Title = Properties.Resources.App_Name;
+
+            if (Properties.Settings.Default.Language == "")
+            {
+                Writer.LogWriter("VersionChange", "Keine Sprache gefunden: Suche nach Standardsprache");
+                if (App.S4HE_AppPath != null)
+                {
+                    string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
+                    if (File.Exists(settings))
+                    {
+                        IniFile s4settings = new(settings);
+                        Properties.Settings.Default.Language = s4settings.Read("Language", "GAMESETTINGS") switch
+                        {
+                            ("1") => "de-DE",
+                            _ => "en-US",
+                        };
+                        Properties.Settings.Default.Save();
+                        AppSettings.LangSet();
+                        Writer.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
+                        return;
+                    }
+                }
+                else if (App.S4GE_AppPath != null)
+                {
+                    string S4GE_Lang = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", null);
+                    if (S4GE_Lang != null)
+                    {
+                        Properties.Settings.Default.Language = S4GE_Lang switch
+                        {
+                            ("1") => "de-DE",
+                            _ => "en-US",
+                        };
+                        Properties.Settings.Default.Save();
+                        AppSettings.LangSet();
+                        Writer.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                    Environment.Exit(1);
+                }
+            }
+
+            if (Properties.Settings.Default.EditionInstalled == "")
+            {
+                Writer.LogWriter("VersionChange", "Keine Installation gefunden: Suche nach Installationen");
+                if (App.S4HE_AppPath != null)
+                {
+                    Properties.Settings.Default.EditionNew = "EHE";
+                    Writer.LogWriter("VersionChange", "Editionsinstallation in Warteschlange " + Properties.Settings.Default.EditionNew);
+                    load = false;
+                    Properties.Settings.Default.Save();
+                }
+                else if (App.S4GE_AppPath != null)
+                {
+                    Properties.Settings.Default.EditionNew = "EGE";
+                    Writer.LogWriter("VersionChange", "Editionsinstallation in Warteschlange " + Properties.Settings.Default.EditionNew);
+                    load = false;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                    Environment.Exit(1);
+                }
+            }
+
+            if (Properties.Settings.Default.EditionNew != "" && !load)
+            {
+                //ToDo Install Code
+                Properties.Settings.Default.EditionInstalled = Properties.Settings.Default.EditionNew;
+                Properties.Settings.Default.EditionNew = "";
+                Properties.Settings.Default.Save();
+                Writer.LogWriter("VersionChange", "Neue Edition installiert " + Properties.Settings.Default.EditionInstalled);
+            }
+
+            if (Properties.Settings.Default.TexturesInstalled == "")
+            {
+                Writer.LogWriter("VersionChange", "Keine Texturen gefunden: Suche nach Texturen");
+
+                if (App.S4HE_AppPath != null && (Properties.Settings.Default.EditionInstalled == "HE" || Properties.Settings.Default.EditionInstalled == "EHE"))
+                {
+
+                    if (GetMD5Hash(App.S4HE_AppPath + @"\Gfx\2.gl5") == "A878998C135502053A5ED532C198CCACD15AC5F7331512D6FC73FE406FDB59CD")
+                    {
+                        Properties.Settings.Default.TexturesInstalled = "ORG";
+                    }
+                    else if (GetMD5Hash(App.S4HE_AppPath + @"\Gfx\2.gl5") == "2BECBFD70680D91BFFB29888EBA5D79A1E178C9F1A13AEB7598C83EA90481B9D")
+                    {
+                        Properties.Settings.Default.TexturesInstalled = "NW";
+                    }
+                    Properties.Settings.Default.Save();
+                    Writer.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
+                    load = false;
+                }
+                else if (App.S4GE_AppPath != null && (Properties.Settings.Default.EditionInstalled == "GE" || Properties.Settings.Default.EditionInstalled == "EHE"))
+                {
+                    if (GetMD5Hash(App.S4GE_AppPath + @"\Gfx\2.gl5") == "A878998C135502053A5ED532C198CCACD15AC5F7331512D6FC73FE406FDB59CD")
+                    {
+                        Properties.Settings.Default.TexturesInstalled = "ORG";
+                    }
+                    else if (GetMD5Hash(App.S4GE_AppPath + @"\Gfx\2.gl5") == "2BECBFD70680D91BFFB29888EBA5D79A1E178C9F1A13AEB7598C83EA90481B9D")
+                    {
+                        Properties.Settings.Default.TexturesInstalled = "NW";
+                    }
+                    Properties.Settings.Default.Save();
+                    Writer.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
+                    load = false;
+                }
+                else
+                {
+                    Writer.LogWriter("VersionChange", "Keine Texturen gefunden: Suche nach Texturen abgeschlossen mit Fehler");
+                }
+
+            }
+            if (Properties.Settings.Default.TexturesNew != "" && !load)
+            {
+                //ToDo Install Code
+                Properties.Settings.Default.TexturesInstalled = Properties.Settings.Default.TexturesNew;
+                Properties.Settings.Default.TexturesNew = "";
+                Properties.Settings.Default.Save();
+                Writer.LogWriter("VersionChange", "Neue Texturen installiert " + Properties.Settings.Default.TexturesInstalled);
+            }
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("EHE"):
+                    Logo.Source = new BitmapImage(new Uri((@"/Resources/Logo_Enhanced_History_Edition_" + Properties.Settings.Default.Language + @"_200px.png"), UriKind.RelativeOrAbsolute));
+                    break;
+                case ("EGE"):
+                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Enhanced_Gold_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case ("HE"):
+                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_History_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case ("GE"):
+                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Gold_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
+                    break;
+            }
+           AppSettings.Load(true);
+        }
+
+        public static string GetMD5Hash(string filename)
+        {
+            using FileStream stream = File.OpenRead(filename);
+            return BitConverter.ToString(Sha256.ComputeHash(stream)).Replace("-","");
         }
 
         public bool Installer()
