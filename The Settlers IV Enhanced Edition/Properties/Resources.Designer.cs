@@ -61,7 +61,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Enhanced Gold Edition ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ENHANCED GOLD EDITION ähnelt.
         /// </summary>
         public static string App_Edition_EGE {
             get {
@@ -70,7 +70,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Enhanced History Edition ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ENHANCED HISTORY EDITION ähnelt.
         /// </summary>
         public static string App_Edition_EHE {
             get {
@@ -79,7 +79,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Gold Edition ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die GOLD EDITION ähnelt.
         /// </summary>
         public static string App_Edition_GE {
             get {
@@ -88,7 +88,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – History Edition ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die HISTORY EDITION ähnelt.
         /// </summary>
         public static string App_Edition_HE {
             get {
@@ -97,7 +97,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Edition ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die EDITION ähnelt.
         /// </summary>
         public static string App_Edition_Title {
             get {

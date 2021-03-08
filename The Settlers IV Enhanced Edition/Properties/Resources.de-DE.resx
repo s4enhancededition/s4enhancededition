@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="App_Edition_EGE" xml:space="preserve">
-    <value>Die Siedler IV – Enhanced Gold Edition</value>
+    <value>ENHANCED GOLD EDITION</value>
   </data>
   <data name="App_Edition_EHE" xml:space="preserve">
-    <value>Die Siedler IV – Enhanced History Edition</value>
+    <value>ENHANCED HISTORY EDITION</value>
   </data>
   <data name="App_Edition_GE" xml:space="preserve">
-    <value>Die Siedler IV – Gold Edition</value>
+    <value>GOLD EDITION</value>
   </data>
   <data name="App_Edition_HE" xml:space="preserve">
-    <value>Die Siedler IV – History Edition</value>
+    <value>HISTORY EDITION</value>
   </data>
   <data name="App_Edition_Title" xml:space="preserve">
-    <value>Edition</value>
+    <value>EDITION</value>
   </data>
   <data name="App_Language_de-DE" xml:space="preserve">
     <value>Deutsch</value>

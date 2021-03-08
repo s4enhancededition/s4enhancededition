@@ -106,7 +106,7 @@ Type: filesandordirs; Name: "{app}"
 Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Flags: nowait postinstall hidewizard; Description: "{cm:LaunchProgram, {#MyAppName}}"
 
 [UninstallRun]
-Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Parameters: "/silentuninstall"; Flags: waituntilterminated;
+Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Parameters: "/SilentUninstall"; Flags: waituntilterminated;
 
 
 

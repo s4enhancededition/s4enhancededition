@@ -81,55 +81,62 @@
                             </Setter>
                         </Style>
                     </TabItem.Style>
-                    <StackPanel Margin="20,5,5,5">
-                        <Label Foreground="White"
-                               FontSize="28"
-                               Margin="0,0,0,10"
+                    <StackPanel Margin="20,5,20,5">
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="20"
                                Name="App_Edition_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10,15,10,15"
+                               Content="{x:Static p:Resources.App_Edition_Title}" />
+                        <Grid Background="Black"
+                              Margin="3">
+                            <RadioButton Margin="12,3,3,3"
+                                         VerticalContentAlignment="Center"
+                                         IsChecked="True">
+                                <Label  Content="{x:Static p:Resources.App_Edition_EHE}"
+                                        Name="App_Edition_EHE"
+                                        Foreground="White"
+                                        FontSize="15"
+                                        Margin="10,10,10,10"
+                                        FontWeight="Bold" />
+                            </RadioButton>
+                        </Grid>
+                        <RadioButton>
+                            <StackPanel>
+                                <Label  Content="{x:Static p:Resources.App_Edition_EGE}"
+                                        Name="App_Edition_EGE"
+                                        FontSize="14"
+                                        Foreground="White"
+                                        Margin="-5,-10,0,10" />
+                            </StackPanel>
+                        </RadioButton>
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="20"
+                               Margin="10,10,10,10"
+                               Name="App_Edition_Title2"
+                               FontWeight="Bold"
+                               Padding="10,15,10,15"
                                Content="{x:Static p:Resources.App_Edition_Title}" />
                         <RadioButton>
-                            <ComboBoxItem>
-                                <StackPanel>
-                                    <Label  Content="{x:Static p:Resources.App_Edition_EHE}"
-                                            Name="App_Edition_EHE"
-                                            FontSize="14"
-                                            Foreground="White"
-                                            Margin="-5,-10,0,10" />
-                                </StackPanel>
-                            </ComboBoxItem>
+                            <StackPanel>
+                                <Label  Content="{x:Static p:Resources.App_Edition_HE}"
+                                        Name="App_Edition_HE"
+                                        FontSize="14"
+                                        Foreground="White"
+                                        Margin="-5,-10,0,10" />
+                            </StackPanel>
                         </RadioButton>
                         <RadioButton>
-                            <ComboBoxItem>
-                                <StackPanel>
-                                    <Label  Content="{x:Static p:Resources.App_Edition_EGE}"
-                                            Name="App_Edition_EGE"
-                                            FontSize="14"
-                                            Foreground="White"
-                                            Margin="-5,-10,0,10" />
-                                </StackPanel>
-                            </ComboBoxItem>
-                        </RadioButton>
-                        <RadioButton>
-                            <ComboBoxItem>
-                                <StackPanel>
-                                    <Label  Content="{x:Static p:Resources.App_Edition_HE}"
-                                            Name="App_Edition_HE"
-                                            FontSize="14"
-                                            Foreground="White"
-                                            Margin="-5,-10,0,10" />
-                                </StackPanel>
-                            </ComboBoxItem>
-                        </RadioButton>
-                        <RadioButton>
-                            <ComboBoxItem>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label  Content="{x:Static p:Resources.App_Edition_GE}"
-                                            Name="App_Edition_GE"
-                                            FontSize="14"
-                                            Foreground="White"
-                                            Margin="-5,-10,0,10" />
-                                </StackPanel>
-                            </ComboBoxItem>
+                            <StackPanel Orientation="Horizontal">
+                                <Label  Content="{x:Static p:Resources.App_Edition_GE}"
+                                        Name="App_Edition_GE"
+                                        FontSize="14"
+                                        Foreground="White"
+                                        Margin="-5,-10,0,10" />
+                            </StackPanel>
                         </RadioButton>
                     </StackPanel>
                 </TabItem>
@@ -192,7 +199,7 @@
                                FontSize="28"
                                Margin="0,0,0,10"
                                Name="App_Textures_Title"
-                              Content="{x:Static p:Resources.App_Textures_Title}" />
+                               Content="{x:Static p:Resources.App_Textures_Title}" />
                         <RadioButton>
                             <ComboBoxItem>
                                 <StackPanel>
@@ -272,6 +279,27 @@
                         </Style>
                     </TabItem.Style>
                     <StackPanel Margin="20,5,5,5">
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="20"
+                               Name="App_MOD_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10,15,10,15"
+                               Content="MOD" />
+                        <Grid Background="Black"
+                              Margin="3">
+                            <CheckBox Margin="12,3,3,3"
+                                         VerticalContentAlignment="Center"
+                                         IsChecked="True">
+                                <Label  Content="{x:Static p:Resources.App_Edition_EHE}"
+                                        Name="ModZoom"
+                                        Foreground="White"
+                                        FontSize="15"
+                                        Margin="10,10,10,10"
+                                        FontWeight="Bold" />
+                            </CheckBox>
+                        </Grid>
                         <Label Foreground="White"
                                FontSize="24">Setting_Mods</Label>
                         <CheckBox  Content="TESTNONAME_MOD_ZOOM"
@@ -407,7 +435,8 @@
                             </Setter>
                         </Style>
                     </TabItem.Style>
-                    <StackPanel Margin="20,5,5,5" HorizontalAlignment="Left">
+                    <StackPanel Margin="20,5,5,5"
+                                HorizontalAlignment="Left">
                         <Label Foreground="White"
                                FontSize="24">Setting_Maps</Label>
                         <CheckBox  Content="TESTNONAME_MAPS_Tunier2020"
@@ -432,7 +461,7 @@
                                    Margin="-5,-10,0,10" />
                         <Button Click="Button_Maps"
                                 Content="Maps Ordner öffnen"
-                                Width="250"/>
+                                Width="250" />
                     </StackPanel>
                 </TabItem>
                 <TabItem Height="36"
@@ -496,7 +525,6 @@
                                    FontSize="14"
                                    Foreground="White"
                                    Margin="-5,-10,0,10" />
-                       
                         <CheckBox  Content="TESTNONAME_MISC_AlleMissonenfreischalten"
                                    FontSize="14"
                                    Foreground="White"
