@@ -48,6 +48,7 @@ namespace S4EE
                     App_Textures_NW_Button.IsChecked = true;
                     break;
             }
+            load = false;
         }
         #region App_Edition
         private void App_Edition_EHE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -63,7 +64,7 @@ namespace S4EE
             App_Edition_GE_Button.IsChecked = false;
             Properties.Settings.Default.EditionNew = "EHE";
             SomeThingChange();
-            Debug.WriteLine("App_Edition_EHE_Button_Checked");
+            Writer.LogWriter("???","App_Edition_EHE_Button_Checked");
 
         }
 
@@ -80,7 +81,7 @@ namespace S4EE
             App_Edition_GE_Button.IsChecked = false;
             Properties.Settings.Default.EditionNew = "EGE";
             SomeThingChange();
-            Debug.WriteLine("App_Edition_EGE_Button_Checked");
+            Writer.LogWriter("???","App_Edition_EGE_Button_Checked");
 
         }
         private void App_Edition_HE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -96,7 +97,7 @@ namespace S4EE
             App_Edition_GE_Button.IsChecked = false;
             Properties.Settings.Default.EditionNew = "HE";
             SomeThingChange();
-            Debug.WriteLine("App_Edition_HE_Button_Checked");
+            Writer.LogWriter("???","App_Edition_HE_Button_Checked");
 
         }
         private void App_Edition_GE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -112,7 +113,7 @@ namespace S4EE
             App_Edition_HE_Button.IsChecked = false;
             Properties.Settings.Default.EditionNew = "GE";
             SomeThingChange();
-            Debug.WriteLine("App_Edition_GE_Button_Checked");
+            Writer.LogWriter("???","App_Edition_GE_Button_Checked");
 
             //GE
         }
@@ -129,7 +130,7 @@ namespace S4EE
             App_Textures_NW_Button.IsChecked = false;
             Properties.Settings.Default.TexturesNew = "ORG";
             SomeThingChange();
-            Debug.WriteLine("App_Textures_ORG_Button_Checked");
+            Writer.LogWriter("???","App_Textures_ORG_Button_Checked");
 
         }
 
@@ -142,7 +143,7 @@ namespace S4EE
             App_Textures_ORG_Button.IsChecked = false;
             Properties.Settings.Default.TexturesNew = "NW";
             SomeThingChange();
-            Debug.WriteLine("App_Textures_NW_Button_Checked");
+            Writer.LogWriter("???","App_Textures_NW_Button_Checked");
         }
 
         #endregion

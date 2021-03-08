@@ -5,7 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary  Source="Styles\Button.xaml" />
+                <!--<ResourceDictionary  Source="Styles\Button.xaml" /> 
                 <ResourceDictionary  Source="Styles\Calendar.xaml" />-->
                 <ResourceDictionary  Source="Styles\CheckBox.xaml" />
                 <!--<ResourceDictionary  Source="Styles\ComboBox.xaml" />

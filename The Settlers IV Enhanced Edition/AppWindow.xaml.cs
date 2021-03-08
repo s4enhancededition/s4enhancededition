@@ -182,13 +182,16 @@ namespace S4EE
                     Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Gold_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
                     break;
             }
-           AppSettings.Load(true);
+            if (AppSettings != null)
+            {
+                AppSettings.Load(true);
+            }
         }
 
         public static string GetMD5Hash(string filename)
         {
             using FileStream stream = File.OpenRead(filename);
-            return BitConverter.ToString(Sha256.ComputeHash(stream)).Replace("-","");
+            return BitConverter.ToString(Sha256.ComputeHash(stream)).Replace("-", "");
         }
 
         public bool Installer()
@@ -228,7 +231,7 @@ namespace S4EE
             }
             catch (Exception)
             {
-                Debug.WriteLine("Failed to download File");
+                Writer.LogWriter("???","Failed to download File");
             }
         }
         private void DownloadFileAsync(string URI, string File, string Name)
@@ -244,7 +247,7 @@ namespace S4EE
             }
             catch (Exception)
             {
-                Debug.WriteLine("Failed to download File");
+                Writer.LogWriter("???","Failed to download File");
             }
         }
         private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
