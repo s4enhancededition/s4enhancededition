@@ -213,12 +213,12 @@
     <SolidColorBrush x:Key="RadioButtonBorder"
                      Color="#ffffff" />
     <SolidColorBrush x:Key="RadioButtonBackground"
-                     Color="Transparent" />
+                     Color="#000000" />
 
     <SolidColorBrush x:Key="HoverRadioButtonBorder"
-                     Color="#ffffff" />
+                     Color="#b4875e" />
     <SolidColorBrush x:Key="HoverRadioButtonBackground"
-                     Color="Transparent" />
+                     Color="#000000" />
 
     <SolidColorBrush x:Key="RadioButtonCheckedBorder"
                      Color="#ffffff" />
@@ -226,9 +226,9 @@
                      Color="#b4875e" />
 
     <SolidColorBrush x:Key="HoverRadioButtonCheckedBorder"
-                     Color="#ffffff" />
+                     Color="#b4875e" />
     <SolidColorBrush x:Key="HoverRadioButtonCheckedBackground"
-                     Color="#ffffff" />
+                     Color="#b4875e" />
 
     <!--NORMAL-->
     <SolidColorBrush x:Key="TextBoxForeground"
