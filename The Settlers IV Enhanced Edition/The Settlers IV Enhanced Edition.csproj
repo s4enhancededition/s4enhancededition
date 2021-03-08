@@ -22,15 +22,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\AppSettingsSiedler3.png" />
-    <None Remove="Resources\Button_Check_off.png" />
-    <None Remove="Resources\Button_Check_on.png" />
-    <None Remove="Resources\Button_Radio_Check_off.png" />
-    <None Remove="Resources\Button_Radio_Check_on.png" />
-    <None Remove="Resources\S4EE_ICON.png" />
-  </ItemGroup>
-  
-  <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.705.50" />
   </ItemGroup>
 
@@ -42,16 +33,12 @@
     <Resource Include="Resources\AppStartBackground.png" />
     <Resource Include="Resources\Button_CHANGELOG.png" />
     <Resource Include="Resources\Button_CHANGELOG_hell.png" />
-    <Resource Include="Resources\Button_Check_off.png" />
-    <Resource Include="Resources\Button_Check_on.png" />
     <Resource Include="Resources\Button_EDITOR+.png" />
     <Resource Include="Resources\Button_EDITOR+_hell.png" />
     <Resource Include="Resources\Button_NEWS.png" />
     <Resource Include="Resources\Button_NEWS_hell.png" />
     <Resource Include="Resources\Button_PLAY.png" />
     <Resource Include="Resources\Button_PLAY_hell.png" />
-    <Resource Include="Resources\Button_Radio_Check_off.png" />
-    <Resource Include="Resources\Button_Radio_Check_on.png" />
     <Resource Include="Resources\Button_SETTINGS.png" />
     <Resource Include="Resources\Button_SETTINGS_hell.png" />
     <Resource Include="Resources\Button_Setting_Edition1.png" />
@@ -72,13 +59,13 @@
     <Resource Include="Resources\Button_Setting_Textures1.png" />
     <Resource Include="Resources\Button_Setting_Textures2.png" />
     <Resource Include="Resources\Button_Setting_Textures3.png" />
-    <Resource Include="Resources\Button_ZockerLounge_web.png" />
     <Resource Include="Resources\Button_ZockerLounge_discord.png" />
     <Resource Include="Resources\Button_ZockerLounge_discord_hell.png" />
-    <Resource Include="Resources\Button_ZockerLounge_youtube_hell.png" />
     <Resource Include="Resources\Button_ZockerLounge_twitch.png" />
     <Resource Include="Resources\Button_ZockerLounge_twitch_hell.png" />
     <Resource Include="Resources\Button_ZockerLounge_youtube.png" />
+    <Resource Include="Resources\Button_ZockerLounge_youtube_hell.png" />
+    <Resource Include="Resources\Button_ZockerLounge_web.png" />
     <Resource Include="Resources\Button_ZockerLounge_web_hell.png" />
     <Resource Include="Resources\Logo_Enhanced_Gold_Edition_en-US_200px.png" />
     <Resource Include="Resources\Logo_Enhanced_Gold_Edition_de-DE_200px.png" />
