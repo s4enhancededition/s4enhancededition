@@ -1,6 +1,10 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -15,7 +19,8 @@ namespace S4EE
         readonly AppStart AppStart;
         readonly AppWebView AppWebView;
         readonly AppSettings AppSettings;
-        private static readonly string S4_AppPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\11785", "InstallDir", null);
+
+
         /// <summary>
         /// Startmethode der Anwendung
         /// </summary>
@@ -23,7 +28,7 @@ namespace S4EE
         {
             InitializeComponent();
 
-            if (S4_AppPath == null)
+            if (App.S4HE_AppPath == null)
             {
                 Environment.Exit(1);
             }
@@ -53,6 +58,88 @@ namespace S4EE
         {
             return true;
         }
+
+        #region Downloader&ZIP
+
+        private void DownloadFileEventCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            DownlaodPanel.Visibility = Visibility.Hidden;
+            //switch (Patch)
+            //{
+            //    case 0:
+            //        PatchLauncher();
+            //        break;
+            //    case 1:
+            //        PatchDLC();
+            //        CheckNewUpdateDLC();
+            //        break;
+            //    case 2:
+            //        PatchEdition();
+            //        Patch = -1;
+            //        CheckVersion();
+            //        break;
+            //}
+
+
+        }
+        private static void DownloadFileSync(string URI, string File)
+        {
+            try
+            {
+                using WebClient wc = new();
+                wc.DownloadFile(new Uri(URI), File);
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Failed to download File");
+            }
+        }
+        private void DownloadFileAsync(string URI, string File, string Name)
+        {
+            DownlaodPanel.Visibility = Visibility.Visible;
+            try
+            {
+                using WebClient wc = new();
+                DownlaodLabel.Content = Name;
+                wc.DownloadProgressChanged += DownloadProgressChanged;
+                wc.DownloadFileCompleted += DownloadFileEventCompleted;
+                wc.DownloadFileAsync(new Uri(URI), File);
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Failed to download File");
+            }
+        }
+        private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            DownlaodPanel.Visibility = Visibility.Visible;
+            ProgressBar.Value = e.ProgressPercentage;
+        }
+        private void ZIPInstallieren(string filename)
+        {
+
+            using ZipArchive archive = ZipFile.OpenRead(filename + ".zip");
+            foreach (ZipArchiveEntry entry in archive.Entries)
+            {
+                string completeFileName = Path.Combine(App.S4HE_AppPath, entry.FullName);
+                string directory = Path.GetDirectoryName(completeFileName);
+
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+                try
+                {
+                    entry.ExtractToFile(completeFileName, true);
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+        #endregion
+
+        #region Buttons
         /// <summary>
         /// Navigation zur Play Page
         /// </summary>
@@ -61,7 +148,7 @@ namespace S4EE
             FrameContent.Navigate(AppStart);
             if (Installer())
             {
-                Process.Start(S4_AppPath + @"\S4_Main.exe");
+                Process.Start(App.S4HE_AppPath + @"\S4_Main.exe");
             }
             else
             {
@@ -126,8 +213,8 @@ namespace S4EE
                         {
                             var startInfo = new ProcessStartInfo
                             {
-                                WorkingDirectory = S4_AppPath + @"\Editor\",
-                                FileName = S4_AppPath + @"\Editor\" + @"RunEditorEN.bat",
+                                WorkingDirectory = App.S4HE_AppPath + @"\Editor\",
+                                FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditorEN.bat",
                                 CreateNoWindow = true
                             };
                             Process.Start(startInfo);
@@ -137,8 +224,8 @@ namespace S4EE
                         {
                             var startInfo = new ProcessStartInfo
                             {
-                                WorkingDirectory = S4_AppPath + @"\Editor\",
-                                FileName = S4_AppPath + @"\Editor\" + @"RunEditorDE.bat",
+                                WorkingDirectory = App.S4HE_AppPath + @"\Editor\",
+                                FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditorDE.bat",
                                 CreateNoWindow = true
                             };
                             Process.Start(startInfo);
@@ -152,8 +239,8 @@ namespace S4EE
             {
                 var startInfo = new ProcessStartInfo
                 {
-                    WorkingDirectory = S4_AppPath + @"\Editor\",
-                    FileName = S4_AppPath + @"\Editor\" + @"RunEditorFast.bat",
+                    WorkingDirectory = App.S4HE_AppPath + @"\Editor\",
+                    FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditorFast.bat",
                     CreateNoWindow = true
                 };
                 Process.Start(startInfo);
@@ -189,5 +276,6 @@ namespace S4EE
             url = url.Replace("&", "^&");
             Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
         }
+        #endregion
     }
 }

@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
     <RootNamespace>S4EE</RootNamespace>
     <UseWPF>true</UseWPF>
     <StartupObject>S4EE.App</StartupObject>
@@ -18,11 +19,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,14 +27,11 @@
     <None Remove="Resources\Button_Check_on.png" />
     <None Remove="Resources\Button_Radio_Check_off.png" />
     <None Remove="Resources\Button_Radio_Check_on.png" />
+    <None Remove="Resources\S4EE_ICON.png" />
   </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.705.50" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <SplashScreen Include="Resources\S4EE_SPLASH.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -96,6 +89,7 @@
     <Resource Include="Resources\Logo_History_Edition_ENG_200px.png" />
     <Resource Include="Resources\Logo_History_Edition_GER_200px.png" />
     <Resource Include="Resources\AppSettingsBackground.png" />
+    <Content Include="Resources\S4EE_ICON.png" />
     <Content Include="Resources\S4EE_ICON.ico" />
   </ItemGroup>
 

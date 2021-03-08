@@ -29,20 +29,25 @@
                    NavigationUIVisibility="Hidden"></Frame>
             <!--Navigated="FrameContent_Navigated" />-->
         </Grid>
-        <Grid Grid.Column="1" Margin="0,0,0,0">
+        <Grid Grid.Column="1"
+              Margin="0,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="185" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="60" />
                 <RowDefinition Height="25" />
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" >
-                <Image Name="Logo" Source="/Resources/Logo_Enhanced_History_Edition_GER_200px.png" Margin="0,18,0,18"/>
+            <StackPanel Grid.Row="0">
+                <Image Name="Logo"
+                       Source="/Resources/Logo_Enhanced_History_Edition_GER_200px.png"
+                       Margin="0,18,0,18" />
             </StackPanel>
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1"
+                        x:Name="ButtonMainPannel"
+                        Visibility="Visible">
                 <Button Click="Button_PlayClick"
                         Height="63"
-                        Width="250" 
+                        Width="250"
                         Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
@@ -399,6 +404,27 @@
                        Height="25"
                        Foreground="White"
                        HorizontalAlignment="Center" />
+            </StackPanel>
+            <!-- Downloader -->
+            <StackPanel Grid.Row="1"
+                        x:Name="DownlaodPanel"
+                        Visibility="Hidden"
+                        Orientation="Vertical"
+                        VerticalAlignment="Center">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Resources/AppSettingsBackground.png" />
+                </StackPanel.Background>
+                <Label  x:Name="DownlaodLabel"
+                        Content="DOWNLOAD PATCH..."
+                        HorizontalAlignment="Center"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Margin="10,10,10,0"
+                        VerticalAlignment="Center" />
+                <ProgressBar x:Name="ProgressBar"
+                             Margin="10"
+                             Height="30" />
             </StackPanel>
         </Grid>
     </Grid>

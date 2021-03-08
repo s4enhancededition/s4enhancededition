@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using System;
 using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
@@ -14,8 +13,6 @@ namespace S4EE
     /// </summary>
     public partial class AppSettings : Page
     {
-        private static readonly string S3_AppPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\11784", "InstallDir", null);
-        private static readonly string S4_AppPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\11785", "InstallDir", null);
         public AppSettings()
         {
             InitializeComponent();
@@ -28,17 +25,19 @@ namespace S4EE
         }
         private void Button_Maps(object sender, RoutedEventArgs e)
         {
-            var runExplorer = new System.Diagnostics.ProcessStartInfo();
-            runExplorer.FileName = "explorer.exe";
-            runExplorer.Arguments = @"/N," + S4_AppPath.Replace(@"/", @"\") + @"Map\User"; // @"C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\games\thesettlers4\Map\User\";
-            System.Diagnostics.Process.Start(runExplorer);
+            var runExplorer = new ProcessStartInfo
+            {
+                FileName = "explorer.exe",
+                Arguments = @"/N," + App.S4HE_AppPath.Replace(@"/", @"\") + @"Map\User"
+            };
+            Process.Start(runExplorer);
         }
 
         private void Button_S3Test(object sender, RoutedEventArgs e)
         {
             //ToDo Import
 
-            if (S3_AppPath != null)
+            if (App.S3HE_AppPath != null)
             {
                 MessageBox.Show(Properties.Resources.MSB_S3_Text, Properties.Resources.MSB_S3, MessageBoxButton.OK, MessageBoxImage.Question);
 
@@ -52,7 +51,7 @@ namespace S4EE
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
             //Video
-            IniFile s4video = new(S4_AppPath + @"Config\video.cfg");
+            IniFile s4video = new(App.S4HE_AppPath + @"Config\video.cfg");
             MessageBoxResult result = MessageBox.Show(Properties.Resources.MSB_Videos_Text, Properties.Resources.MSB_Videos, MessageBoxButton.YesNo, MessageBoxImage.Question);
             switch (result)
             {
@@ -64,7 +63,7 @@ namespace S4EE
                     break;
             }
             //Spielstände
-            IniFile s4settings = new(S4_AppPath + @"Config\GAMESETTINGS.cfg");
+            IniFile s4settings = new(App.S4HE_AppPath + @"Config\GAMESETTINGS.cfg");
             MessageBoxResult resultsettings = MessageBox.Show(Properties.Resources.MSB_Missionen_Text, Properties.Resources.MSB_Missionen, MessageBoxButton.YesNo, MessageBoxImage.Question);
             switch (resultsettings)
             {
@@ -85,7 +84,7 @@ namespace S4EE
                                         @"    Data07 = 808276",
                                         @"}"
                                       };
-                    File.WriteAllLines(S4_AppPath + @"Config\MiscData2.cfg", lines);
+                    File.WriteAllLines(App.S4HE_AppPath + @"Config\MiscData2.cfg", lines);
                     break;
                 case MessageBoxResult.No:
                     break;
@@ -93,8 +92,8 @@ namespace S4EE
             //Config
             var startInfo = new ProcessStartInfo
             {
-                WorkingDirectory = S4_AppPath + @"\Config\",
-                FileName = S4_AppPath + @"\Config\" + @"Settlers4Config.exe"
+                WorkingDirectory = App.S4HE_AppPath + @"\Config\",
+                FileName = App.S4HE_AppPath + @"\Config\" + @"Settlers4Config.exe"
             };
             Process.Start(startInfo);
         }
@@ -105,7 +104,7 @@ namespace S4EE
             {
                 Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
                 Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-                Properties.Settings.Default.Language = "en-US";              
+                Properties.Settings.Default.Language = "en-US";
             }
             else
             {
@@ -135,8 +134,7 @@ namespace S4EE
             App_Textures_Title.Content = Properties.Resources.App_Textures_Title;
             App_Textures_ORG.Content = Properties.Resources.App_Textures_ORG;
             App_Textures_NW.Content = Properties.Resources.App_Textures_NW;
-
         }
 
-    } 
+    }
 }

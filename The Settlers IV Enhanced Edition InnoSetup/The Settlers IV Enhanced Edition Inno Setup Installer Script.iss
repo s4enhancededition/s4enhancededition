@@ -103,7 +103,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Type: filesandordirs; Name: "{app}"
 
 [Run]
-Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Flags: nowait postinstall hidewizard skipifsilent  ; Description: "{cm:LaunchProgram, {#MyAppName}}"
+Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Flags: nowait postinstall hidewizard; Description: "{cm:LaunchProgram, {#MyAppName}}"
 
 [UninstallRun]
 Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Parameters: "/silentuninstall"; Flags: waituntilterminated;
