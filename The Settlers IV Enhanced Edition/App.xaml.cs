@@ -29,7 +29,8 @@ namespace S4EE
                 if (e.Args[i] == "/Debug")
                 {
                     DebugFlag = true;
-                    Log.LogWriter(LogName, "Log schreiben aktiviert");
+                    Log.LogWriter("Neuer Log");
+                    Log.LogWriter(LogName, "Log schreiben wurde durch StartupArgs '/Debug' aktiviert");
                 }
                 // SilentUninstall für Rollback auf Standardeinstellungen bei Deinstallation durch Setup
                 if (e.Args[i] == "/SilentUninstall")
@@ -48,9 +49,8 @@ namespace S4EE
                 S4EE.Properties.Settings.Default.UpgradeRequired = false;
                 S4EE.Properties.Settings.Default.Save();
                 Log.LogWriter(LogName, "Upgrade der Userbezogenen Einstellungsdatei bei neuer Versionnummer");
-
             }
-            // Festlegung der Anwendungssprache
+            // Festlegung der Anwendungssprache durch auslesen der Default Language (Automatisches Fallback auf en-US)
             switch (S4EE.Properties.Settings.Default.Language)
             {
                 case ("de-DE"):
@@ -75,7 +75,6 @@ namespace S4EE
             Log.LogWriter(LogName, "Hauptfenster der Anwendung starten");
             AppWindow.Show();
             Log.LogWriter(LogName, "Hauptfenster der Anwendung zeigen");
-
         }
     }
 }

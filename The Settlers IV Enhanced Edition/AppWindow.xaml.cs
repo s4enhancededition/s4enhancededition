@@ -29,7 +29,7 @@ namespace S4EE
         public AppWindow()
         {
             InitializeComponent();
-            Log.LogWriter("Start21333333333333333333333333333333", "-------------------------------------");
+            Log.LogWriter("START APP", "-------------------------------------");
 
             AppStart = new AppStart();
             AppWebView = new AppWebView();
