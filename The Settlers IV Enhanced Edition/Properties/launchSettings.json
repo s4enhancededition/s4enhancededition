@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "The Settlers IV Enhanced Edition": {
+      "commandName": "Project",
+      "commandLineArgs": "/Debug"
+    }
+  }
+}

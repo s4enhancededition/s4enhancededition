@@ -29,7 +29,7 @@ namespace S4EE
         public AppWindow()
         {
             InitializeComponent();
-            Writer.LogWriter("Start", "-------------------------------------");
+            Log.LogWriter("Start21333333333333333333333333333333", "-------------------------------------");
 
             AppStart = new AppStart();
             AppWebView = new AppWebView();
@@ -49,7 +49,7 @@ namespace S4EE
 
             if (Properties.Settings.Default.Language == "")
             {
-                Writer.LogWriter("VersionChange", "Keine Sprache gefunden: Suche nach Standardsprache");
+                Log.LogWriter("VersionChange", "Keine Sprache gefunden: Suche nach Standardsprache");
                 if (App.S4HE_AppPath != null)
                 {
                     string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
@@ -63,7 +63,7 @@ namespace S4EE
                         };
                         Properties.Settings.Default.Save();
                         AppSettings.LangSet();
-                        Writer.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
+                        Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
                         return;
                     }
                 }
@@ -79,7 +79,7 @@ namespace S4EE
                         };
                         Properties.Settings.Default.Save();
                         AppSettings.LangSet();
-                        Writer.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
+                        Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
                         return;
                     }
                 }
@@ -92,18 +92,18 @@ namespace S4EE
 
             if (Properties.Settings.Default.EditionInstalled == "")
             {
-                Writer.LogWriter("VersionChange", "Keine Installation gefunden: Suche nach Installationen");
+                Log.LogWriter("VersionChange", "Keine Installation gefunden: Suche nach Installationen");
                 if (App.S4HE_AppPath != null)
                 {
                     Properties.Settings.Default.EditionNew = "EHE";
-                    Writer.LogWriter("VersionChange", "Editionsinstallation in Warteschlange " + Properties.Settings.Default.EditionNew);
+                    Log.LogWriter("VersionChange", "Editionsinstallation in Warteschlange " + Properties.Settings.Default.EditionNew);
                     load = false;
                     Properties.Settings.Default.Save();
                 }
                 else if (App.S4GE_AppPath != null)
                 {
                     Properties.Settings.Default.EditionNew = "EGE";
-                    Writer.LogWriter("VersionChange", "Editionsinstallation in Warteschlange " + Properties.Settings.Default.EditionNew);
+                    Log.LogWriter("VersionChange", "Editionsinstallation in Warteschlange " + Properties.Settings.Default.EditionNew);
                     load = false;
                     Properties.Settings.Default.Save();
                 }
@@ -120,12 +120,12 @@ namespace S4EE
                 Properties.Settings.Default.EditionInstalled = Properties.Settings.Default.EditionNew;
                 Properties.Settings.Default.EditionNew = "";
                 Properties.Settings.Default.Save();
-                Writer.LogWriter("VersionChange", "Neue Edition installiert " + Properties.Settings.Default.EditionInstalled);
+                Log.LogWriter("VersionChange", "Neue Edition installiert " + Properties.Settings.Default.EditionInstalled);
             }
 
             if (Properties.Settings.Default.TexturesInstalled == "")
             {
-                Writer.LogWriter("VersionChange", "Keine Texturen gefunden: Suche nach Texturen");
+                Log.LogWriter("VersionChange", "Keine Texturen gefunden: Suche nach Texturen");
 
                 if (App.S4HE_AppPath != null && (Properties.Settings.Default.EditionInstalled == "HE" || Properties.Settings.Default.EditionInstalled == "EHE"))
                 {
@@ -139,7 +139,7 @@ namespace S4EE
                         Properties.Settings.Default.TexturesInstalled = "NW";
                     }
                     Properties.Settings.Default.Save();
-                    Writer.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
+                    Log.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
                     load = false;
                 }
                 else if (App.S4GE_AppPath != null && (Properties.Settings.Default.EditionInstalled == "GE" || Properties.Settings.Default.EditionInstalled == "EHE"))
@@ -153,12 +153,12 @@ namespace S4EE
                         Properties.Settings.Default.TexturesInstalled = "NW";
                     }
                     Properties.Settings.Default.Save();
-                    Writer.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
+                    Log.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
                     load = false;
                 }
                 else
                 {
-                    Writer.LogWriter("VersionChange", "Keine Texturen gefunden: Suche nach Texturen abgeschlossen mit Fehler");
+                    Log.LogWriter("VersionChange", "Keine Texturen gefunden: Suche nach Texturen abgeschlossen mit Fehler");
                 }
 
             }
@@ -168,7 +168,7 @@ namespace S4EE
                 Properties.Settings.Default.TexturesInstalled = Properties.Settings.Default.TexturesNew;
                 Properties.Settings.Default.TexturesNew = "";
                 Properties.Settings.Default.Save();
-                Writer.LogWriter("VersionChange", "Neue Texturen installiert " + Properties.Settings.Default.TexturesInstalled);
+                Log.LogWriter("VersionChange", "Neue Texturen installiert " + Properties.Settings.Default.TexturesInstalled);
             }
             switch (Properties.Settings.Default.EditionInstalled)
             {
@@ -234,7 +234,7 @@ namespace S4EE
             }
             catch (Exception)
             {
-                Writer.LogWriter("???","Failed to download File");
+                Log.LogWriter("???","Failed to download File");
             }
         }
         private void DownloadFileAsync(string URI, string File, string Name)
@@ -250,7 +250,7 @@ namespace S4EE
             }
             catch (Exception)
             {
-                Writer.LogWriter("???","Failed to download File");
+                Log.LogWriter("???","Failed to download File");
             }
         }
         private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
