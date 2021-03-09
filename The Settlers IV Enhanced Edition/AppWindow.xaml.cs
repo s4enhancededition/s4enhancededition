@@ -40,6 +40,9 @@ namespace S4EE
             // Versionsinfo der Assembly
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
+
+
+
         public void VersionChange(bool load = false)
         {
             Title = Properties.Resources.App_Name;

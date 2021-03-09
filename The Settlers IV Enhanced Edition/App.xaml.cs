@@ -10,12 +10,38 @@ namespace S4EE
     /// </summary>
     public partial class App : Application
     {
+        // DebugFlag für Log Schreiben
+        public static bool DebugFlag = false;
+
+
+        // Verzeichnisse der Spiele auslesen
         public static readonly string S3HE_AppPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\11784", "InstallDir", null);
         public static readonly string S4HE_AppPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\11785", "InstallDir", null);
         public static readonly string S4GE_AppPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers", "Path", null);
 
+        /// <summary>
+        /// Einstiegspunkt der Anwendung
+        /// </summary>
         void App_Startup(object sender, StartupEventArgs e)
         {
+            for (int i = 0; i != e.Args.Length; ++i)
+            {
+                // Debug für Log Schreiben
+                if (e.Args[i] == "/Debug")
+                {
+                    DebugFlag = true;
+                }
+                // SilentUninstall für Rollback auf Standardeinstellungen bei Deinstallation durch Setup
+                if (e.Args[i] == "/SilentUninstall")
+                {
+                    //ToDo: "SilentUninstall-Implementation für Rollback auf Standardeinstellungen bei Deinstallation durch Setup"
+                    MessageBox.Show("NotImplement", "NotImplement", MessageBoxButton.OK, MessageBoxImage.Question);
+                    Environment.Exit(0);
+                    return;
+                }
+            }
+
+            // Upgrade der Userbezogenen Einstellungsdatei bei neuer Versionnummer
             if (S4EE.Properties.Settings.Default.UpgradeRequired)
             {
                 S4EE.Properties.Settings.Default.Upgrade();
@@ -23,6 +49,7 @@ namespace S4EE
                 S4EE.Properties.Settings.Default.Save();
             }
 
+            // Festlegung der Anwendungssprache
             switch (S4EE.Properties.Settings.Default.Language)
             {
                 case ("de-DE"):
@@ -40,21 +67,7 @@ namespace S4EE
                     }
             }
 
-            bool SilentUninstall = false;
-            for (int i = 0; i != e.Args.Length; ++i)
-            {
-                if (e.Args[i] == "/SilentUninstall")
-                {
-                    SilentUninstall = true;
-                }
-            }
-
-            if (SilentUninstall)
-            {
-                //ToDo Implemententieren
-                MessageBox.Show("NotImplement", "NotImplement", MessageBoxButton.OK, MessageBoxImage.Question);
-                Environment.Exit(0);
-            }
+            //Hauptfenster der Anwendung starten
             AppWindow AppWindow = new();
             AppWindow.Show();
         }
