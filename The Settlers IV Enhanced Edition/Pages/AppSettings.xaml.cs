@@ -320,6 +320,8 @@ namespace S4EE
             App_Music_Title.Content = Properties.Resources.App_Music_Title;
             App_Music_S3.Content = Properties.Resources.App_Music_S3;
             App_Music_S3_Information_Text.Content = Properties.Resources.App_Music_S3_Information_Text;
+
+            //ToDo Maps etc.
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(AppWindow))
