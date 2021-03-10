@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Apps_Maps_B01" xml:space="preserve">
-    <value>BUDDEL MAP PACK (by ramseslein)</value>
-  </data>
-  <data name="Apps_Maps_M01" xml:space="preserve">
-    <value>METZEL MAP PACK (by ramseslein)</value>
-  </data>
-  <data name="Apps_Maps_T01" xml:space="preserve">
-    <value>TRAIN MAP PACK (by ramseslein &amp; Sl4nger)</value>
-  </data>
-  <data name="Apps_Maps_Title_TRAINING" xml:space="preserve">
-    <value>TRAINING</value>
-  </data>
   <data name="App_Edition_Classic_Title" xml:space="preserve">
     <value>CLASSIC</value>
   </data>
@@ -154,14 +142,26 @@ für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
   <data name="App_Edition_Information_Title" xml:space="preserve">
     <value>INFORMATIONEN</value>
   </data>
-  <data name="App_Language_de-DE" xml:space="preserve">
+  <data name="App_Language_deDE" xml:space="preserve">
     <value>DEUTSCH (German)</value>
   </data>
-  <data name="App_Language_en-US" xml:space="preserve">
+  <data name="App_Language_enUS" xml:space="preserve">
     <value>ENGLISCH (English)</value>
+  </data>
+  <data name="App_Language_Title" xml:space="preserve">
+    <value>SPRACHE</value>
+  </data>
+  <data name="App_Maps_B01" xml:space="preserve">
+    <value>BUDDEL MAP PACK (by ramseslein)</value>
+  </data>
+  <data name="App_Maps_Button" xml:space="preserve">
+    <value>KATEN ORDNER ÖFFNEN</value>
   </data>
   <data name="App_Maps_C01" xml:space="preserve">
     <value>DEFEAT MAP PACK (by Sl4nger)</value>
+  </data>
+  <data name="App_Maps_M01" xml:space="preserve">
+    <value>METZEL MAP PACK (by ramseslein)</value>
   </data>
   <data name="App_Maps_S01" xml:space="preserve">
     <value>ATLANTIS LEBT (2011)</value>
@@ -187,6 +187,46 @@ für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
   <data name="App_Maps_Title_TOURNAMENTS" xml:space="preserve">
     <value>TOURNAMENTS</value>
   </data>
+  <data name="App_Maps_Title_TRAINING" xml:space="preserve">
+    <value>TRAINING</value>
+  </data>
+  <data name="App_Maps_TR01" xml:space="preserve">
+    <value>TRAIN MAP PACK (by ramseslein &amp; Sl4nger)</value>
+  </data>
+  <data name="App_Misc_FIXES_EDITOR" xml:space="preserve">
+    <value>EDITOR+ FIX (KANN BEI PROBLEMEN HELFEN)</value>
+  </data>
+  <data name="App_Misc_FIXES_Title" xml:space="preserve">
+    <value>PROBLEMBEHANDLUNG</value>
+  </data>
+  <data name="App_Misc_LEGACYCONTROLS" xml:space="preserve">
+    <value>KLASSISCHE STEUERUNG (HISTORY EDITION)</value>
+  </data>
+  <data name="App_Misc_MINE" xml:space="preserve">
+    <value>MINEN-WARNMELDUNG</value>
+  </data>
+  <data name="App_Misc_MISSIONS" xml:space="preserve">
+    <value>ALLE MISSIONEN FREISCHALTEN</value>
+  </data>
+  <data name="App_Misc_SAVE_AUTOSAVE" xml:space="preserve">
+    <value>AUTOSAVE ALLE 5 MINUTEN (HISTORY EDITION)</value>
+  </data>
+  <data name="App_Misc_SAVE_SAVECLEANER" xml:space="preserve">
+    <value>SPEICHERSTÄNDE ARCHIVEREN (jeden Tag)</value>
+  </data>
+  <data name="App_Misc_SAVE_SAVECLEANER_Information_Text" xml:space="preserve">
+    <value>Alle Speicherstände der ausgewählten Edition werden jeden Tag in den Archivordner 
+verschoben. Dadurch wird der Spielstände-Ordner klein gehalten.</value>
+  </data>
+  <data name="App_Misc_SAVE_Title" xml:space="preserve">
+    <value>SPEICHER EINSTELLUNGEN</value>
+  </data>
+  <data name="App_Misc_Title" xml:space="preserve">
+    <value>SPIEL EINSTELLUNGEN</value>
+  </data>
+  <data name="App_Misc_VIDEO" xml:space="preserve">
+    <value>INGAME VIDEOS</value>
+  </data>
   <data name="App_Mod_Hotkeys" xml:space="preserve">
     <value>HOTKEYS MOD (by Wizzardmaker and kdsystem1337)</value>
   </data>
@@ -207,7 +247,7 @@ die mindestens einmal gestartet wurde.</value>
     <value>MUSIC PACKS</value>
   </data>
   <data name="App_Name" xml:space="preserve">
-    <value>Die Siedler IV – Enhanced Edition Launcher</value>
+    <value>DIE SIEDLER IV – ENHANCED EDITION LAUNCHER</value>
   </data>
   <data name="App_Textures_NW" xml:space="preserve">
     <value>NEUE WELT ADD-ON TEXTUREN</value>
@@ -219,35 +259,11 @@ die mindestens einmal gestartet wurde.</value>
     <value>TEXTURE PACKS</value>
   </data>
   <data name="MSB_Error" xml:space="preserve">
-    <value>Kritischer Fehler</value>
+    <value>FATALER FEHLER</value>
     <comment>!</comment>
   </data>
   <data name="MSB_Error_Text" xml:space="preserve">
-    <value>Kritischer Fehler der Anwendung</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_Missionen" xml:space="preserve">
-    <value>Missionen Freischalten?</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_Missionen_Text" xml:space="preserve">
-    <value>Alle Missionen Freischalten?</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_S3" xml:space="preserve">
-    <value>S3 OK</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_S3_Text" xml:space="preserve">
-    <value>S3 OK</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_Videos" xml:space="preserve">
-    <value>Videos abspielen?</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_Videos_Text" xml:space="preserve">
-    <value>Sollen Videos abgespielt werden?</value>
+    <value>FATALER FEHLER - ETWAS IST FEHLGESCHLAGEN</value>
     <comment>!</comment>
   </data>
 </root>

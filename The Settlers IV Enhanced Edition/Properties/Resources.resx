@@ -117,18 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Apps_Maps_B01" xml:space="preserve">
-    <value>BUDDEL MAP PACK (by ramseslein)</value>
-  </data>
-  <data name="Apps_Maps_M01" xml:space="preserve">
-    <value>METZEL MAP PACK (by ramseslein)</value>
-  </data>
-  <data name="Apps_Maps_T01" xml:space="preserve">
-    <value>TRAIN MAP PACK (by ramseslein &amp; Sl4nger)</value>
-  </data>
-  <data name="Apps_Maps_Title_TRAINING" xml:space="preserve">
-    <value>TRAINING</value>
-  </data>
   <data name="App_Edition_Classic_Title" xml:space="preserve">
     <value>CLASSIC</value>
   </data>
@@ -154,14 +142,26 @@ and the ENHANCED GOLD EDITION for local multiplayer (LAN).</value>
   <data name="App_Edition_Information_Title" xml:space="preserve">
     <value>INFORMATION</value>
   </data>
-  <data name="App_Language_de-DE" xml:space="preserve">
+  <data name="App_Language_deDE" xml:space="preserve">
     <value>GERMAN</value>
   </data>
-  <data name="App_Language_en-US" xml:space="preserve">
+  <data name="App_Language_enUS" xml:space="preserve">
     <value>ENGLISH</value>
+  </data>
+  <data name="App_Language_Title" xml:space="preserve">
+    <value>LANGUAGE</value>
+  </data>
+  <data name="App_Maps_B01" xml:space="preserve">
+    <value>BUDDEL MAP PACK (by ramseslein)</value>
+  </data>
+  <data name="App_Maps_Button" xml:space="preserve">
+    <value>OPEN MAP FOLDER</value>
   </data>
   <data name="App_Maps_C01" xml:space="preserve">
     <value>DEFEAT MAP PACK (by Sl4nger)</value>
+  </data>
+  <data name="App_Maps_M01" xml:space="preserve">
+    <value>METZEL MAP PACK (by ramseslein)</value>
   </data>
   <data name="App_Maps_S01" xml:space="preserve">
     <value>ATLANTIS LEBT (2011)</value>
@@ -186,6 +186,46 @@ and the ENHANCED GOLD EDITION for local multiplayer (LAN).</value>
   </data>
   <data name="App_Maps_Title_TOURNAMENTS" xml:space="preserve">
     <value>TOURNAMENTS</value>
+  </data>
+  <data name="App_Maps_Title_TRAINING" xml:space="preserve">
+    <value>TRAINING</value>
+  </data>
+  <data name="App_Maps_TR01" xml:space="preserve">
+    <value>TRAIN MAP PACK (by ramseslein &amp; Sl4nger)</value>
+  </data>
+  <data name="App_Misc_FIXES_EDITOR" xml:space="preserve">
+    <value>EDITOR+ FIX (MAY HELP WHEN PROBLEMS OCCUR)</value>
+  </data>
+  <data name="App_Misc_FIXES_Title" xml:space="preserve">
+    <value>TROUBLESHOOTING</value>
+  </data>
+  <data name="App_Misc_LEGACYCONTROLS" xml:space="preserve">
+    <value>LEGACY CONTROLS (HISTORY EDITION)</value>
+  </data>
+  <data name="App_Misc_MINE" xml:space="preserve">
+    <value>ACTIVATE INEFFICIENT MINE WARNING</value>
+  </data>
+  <data name="App_Misc_MISSIONS" xml:space="preserve">
+    <value>UNLOCK ALL MISSIONS</value>
+  </data>
+  <data name="App_Misc_SAVE_AUTOSAVE" xml:space="preserve">
+    <value>AUTOSAVE EVERY 5 MINUTES (HISTORY EDITION)</value>
+  </data>
+  <data name="App_Misc_SAVE_SAVECLEANER" xml:space="preserve">
+    <value>SAVES ARCHIVE (every day)</value>
+  </data>
+  <data name="App_Misc_SAVE_SAVECLEANER_Information_Text" xml:space="preserve">
+    <value>All saves of the selected edition are moved to the archive folder every day. 
+This keeps the savegames folder small.</value>
+  </data>
+  <data name="App_Misc_SAVE_Title" xml:space="preserve">
+    <value>SAVE SETTINGS</value>
+  </data>
+  <data name="App_Misc_Title" xml:space="preserve">
+    <value>GAME SETTINGS</value>
+  </data>
+  <data name="App_Misc_VIDEO" xml:space="preserve">
+    <value>INGAME VIDEOS</value>
   </data>
   <data name="App_Mod_Hotkeys" xml:space="preserve">
     <value>HOTKEYS MOD (by Wizzardmaker and kdsystem1337)</value>
@@ -219,35 +259,9 @@ at least once is required.</value>
     <value>TEXTURE PACKS</value>
   </data>
   <data name="MSB_Error" xml:space="preserve">
-    <value>Fatal Error</value>
-    <comment>!</comment>
+    <value>FATAL ERROR</value>
   </data>
   <data name="MSB_Error_Text" xml:space="preserve">
-    <value>Fatal Error of App</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_Missionen" xml:space="preserve">
-    <value>Unlock missions?</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_Missionen_Text" xml:space="preserve">
-    <value>Unlock all missions?</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_S3" xml:space="preserve">
-    <value>S3 OK</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_S3_Text" xml:space="preserve">
-    <value>S3 OK</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_Videos" xml:space="preserve">
-    <value>Play Videos?</value>
-    <comment>!</comment>
-  </data>
-  <data name="MSB_Videos_Text" xml:space="preserve">
-    <value>Should videos be played?</value>
-    <comment>!</comment>
+    <value>FATAL ERROR - SOMETHING FAILED</value>
   </data>
 </root>

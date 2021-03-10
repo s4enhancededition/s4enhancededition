@@ -17,11 +17,11 @@
                 <ResourceDictionary  Source="Styles\Label.xaml" />
                 <ResourceDictionary  Source="Styles\ListBox.xaml" />
                 <ResourceDictionary  Source="Styles\ListView.xaml" />
-                <ResourceDictionary  Source="Styles\Menu.xaml" />
-                <ResourceDictionary  Source="Styles\ProgressBar.xaml" />/>-->
+                <ResourceDictionary  Source="Styles\Menu.xaml" />-->
+                <ResourceDictionary  Source="Styles\ProgressBar.xaml" />
                 <ResourceDictionary Source="Styles\RadioButton.xaml" />
-                <!--<ResourceDictionary  Source="Styles\ScrollBar.xaml" />
-                <ResourceDictionary  Source="Styles\Slider.xaml" />
+                <ResourceDictionary  Source="Styles\ScrollBar.xaml" />
+                <!--<ResourceDictionary  Source="Styles\Slider.xaml" />
                 <ResourceDictionary  Source="Styles\StatusBar.xaml" />
                 <ResourceDictionary  Source="Styles\TabControl.xaml" />
                 <ResourceDictionary  Source="Styles\TabItem.xaml" />

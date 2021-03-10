@@ -48,6 +48,15 @@ namespace S4EE
                     App_Textures_NW_Button.IsChecked = true;
                     break;
             }
+            switch (Properties.Settings.Default.Language)
+            {
+                case ("de-DE"):
+                    App_Language_deDE_Button.IsChecked = true;
+                    break;
+                case ("en-US"):
+                    App_Language_enUS_Button.IsChecked = true;
+                    break;
+            }
             load = false;
         }
         #region App_Edition
@@ -145,6 +154,48 @@ namespace S4EE
             SomeThingChange();
             Log.LogWriter("???", "App_Textures_NW_Button_Checked");
         }
+        #endregion
+        #region App_Lang
+        private void App_Language_enUS_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            App_Language_enUS_Button.IsChecked = true;
+        }
+        private void App_Language_enUS_Button_Checked(object sender, RoutedEventArgs e)
+        {
+            App_Language_deDE_Button.IsChecked = false;
+            Properties.Settings.Default.Language = "en-US";
+            Log.LogWriter("???", "App_Language_enUS_Button_Checked");
+            LangChange();
+            Log.LogWriter("???", "App_Language_enUS_Button_Checked_FIN");
+
+        }
+
+        private void App_Language_deDE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            App_Language_deDE_Button.IsChecked = true;
+        }
+        private void App_Language_deDE_Button_Checked(object sender, RoutedEventArgs e)
+        {
+            App_Language_enUS_Button.IsChecked = false;
+            Properties.Settings.Default.Language = "de-DE";
+            Log.LogWriter("???", "App_Language_deDE_Button_Checked");
+            LangChange();
+            Log.LogWriter("???", "App_Language_deDE_Button_Checked_FIN");
+
+        }
+
+        //private void App_Textures_NW_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        //{
+        //    App_Textures_NW_Button.IsChecked = true;
+        //}
+        //private void App_Textures_NW_Button_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    App_Textures_ORG_Button.IsChecked = false;
+        //    Properties.Settings.Default.TexturesNew = "NW";
+        //    SomeThingChange();
+        //    Log.LogWriter("???", "App_Textures_NW_Button_Checked");
+        //}
+
 
         #endregion
         private readonly SHA256 Sha256 = SHA256.Create();
@@ -153,6 +204,7 @@ namespace S4EE
             using FileStream stream = File.OpenRead(filename);
             return Sha256.ComputeHash(stream);
         }
+        //KATEN ORDNER ÖFFNEN
         private void Button_Maps(object sender, RoutedEventArgs e)
         {
             var runExplorer = new ProcessStartInfo
@@ -162,28 +214,12 @@ namespace S4EE
             };
             Process.Start(runExplorer);
         }
-
-        private void Button_S3Test(object sender, RoutedEventArgs e)
-        {
-            //ToDo Import
-
-            if (App.S3HE_AppPath != null)
-            {
-                MessageBox.Show(Properties.Resources.MSB_S3_Text, Properties.Resources.MSB_S3, MessageBoxButton.OK, MessageBoxImage.Question);
-
-            }
-            else
-            {
-                MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-
-            }
-        }
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
             //Video
             IniFile s4video = new(App.S4HE_AppPath + @"Config\video.cfg");
-            MessageBoxResult result = MessageBox.Show(Properties.Resources.MSB_Videos_Text, Properties.Resources.MSB_Videos, MessageBoxButton.YesNo, MessageBoxImage.Question);
-            switch (result)
+            //MessageBoxResult result = MessageBox.Show(Properties.Resources.MSB_Videos_Text, Properties.Resources.MSB_Videos, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            switch (MessageBoxResult.Yes)
             {
                 case MessageBoxResult.Yes:
                     s4video.Write("ShowVideos ", "1", "ADVGAMESETTINGS");
@@ -194,8 +230,8 @@ namespace S4EE
             }
             //Spielstände
             IniFile s4settings = new(App.S4HE_AppPath + @"Config\GAMESETTINGS.cfg");
-            MessageBoxResult resultsettings = MessageBox.Show(Properties.Resources.MSB_Missionen_Text, Properties.Resources.MSB_Missionen, MessageBoxButton.YesNo, MessageBoxImage.Question);
-            switch (resultsettings)
+            //MessageBoxResult resultsettings = MessageBox.Show(Properties.Resources.MSB_Missionen_Text, Properties.Resources.MSB_Missionen, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            switch (MessageBoxResult.Yes)
             {
                 case MessageBoxResult.Yes:
                     s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
@@ -237,15 +273,13 @@ namespace S4EE
         {
             if (Properties.Settings.Default.Language == "de-DE")
             {
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
-                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-                Properties.Settings.Default.Language = "en-US";
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
             }
             else
             {
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
-                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
-                Properties.Settings.Default.Language = "de-DE";
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             }
             SomeThingChange();
             Properties.Settings.Default.EditorInstalled = false;
@@ -294,7 +328,5 @@ namespace S4EE
                 }
             }
         }
-
-
     }
 }

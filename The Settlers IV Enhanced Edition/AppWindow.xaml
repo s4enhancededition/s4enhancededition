@@ -405,27 +405,30 @@
                        Foreground="White"
                        HorizontalAlignment="Center" />
             </StackPanel>
-            <!-- Downloader -->
-            <StackPanel Grid.Row="1"
-                        x:Name="DownlaodPanel"
-                        Visibility="Hidden"
-                        Orientation="Vertical"
-                        VerticalAlignment="Center">
-                <StackPanel.Background>
-                    <ImageBrush ImageSource="/Resources/AppSettingsBackground.png" />
-                </StackPanel.Background>
-                <Label  x:Name="DownlaodLabel"
-                        Content="DOWNLOAD PATCH..."
-                        HorizontalAlignment="Center"
-                        FontSize="18"
-                        FontWeight="Bold"
-                        Foreground="White"
-                        Margin="10,10,10,0"
-                        VerticalAlignment="Center" />
-                <ProgressBar x:Name="ProgressBar"
-                             Margin="10"
-                             Height="30" />
-            </StackPanel>
+           
         </Grid>
+        <!-- Downloader -->
+        <StackPanel Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    x:Name="DownlaodPanel"
+                    Visibility="Hidden"
+                    Orientation="Vertical"
+                    VerticalAlignment="Center">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Resources/AppSettingsBackground.png" />
+            </StackPanel.Background>
+            <Label  x:Name="DownlaodLabel"
+                    Content="DOWNLOAD PATCH..."
+                    HorizontalAlignment="Center"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Margin="10,10,10,0"
+                    VerticalAlignment="Center" />
+            <ProgressBar x:Name="ProgressBar"
+                         Margin="10"
+                         Height="30"
+                         Value="50" />
+        </StackPanel>
     </Grid>
 </Window>

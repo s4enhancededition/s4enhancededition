@@ -436,7 +436,7 @@
                                Padding="10"
                                Content="{x:Static p:Resources.App_Music_Title}" />
                         <StackPanel Background="Black"
-                              Margin="3">
+                                    Margin="3">
                             <CheckBox Name="App_Music_S3_CheckBox"
                                       Margin="24,0,0,0"
                                       VerticalContentAlignment="Center"
@@ -467,7 +467,6 @@
                                    Margin="3"
                                    Padding="10"
                                    Content="{x:Static p:Resources.App_Music_Information_Title}" />-->
-                           
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
@@ -526,32 +525,173 @@
                         </Style>
                     </TabItem.Style>
                     <StackPanel Margin="6">
-                        <Label Foreground="#b4875e"
-                               Background="Black"
-                               FontSize="24"
-                               Name="App_Maps_Title_SINGLEPLAYER"
-                               FontWeight="Bold"
-                               Margin="3"
-                               Padding="10"
-                               Content="{x:Static p:Resources.App_Maps_Title_SINGLEPLAYER}" />
-                        <Grid Background="Black"
-                              Margin="3">
-                            <CheckBox Name="App_Maps_K01"
-                                      Margin="24,0,0,0"
-                                      VerticalContentAlignment="Center"
-                                      IsChecked="True">
-                                <Label  Content="{x:Static p:Resources.App_Maps_K01}"
-                                        Name="App_Mod_Zoom"
-                                        Foreground="White"
-                                        FontSize="16"
-                                        Margin="6"
-                                        FontWeight="Bold"
-                                        FontFamily="Segoe UI" />
-                            </CheckBox>
-                        </Grid>
-                        <Button Click="Button_Maps"
-                                Content="Maps Ordner öffnen"
-                                Width="250" />
+                        <ScrollViewer Height="445"
+                                      VerticalScrollBarVisibility="Auto">
+                            <Grid>
+                                <StackPanel>
+                                    <Grid>
+                                        <Label Foreground="#b4875e"
+                                               Background="Black"
+                                               FontSize="24"
+                                               Name="App_Maps_Title_SINGLEPLAYER"
+                                               FontWeight="Bold"
+                                               Margin="3"
+                                               Padding="10"
+                                               Content="{x:Static p:Resources.App_Maps_Title_SINGLEPLAYER}"></Label>
+                                        <Button Click="Button_Maps"
+                                                Content="{x:Static p:Resources.App_Maps_Button}"
+                                                Width="200"
+                                                Margin="10,10,10,10"
+                                                HorizontalAlignment="Right"></Button>
+                                    </Grid>
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_S01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Maps_S01}"
+                                                    Name="App_Maps_S01"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_TOURNAMENTS"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_TOURNAMENTS}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_T01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Maps_T01}"
+                                                    Name="App_Maps_T01"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_T02_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Maps_T02}"
+                                                    Name="App_Maps_T02"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_COOP"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_COOP}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_C01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Maps_C01}"
+                                                    Name="App_Maps_C01"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_BUDDEL"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_BUDDEL}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_B01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Maps_B01}"
+                                                    Name="App_Maps_B01"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_METZEL"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_METZEL}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_M01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Maps_M01}"
+                                                    Name="App_Maps_M01"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_TRAINING"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_TRAINING}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_TR01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Maps_TR01}"
+                                                    Name="App_Maps_TR01"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
                     </StackPanel>
                 </TabItem>
                 <TabItem Height="36"
@@ -608,41 +748,195 @@
                             </Setter>
                         </Style>
                     </TabItem.Style>
-                    <StackPanel Margin="20,5,5,5">
-                        <Label Foreground="White"
-                               FontSize="24">Setting_Misc</Label>
-                        <CheckBox  Content="TESTNONAME_MISC_VIDEO"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <CheckBox  Content="TESTNONAME_MISC_AlleMissonenfreischalten"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <CheckBox  Content="TESTNONAME_MISC_Mienenwarnung (??)"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <CheckBox  Content="TESTNONAME_MISC_Editor_EditorPlus_Fix (maybee good, maybee not good)"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <ComboBox>
-                            <ComboBoxItem Content="German"></ComboBoxItem>
-                            <ComboBoxItem Content="Englisch"></ComboBoxItem>
-                            <ComboBoxItem Content="Englisch (Ingame PL)"></ComboBoxItem>
-                            <ComboBoxItem Content="Englisch (Ingame @@)"></ComboBoxItem>
-                        </ComboBox>
-                        <ComboBox>
-                            <ComboBoxItem Content="5 min"></ComboBoxItem>
-                            <ComboBoxItem Content="10 min"></ComboBoxItem>
-                            <ComboBoxItem Content="15 min"></ComboBoxItem>
-                            <ComboBoxItem Content="30 min"></ComboBoxItem>
-                        </ComboBox>
-                        <Button Click="Button_Settings"
-                                Content="Settings (abgekündigt, siehe menü oben )" />
-                        <Button Click="Button_LangChangeClick"
-                                Content="Lang  (abgekündigt, siehe menü oben)" />
+                    <StackPanel Margin="6">
+                        <ScrollViewer Height="445"
+                                      VerticalScrollBarVisibility="Auto">
+                            <Grid>
+                                <StackPanel>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Language_Tile"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Language_Title}" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Background="#000000"
+                                                    Margin="3"
+                                                    MouseLeftButtonUp="App_Language_enUS_Button_Checked"
+                                                    Width="318">
+                                            <RadioButton Margin="24,0,0,0"
+                                                         VerticalContentAlignment="Center"
+                                                         Name="App_Language_enUS_Button"
+                                                         Checked="App_Language_enUS_Button_Checked">
+                                                <Label  Content="{x:Static p:Resources.App_Language_enUS}"
+                                                        Name="App_Language_enUS"
+                                                        Foreground="White"
+                                                        FontSize="16"
+                                                        Margin="6"
+                                                        FontWeight="Bold"
+                                                        FontFamily="Segoe UI" />
+                                            </RadioButton>
+                                        </StackPanel>
+                                        <StackPanel Background="#000000"
+                                                    Margin="3"
+                                                    MouseLeftButtonUp="App_Language_deDE_Button_Checked"
+                                                    Width="318">
+                                            <RadioButton Margin="24,0,0,0"
+                                                         VerticalContentAlignment="Center"
+                                                         Name="App_Language_deDE_Button"
+                                                         Checked="App_Language_deDE_Button_Checked">
+                                                <Label  Content="{x:Static p:Resources.App_Language_deDE}"
+                                                        Name="App_Language_deDE"
+                                                        Foreground="White"
+                                                        FontSize="16"
+                                                        Margin="6"
+                                                        FontWeight="Bold"
+                                                        FontFamily="Segoe UI" />
+                                            </RadioButton>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Misc_SAVE_Title"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Misc_SAVE_Title}" />
+                                    <Grid Background="Black"
+                                          Margin="3,3,3,0">
+                                        <CheckBox Name="App_Misc_SAVE_AUTOSAVE_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Misc_SAVE_AUTOSAVE}"
+                                                    Name="App_Misc_SAVE_AUTOSAVE"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Grid Background="Black"
+                                          Margin="3,3,3,0">
+                                        <CheckBox Name="App_Misc_SAVE_SAVECLEANER_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Misc_SAVE_SAVECLEANER}"
+                                                    Name="App_Misc_SAVE_SAVECLEANER"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Label Foreground="#ffffff"
+                                           Background="Black"
+                                           FontSize="14"
+                                           Name="App_Misc_SAVECLEANER_Information_Text"
+                                           FontWeight="SemiBold"
+                                           Margin="3,0,3,3"
+                                           Padding="58,0,10,15"
+                                           Content="{x:Static p:Resources.App_Misc_SAVE_SAVECLEANER_Information_Text}" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Misc_Title"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Misc_Title}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_VIDEO_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Misc_VIDEO}"
+                                                    Name="App_Misc_VIDEO"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_MISSIONS_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Misc_MISSIONS}"
+                                                    Name="App_Misc_MISSIONS"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_MINE_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Misc_MINE}"
+                                                    Name="App_Misc_MINE"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_LEGACYCONTROLS_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Misc_LEGACYCONTROLS}"
+                                                    Name="App_Misc_LEGACYCONTROLS"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Misc_FIXES_Title"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Misc_FIXES_Title}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_FIXES_EDITOR_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  IsChecked="True">
+                                            <Label  Content="{x:Static p:Resources.App_Misc_FIXES_EDITOR}"
+                                                    Name="App_Misc_FIXES_EDITOR"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </ScrollViewer>
                     </StackPanel>
                 </TabItem>
             </TabControl>
