@@ -135,6 +135,12 @@
   <data name="App_Edition_HE" xml:space="preserve">
     <value>HISTORY EDITION (2018)</value>
   </data>
+  <data name="App_Edition_Information_Text" xml:space="preserve">
+    <value>For online multiplayer we recommend the History Edition, for local games the Gold Edition.</value>
+  </data>
+  <data name="App_Edition_Information_Title" xml:space="preserve">
+    <value>INFORMATION</value>
+  </data>
   <data name="App_Language_de-DE" xml:space="preserve">
     <value>German</value>
   </data>
@@ -145,13 +151,13 @@
     <value>The Settlers IV – Enhanced Edition Launcher</value>
   </data>
   <data name="App_Textures_NW" xml:space="preserve">
-    <value>NewWorld Textures (overall)</value>
+    <value>NEW WORLD ADD-ON TEXTURES</value>
   </data>
   <data name="App_Textures_ORG" xml:space="preserve">
-    <value>Original Textures </value>
+    <value>ORIGINAL TEXTURES</value>
   </data>
   <data name="App_Textures_Title" xml:space="preserve">
-    <value>Textures</value>
+    <value>TEXTURE PACKS</value>
   </data>
   <data name="MSB_Error" xml:space="preserve">
     <value>Fatal Error</value>

@@ -93,7 +93,7 @@
                         <StackPanel Background="#000000"
                                     Margin="3"
                                     MouseLeftButtonUp="App_Edition_EHE_Button_Checked">
-                            <RadioButton Margin="24,3,0,3"
+                            <RadioButton Margin="24,0,0,0"
                                          VerticalContentAlignment="Center"
                                          Name="App_Edition_EHE_Button"
                                          Checked="App_Edition_EHE_Button_Checked">
@@ -109,7 +109,7 @@
                         <StackPanel Background="#000000"
                                     Margin="3"
                                     MouseLeftButtonUp="App_Edition_EGE_Button_Checked">
-                            <RadioButton Margin="24,3,0,3"
+                            <RadioButton Margin="24,0,0,0"
                                          VerticalContentAlignment="Center"
                                          Name="App_Edition_EGE_Button"
                                          Checked="App_Edition_EGE_Button_Checked">
@@ -133,7 +133,7 @@
                         <StackPanel Background="#000000"
                                     Margin="3"
                                     MouseLeftButtonUp="App_Edition_HE_Button_Checked">
-                            <RadioButton Margin="24,3,0,3"
+                            <RadioButton Margin="24,0,0,0"
                                          VerticalContentAlignment="Center"
                                          Name="App_Edition_HE_Button"
                                          Checked="App_Edition_HE_Button_Checked">
@@ -149,7 +149,7 @@
                         <StackPanel Background="#000000"
                                     Margin="3"
                                     MouseLeftButtonUp="App_Edition_GE_Button_Checked">
-                            <RadioButton Margin="24,3,0,3"
+                            <RadioButton Margin="24,0,0,0"
                                          VerticalContentAlignment="Center"
                                          Name="App_Edition_GE_Button"
                                          Checked="App_Edition_GE_Button_Checked">
@@ -159,10 +159,25 @@
                                         FontSize="16"
                                         Margin="6"
                                         FontWeight="Bold"
-                                        FontFamily="Segoe UI" 
-                                        />
+                                        FontFamily="Segoe UI" />
                             </RadioButton>
                         </StackPanel>
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_Edition_Information_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Edition_Information_Title}" />
+                        <Label Foreground="#ffffff"
+                               Background="Black"
+                               FontSize="14"
+                               Name="App_Edition_Information_Text"
+                               FontWeight="SemiBold"
+                               Margin="3"
+                               Padding="10,15,10,15"
+                               Content="{x:Static p:Resources.App_Edition_Information_Text}" />
                     </StackPanel>
                 </TabItem>
                 <TabItem Height="36"

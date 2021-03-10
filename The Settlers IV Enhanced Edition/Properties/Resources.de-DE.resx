@@ -135,6 +135,13 @@
   <data name="App_Edition_HE" xml:space="preserve">
     <value>HISTORY EDITION (2018)</value>
   </data>
+  <data name="App_Edition_Information_Text" xml:space="preserve">
+    <value>Für online Multiplayer und Singleplayer empfehlen wir die ENHANCED HISTORY EDITION. 
+Für lokale Spiele (LAN) empfehlen wir die ENHANCED GOLD EDITION.</value>
+  </data>
+  <data name="App_Edition_Information_Title" xml:space="preserve">
+    <value>INFORMATIONEN</value>
+  </data>
   <data name="App_Language_de-DE" xml:space="preserve">
     <value>Deutsch</value>
   </data>
@@ -145,13 +152,13 @@
     <value>Die Siedler IV – Enhanced Edition Launcher</value>
   </data>
   <data name="App_Textures_NW" xml:space="preserve">
-    <value>Neue Welt Texturen (überall)</value>
+    <value>NEUE WELT ADD-ON TEXTUREN</value>
   </data>
   <data name="App_Textures_ORG" xml:space="preserve">
-    <value>Orginale Texturen</value>
+    <value>ORIGINALE TEXTUREN</value>
   </data>
   <data name="App_Textures_Title" xml:space="preserve">
-    <value>Texturen</value>
+    <value>TEXTURE PACKS</value>
   </data>
   <data name="MSB_Error" xml:space="preserve">
     <value>Kritischer Fehler</value>

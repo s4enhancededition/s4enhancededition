@@ -115,6 +115,24 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die For online multiplayer we recommend the History Edition, for local games the Gold Edition. ähnelt.
+        /// </summary>
+        public static string App_Edition_Information_Text {
+            get {
+                return ResourceManager.GetString("App_Edition_Information_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die INFORMATION ähnelt.
+        /// </summary>
+        public static string App_Edition_Information_Title {
+            get {
+                return ResourceManager.GetString("App_Edition_Information_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die German ähnelt.
         /// </summary>
         public static string App_Language_de_DE {
@@ -142,7 +160,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die NewWorld Textures (overall) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die NEW WORLD ADD-ON TEXTURES ähnelt.
         /// </summary>
         public static string App_Textures_NW {
             get {
@@ -151,7 +169,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Original Textures  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ORIGINAL TEXTURES ähnelt.
         /// </summary>
         public static string App_Textures_ORG {
             get {
@@ -160,7 +178,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Textures ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die TEXTURE PACKS ähnelt.
         /// </summary>
         public static string App_Textures_Title {
             get {

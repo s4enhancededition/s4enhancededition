@@ -275,6 +275,8 @@ namespace S4EE
             App_Edition_Classic_Title.Content = Properties.Resources.App_Edition_Classic_Title;
             App_Edition_HE.Content = Properties.Resources.App_Edition_HE;
             App_Edition_GE.Content = Properties.Resources.App_Edition_GE;
+            App_Edition_Information_Title.Content = Properties.Resources.App_Edition_Information_Title;
+            App_Edition_Information_Text.Content = Properties.Resources.App_Edition_Information_Text;
             App_Textures_Title.Content = Properties.Resources.App_Textures_Title;
             App_Textures_ORG.Content = Properties.Resources.App_Textures_ORG;
             App_Textures_NW.Content = Properties.Resources.App_Textures_NW;
