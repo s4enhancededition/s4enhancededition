@@ -357,7 +357,7 @@ namespace S4EE
                             var startInfo = new ProcessStartInfo
                             {
                                 WorkingDirectory = App.S4HE_AppPath + @"\Editor\",
-                                FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditorEN.bat",
+                                FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditorEN_v2.bat",
                                 CreateNoWindow = true
                             };
                             Process.Start(startInfo);
@@ -368,7 +368,7 @@ namespace S4EE
                             var startInfo = new ProcessStartInfo
                             {
                                 WorkingDirectory = App.S4HE_AppPath + @"\Editor\",
-                                FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditorDE.bat",
+                                FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditorDE_v2.bat",
                                 CreateNoWindow = true
                             };
                             Process.Start(startInfo);

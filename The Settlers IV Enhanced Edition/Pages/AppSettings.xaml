@@ -246,7 +246,7 @@
                         <StackPanel Background="#000000"
                                     Margin="3"
                                     MouseLeftButtonUp="App_Textures_ORG_Button_Checked">
-                            <RadioButton Margin="24,3,0,3"
+                            <RadioButton Margin="24,0,0,0"
                                          VerticalContentAlignment="Center"
                                          Name="App_Textures_ORG_Button"
                                          Checked="App_Textures_ORG_Button_Checked">
@@ -262,7 +262,7 @@
                         <StackPanel Background="#000000"
                                     Margin="3"
                                     MouseLeftButtonUp="App_Textures_NW_Button_Checked">
-                            <RadioButton Margin="24,3,0,3"
+                            <RadioButton Margin="24,0,0,0"
                                          VerticalContentAlignment="Center"
                                          Name="App_Textures_NW_Button"
                                          Checked="App_Textures_NW_Button_Checked">
@@ -331,38 +331,45 @@
                             </Setter>
                         </Style>
                     </TabItem.Style>
-                    <StackPanel Margin="20,5,5,5">
+                    <StackPanel Margin="6">
                         <Label Foreground="#b4875e"
                                Background="Black"
-                               FontSize="20"
-                               Name="App_MOD_Title"
+                               FontSize="24"
+                               Name="App_Mod_Title"
                                FontWeight="Bold"
                                Margin="3"
-                               Padding="10,15,10,15"
-                               Content="MOD" />
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Mod_Title}" />
                         <Grid Background="Black"
                               Margin="3">
-                            <CheckBox Margin="12,3,3,3"
-                                         VerticalContentAlignment="Center"
-                                         IsChecked="True">
-                                <Label  Content="{x:Static p:Resources.App_Edition_EHE}"
-                                        Name="ModZoom"
+                            <CheckBox Name="App_Mod_Zoom_CheckBox"
+                                      Margin="24,0,0,0"
+                                      VerticalContentAlignment="Center"
+                                      IsChecked="True">
+                                <Label  Content="{x:Static p:Resources.App_Mod_Zoom}"
+                                        Name="App_Mod_Zoom"
                                         Foreground="White"
-                                        FontSize="15"
-                                        Margin="10,10,10,10"
-                                        FontWeight="Bold" />
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" />
                             </CheckBox>
                         </Grid>
-                        <Label Foreground="White"
-                               FontSize="24">Setting_Mods</Label>
-                        <CheckBox  Content="TESTNONAME_MOD_ZOOM"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <CheckBox  Content="TESTNONAME_MOD_HOTKEY"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
+                        <Grid Background="Black"
+                              Margin="3">
+                            <CheckBox Name="App_Mod_Hotkeys_CheckBox"
+                                      Margin="24,0,0,0"
+                                      VerticalContentAlignment="Center"
+                                      IsChecked="True">
+                                <Label  Content="{x:Static p:Resources.App_Mod_Hotkeys}"
+                                        Name="App_Mod_Hotkeys"
+                                        Foreground="White"
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" />
+                            </CheckBox>
+                        </Grid>
                     </StackPanel>
                 </TabItem>
                 <TabItem Height="36"
@@ -419,19 +426,49 @@
                             </Setter>
                         </Style>
                     </TabItem.Style>
-                    <StackPanel Margin="20,5,5,5">
-                        <Label Foreground="White"
-                               FontSize="24">Setting_Music</Label>
-                        <CheckBox  Content="TESTNONAME_MUSIC_S4"
+                    <StackPanel Margin="6">
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_Music_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Music_Title}" />
+                        <StackPanel Background="Black"
+                              Margin="3">
+                            <CheckBox Name="App_Music_S3_CheckBox"
+                                      Margin="24,0,0,0"
+                                      VerticalContentAlignment="Center"
+                                      IsChecked="True">
+                                <Label  Content="{x:Static p:Resources.App_Music_S3}"
+                                        Name="App_Music_S3"
+                                        Foreground="White"
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" />
+                            </CheckBox>
+                            <Label Foreground="#ffffff"
+                                   Background="Black"
                                    FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <CheckBox  Content="TESTNONAME_MUSIC_S4+S3"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <Button Click="Button_S3Test"
-                                Content="S3Test" />
+                                   Name="App_Music_S3_Information_Text"
+                                   FontWeight="SemiBold"
+                                   Margin="3"
+                                   Padding="58,0,10,15"
+                                   Content="{x:Static p:Resources.App_Music_S3_Information_Text}" />
+                        </StackPanel>
+                        <StackPanel VerticalAlignment="Bottom">
+                            <!--<Label Foreground="#b4875e"
+                                   Background="Black"
+                                   FontSize="24"
+                                   Name="App_Music_Information_Title"
+                                   FontWeight="Bold"
+                                   Margin="3"
+                                   Padding="10"
+                                   Content="{x:Static p:Resources.App_Music_Information_Title}" />-->
+                           
+                        </StackPanel>
                     </StackPanel>
                 </TabItem>
                 <TabItem Height="36"
@@ -488,30 +525,30 @@
                             </Setter>
                         </Style>
                     </TabItem.Style>
-                    <StackPanel Margin="20,5,5,5"
-                                HorizontalAlignment="Left">
-                        <Label Foreground="White"
-                               FontSize="24">Setting_Maps</Label>
-                        <CheckBox  Content="TESTNONAME_MAPS_Tunier2020"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <CheckBox  Content="TESTNONAME_MAPS_WM2021"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <CheckBox  Content="TESTNONAME_MAPS_MP2"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <CheckBox  Content="TESTNONAME_MAPS_S4lagner"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
-                        <CheckBox  Content="TESTNONAME_MAPS_MP1"
-                                   FontSize="14"
-                                   Foreground="White"
-                                   Margin="-5,-10,0,10" />
+                    <StackPanel Margin="6">
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_Maps_Title_SINGLEPLAYER"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Maps_Title_SINGLEPLAYER}" />
+                        <Grid Background="Black"
+                              Margin="3">
+                            <CheckBox Name="App_Maps_K01"
+                                      Margin="24,0,0,0"
+                                      VerticalContentAlignment="Center"
+                                      IsChecked="True">
+                                <Label  Content="{x:Static p:Resources.App_Maps_K01}"
+                                        Name="App_Mod_Zoom"
+                                        Foreground="White"
+                                        FontSize="16"
+                                        Margin="6"
+                                        FontWeight="Bold"
+                                        FontFamily="Segoe UI" />
+                            </CheckBox>
+                        </Grid>
                         <Button Click="Button_Maps"
                                 Content="Maps Ordner öffnen"
                                 Width="250" />

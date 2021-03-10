@@ -106,5 +106,27 @@ namespace S4EE.Properties {
                 this["TexturesNew"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool Mod_Zoom {
+            get {
+                return ((bool)(this["Mod_Zoom"]));
+            }
+            set {
+                this["Mod_Zoom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool Mod_HotKeys {
+            get {
+                return ((bool)(this["Mod_HotKeys"]));
+            }
+            set {
+                this["Mod_HotKeys"] = value;
+            }
+        }
     }
 }

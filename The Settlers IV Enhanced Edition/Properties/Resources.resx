@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Apps_Maps_B01" xml:space="preserve">
+    <value>BUDDEL MAP PACK (by ramseslein)</value>
+  </data>
+  <data name="Apps_Maps_M01" xml:space="preserve">
+    <value>METZEL MAP PACK (by ramseslein)</value>
+  </data>
+  <data name="Apps_Maps_T01" xml:space="preserve">
+    <value>TRAIN MAP PACK (by ramseslein &amp; Sl4nger)</value>
+  </data>
+  <data name="Apps_Maps_Title_TRAINING" xml:space="preserve">
+    <value>TRAINING</value>
+  </data>
   <data name="App_Edition_Classic_Title" xml:space="preserve">
     <value>CLASSIC</value>
   </data>
@@ -136,19 +148,66 @@
     <value>HISTORY EDITION (2018)</value>
   </data>
   <data name="App_Edition_Information_Text" xml:space="preserve">
-    <value>For online multiplayer we recommend the History Edition, for local games the Gold Edition.</value>
+    <value>We recommend the ENHANCED HISTORY EDITION for singleplayer and online multiplayer, 
+and the ENHANCED GOLD EDITION for local multiplayer (LAN).</value>
   </data>
   <data name="App_Edition_Information_Title" xml:space="preserve">
     <value>INFORMATION</value>
   </data>
   <data name="App_Language_de-DE" xml:space="preserve">
-    <value>German</value>
+    <value>GERMAN</value>
   </data>
   <data name="App_Language_en-US" xml:space="preserve">
-    <value>English</value>
+    <value>ENGLISH</value>
+  </data>
+  <data name="App_Maps_C01" xml:space="preserve">
+    <value>DEFEAT MAP PACK (by Sl4nger)</value>
+  </data>
+  <data name="App_Maps_S01" xml:space="preserve">
+    <value>ATLANTIS LEBT (2011)</value>
+  </data>
+  <data name="App_Maps_T01" xml:space="preserve">
+    <value>THE SETTLERS TOURNAMENT 2020 MAPS</value>
+  </data>
+  <data name="App_Maps_T02" xml:space="preserve">
+    <value>THE SETTLERS WORLD CHAMPIONSHIP 2021 MAPS</value>
+  </data>
+  <data name="App_Maps_Title_BUDDEL" xml:space="preserve">
+    <value>BUDDEL</value>
+  </data>
+  <data name="App_Maps_Title_COOP" xml:space="preserve">
+    <value>COOP</value>
+  </data>
+  <data name="App_Maps_Title_METZEL" xml:space="preserve">
+    <value>METZEL</value>
+  </data>
+  <data name="App_Maps_Title_SINGLEPLAYER" xml:space="preserve">
+    <value>SINGLE PLAYER CAMPAIGNS</value>
+  </data>
+  <data name="App_Maps_Title_TOURNAMENTS" xml:space="preserve">
+    <value>TOURNAMENTS</value>
+  </data>
+  <data name="App_Mod_Hotkeys" xml:space="preserve">
+    <value>HOTKEYS MOD (by Wizzardmaker and kdsystem1337)</value>
+  </data>
+  <data name="App_Mod_Title" xml:space="preserve">
+    <value>MODS</value>
+  </data>
+  <data name="App_Mod_Zoom" xml:space="preserve">
+    <value>EXTRA ZOOM MOD (by nyfrik)</value>
+  </data>
+  <data name="App_Music_S3" xml:space="preserve">
+    <value>THE SETTLERS III MUSIC (additional)</value>
+  </data>
+  <data name="App_Music_S3_Information_Text" xml:space="preserve">
+    <value>A installed Version of THE SETTLERS III HISTORY EDITION that has been started
+at least once is required.</value>
+  </data>
+  <data name="App_Music_Title" xml:space="preserve">
+    <value>MUSIC PACKS</value>
   </data>
   <data name="App_Name" xml:space="preserve">
-    <value>The Settlers IV – Enhanced Edition Launcher</value>
+    <value>THE SETTLERS IV – ENHANCED EDITION LAUNCHER</value>
   </data>
   <data name="App_Textures_NW" xml:space="preserve">
     <value>NEW WORLD ADD-ON TEXTURES</value>
@@ -161,26 +220,34 @@
   </data>
   <data name="MSB_Error" xml:space="preserve">
     <value>Fatal Error</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Error_Text" xml:space="preserve">
     <value>Fatal Error of App</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Missionen" xml:space="preserve">
     <value>Unlock missions?</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Missionen_Text" xml:space="preserve">
     <value>Unlock all missions?</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_S3" xml:space="preserve">
     <value>S3 OK</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_S3_Text" xml:space="preserve">
     <value>S3 OK</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Videos" xml:space="preserve">
     <value>Play Videos?</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Videos_Text" xml:space="preserve">
     <value>Should videos be played?</value>
+    <comment>!</comment>
   </data>
 </root>

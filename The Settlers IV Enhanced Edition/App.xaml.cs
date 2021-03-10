@@ -58,7 +58,6 @@ namespace S4EE
                         Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
                         Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
                         Log.LogWriter(LogName, "Festlegung der Anwendungssprache auf de-DE");
-
                         break;
                     }
                 case ("en-US"):

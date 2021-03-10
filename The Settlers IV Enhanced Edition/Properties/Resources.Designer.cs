@@ -115,7 +115,8 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die For online multiplayer we recommend the History Edition, for local games the Gold Edition. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die We recommend the ENHANCED HISTORY EDITION for singleplayer and online multiplayer, 
+        ///and the ENHANCED GOLD EDITION for local multiplayer (LAN). ähnelt.
         /// </summary>
         public static string App_Edition_Information_Text {
             get {
@@ -133,7 +134,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die German ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die GERMAN ähnelt.
         /// </summary>
         public static string App_Language_de_DE {
             get {
@@ -142,7 +143,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die English ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ENGLISH ähnelt.
         /// </summary>
         public static string App_Language_en_US {
             get {
@@ -151,7 +152,143 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The Settlers IV – Enhanced Edition Launcher ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die DEFEAT MAP PACK (by Sl4nger) ähnelt.
+        /// </summary>
+        public static string App_Maps_C01 {
+            get {
+                return ResourceManager.GetString("App_Maps_C01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ATLANTIS LEBT (2011) ähnelt.
+        /// </summary>
+        public static string App_Maps_S01 {
+            get {
+                return ResourceManager.GetString("App_Maps_S01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die THE SETTLERS TOURNAMENT 2020 MAPS ähnelt.
+        /// </summary>
+        public static string App_Maps_T01 {
+            get {
+                return ResourceManager.GetString("App_Maps_T01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die THE SETTLERS WORLD CHAMPIONSHIP 2021 MAPS ähnelt.
+        /// </summary>
+        public static string App_Maps_T02 {
+            get {
+                return ResourceManager.GetString("App_Maps_T02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die BUDDEL ähnelt.
+        /// </summary>
+        public static string App_Maps_Title_BUDDEL {
+            get {
+                return ResourceManager.GetString("App_Maps_Title_BUDDEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die COOP ähnelt.
+        /// </summary>
+        public static string App_Maps_Title_COOP {
+            get {
+                return ResourceManager.GetString("App_Maps_Title_COOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die METZEL ähnelt.
+        /// </summary>
+        public static string App_Maps_Title_METZEL {
+            get {
+                return ResourceManager.GetString("App_Maps_Title_METZEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SINGLE PLAYER CAMPAIGNS ähnelt.
+        /// </summary>
+        public static string App_Maps_Title_SINGLEPLAYER {
+            get {
+                return ResourceManager.GetString("App_Maps_Title_SINGLEPLAYER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die TOURNAMENTS ähnelt.
+        /// </summary>
+        public static string App_Maps_Title_TOURNAMENTS {
+            get {
+                return ResourceManager.GetString("App_Maps_Title_TOURNAMENTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die HOTKEYS MOD (by Wizzardmaker and kdsystem1337) ähnelt.
+        /// </summary>
+        public static string App_Mod_Hotkeys {
+            get {
+                return ResourceManager.GetString("App_Mod_Hotkeys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die MODS ähnelt.
+        /// </summary>
+        public static string App_Mod_Title {
+            get {
+                return ResourceManager.GetString("App_Mod_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die EXTRA ZOOM MOD (by nyfrik) ähnelt.
+        /// </summary>
+        public static string App_Mod_Zoom {
+            get {
+                return ResourceManager.GetString("App_Mod_Zoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die THE SETTLERS III MUSIC (additional) ähnelt.
+        /// </summary>
+        public static string App_Music_S3 {
+            get {
+                return ResourceManager.GetString("App_Music_S3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die A installed Version of THE SETTLERS III HISTORY EDITION that has been started
+        ///at least once is required. ähnelt.
+        /// </summary>
+        public static string App_Music_S3_Information_Text {
+            get {
+                return ResourceManager.GetString("App_Music_S3_Information_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die MUSIC PACKS ähnelt.
+        /// </summary>
+        public static string App_Music_Title {
+            get {
+                return ResourceManager.GetString("App_Music_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die THE SETTLERS IV – ENHANCED EDITION LAUNCHER ähnelt.
         /// </summary>
         public static string App_Name {
             get {
@@ -183,6 +320,42 @@ namespace S4EE.Properties {
         public static string App_Textures_Title {
             get {
                 return ResourceManager.GetString("App_Textures_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die BUDDEL MAP PACK (by ramseslein) ähnelt.
+        /// </summary>
+        public static string Apps_Maps_B01 {
+            get {
+                return ResourceManager.GetString("Apps_Maps_B01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die METZEL MAP PACK (by ramseslein) ähnelt.
+        /// </summary>
+        public static string Apps_Maps_M01 {
+            get {
+                return ResourceManager.GetString("Apps_Maps_M01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die TRAIN MAP PACK (by ramseslein &amp; Sl4nger) ähnelt.
+        /// </summary>
+        public static string Apps_Maps_T01 {
+            get {
+                return ResourceManager.GetString("Apps_Maps_T01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die TRAINING ähnelt.
+        /// </summary>
+        public static string Apps_Maps_Title_TRAINING {
+            get {
+                return ResourceManager.GetString("Apps_Maps_Title_TRAINING", resourceCulture);
             }
         }
         

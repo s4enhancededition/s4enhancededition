@@ -280,7 +280,12 @@ namespace S4EE
             App_Textures_Title.Content = Properties.Resources.App_Textures_Title;
             App_Textures_ORG.Content = Properties.Resources.App_Textures_ORG;
             App_Textures_NW.Content = Properties.Resources.App_Textures_NW;
-
+            App_Mod_Title.Content = Properties.Resources.App_Mod_Title;
+            App_Mod_Zoom.Content = Properties.Resources.App_Mod_Zoom;
+            App_Mod_Hotkeys.Content = Properties.Resources.App_Mod_Hotkeys;
+            App_Music_Title.Content = Properties.Resources.App_Music_Title;
+            App_Music_S3.Content = Properties.Resources.App_Music_S3;
+            App_Music_S3_Information_Text.Content = Properties.Resources.App_Music_S3_Information_Text;
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(AppWindow))

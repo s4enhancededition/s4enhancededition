@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Apps_Maps_B01" xml:space="preserve">
+    <value>BUDDEL MAP PACK (by ramseslein)</value>
+  </data>
+  <data name="Apps_Maps_M01" xml:space="preserve">
+    <value>METZEL MAP PACK (by ramseslein)</value>
+  </data>
+  <data name="Apps_Maps_T01" xml:space="preserve">
+    <value>TRAIN MAP PACK (by ramseslein &amp; Sl4nger)</value>
+  </data>
+  <data name="Apps_Maps_Title_TRAINING" xml:space="preserve">
+    <value>TRAINING</value>
+  </data>
   <data name="App_Edition_Classic_Title" xml:space="preserve">
     <value>CLASSIC</value>
   </data>
@@ -136,17 +148,63 @@
     <value>HISTORY EDITION (2018)</value>
   </data>
   <data name="App_Edition_Information_Text" xml:space="preserve">
-    <value>Für online Multiplayer und Singleplayer empfehlen wir die ENHANCED HISTORY EDITION. 
-Für lokale Spiele (LAN) empfehlen wir die ENHANCED GOLD EDITION.</value>
+    <value>Für Singleplayer und Online-Multiplayer empfehlen wir die ENHANCED HISTORY EDITION, 
+für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
   </data>
   <data name="App_Edition_Information_Title" xml:space="preserve">
     <value>INFORMATIONEN</value>
   </data>
   <data name="App_Language_de-DE" xml:space="preserve">
-    <value>Deutsch</value>
+    <value>DEUTSCH (German)</value>
   </data>
   <data name="App_Language_en-US" xml:space="preserve">
-    <value>Englisch</value>
+    <value>ENGLISCH (English)</value>
+  </data>
+  <data name="App_Maps_C01" xml:space="preserve">
+    <value>DEFEAT MAP PACK (by Sl4nger)</value>
+  </data>
+  <data name="App_Maps_S01" xml:space="preserve">
+    <value>ATLANTIS LEBT (2011)</value>
+  </data>
+  <data name="App_Maps_T01" xml:space="preserve">
+    <value>THE SETTLERS TOURNAMENT 2020 MAPS</value>
+  </data>
+  <data name="App_Maps_T02" xml:space="preserve">
+    <value>THE SETTLERS WORLD CHAMPIONSHIP 2021 MAPS</value>
+  </data>
+  <data name="App_Maps_Title_BUDDEL" xml:space="preserve">
+    <value>BUDDEL</value>
+  </data>
+  <data name="App_Maps_Title_COOP" xml:space="preserve">
+    <value>COOP</value>
+  </data>
+  <data name="App_Maps_Title_METZEL" xml:space="preserve">
+    <value>METZEL</value>
+  </data>
+  <data name="App_Maps_Title_SINGLEPLAYER" xml:space="preserve">
+    <value>SINGLEPLAYER KAMPAGNEN</value>
+  </data>
+  <data name="App_Maps_Title_TOURNAMENTS" xml:space="preserve">
+    <value>TOURNAMENTS</value>
+  </data>
+  <data name="App_Mod_Hotkeys" xml:space="preserve">
+    <value>HOTKEYS MOD (by Wizzardmaker and kdsystem1337)</value>
+  </data>
+  <data name="App_Mod_Title" xml:space="preserve">
+    <value>MODS</value>
+  </data>
+  <data name="App_Mod_Zoom" xml:space="preserve">
+    <value>EXTRA ZOOM MOD (by nyfrik)</value>
+  </data>
+  <data name="App_Music_S3" xml:space="preserve">
+    <value>DIE SIEDLER III MUSIK (zusätzlich)</value>
+  </data>
+  <data name="App_Music_S3_Information_Text" xml:space="preserve">
+    <value>Du benötigst hierfür eine installierte Version von der DIE SIEDLER  III HISTORY EDITION, 
+die mindestens einmal gestartet wurde.</value>
+  </data>
+  <data name="App_Music_Title" xml:space="preserve">
+    <value>MUSIC PACKS</value>
   </data>
   <data name="App_Name" xml:space="preserve">
     <value>Die Siedler IV – Enhanced Edition Launcher</value>
@@ -162,26 +220,34 @@ Für lokale Spiele (LAN) empfehlen wir die ENHANCED GOLD EDITION.</value>
   </data>
   <data name="MSB_Error" xml:space="preserve">
     <value>Kritischer Fehler</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Error_Text" xml:space="preserve">
     <value>Kritischer Fehler der Anwendung</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Missionen" xml:space="preserve">
     <value>Missionen Freischalten?</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Missionen_Text" xml:space="preserve">
     <value>Alle Missionen Freischalten?</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_S3" xml:space="preserve">
     <value>S3 OK</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_S3_Text" xml:space="preserve">
     <value>S3 OK</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Videos" xml:space="preserve">
     <value>Videos abspielen?</value>
+    <comment>!</comment>
   </data>
   <data name="MSB_Videos_Text" xml:space="preserve">
     <value>Sollen Videos abgespielt werden?</value>
+    <comment>!</comment>
   </data>
 </root>
