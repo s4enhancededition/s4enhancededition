@@ -67,7 +67,7 @@
                          Value="True">
                     <Setter Property="Background">
                         <Setter.Value>
-                            <ImageBrush ImageSource="/Resources/Button_Settings_Maps_Folder_de-DE.png" />
+                            <ImageBrush ImageSource="/Resources/Button_Settings_Maps_Folder_hell_de-DE.png" />
                         </Setter.Value>
                     </Setter>
                 </Trigger>
