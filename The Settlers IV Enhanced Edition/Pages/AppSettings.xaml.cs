@@ -17,6 +17,8 @@ namespace S4EE
         public AppSettings()
         {
             InitializeComponent();
+            //SpracheFestlegen();
+
             Load(true);
             load = false;
         }
@@ -300,9 +302,10 @@ namespace S4EE
             }
             SomeThingChange();
         }
-        private void SomeThingChange()
-        {
 
+        private void SpracheFestlegen()
+        {
+            //Sprache Festlegen
             App_Edition_Enhanced_Title.Content = Properties.Resources.App_Edition_Enhanced_Title;
             App_Edition_EHE.Content = Properties.Resources.App_Edition_EHE;
             App_Edition_EGE.Content = Properties.Resources.App_Edition_EGE;
@@ -320,7 +323,49 @@ namespace S4EE
             App_Music_Title.Content = Properties.Resources.App_Music_Title;
             App_Music_S3.Content = Properties.Resources.App_Music_S3;
             App_Music_S3_Information_Text.Content = Properties.Resources.App_Music_S3_Information_Text;
+            App_Maps_Title_SINGLEPLAYER.Content = Properties.Resources.App_Maps_Title_SINGLEPLAYER;
+            App_Maps_S01.Content = Properties.Resources.App_Maps_S01;
+            App_Maps_Title_TOURNAMENTS.Content = Properties.Resources.App_Maps_Title_TOURNAMENTS;
+            App_Maps_T01.Content = Properties.Resources.App_Maps_T01;
+            App_Maps_T02.Content = Properties.Resources.App_Maps_T02;
+            App_Maps_Title_COOP.Content = Properties.Resources.App_Maps_Title_COOP;
+            App_Maps_C01.Content = Properties.Resources.App_Maps_C01;
+            App_Maps_Title_BUDDEL.Content = Properties.Resources.App_Maps_Title_BUDDEL;
+            App_Maps_B01.Content = Properties.Resources.App_Maps_B01;
+            App_Maps_Title_METZEL.Content = Properties.Resources.App_Maps_Title_METZEL;
+            App_Maps_M01.Content = Properties.Resources.App_Maps_M01;
+            App_Maps_Title_TRAINING.Content = Properties.Resources.App_Maps_Title_TRAINING;
+            App_Maps_TR01.Content = Properties.Resources.App_Maps_TR01;
+            App_Language_Title.Content = Properties.Resources.App_Language_Title;
+            App_Language_enUS.Content = Properties.Resources.App_Language_enUS;
+            App_Language_deDE.Content = Properties.Resources.App_Language_deDE;
+            App_Misc_SAVE_Title.Content = Properties.Resources.App_Misc_SAVE_Title;
+            App_Misc_SAVE_AUTOSAVE.Content = Properties.Resources.App_Misc_SAVE_AUTOSAVE;
+            App_Misc_SAVE_SAVECLEANER.Content = Properties.Resources.App_Misc_SAVE_SAVECLEANER;
+            App_Misc_SAVE_SAVECLEANER_Information_Text.Content = Properties.Resources.App_Misc_SAVE_SAVECLEANER_Information_Text;
+            App_Misc_Title.Content = Properties.Resources.App_Misc_Title;
+            App_Misc_VIDEO.Content = Properties.Resources.App_Misc_VIDEO;
+            App_Misc_MISSIONS.Content = Properties.Resources.App_Misc_MISSIONS;
+            App_Misc_MINE.Content = Properties.Resources.App_Misc_MINE;
+            App_Misc_LEGACYCONTROLS.Content = Properties.Resources.App_Misc_LEGACYCONTROLS;
+            App_Misc_FIXES_Title.Content = Properties.Resources.App_Misc_FIXES_Title;
+            App_Misc_FIXES_EDITOR.Content = Properties.Resources.App_Misc_FIXES_EDITOR;
+            //Sprache der Buttons Festlegen
+            Style style = this.FindResource("Button_Settings_Maps_Folder_" + Properties.Settings.Default.Language) as Style;
+            Button_Maps1.Style = style;
 
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(AppWindow))
+                {
+                    (window as AppWindow).SpracheFestlegen();
+                }
+            }
+        }
+
+        private void SomeThingChange()
+        {
+            SpracheFestlegen();
             //ToDo Maps etc.
             foreach (Window window in Application.Current.Windows)
             {

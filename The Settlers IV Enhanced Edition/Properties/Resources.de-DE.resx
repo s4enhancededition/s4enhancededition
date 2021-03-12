@@ -143,19 +143,16 @@ für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
     <value>INFORMATIONEN</value>
   </data>
   <data name="App_Language_deDE" xml:space="preserve">
-    <value>DEUTSCH (German)</value>
+    <value>DEUTSCH</value>
   </data>
   <data name="App_Language_enUS" xml:space="preserve">
-    <value>ENGLISCH (English)</value>
+    <value>ENGLISH</value>
   </data>
   <data name="App_Language_Title" xml:space="preserve">
     <value>SPRACHE</value>
   </data>
   <data name="App_Maps_B01" xml:space="preserve">
     <value>BUDDEL MAP PACK (by ramseslein)</value>
-  </data>
-  <data name="App_Maps_Button" xml:space="preserve">
-    <value>KATEN ORDNER ÖFFNEN</value>
   </data>
   <data name="App_Maps_C01" xml:space="preserve">
     <value>DEFEAT MAP PACK (by Sl4nger)</value>
@@ -225,7 +222,7 @@ verschoben. Dadurch wird der Spielstände-Ordner klein gehalten.</value>
     <value>SPIEL EINSTELLUNGEN</value>
   </data>
   <data name="App_Misc_VIDEO" xml:space="preserve">
-    <value>INGAME VIDEOS</value>
+    <value>VIDEOS ABSPIELEN</value>
   </data>
   <data name="App_Mod_Hotkeys" xml:space="preserve">
     <value>HOTKEYS MOD (by Wizzardmaker and kdsystem1337)</value>

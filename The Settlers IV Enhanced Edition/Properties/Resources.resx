@@ -143,7 +143,7 @@ and the ENHANCED GOLD EDITION for local multiplayer (LAN).</value>
     <value>INFORMATION</value>
   </data>
   <data name="App_Language_deDE" xml:space="preserve">
-    <value>GERMAN</value>
+    <value>DEUTSCH</value>
   </data>
   <data name="App_Language_enUS" xml:space="preserve">
     <value>ENGLISH</value>
@@ -153,9 +153,6 @@ and the ENHANCED GOLD EDITION for local multiplayer (LAN).</value>
   </data>
   <data name="App_Maps_B01" xml:space="preserve">
     <value>BUDDEL MAP PACK (by ramseslein)</value>
-  </data>
-  <data name="App_Maps_Button" xml:space="preserve">
-    <value>OPEN MAP FOLDER</value>
   </data>
   <data name="App_Maps_C01" xml:space="preserve">
     <value>DEFEAT MAP PACK (by Sl4nger)</value>
@@ -225,7 +222,7 @@ This keeps the savegames folder small.</value>
     <value>GAME SETTINGS</value>
   </data>
   <data name="App_Misc_VIDEO" xml:space="preserve">
-    <value>INGAME VIDEOS</value>
+    <value>PLAY INGAME VIDEOS</value>
   </data>
   <data name="App_Mod_Hotkeys" xml:space="preserve">
     <value>HOTKEYS MOD (by Wizzardmaker and kdsystem1337)</value>

@@ -19,6 +19,120 @@
     <Window.Background>
         <ImageBrush ImageSource="/Resources/AppBackground.png" />
     </Window.Background>
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_PLAY_en-US">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Resources/Button_PLAY_en-US.png" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="/Resources/Button_PLAY_hell_en-US.png" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_PLAY_de-DE">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Resources/Button_PLAY_de-DE.png" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="/Resources/Button_PLAY_hell_de-DE.png" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_Settings_en-US">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Resources/Button_Settings_en-US.png" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="/Resources/Button_Settings_hell_en-US.png" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_Settings_de-DE">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Resources/Button_Settings_de-DE.png" />
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="/Resources/Button_Settings_hell_de-DE.png" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -39,13 +153,14 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
                 <Image Name="Logo"
-                       Source="/Resources/Logo_Enhanced_History_Edition_GER_200px.png"
+                       Source="/Resources/Logo_Enhanced_History_Edition_en-US_200px.png"
                        Margin="0,18,0,18" />
             </StackPanel>
             <StackPanel Grid.Row="1"
                         x:Name="ButtonMainPannel"
                         Visibility="Visible">
                 <Button Click="Button_PlayClick"
+                        Name="Button_PlayClick2"
                         Height="63"
                         Width="250"
                         Margin="5">
@@ -53,7 +168,7 @@
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="/Resources/Button_PLAY.png" />
+                                    <ImageBrush ImageSource="/Resources/Button_PLAY_en-US.png" />
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Template">
@@ -71,7 +186,7 @@
                                          Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
-                                            <ImageBrush ImageSource="/Resources/Button_PLAY_hell.png" />
+                                            <ImageBrush ImageSource="/Resources/Button_PLAY_hell_en-US.png" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -182,6 +297,7 @@
                     </Button.Style>
                 </Button>
                 <Button Click="Button_Settings"
+                        Name="Button_Settings2"
                         Height="63"
                         Width="250"
                         Margin="5">
@@ -189,7 +305,7 @@
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
                                 <Setter.Value>
-                                    <ImageBrush ImageSource="/Resources/Button_Settings.png" />
+                                    <ImageBrush ImageSource="/Resources/Button_Settings_en-US.png" />
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Template">
@@ -207,7 +323,7 @@
                                          Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
-                                            <ImageBrush ImageSource="/Resources/Button_Settings_hell.png" />
+                                            <ImageBrush ImageSource="/Resources/Button_Settings_hell_en-US.png" />
                                         </Setter.Value>
                                     </Setter>
                                 </Trigger>
@@ -215,51 +331,6 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <!--<StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            Height="30">
-                    <Label Content="{x:Static p:Resources.App_Language}"
-                           x:Name="Langtext"
-                           Height="25"
-                           Width="60"
-                           Foreground="White"
-                           Background="Transparent"
-                           BorderBrush="Transparent" />
-                </StackPanel>-->
-                <!--<StackPanel>
-                    <Button Click="ButtonWebsite_Click"
-                            Height="25"
-                            Width="110"
-                            Content="{x:Static p:Resources.App_Webseite}"
-                            Foreground="White"
-                            Background="Transparent"
-                            BorderBrush="Transparent"
-                            HorizontalContentAlignment="Left">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border Background="{TemplateBinding Background}">
-                                                <ContentPresenter HorizontalAlignment="Center"
-                                                                  VerticalAlignment="Center" />
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver"
-                                             Value="True">
-                                        <Setter Property="Background"
-                                                Value="Transparent" />
-                                        <Setter Property="FontWeight"
-                                                Value="Bold" />
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                </StackPanel>-->
             </StackPanel>
             <StackPanel Grid.Row="2"
                         Orientation="Horizontal"
@@ -405,7 +476,6 @@
                        Foreground="White"
                        HorizontalAlignment="Center" />
             </StackPanel>
-           
         </Grid>
         <!-- Downloader -->
         <StackPanel Grid.Row="1"

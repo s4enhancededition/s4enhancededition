@@ -3,7 +3,7 @@
 
 #define MyAppName "The Settlers IV Enhanced Edition"
 #define MyAppGroup "The Settlers IV"
-#define MyAppVersion "1.0.0.1036"
+#define MyAppVersion "1.0.0.1038"
 #define MyAppPublisher "Ortner MEDIA"
 #define MyAppURL "https://www.zocker-lounge.com/s4-enhanced-edition"
 
@@ -97,7 +97,8 @@ Name: "{group}\The Settlers IV Enhanced Edition"; Filename: "{app}\The Settlers 
 Name: "{commondesktop}\The Settlers IV Enhanced Edition"; Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; WorkingDir: "{app}"; Tasks: desktopicon
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; 
+//Flags: uchecked
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}"

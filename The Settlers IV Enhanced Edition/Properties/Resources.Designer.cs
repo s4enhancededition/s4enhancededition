@@ -134,7 +134,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die GERMAN ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die DEUTSCH ähnelt.
         /// </summary>
         public static string App_Language_deDE {
             get {
@@ -166,15 +166,6 @@ namespace S4EE.Properties {
         public static string App_Maps_B01 {
             get {
                 return ResourceManager.GetString("App_Maps_B01", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die OPEN MAP FOLDER ähnelt.
-        /// </summary>
-        public static string App_Maps_Button {
-            get {
-                return ResourceManager.GetString("App_Maps_Button", resourceCulture);
             }
         }
         
@@ -378,7 +369,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die INGAME VIDEOS ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die PLAY INGAME VIDEOS ähnelt.
         /// </summary>
         public static string App_Misc_VIDEO {
             get {

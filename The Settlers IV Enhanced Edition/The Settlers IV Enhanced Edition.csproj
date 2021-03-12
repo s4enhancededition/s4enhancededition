@@ -22,7 +22,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.705.50" />
+    <None Remove="Resources\Button_PLAY_de-DE.png" />
+    <None Remove="Resources\Button_PLAY_hell_de-DE.png" />
+    <None Remove="Resources\Button_SETTINGS_de-DE.png" />
+    <None Remove="Resources\Button_SETTINGS_hell_de-DE.png" />
+    <None Remove="Resources\Button_Settings_Maps_Folder_de-DE.png" />
+    <None Remove="Resources\Button_Settings_Maps_Folder_en-US.png" />
+    <None Remove="Resources\Button_Settings_Maps_Folder_hell_de-DE.png" />
+    <None Remove="Resources\Button_Settings_Maps_Folder_hell_en-US.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.774.44" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,10 +48,18 @@
     <Resource Include="Resources\Button_EDITOR+_hell.png" />
     <Resource Include="Resources\Button_NEWS.png" />
     <Resource Include="Resources\Button_NEWS_hell.png" />
-    <Resource Include="Resources\Button_PLAY.png" />
-    <Resource Include="Resources\Button_PLAY_hell.png" />
-    <Resource Include="Resources\Button_SETTINGS.png" />
-    <Resource Include="Resources\Button_SETTINGS_hell.png" />
+    <Resource Include="Resources\Button_PLAY_de-DE.png" />
+    <Resource Include="Resources\Button_PLAY_en-US.png" />
+    <Resource Include="Resources\Button_PLAY_hell_de-DE.png" />
+    <Resource Include="Resources\Button_PLAY_hell_en-US.png" />
+    <Resource Include="Resources\Button_SETTINGS_de-DE.png" />
+    <Resource Include="Resources\Button_SETTINGS_en-US.png" />
+    <Resource Include="Resources\Button_SETTINGS_hell_en-US.png" />
+    <Resource Include="Resources\Button_SETTINGS_hell_de-DE.png" />
+    <Resource Include="Resources\Button_Settings_Maps_Folder_de-DE.png" />
+    <Resource Include="Resources\Button_Settings_Maps_Folder_en-US.png" />
+    <Resource Include="Resources\Button_Settings_Maps_Folder_hell_de-DE.png" />
+    <Resource Include="Resources\Button_Settings_Maps_Folder_hell_en-US.png" />
     <Resource Include="Resources\Button_Setting_Edition1.png" />
     <Resource Include="Resources\Button_Setting_Edition2.png" />
     <Resource Include="Resources\Button_Setting_Edition3.png" />

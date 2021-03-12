@@ -7,6 +7,7 @@ using System.IO.Compression;
 using System.Net;
 using System.Security.Cryptography;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace S4EE
@@ -39,6 +40,8 @@ namespace S4EE
 
             // Versionsinfo der Assembly
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+
         }
 
 
@@ -190,6 +193,30 @@ namespace S4EE
                 AppSettings.Load(true);
             }
         }
+        public void SpracheFestlegen()
+        {
+            //GUI
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("EHE"):
+                    Logo.Source = new BitmapImage(new Uri((@"/Resources/Logo_Enhanced_History_Edition_" + Properties.Settings.Default.Language + @"_200px.png"), UriKind.RelativeOrAbsolute));
+                    break;
+                case ("EGE"):
+                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Enhanced_Gold_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case ("HE"):
+                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_History_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
+                    break;
+                case ("GE"):
+                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Gold_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
+                    break;
+            }
+            //Sprache der Buttons Festlegen
+            Style style = this.FindResource("Button_PLAY_" + Properties.Settings.Default.Language) as Style;
+            Button_PlayClick2.Style = style;
+            style = this.FindResource("Button_Settings_" + Properties.Settings.Default.Language) as Style;
+            Button_Settings2.Style = style;
+        }
 
         public static string GetMD5Hash(string filename)
         {
@@ -234,7 +261,7 @@ namespace S4EE
             }
             catch (Exception)
             {
-                Log.LogWriter("???","Failed to download File");
+                Log.LogWriter("???", "Failed to download File");
             }
         }
         private void DownloadFileAsync(string URI, string File, string Name)
@@ -250,7 +277,7 @@ namespace S4EE
             }
             catch (Exception)
             {
-                Log.LogWriter("???","Failed to download File");
+                Log.LogWriter("???", "Failed to download File");
             }
         }
         private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
