@@ -193,7 +193,7 @@ namespace S4EE
             App_Misc_SAVE_SAVECLEANER_CheckBox.IsChecked = false;
             App_Misc_SAVE_SAVECLEANER_CheckBox.IsEnabled = false;
 
-            // VIDEOS
+            //ToDO VIDEOS (für jede Edition gleich machen)
             if (App.S4HE_AppPath != null)
             {
                 switch (Properties.Settings.Default.EditionInstalled)
