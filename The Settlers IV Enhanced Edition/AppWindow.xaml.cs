@@ -25,7 +25,7 @@ namespace S4EE
         readonly AppWebView AppWebView;
         readonly AppSettings AppSettings;
         private static readonly SHA256 Sha256 = SHA256.Create();
-
+        private static readonly string LogName = "App.xaml.cs";
 
         /// <summary>
         /// Startmethode der Anwendung
@@ -33,28 +33,42 @@ namespace S4EE
         public AppWindow()
         {
             InitializeComponent();
-            Log.LogWriter("START APP", "-------------------------------------");
-
+            Log.LogWriter(LogName, "InitializeComponent");
             AppStart = new AppStart();
+            Log.LogWriter(LogName, "AppStart");
             AppWebView = new AppWebView();
+            Log.LogWriter(LogName, "AppWebView");
             AppSettings = new AppSettings();
+            Log.LogWriter(LogName, "AppSettings");
+
+            //ToDo
             VersionChange(true);
+
             FrameContent.Navigate(AppStart);
+            Log.LogWriter(LogName, "AppStart");
 
 
 
             // Versionsinfo der Assembly
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            CleanUp();
-            CheckUpdate();
-        }
+            Log.LogWriter(LogName, "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
+            CleanUp();
+            Log.LogWriter(LogName, "CleanUp");
+            CheckUpdate();
+            Log.LogWriter(LogName, "CheckUpdate");
+
+        }
+        #region Updater
+        //ToDo Rework
         private static void CleanUp()
         {
             if (File.Exists("TheSettlersIVEnhancedEditionSetup.exe"))
             {
+                Log.LogWriter(LogName, "CleanUp Old Update File");
                 File.Delete("TheSettlersIVEnhancedEditionSetup.exe");
             }
+            Log.LogWriter(LogName, "No CleanUp");
 
         }
 
@@ -246,35 +260,6 @@ namespace S4EE
             return true;
         }
 
-        #region Downloader&ZIP
-        private void DownloadFileAsync(string URI, string File, string Name)
-        {
-            DownlaodPanel.Visibility = Visibility.Visible;
-            try
-            {
-                using WebClient wc = new();
-                DownlaodLabel.Content = Properties.Resources.App_Update_Downlaod + "\n" + Name;
-                wc.DownloadProgressChanged += DownloadProgressChanged;
-                wc.DownloadFileCompleted += DownloadFileEventCompleted;
-                wc.DownloadFileAsync(new Uri(URI), File);
-            }
-            catch (Exception)
-            {
-                Log.LogWriter("Downloader", "Failed to download File");
-            }
-        }
-
-        private void DownloadFileEventCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            DownlaodLabel.Content = Properties.Resources.App_Update_Abgeschlossen;
-            Process.Start("TheSettlersIVEnhancedEditionSetup.exe", "/verysilent");
-
-        }
-        private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            DownlaodPanel.Visibility = Visibility.Visible;
-            ProgressBar.Value = e.ProgressPercentage;
-        }
         private void ZIPInstallieren(string filename)
         {
             using ZipArchive archive = ZipFile.OpenRead(filename + ".zip");
@@ -296,6 +281,42 @@ namespace S4EE
                 }
             }
         }
+
+        #endregion
+
+        #region Downloader&ZIP
+        private void DownloadFileAsync(string URI, string File, string Name)
+        {
+            DownlaodPanel.Visibility = Visibility.Visible;
+            try
+            {
+                using WebClient wc = new();
+                DownlaodLabel.Content = Properties.Resources.App_Update_Downlaod + "\n" + Name;
+                wc.DownloadProgressChanged += DownloadProgressChanged;
+                wc.DownloadFileCompleted += DownloadFileEventCompleted;
+                wc.DownloadFileAsync(new Uri(URI), File);
+                Log.LogWriter(LogName, "Download New File Async");
+
+            }
+            catch (Exception)
+            {
+                Log.LogWriter(LogName, "Failed to download File");
+            }
+        }
+
+        private void DownloadFileEventCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            Log.LogWriter(LogName, "Download New File Abgeschlossen");
+            DownlaodLabel.Content = Properties.Resources.App_Update_Abgeschlossen;
+            Log.LogWriter(LogName, "Install Update");
+            Process.Start("TheSettlersIVEnhancedEditionSetup.exe", "/silent");
+
+        }
+        private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            DownlaodPanel.Visibility = Visibility.Visible;
+            ProgressBar.Value = e.ProgressPercentage;
+        }
         #endregion
 
         #region Buttons
@@ -306,12 +327,30 @@ namespace S4EE
         {
             //ToDo GE
             FrameContent.Navigate(AppStart);
+            Log.LogWriter(LogName, "Navigate AppStart");
             if (Installer())
             {
-                Process.Start(App.S4HE_AppPath + @"\S4_Main.exe");
+                switch (Properties.Settings.Default.EditionInstalled)
+                {
+                    case ("HE"):
+                    case ("EHE"):
+                        {
+                            Log.LogWriter(LogName, "Start S4_Main.exe");
+                            Process.Start(App.S4HE_AppPath + @"\S4_Main.exe");
+                            break;
+                        }
+                    case ("GE"):
+                    case ("EGE"):
+                        {
+                            Log.LogWriter(LogName, "Start S4.exe");
+                            Process.Start(App.S4GE_AppPath + @"\S4.exe");
+                            break;
+                        }
+                }
             }
             else
             {
+                Log.LogWriter(LogName, "Start Error");
                 MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -335,6 +374,7 @@ namespace S4EE
                         break;
                     }
             }
+            Log.LogWriter(LogName, "Navigate AppWebView");
         }
         /// <summary>
         /// Navigation zur ChangeLog
@@ -356,6 +396,7 @@ namespace S4EE
                         break;
                     }
             }
+            Log.LogWriter(LogName, "Navigate AppWebView");
         }
         /// <summary>
         /// Startmethode vom Editor 
@@ -365,7 +406,6 @@ namespace S4EE
         {
             if (!Properties.Settings.Default.EditorInstalled)
             {
-
                 switch (Properties.Settings.Default.Language)
                 {
                     default:
@@ -394,6 +434,7 @@ namespace S4EE
                 }
                 Properties.Settings.Default.EditorInstalled = true;
                 Properties.Settings.Default.Save();
+                Log.LogWriter(LogName, "EditorInstalled True");
             }
             else
             {
@@ -404,13 +445,14 @@ namespace S4EE
                     CreateNoWindow = true
                 };
                 Process.Start(startInfo);
+                Log.LogWriter(LogName, "EditorInstalled Start");
             }
         }
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(AppSettings);
+            Log.LogWriter(LogName, "Navigate AppSettings");
         }
-
         private void ButtonWebsite_Click(object sender, RoutedEventArgs e)
         {
             OpenBrowser(@"https://www.diesiedler4.de");
@@ -449,12 +491,14 @@ namespace S4EE
             }
             catch (Exception)
             {
+                Log.LogWriter(LogName, "Kein Update gefunden - Error Github");
                 MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             IReadOnlyList<Release> releases = releaseTask.Result;
             if (releases.Count == 0)
             {
+                Log.LogWriter(LogName, "Kein Update gefunden - Error Github");
                 MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
@@ -483,15 +527,14 @@ namespace S4EE
                     if (Asset.Name == "TheSettlersIVEnhancedEditionSetup.exe")
                     {
                         DownloadFileAsync(Asset.BrowserDownloadUrl, "TheSettlersIVEnhancedEditionSetup.exe", lrelease.TagName);
-                        Log.LogWriter("???", "UPDATE");
+                        Log.LogWriter(LogName, "Update gefunden");
 
                     }
                 }
             }
             else
             {
-                //MessageBox.Show("NOUPDATE", Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                Log.LogWriter("???", "NOUPDATE");
+                Log.LogWriter(LogName, "Kein Update gefunden");
             }
             return true;
         }

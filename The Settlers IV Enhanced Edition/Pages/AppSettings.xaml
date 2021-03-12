@@ -889,7 +889,8 @@
                                         <CheckBox Name="App_Misc_SAVE_AUTOSAVE_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  IsChecked="True"
+                                                  Click="App_Misc_SAVE_AUTOSAVE_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Misc_SAVE_AUTOSAVE}"
                                                     Name="App_Misc_SAVE_AUTOSAVE"
                                                     Foreground="White"
@@ -935,7 +936,8 @@
                                         <CheckBox Name="App_Misc_VIDEO_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  IsChecked="True"
+                                                  Click="App_Misc_VIDEO_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Misc_VIDEO}"
                                                     Name="App_Misc_VIDEO"
                                                     Foreground="White"

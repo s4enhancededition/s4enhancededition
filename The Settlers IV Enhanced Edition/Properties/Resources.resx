@@ -209,11 +209,11 @@ and the ENHANCED GOLD EDITION for local multiplayer (LAN).</value>
     <value>AUTOSAVE EVERY 5 MINUTES (HISTORY EDITION)</value>
   </data>
   <data name="App_Misc_SAVE_SAVECLEANER" xml:space="preserve">
-    <value>SAVES ARCHIVE (every day)</value>
+    <value>STORAGE ARCHIVES (older than 36 hours)</value>
   </data>
   <data name="App_Misc_SAVE_SAVECLEANER_Information_Text" xml:space="preserve">
-    <value>All saves of the selected edition are moved to the archive folder every day. 
-This keeps the savegames folder small.</value>
+    <value>All saves of the selected edition will be moved to the archive folder after 36 hours.
+This keeps the game saves folder small.</value>
   </data>
   <data name="App_Misc_SAVE_Title" xml:space="preserve">
     <value>SAVE SETTINGS</value>

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Security.Cryptography;
 using System.Threading;
@@ -12,6 +13,8 @@ namespace S4EE
     /// </summary>
     public partial class AppSettings : Page
     {
+        private static readonly string LogName = "AppSettings.xaml.cs";
+
         bool load;
         public AppSettings()
         {
@@ -24,6 +27,46 @@ namespace S4EE
         public void Load(bool lload)
         {
             load = lload;
+
+            if (App.S4HE_AppPath == null)
+            {
+                App_Edition_EHE_Button.IsEnabled = false;
+                App_Edition_HE_Button.IsEnabled = false;
+                switch (Properties.Settings.Default.EditionInstalled)
+                {
+                    case ("EGE"):
+                    case ("HE"):
+                        Properties.Settings.Default.EditionInstalled = "";
+                        Properties.Settings.Default.Save();
+                        Log.LogWriter(LogName, "HE Fehlt unerwartet");
+                        break;
+                }
+            }
+            if (App.S4GE_AppPath == null)
+            {
+                App_Edition_EGE_Button.IsEnabled = false;
+                App_Edition_GE_Button.IsEnabled = false;
+                switch (Properties.Settings.Default.EditionInstalled)
+                {
+                    case ("EGE"):
+                    case ("GE"):
+                        Properties.Settings.Default.EditionInstalled = "";
+                        Properties.Settings.Default.Save();
+                        Log.LogWriter(LogName, "GE Fehlt unerwartet");
+                        break;
+                }
+            }
+            if (App.S3HE_AppPath == null)
+            {
+                App_Music_S3_CheckBox.IsEnabled = false;
+                if (Properties.Settings.Default.Music_S3 == "1")
+                {
+                    Properties.Settings.Default.Music_S3 = "";
+                    Properties.Settings.Default.Save();
+                    Log.LogWriter(LogName, "Music_S3 Fehlt unerwartet");
+                }
+            }
+
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("EHE"):
@@ -57,12 +100,156 @@ namespace S4EE
                     App_Language_enUS_Button.IsChecked = true;
                     break;
             }
+            App_Mod_Zoom_CheckBox.IsChecked = Properties.Settings.Default.Mod_Zoom switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+            App_Mod_Hotkeys_CheckBox.IsChecked = Properties.Settings.Default.Mod_HotKeys switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+            App_Music_S3_CheckBox.IsChecked = Properties.Settings.Default.Music_S3 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+
+            App_Maps_S01_CheckBox.IsChecked = Properties.Settings.Default.Map_S01 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+            App_Maps_T01_CheckBox.IsChecked = Properties.Settings.Default.Map_T01 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+            //ToDo WC2021
+            App_Maps_T02_CheckBox.IsEnabled = false; //REMOVEME
+            App_Maps_T02_CheckBox.IsChecked = Properties.Settings.Default.Map_T02 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+            App_Maps_C01_CheckBox.IsChecked = Properties.Settings.Default.Map_C01 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+            App_Maps_B01_CheckBox.IsChecked = Properties.Settings.Default.Map_B01 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+
+            App_Maps_M01_CheckBox.IsChecked = Properties.Settings.Default.Map_M01 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+            App_Maps_TR01_CheckBox.IsChecked = Properties.Settings.Default.Map_TR01 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
+            //SAVE Intervall
+            if (App.S4HE_AppPath != null)
+            {
+                string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
+                if (File.Exists(settings))
+                {
+                    IniFile s4settings = new(settings);
+                    if (s4settings.Read("AutoSaveInterval", "GAMESETTINGS") == "5")
+                    {
+                        App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked = true;
+                    }
+                    else
+                        App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked = false;
+                }
+                else
+                {
+                    App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked = false;
+                    App_Misc_SAVE_AUTOSAVE_CheckBox.IsEnabled = false;
+                }
+            }
+            else
+            {
+                App_Misc_SAVE_AUTOSAVE_CheckBox.IsEnabled = false;
+            }
+
+            //ToDo SAVEMANGER
+            App_Misc_SAVE_SAVECLEANER_CheckBox.IsChecked = false;
+            App_Misc_SAVE_SAVECLEANER_CheckBox.IsEnabled = false;
+
+            // VIDEOS
+            if (App.S4HE_AppPath != null)
+            {
+                switch (Properties.Settings.Default.EditionInstalled)
+                {
+                    case ("EGE"):
+                    case ("HE"):
+                        string settings = new(App.S4HE_AppPath + @"Config\video.cfg");
+                        if (File.Exists(settings))
+                        {
+                            IniFile s4settings = new(settings);
+                            if (s4settings.Read("ShowVideos", "ADVGAMESETTINGS") == "1")
+                            {
+                                App_Misc_VIDEO_CheckBox.IsChecked = true;
+                            }
+                            else
+                            {
+                                App_Misc_VIDEO_CheckBox.IsChecked = false;
+                            }
+                        }
+                        break;
+                }
+                if (App.S3HE_AppPath != null)
+                {
+                    switch (Properties.Settings.Default.EditionInstalled)
+                    {
+                        case ("EGE"):
+                        case ("GE"):
+                            string settings = new(App.S4GE_AppPath + @"Config\video.cfg");
+                            if (File.Exists(settings))
+                            {
+                                IniFile s4settings = new(settings);
+                                if (s4settings.Read("ShowVideos", "ADVGAMESETTINGS") == "1")
+                                {
+                                    App_Misc_VIDEO_CheckBox.IsChecked = true;
+                                }
+                                else
+                                {
+                                    App_Misc_VIDEO_CheckBox.IsChecked = false;
+                                }
+                            }
+
+                            break;
+                    }
+                }
+            }
+
             load = false;
+
         }
         #region App_Edition
         private void App_Edition_EHE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            App_Edition_EHE_Button.IsChecked = true;
+            if (App.S4HE_AppPath != null)
+            {
+                App_Edition_EHE_Button.IsChecked = true;
+            }
             //EHE
         }
         private void App_Edition_EHE_Button_Checked(object sender, RoutedEventArgs e)
@@ -79,8 +266,10 @@ namespace S4EE
 
         private void App_Edition_EGE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            App_Edition_EGE_Button.IsChecked = true;
-            //EGE
+            if (App.S4GE_AppPath != null)
+            {
+                App_Edition_EGE_Button.IsChecked = true;
+            }
         }
         private void App_Edition_EGE_Button_Checked(object sender, RoutedEventArgs e)
         {
@@ -95,7 +284,10 @@ namespace S4EE
         }
         private void App_Edition_HE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            App_Edition_HE_Button.IsChecked = true;
+            if (App.S4HE_AppPath != null)
+            {
+                App_Edition_HE_Button.IsChecked = true;
+            }
             //HE
         }
         private void App_Edition_HE_Button_Checked(object sender, RoutedEventArgs e)
@@ -111,7 +303,10 @@ namespace S4EE
         }
         private void App_Edition_GE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            App_Edition_GE_Button.IsChecked = true;
+            if (App.S4GE_AppPath != null)
+            {
+                App_Edition_GE_Button.IsChecked = true;
+            }
             //GE
         }
 
@@ -198,6 +393,82 @@ namespace S4EE
 
 
         #endregion
+        #region App_Misc
+        private void App_Misc_SAVE_AUTOSAVE_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (App.S4HE_AppPath != null)
+            {
+                string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
+                if (File.Exists(settings))
+                {
+                    if (App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked == true)
+                    {
+                        IniFile s4settings = new(settings);
+                        s4settings.Write("AutoSaveInterval", "5", "GAMESETTINGS");
+                    }
+                    else
+                    {
+                        IniFile s4settings = new(settings);
+                        s4settings.Write("AutoSaveInterval", "0", "GAMESETTINGS");
+                    }
+                }
+            }
+        }
+
+        private void App_Misc_VIDEO_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if (App.S4HE_AppPath != null)
+            {
+                switch (Properties.Settings.Default.EditionInstalled)
+                {
+                    case ("EGE"):
+                    case ("HE"):
+                        string settings = new(App.S4HE_AppPath + @"Config\Video.cfg");
+                        if (File.Exists(settings))
+                        {
+                            if (App_Misc_VIDEO_CheckBox.IsChecked == true)
+                            {
+                                IniFile s4settings = new(settings);
+                                s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
+                            }
+                            else
+                            {
+                                IniFile s4settings = new(settings);
+                                s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
+                            }
+                        }
+                        break;
+                }
+            }
+            if (App.S4GE_AppPath != null)
+            {
+                switch (Properties.Settings.Default.EditionInstalled)
+                {
+                    case ("EGE"):
+                    case ("GE"):
+                        string settings = new(App.S4GE_AppPath + @"Config\video.cfg");
+                        if (File.Exists(settings))
+                        {
+                            if (App_Misc_VIDEO_CheckBox.IsChecked == true)
+                            {
+                                IniFile s4settings = new(settings);
+                                s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
+                            }
+                            else
+                            {
+                                IniFile s4settings = new(settings);
+                                s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
+                            }
+                        }
+                        break;
+
+                }
+            }
+        }
+
+
+
+        #endregion
         private readonly SHA256 Sha256 = SHA256.Create();
         public byte[] GetHashSha256(string filename)
         {
@@ -207,27 +478,35 @@ namespace S4EE
         //KATEN ORDNER ÖFFNEN
         private void Button_Maps(object sender, RoutedEventArgs e)
         {
-            var runExplorer = new ProcessStartInfo
+            switch (Properties.Settings.Default.EditionInstalled)
             {
-                FileName = "explorer.exe",
-                Arguments = @"/N," + App.S4HE_AppPath.Replace(@"/", @"\") + @"Map\User"
-            };
-            Process.Start(runExplorer);
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        var runExplorer = new ProcessStartInfo
+                        {
+                            FileName = "explorer.exe",
+                            Arguments = @"/N," + App.S4HE_AppPath.Replace(@"/", @"\") + @"Map\User"
+                        };
+                        Process.Start(runExplorer);
+                        break;
+                    }
+                case ("GE"):
+                case ("EGE"):
+                    {
+                        var runExplorer = new ProcessStartInfo
+                        {
+                            FileName = "explorer.exe",
+                            Arguments = @"/N," + App.S4GE_AppPath.Replace(@"/", @"\") + @"Map\User"
+                        };
+                        Process.Start(runExplorer);
+                        break;
+                    }
+            }
         }
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
-            //Video
-            IniFile s4video = new(App.S4HE_AppPath + @"Config\video.cfg");
-            //MessageBoxResult result = MessageBox.Show(Properties.Resources.MSB_Videos_Text, Properties.Resources.MSB_Videos, MessageBoxButton.YesNo, MessageBoxImage.Question);
-            switch (MessageBoxResult.Yes)
-            {
-                case MessageBoxResult.Yes:
-                    s4video.Write("ShowVideos ", "1", "ADVGAMESETTINGS");
-                    break;
-                case MessageBoxResult.No:
-                    s4video.Write("ShowVideos ", "0", "ADVGAMESETTINGS");
-                    break;
-            }
+
             //Spielstände
             IniFile s4settings = new(App.S4HE_AppPath + @"Config\GAMESETTINGS.cfg");
             //MessageBoxResult resultsettings = MessageBox.Show(Properties.Resources.MSB_Missionen_Text, Properties.Resources.MSB_Missionen, MessageBoxButton.YesNo, MessageBoxImage.Question);

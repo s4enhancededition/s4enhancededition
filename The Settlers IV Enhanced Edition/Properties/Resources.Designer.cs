@@ -332,7 +332,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SAVES ARCHIVE (every day) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die STORAGE ARCHIVES (older than 36 hours) ähnelt.
         /// </summary>
         public static string App_Misc_SAVE_SAVECLEANER {
             get {
@@ -341,8 +341,8 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die All saves of the selected edition are moved to the archive folder every day. 
-        ///This keeps the savegames folder small. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die All saves of the selected edition will be moved to the archive folder after 36 hours.
+        ///This keeps the game saves folder small. ähnelt.
         /// </summary>
         public static string App_Misc_SAVE_SAVECLEANER_Information_Text {
             get {

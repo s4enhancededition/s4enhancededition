@@ -49,7 +49,6 @@ namespace S4EE.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool EditorInstalled {
             get {
                 return ((bool)(this["EditorInstalled"]));
@@ -109,9 +108,10 @@ namespace S4EE.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool Mod_Zoom {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Mod_Zoom {
             get {
-                return ((bool)(this["Mod_Zoom"]));
+                return ((string)(this["Mod_Zoom"]));
             }
             set {
                 this["Mod_Zoom"] = value;
@@ -120,12 +120,109 @@ namespace S4EE.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool Mod_HotKeys {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Mod_HotKeys {
             get {
-                return ((bool)(this["Mod_HotKeys"]));
+                return ((string)(this["Mod_HotKeys"]));
             }
             set {
                 this["Mod_HotKeys"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Music_S3 {
+            get {
+                return ((string)(this["Music_S3"]));
+            }
+            set {
+                this["Music_S3"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_S01 {
+            get {
+                return ((string)(this["Map_S01"]));
+            }
+            set {
+                this["Map_S01"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_T01 {
+            get {
+                return ((string)(this["Map_T01"]));
+            }
+            set {
+                this["Map_T01"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_T02 {
+            get {
+                return ((string)(this["Map_T02"]));
+            }
+            set {
+                this["Map_T02"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_C01 {
+            get {
+                return ((string)(this["Map_C01"]));
+            }
+            set {
+                this["Map_C01"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_B01 {
+            get {
+                return ((string)(this["Map_B01"]));
+            }
+            set {
+                this["Map_B01"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_M01 {
+            get {
+                return ((string)(this["Map_M01"]));
+            }
+            set {
+                this["Map_M01"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_TR01 {
+            get {
+                return ((string)(this["Map_TR01"]));
+            }
+            set {
+                this["Map_TR01"] = value;
             }
         }
     }
