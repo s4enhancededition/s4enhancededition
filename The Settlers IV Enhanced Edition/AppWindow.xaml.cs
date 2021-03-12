@@ -250,7 +250,7 @@ namespace S4EE
             try
             {
                 using WebClient wc = new();
-                DownlaodLabel.Content = Properties.Resources.App_Update_Downlaod + "\nVersion: " + Name;
+                DownlaodLabel.Content = Properties.Resources.App_Update_Downlaod + "\n" + Name;
                 wc.DownloadProgressChanged += DownloadProgressChanged;
                 wc.DownloadFileCompleted += DownloadFileEventCompleted;
                 wc.DownloadFileAsync(new Uri(URI), File);

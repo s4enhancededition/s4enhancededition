@@ -17,8 +17,7 @@ namespace S4EE
         public AppSettings()
         {
             InitializeComponent();
-            //SpracheFestlegen();
-
+            SpracheFestlegen();
             Load(true);
             load = false;
         }

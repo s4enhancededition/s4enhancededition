@@ -481,16 +481,16 @@
         <StackPanel Grid.Row="1"
                     Grid.ColumnSpan="2"
                     x:Name="DownlaodPanel"
-                    Visibility="Visible"
+                    Visibility="Hidden"
                     Orientation="Vertical">
             <StackPanel.Background>
                 <ImageBrush ImageSource="/Resources/AppSettingsBackground.png" />
             </StackPanel.Background>
-            <StackPanel VerticalAlignment="Center" Margin="0,250,0,0">
+            <StackPanel VerticalAlignment="Center" Margin="0,220,0,0">
             <Label  x:Name="DownlaodLabel"
-                    Content="DOWNLOAD PATCH..."
+                    Content="DOWNLOAD"
                     HorizontalAlignment="Center"
-                    FontSize="18"
+                    FontSize="28"
                     FontWeight="Bold"
                     Foreground="White"
                     Margin="10,10,10,0"
@@ -499,7 +499,8 @@
             <ProgressBar x:Name="ProgressBar"
                          Margin="10"
                          Height="60"
-                         Value="50" />
+                         Value="50" 
+                         FontSize="28"/>
             </StackPanel>
         </StackPanel>
     </Grid>
