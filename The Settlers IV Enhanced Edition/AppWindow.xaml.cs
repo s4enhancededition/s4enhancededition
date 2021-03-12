@@ -86,6 +86,7 @@ namespace S4EE
                 }
                 else if (App.S4GE_AppPath != null)
                 {
+                    //ToDo GE
                     string S4GE_Lang = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", null);
                     if (S4GE_Lang != null)
                     {
@@ -240,6 +241,7 @@ namespace S4EE
 
         public bool Installer()
         {
+            //ToDo Installer
             return true;
         }
 
@@ -301,6 +303,7 @@ namespace S4EE
         /// </summary>
         private void Button_PlayClick(object sender, RoutedEventArgs e)
         {
+            //ToDo GE
             FrameContent.Navigate(AppStart);
             if (Installer())
             {
@@ -308,7 +311,7 @@ namespace S4EE
             }
             else
             {
-                //ToDo Error message
+                MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -479,12 +482,15 @@ namespace S4EE
                     if (Asset.Name == "TheSettlersIVEnhancedEditionSetup.exe")
                     {
                         DownloadFileAsync(Asset.BrowserDownloadUrl, "TheSettlersIVEnhancedEditionSetup.exe", lrelease.TagName);
+                        Log.LogWriter("???", "UPDATE");
+
                     }
                 }
             }
             else
             {
-                MessageBox.Show("NOUPDATE", Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                //MessageBox.Show("NOUPDATE", Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                Log.LogWriter("???", "NOUPDATE");
             }
             return true;
         }

@@ -365,7 +365,6 @@ namespace S4EE
         private void SomeThingChange()
         {
             SpracheFestlegen();
-            //ToDo Maps etc.
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(AppWindow))
