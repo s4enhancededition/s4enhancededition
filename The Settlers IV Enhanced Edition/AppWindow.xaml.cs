@@ -433,7 +433,6 @@ namespace S4EE
             Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
         }
         #endregion
-
         #region Update
         public bool CheckUpdate()
         {
@@ -472,34 +471,23 @@ namespace S4EE
                     version = lokal;
                     lrelease = release;
                 }
-
             }
             if (version > System.Reflection.Assembly.GetExecutingAssembly().GetName().Version)
             {
-
                 foreach (ReleaseAsset Asset in lrelease.Assets)
                 {
                     if (Asset.Name == "TheSettlersIVEnhancedEditionSetup.exe")
                     {
                         DownloadFileAsync(Asset.BrowserDownloadUrl, "TheSettlersIVEnhancedEditionSetup.exe", lrelease.TagName);
                     }
-
                 }
             }
             else
             {
                 MessageBox.Show("NOUPDATE", Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
-
             return true;
-
         }
-
-
-
         #endregion
-
     }
 }
-

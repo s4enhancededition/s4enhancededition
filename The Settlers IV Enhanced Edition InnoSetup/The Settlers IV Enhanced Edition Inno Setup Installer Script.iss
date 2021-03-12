@@ -3,7 +3,7 @@
 
 #define MyAppName "The Settlers IV Enhanced Edition"
 #define MyAppGroup "The Settlers IV"
-#define MyAppVersion "1.0.0.1038"
+#define MyAppVersion "1.0.0.1040"
 #define MyAppPublisher "Ortner MEDIA"
 #define MyAppURL "https://www.zocker-lounge.com/s4-enhanced-edition"
 
@@ -87,7 +87,7 @@ Name: "{app}" ; Permissions: users-modify
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl" ; 
-Name: "german"; MessagesFile: "compiler:Languages\German.isl"; InfoBeforeFile=Inno\ReadMe_de-DE.txt
+Name: "german"; MessagesFile: "compiler:Languages\German.isl"; InfoBeforeFile:"Inno\ReadMe.de-DE.txt";
 
 [Files]
 Source: "Publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
