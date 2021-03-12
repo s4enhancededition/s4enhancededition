@@ -255,6 +255,12 @@ at least once is required.</value>
   <data name="App_Textures_Title" xml:space="preserve">
     <value>TEXTURE PACKS</value>
   </data>
+  <data name="App_Update_Abgeschlossen" xml:space="preserve">
+    <value>DOWNLOAD COMPLETED - START INSTALLATION</value>
+  </data>
+  <data name="App_Update_Downlaod" xml:space="preserve">
+    <value>DOWNLOAD</value>
+  </data>
   <data name="MSB_Error" xml:space="preserve">
     <value>FATAL ERROR</value>
   </data>

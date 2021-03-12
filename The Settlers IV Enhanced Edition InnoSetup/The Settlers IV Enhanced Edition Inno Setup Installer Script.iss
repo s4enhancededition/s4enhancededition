@@ -87,7 +87,7 @@ Name: "{app}" ; Permissions: users-modify
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl" ; 
-Name: "german"; MessagesFile: "compiler:Languages\German.isl"; 
+Name: "german"; MessagesFile: "compiler:Languages\German.isl"; InfoBeforeFile=Inno\ReadMe_de-DE.txt
 
 [Files]
 Source: "Publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs

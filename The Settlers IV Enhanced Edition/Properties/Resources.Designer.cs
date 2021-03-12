@@ -469,6 +469,24 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DOWNLOAD COMPLETED - START INSTALLATION ähnelt.
+        /// </summary>
+        public static string App_Update_Abgeschlossen {
+            get {
+                return ResourceManager.GetString("App_Update_Abgeschlossen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DOWNLOAD ähnelt.
+        /// </summary>
+        public static string App_Update_Downlaod {
+            get {
+                return ResourceManager.GetString("App_Update_Downlaod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die FATAL ERROR ähnelt.
         /// </summary>
         public static string MSB_Error {

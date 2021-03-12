@@ -1,11 +1,16 @@
 ﻿using Microsoft.Win32;
+using Octokit;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -38,13 +43,22 @@ namespace S4EE
             VersionChange(true);
             FrameContent.Navigate(AppStart);
 
+
+
             // Versionsinfo der Assembly
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-
+            CleanUp();
+            CheckUpdate();
         }
 
+        private static void CleanUp()
+        {
+            if (File.Exists("TheSettlersIVEnhancedEditionSetup.exe"))
+            {
+                File.Delete("TheSettlersIVEnhancedEditionSetup.exe");
+            }
 
+        }
 
         public void VersionChange(bool load = false)
         {
@@ -230,55 +244,28 @@ namespace S4EE
         }
 
         #region Downloader&ZIP
-
-        private void DownloadFileEventCompleted(object sender, AsyncCompletedEventArgs e)
-        {
-            DownlaodPanel.Visibility = Visibility.Hidden;
-            //switch (Patch)
-            //{
-            //    case 0:
-            //        PatchLauncher();
-            //        break;
-            //    case 1:
-            //        PatchDLC();
-            //        CheckNewUpdateDLC();
-            //        break;
-            //    case 2:
-            //        PatchEdition();
-            //        Patch = -1;
-            //        CheckVersion();
-            //        break;
-            //}
-
-
-        }
-        private static void DownloadFileSync(string URI, string File)
-        {
-            try
-            {
-                using WebClient wc = new();
-                wc.DownloadFile(new Uri(URI), File);
-            }
-            catch (Exception)
-            {
-                Log.LogWriter("???", "Failed to download File");
-            }
-        }
         private void DownloadFileAsync(string URI, string File, string Name)
         {
             DownlaodPanel.Visibility = Visibility.Visible;
             try
             {
                 using WebClient wc = new();
-                DownlaodLabel.Content = Name;
+                DownlaodLabel.Content = Properties.Resources.App_Update_Downlaod + "\nVersion: " + Name;
                 wc.DownloadProgressChanged += DownloadProgressChanged;
                 wc.DownloadFileCompleted += DownloadFileEventCompleted;
                 wc.DownloadFileAsync(new Uri(URI), File);
             }
             catch (Exception)
             {
-                Log.LogWriter("???", "Failed to download File");
+                Log.LogWriter("Downloader", "Failed to download File");
             }
+        }
+
+        private void DownloadFileEventCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            DownlaodLabel.Content = Properties.Resources.App_Update_Abgeschlossen;
+            Process.Start("TheSettlersIVEnhancedEditionSetup.exe", "/verysilent");
+
         }
         private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
@@ -287,7 +274,6 @@ namespace S4EE
         }
         private void ZIPInstallieren(string filename)
         {
-
             using ZipArchive archive = ZipFile.OpenRead(filename + ".zip");
             foreach (ZipArchiveEntry entry in archive.Entries)
             {
@@ -447,5 +433,73 @@ namespace S4EE
             Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
         }
         #endregion
+
+        #region Update
+        public bool CheckUpdate()
+        {
+            GitHubClient client = new(new ProductHeaderValue("s4enhancededition"));
+            Task<IReadOnlyList<Release>> releaseTask;
+            try
+            {
+                releaseTask = client.Repository.Release.GetAll("s4enhancededition", "s4enhancededition");
+                releaseTask.Wait(1000);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            IReadOnlyList<Release> releases = releaseTask.Result;
+            if (releases.Count == 0)
+            {
+                MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            Version version = new("0.0.0.0");
+            Release lrelease = new("");
+            foreach (Release release in releases)
+            {
+                Version lokal = new(release.TagName);
+                if (release.Prerelease)
+                {
+                    if (!App.DebugFlag)
+                    {
+                        break;
+                    }
+                }
+                if (lokal > version)
+                {
+                    version = lokal;
+                    lrelease = release;
+                }
+
+            }
+            if (version > System.Reflection.Assembly.GetExecutingAssembly().GetName().Version)
+            {
+
+                foreach (ReleaseAsset Asset in lrelease.Assets)
+                {
+                    if (Asset.Name == "TheSettlersIVEnhancedEditionSetup.exe")
+                    {
+                        DownloadFileAsync(Asset.BrowserDownloadUrl, "TheSettlersIVEnhancedEditionSetup.exe", lrelease.TagName);
+                    }
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("NOUPDATE", Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+
+            return true;
+
+        }
+
+
+
+        #endregion
+
     }
 }
+
