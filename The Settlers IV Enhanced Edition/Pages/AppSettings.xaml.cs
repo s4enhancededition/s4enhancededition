@@ -350,9 +350,11 @@ namespace S4EE
             App_Misc_FIXES_Title.Content = Properties.Resources.App_Misc_FIXES_Title;
             App_Misc_FIXES_EDITOR.Content = Properties.Resources.App_Misc_FIXES_EDITOR;
             //Sprache der Buttons Festlegen
-            Style style = this.FindResource("Button_Settings_Maps_Folder_" + Properties.Settings.Default.Language) as Style;
-            Button_Maps1.Style = style;
-
+            if (Properties.Settings.Default.Language != "")
+            {
+                Style style = this.FindResource("Button_Settings_Maps_Folder_" + Properties.Settings.Default.Language) as Style;
+                Button_Maps1.Style = style;
+            }
             foreach (Window window in Application.Current.Windows)
             {
                 if (window.GetType() == typeof(AppWindow))

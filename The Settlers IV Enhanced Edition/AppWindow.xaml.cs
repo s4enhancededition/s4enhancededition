@@ -227,10 +227,13 @@ namespace S4EE
                     break;
             }
             //Sprache der Buttons Festlegen
-            Style style = this.FindResource("Button_PLAY_" + Properties.Settings.Default.Language) as Style;
-            Button_PlayClick2.Style = style;
-            style = this.FindResource("Button_Settings_" + Properties.Settings.Default.Language) as Style;
-            Button_Settings2.Style = style;
+            if (Properties.Settings.Default.Language != "")
+            {
+                Style style = this.FindResource("Button_PLAY_" + Properties.Settings.Default.Language) as Style;
+                Button_PlayClick2.Style = style;
+                style = this.FindResource("Button_Settings_" + Properties.Settings.Default.Language) as Style;
+                Button_Settings2.Style = style;
+            }
         }
 
         public static string GetMD5Hash(string filename)
