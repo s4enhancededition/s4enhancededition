@@ -254,34 +254,14 @@ namespace S4EE
             return BitConverter.ToString(Sha256.ComputeHash(stream)).Replace("-", "");
         }
 
-        public bool Installer()
+        public static async Task InstallerAsync()
         {
-            //ToDo Installer
-            return true;
+            await Worker.ZipInstallerAsync(@"Artifacts\Edition_EHE.zip");
+            await Worker.ZipInstallerAsync(@"Artifacts\Edition_HE.zip");
+            await Worker.ZipInstallerAsync(@"Artifacts\Edition_GE.zip");
+
+
         }
-
-        private void ZIPInstallieren(string filename)
-        {
-            using ZipArchive archive = ZipFile.OpenRead(filename + ".zip");
-            foreach (ZipArchiveEntry entry in archive.Entries)
-            {
-                string completeFileName = Path.Combine(App.S4HE_AppPath, entry.FullName);
-                string directory = Path.GetDirectoryName(completeFileName);
-
-                if (!Directory.Exists(directory))
-                {
-                    Directory.CreateDirectory(directory);
-                }
-                try
-                {
-                    entry.ExtractToFile(completeFileName, true);
-                }
-                catch (Exception)
-                {
-                }
-            }
-        }
-
         #endregion
 
         #region Downloader&ZIP
@@ -323,35 +303,28 @@ namespace S4EE
         /// <summary>
         /// Navigation zur Play Page
         /// </summary>
-        private void Button_PlayClick(object sender, RoutedEventArgs e)
+        private async void Button_PlayClick(object sender, RoutedEventArgs e)
         {
             //ToDo GE
             FrameContent.Navigate(AppStart);
             Log.LogWriter(LogName, "Navigate AppStart");
-            if (Installer())
+            await InstallerAsync();
+            switch (Properties.Settings.Default.EditionInstalled)
             {
-                switch (Properties.Settings.Default.EditionInstalled)
-                {
-                    case ("HE"):
-                    case ("EHE"):
-                        {
-                            Log.LogWriter(LogName, "Start S4_Main.exe");
-                            Process.Start(App.S4HE_AppPath + @"\S4_Main.exe");
-                            break;
-                        }
-                    case ("GE"):
-                    case ("EGE"):
-                        {
-                            Log.LogWriter(LogName, "Start S4.exe");
-                            Process.Start(App.S4GE_AppPath + @"\S4.exe");
-                            break;
-                        }
-                }
-            }
-            else
-            {
-                Log.LogWriter(LogName, "Start Error");
-                MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        Log.LogWriter(LogName, "Start S4_Main.exe");
+                        Process.Start(App.S4HE_AppPath + @"\S4_Main.exe");
+                        break;
+                    }
+                case ("GE"):
+                case ("EGE"):
+                    {
+                        Log.LogWriter(LogName, "Start S4.exe");
+                        Process.Start(App.S4GE_AppPath + @"\S4.exe");
+                        break;
+                    }
             }
         }
         /// <summary>

@@ -379,19 +379,6 @@ namespace S4EE
 
         }
 
-        //private void App_Textures_NW_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        //{
-        //    App_Textures_NW_Button.IsChecked = true;
-        //}
-        //private void App_Textures_NW_Button_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    App_Textures_ORG_Button.IsChecked = false;
-        //    Properties.Settings.Default.TexturesNew = "NW";
-        //    SomeThingChange();
-        //    Log.LogWriter("???", "App_Textures_NW_Button_Checked");
-        //}
-
-
         #endregion
         #region App_Misc
         private void App_Misc_SAVE_AUTOSAVE_CheckBox_Checked(object sender, RoutedEventArgs e)
