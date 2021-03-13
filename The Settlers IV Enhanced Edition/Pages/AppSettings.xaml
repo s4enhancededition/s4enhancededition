@@ -403,7 +403,8 @@
                             <CheckBox Name="App_Mod_Zoom_CheckBox"
                                       Margin="24,0,0,0"
                                       VerticalContentAlignment="Center"
-                                      IsChecked="True">
+                                      Checked="App_Mod_Zoom_CheckBox_Check"
+                                      Unchecked="App_Mod_Zoom_CheckBox_Check">
                                 <Label  Content="{x:Static p:Resources.App_Mod_Zoom}"
                                         Name="App_Mod_Zoom"
                                         Foreground="White"
@@ -418,7 +419,8 @@
                             <CheckBox Name="App_Mod_Hotkeys_CheckBox"
                                       Margin="24,0,0,0"
                                       VerticalContentAlignment="Center"
-                                      IsChecked="True">
+                                      Checked="App_Mod_Hotkeys_CheckBox_Check"
+                                      Unchecked="App_Mod_Hotkeys_CheckBox_Check">
                                 <Label  Content="{x:Static p:Resources.App_Mod_Hotkeys}"
                                         Name="App_Mod_Hotkeys"
                                         Foreground="White"
@@ -498,7 +500,8 @@
                             <CheckBox Name="App_Music_S3_CheckBox"
                                       Margin="24,0,0,0"
                                       VerticalContentAlignment="Center"
-                                      IsChecked="True">
+                                      Checked="App_Music_S3_CheckBox_Check"
+                                      Unchecked="App_Music_S3_CheckBox_Check">
                                 <Label  Content="{x:Static p:Resources.App_Music_S3}"
                                         Name="App_Music_S3"
                                         Foreground="White"

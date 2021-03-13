@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="App_Edition" xml:space="preserve">
+    <value>EDITION</value>
+  </data>
   <data name="App_Edition_Classic_Title" xml:space="preserve">
     <value>CLASSIC</value>
   </data>
@@ -141,6 +144,18 @@ and the ENHANCED GOLD EDITION for local multiplayer (LAN).</value>
   </data>
   <data name="App_Edition_Information_Title" xml:space="preserve">
     <value>INFORMATION</value>
+  </data>
+  <data name="App_Install_Deinstalliere" xml:space="preserve">
+    <value>DEINSTALL</value>
+  </data>
+  <data name="App_Install_Deinstalliert" xml:space="preserve">
+    <value>DEINSTALLED</value>
+  </data>
+  <data name="App_Install_Installiere" xml:space="preserve">
+    <value>INSTALL</value>
+  </data>
+  <data name="App_Install_Installiert" xml:space="preserve">
+    <value>INSTALLED</value>
   </data>
   <data name="App_Language_deDE" xml:space="preserve">
     <value>DEUTSCH</value>

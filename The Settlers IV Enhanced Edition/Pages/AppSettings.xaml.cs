@@ -356,6 +356,37 @@ namespace S4EE
             Properties.Settings.Default.Save();
         }
         #endregion
+        #region Mods
+        private void App_Mod_Zoom_CheckBox_Check(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Mod_Zoom = App_Mod_Zoom_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Mod_Hotkeys_CheckBox_Check(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Mod_HotKeys = App_Mod_Hotkeys_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        #endregion
+        #region Music
+        private void App_Music_S3_CheckBox_Check(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Music_S3 = App_Music_S3_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        #endregion
         #region App_Maps
         //KATEN ORDNER ÖFFNEN
         private void Button_Maps(object sender, RoutedEventArgs e)
@@ -443,49 +474,41 @@ namespace S4EE
         {
             if (App.S4HE_AppPath != null)
             {
-                switch (Properties.Settings.Default.EditionInstalled)
+
+                string settings = new(App.S4HE_AppPath + @"Config\Video.cfg");
+                if (File.Exists(settings))
                 {
-                    case ("EGE"):
-                    case ("HE"):
-                        string settings = new(App.S4HE_AppPath + @"Config\Video.cfg");
-                        if (File.Exists(settings))
-                        {
-                            if (App_Misc_VIDEO_CheckBox.IsChecked == true)
-                            {
-                                IniFile s4settings = new(settings);
-                                s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
-                            }
-                            else
-                            {
-                                IniFile s4settings = new(settings);
-                                s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
-                            }
-                        }
-                        break;
+                    if (App_Misc_VIDEO_CheckBox.IsChecked == true)
+                    {
+                        IniFile s4settings = new(settings);
+                        s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
+                    }
+                    else
+                    {
+                        IniFile s4settings = new(settings);
+                        s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
+                    }
                 }
+
             }
             if (App.S4GE_AppPath != null)
             {
-                switch (Properties.Settings.Default.EditionInstalled)
+
+                string settings = new(App.S4GE_AppPath + @"Config\video.cfg");
+                if (File.Exists(settings))
                 {
-                    case ("EGE"):
-                    case ("GE"):
-                        string settings = new(App.S4GE_AppPath + @"Config\video.cfg");
-                        if (File.Exists(settings))
-                        {
-                            if (App_Misc_VIDEO_CheckBox.IsChecked == true)
-                            {
-                                IniFile s4settings = new(settings);
-                                s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
-                            }
-                            else
-                            {
-                                IniFile s4settings = new(settings);
-                                s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
-                            }
-                        }
-                        break;
+                    if (App_Misc_VIDEO_CheckBox.IsChecked == true)
+                    {
+                        IniFile s4settings = new(settings);
+                        s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
+                    }
+                    else
+                    {
+                        IniFile s4settings = new(settings);
+                        s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
+                    }
                 }
+
             }
         }
         #endregion
@@ -619,5 +642,7 @@ namespace S4EE
             };
             Process.Start(startInfo);
         }
+
+
     }
 }

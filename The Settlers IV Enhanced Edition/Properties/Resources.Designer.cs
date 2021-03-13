@@ -61,6 +61,15 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die EDITION ähnelt.
+        /// </summary>
+        public static string App_Edition {
+            get {
+                return ResourceManager.GetString("App_Edition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die CLASSIC ähnelt.
         /// </summary>
         public static string App_Edition_Classic_Title {
@@ -130,6 +139,42 @@ namespace S4EE.Properties {
         public static string App_Edition_Information_Title {
             get {
                 return ResourceManager.GetString("App_Edition_Information_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DEINSTALL ähnelt.
+        /// </summary>
+        public static string App_Install_Deinstalliere {
+            get {
+                return ResourceManager.GetString("App_Install_Deinstalliere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die DEINSTALLED ähnelt.
+        /// </summary>
+        public static string App_Install_Deinstalliert {
+            get {
+                return ResourceManager.GetString("App_Install_Deinstalliert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die INSTALL ähnelt.
+        /// </summary>
+        public static string App_Install_Installiere {
+            get {
+                return ResourceManager.GetString("App_Install_Installiere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die INSTALLED ähnelt.
+        /// </summary>
+        public static string App_Install_Installiert {
+            get {
+                return ResourceManager.GetString("App_Install_Installiert", resourceCulture);
             }
         }
         

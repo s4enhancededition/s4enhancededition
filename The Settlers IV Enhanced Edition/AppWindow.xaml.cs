@@ -71,7 +71,6 @@ namespace S4EE
             // Versionsinfo der Assembly
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             Log.LogWriter(LogName, "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
-
             if (Properties.Settings.Default.Language == "")
             {
                 Log.LogWriter("VersionChange", "Keine Sprache gefunden: Suche nach Standardsprache");
@@ -94,7 +93,7 @@ namespace S4EE
                 }
                 else if (App.S4GE_AppPath != null)
                 {
-                    //ToDo GE
+                    //ToDo GE Sprache
                     string S4GE_Lang = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", null);
                     if (S4GE_Lang != null)
                     {
@@ -115,7 +114,6 @@ namespace S4EE
                     Environment.Exit(1);
                 }
             }
-
             if (Properties.Settings.Default.EditionInstalled == "")
             {
                 Log.LogWriter("VersionChange", "Keine Installation gefunden: Suche nach Installationen");
@@ -135,9 +133,6 @@ namespace S4EE
                     Environment.Exit(1);
                 }
             }
-
-
-
             if (Properties.Settings.Default.TexturesInstalled == "")
             {
                 Log.LogWriter("VersionChange", "Keine Texturen gefunden: Suche nach Texturen");
@@ -176,7 +171,6 @@ namespace S4EE
 
             }
             SpracheFestlegen();
-
         }
         public void SpracheFestlegen()
         {
@@ -210,83 +204,116 @@ namespace S4EE
             using FileStream stream = File.OpenRead(filename);
             return BitConverter.ToString(Sha256.ComputeHash(stream)).Replace("-", "");
         }
-
-        private void InstallprogressLogger(string taskname, int Progress, int maxProgess)
+        private void InstallprogressLogger(string module, string taskname, int Progress, int maxProgess)
         {
-            DownlaodLabel.Content = taskname;
-            ProgressBar.Value = (Progress / maxProgess)*100;
-            LogInfo.Inlines.Add("(" + Progress + @"/" + maxProgess + ") " + taskname + Environment.NewLine);
+            DownlaodLabel.Content = module + ": " + taskname;
+            ProgressBar.Value = (Progress / maxProgess) * 100;
+            LogInfo.Inlines.Add("(" + Progress + @"/" + maxProgess + ") " + module + ": " + taskname + Environment.NewLine);
             LogInfoScroller.ScrollToBottom();
-            Thread.Sleep(1000);
+            Log.LogWriter(LogName, "(" + Progress + @"/" + maxProgess + ") " + module + ": " + taskname);
         }
         async Task InstallerAsync()
         {
-            //ToDo
-            int maxProgess = 10;
+            string Installieren = Properties.Resources.App_Install_Installiere;
+            string Deinstallieren = Properties.Resources.App_Install_Deinstalliere;
+            string Installiert = Properties.Resources.App_Install_Installiert;
+            string Deinstalliert = Properties.Resources.App_Install_Deinstalliert;
+            //ToDo Festlegen
+            int maxProgess = 8;
+            LogInfo.Inlines.Clear();
             DownlaodPanel.Visibility = Visibility.Visible;
-            DownlaodLabel.Content = "Installiere";
-            Log.LogWriter(LogName, "Installiere");
 
-            InstallprogressLogger("Installiere: " + Properties.Settings.Default.EditionInstalled, 1, maxProgess);
+            //ToDo IngameLangSet
+
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("EHE"):
                     {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Edition_EHE, 1, maxProgess);
                         await Worker.ZipInstallerAsync(@"Artifacts\Edition_EHE.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Edition_EHE, 2, maxProgess);
                         break;
                     }
                 case ("HE"):
                     {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Edition_HE, 1, maxProgess);
                         await Worker.ZipInstallerAsync(@"Artifacts\Edition_HE.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Edition_HE, 2, maxProgess);
+
                         break;
                     }
                 case ("EGE"):
                     {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Edition_EGE, 1, maxProgess);
                         await Worker.ZipInstallerAsync(@"Artifacts\Edition_EGE.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Edition_EGE, 2, maxProgess);
+
                         break;
                     }
                 case ("GE"):
                     {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Edition_GE, 1, maxProgess);
                         await Worker.ZipInstallerAsync(@"Artifacts\Edition_GE.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Edition_GE, 2, maxProgess);
                         break;
                     }
             }
-            InstallprogressLogger("Installiert: " + Properties.Settings.Default.EditionInstalled, 2, maxProgess);
-
-            InstallprogressLogger("Installiere: " + Properties.Settings.Default.TexturesInstalled, 3, maxProgess);
             switch (Properties.Settings.Default.TexturesInstalled)
             {
                 case ("ORG"):
                     {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Textures_ORG, 3, maxProgess);
+
                         await Worker.ZipInstallerAsync(@"Artifacts\Textures_OldWorld.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Textures_ORG, 4, maxProgess);
                         break;
                     }
                 case ("NW"):
                     {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Textures_NW, 3, maxProgess);
                         await Worker.ZipInstallerAsync(@"Artifacts\Textures_NewWorld.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Textures_NW, 4, maxProgess);
                         break;
                     }
             }
-            InstallprogressLogger("Installiert: " + Properties.Settings.Default.TexturesInstalled, 3, maxProgess);
-            InstallprogressLogger("Installiere: " + Properties.Settings.Default.TexturesInstalled, 3, maxProgess);
-            switch (Properties.Settings.Default.TexturesInstalled)
+            switch (Properties.Settings.Default.Mod_Zoom)
             {
-                case ("ORG"):
+                case ("1"):
                     {
-                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_OldWorld.zip");
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Mod_Zoom, 5, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\Mod_Zoom.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Mod_Zoom, 6, maxProgess);
                         break;
                     }
-                case ("NW"):
+                default:
+                case ("0"):
                     {
-                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_NewWorld.zip");
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Mod_Zoom, 5, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\Mod_Zoom_Deinstallieren.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Mod_Zoom, 6, maxProgess);
                         break;
                     }
             }
-            InstallprogressLogger("Installiert: " + Properties.Settings.Default.TexturesInstalled, 3, maxProgess);
 
-
-
-            InstallprogressLogger("Installationen Abgeschlossen", maxProgess, maxProgess);
+            switch (Properties.Settings.Default.Mod_HotKeys)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Mod_Hotkeys, 7, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\Mod_HotKey.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Mod_Hotkeys, 8, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Mod_Hotkeys, 7, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\Mod_Hotkey_Deinstallieren.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Mod_Hotkeys, 8, maxProgess);
+                        break;
+                    }
+            }
+            DownlaodPanel.Visibility = Visibility.Hidden;
         }
         #endregion
         #region Downloader&ZIP
@@ -332,25 +359,29 @@ namespace S4EE
             FrameContent.Navigate(AppStart);
             Log.LogWriter(LogName, "Navigate AppStart");
             await InstallerAsync();
-            if (!App.DebugFlag)
+            switch (Properties.Settings.Default.EditionInstalled)
             {
-                switch (Properties.Settings.Default.EditionInstalled)
-                {
-                    case ("HE"):
-                    case ("EHE"):
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        Log.LogWriter(LogName, "Start S4_Main.exe");
+                        Process.Start(App.S4HE_AppPath + @"\S4_Main.exe");
+                        break;
+                    }
+                case ("GE"):
+                case ("EGE"):
+                    {
+                        var startInfo = new ProcessStartInfo
                         {
-                            Log.LogWriter(LogName, "Start S4_Main.exe");
-                            Process.Start(App.S4HE_AppPath + @"\S4_Main.exe");
-                            break;
-                        }
-                    case ("GE"):
-                    case ("EGE"):
-                        {
-                            Log.LogWriter(LogName, "Start S4.exe");
-                            Process.Start(App.S4GE_AppPath + @"\S4.exe");
-                            break;
-                        }
-                }
+                            WorkingDirectory = App.S4GE_AppPath,
+                            FileName = @"cmd.exe",
+                            Arguments = "/C mklink /d \"Exe\\Plugins\" \"..\\plugins\""
+                        };
+                        Process.Start(startInfo);
+                        Log.LogWriter(LogName, "Start S4.exe");
+                        Process.Start(App.S4GE_AppPath + @"\S4.exe");
+                        break;
+                    }
             }
         }
         /// <summary>
