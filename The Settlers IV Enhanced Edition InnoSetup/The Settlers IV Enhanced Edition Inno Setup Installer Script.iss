@@ -3,7 +3,7 @@
 
 #define MyAppName "The Settlers IV Enhanced Edition"
 #define MyAppGroup "The Settlers IV"
-#define MyAppVersion "1.0.0.1042"
+#define MyAppVersion "1.0.0.1046"
 #define MyAppPublisher "Ortner MEDIA"
 #define MyAppURL "https://www.zocker-lounge.com/s4-enhanced-edition"
 
