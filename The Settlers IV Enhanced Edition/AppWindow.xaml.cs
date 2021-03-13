@@ -336,7 +336,7 @@ namespace S4EE
                     }
             }
             //ToDo InstallerAsync Music
-            Thread.Sleep(5000);
+
             DownlaodPanel.Visibility = Visibility.Hidden;
         }
         #endregion
