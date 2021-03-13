@@ -215,8 +215,8 @@ namespace S4EE
             string Deinstallieren = Properties.Resources.App_Install_Deinstalliere;
             string Installiert = Properties.Resources.App_Install_Installiert;
             string Deinstalliert = Properties.Resources.App_Install_Deinstalliert;
-            //ToDo InstallerAsync maxProgess
-            int maxProgess = 8;
+            //ToDo RC03/RTM: InstallerAsync maxProgess
+            int maxProgess = 10;
             LogInfo.Inlines.Clear();
             DownlaodPanel.Visibility = Visibility.Visible;
 
@@ -335,9 +335,73 @@ namespace S4EE
                         break;
                     }
             }
-            //ToDo InstallerAsync Music
+
+            switch (Properties.Settings.Default.Music_S3)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Music_S3, 9, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\Music_S3.zip");
+                        CopyS3();
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Music_S3, 10, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Music_S3, 9, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\Music_S3_Deinstallieren.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Music_S3, 10, maxProgess);
+                        break;
+                    }
+                    {
+
+                    }
+            }
+
+            //ToDo RC03: InstallerAsync Maps
 
             DownlaodPanel.Visibility = Visibility.Hidden;
+        }
+        private static void CopyS3()
+        {
+            DirectoryInfo dir = new(App.S3HE_AppPath + @"\Theme");
+
+            if (!dir.Exists)
+            {
+                return;
+            }
+
+            //_ = dir.GetDirectories();
+            FileInfo[] files = dir.GetFiles();
+
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("HE"):
+                case ("EHE"):
+                    // If the destination directory doesn't exist, create it.       
+                    Directory.CreateDirectory(App.S4HE_AppPath + @"\Snd\S3\");
+
+                    // Get the files in the directory and copy them to the new location.
+                    foreach (FileInfo file in files)
+                    {
+                        string tempPath = Path.Combine(App.S4HE_AppPath + @"\Snd\S3\", file.Name);
+                        file.CopyTo(tempPath, false);
+                    }
+                    break;
+                case ("GE"):
+                case ("EGE"):
+                    // If the destination directory doesn't exist, create it.       
+                    Directory.CreateDirectory(App.S4HE_AppPath + @"\Snd\S3\");
+
+                    // Get the files in the directory and copy them to the new location.
+                    foreach (FileInfo file in files)
+                    {
+                        string tempPath = Path.Combine(App.S4GE_AppPath + @"\Snd\S3\", file.Name);
+                        file.CopyTo(tempPath, false);
+                    }
+                    break;
+            }
         }
         #endregion
         #region Downloader&ZIP
@@ -460,7 +524,7 @@ namespace S4EE
         {
             if (!Properties.Settings.Default.EditorInstalled)
             {
-                //ToDo Installer
+                //ToDo RC03: Editor
                 switch (Properties.Settings.Default.Language)
                 {
                     default:

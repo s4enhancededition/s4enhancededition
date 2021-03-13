@@ -35,7 +35,7 @@ namespace S4EE
                 // SilentUninstall für Rollback auf Standardeinstellungen bei Deinstallation durch Setup
                 if (e.Args[i] == "/SilentUninstall")
                 {
-                    //ToDo: "SilentUninstall-Implementation für Rollback auf Standardeinstellungen bei Deinstallation durch Setup"
+                    //ToDo RC03: "SilentUninstall-Implementation für Rollback auf Standardeinstellungen bei Deinstallation durch Setup"
                     Log.LogWriter(LogName, "SilentUninstall");
 
                     MessageBox.Show("Keine Implementierung Vorhanden", "Keine Implementierung Vorhanden - Bitte Neuinstallieren aller Siedler IV Installatione", MessageBoxButton.OK, MessageBoxImage.Information);

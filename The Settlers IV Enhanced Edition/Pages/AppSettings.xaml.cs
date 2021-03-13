@@ -124,7 +124,7 @@ namespace S4EE
                 _ => false,
             };
 
-            //ToDo WC2021
+            //ToDo RTM: WC2021
             App_Maps_T02_CheckBox.IsEnabled = false; //REMOVEME
             App_Maps_T02_CheckBox.IsChecked = Properties.Settings.Default.Map_T02 switch
             {
@@ -182,11 +182,12 @@ namespace S4EE
                 App_Misc_SAVE_AUTOSAVE_CheckBox.IsEnabled = false;
             }
 
-            //ToDo SAVEMANGER
+            //ToDo RC03: SAVEMANGER
+
             App_Misc_SAVE_SAVECLEANER_CheckBox.IsChecked = false;
             App_Misc_SAVE_SAVECLEANER_CheckBox.IsEnabled = false;
 
-            //ToDO VIDEOS (für jede Edition gleich machen)
+            //ToDo RC03: VIDEOS (für jede Edition gleich machen)
             if (App.S4HE_AppPath != null)
             {
                 switch (Properties.Settings.Default.EditionInstalled)
@@ -232,6 +233,22 @@ namespace S4EE
                     }
                 }
             }
+            //ToDo RC03: Maps, Misc\SAVE, SAVE\GAME, SAVE\Editor
+            App_Maps_S01_CheckBox.IsEnabled = false;
+            App_Maps_T01_CheckBox.IsEnabled = false;
+            App_Maps_T02_CheckBox.IsEnabled = false;
+            App_Maps_C01_CheckBox.IsEnabled = false;
+            App_Maps_B01_CheckBox.IsEnabled = false;
+            App_Maps_M01_CheckBox.IsEnabled = false;
+            App_Maps_TR01_CheckBox.IsEnabled = false;
+            App_Misc_SAVE_AUTOSAVE_CheckBox.IsEnabled = false;
+            App_Misc_SAVE_SAVECLEANER_CheckBox.IsEnabled = false;
+            App_Misc_VIDEO_CheckBox.IsEnabled = false;
+            App_Misc_MISSIONS_CheckBox.IsEnabled = false;
+            App_Misc_MINE_CheckBox.IsEnabled = false;
+            App_Misc_LEGACYCONTROLS_CheckBox.IsEnabled = false;
+            App_Misc_FIXES_EDITOR_CheckBox.IsEnabled = false;
+
         }
         #region App_Edition
         private void App_Edition_EHE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -610,7 +627,7 @@ namespace S4EE
         #endregion
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
-            //ToDO
+            //ToDo RC03: Missions
             //Spielstände
             IniFile s4settings = new(App.S4HE_AppPath + @"Config\GAMESETTINGS.cfg");
             //MessageBoxResult resultsettings = MessageBox.Show(Properties.Resources.MSB_Missionen_Text, Properties.Resources.MSB_Missionen, MessageBoxButton.YesNo, MessageBoxImage.Question);
