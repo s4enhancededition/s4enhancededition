@@ -116,11 +116,13 @@ namespace S4EE
                 if (App.S4HE_AppPath != null)
                 {
                     Properties.Settings.Default.EditionInstalled = "EHE";
+                    AppSettings.App_Edition_EHE_Button.IsChecked = true;
                     Properties.Settings.Default.Save();
                 }
                 else if (App.S4GE_AppPath != null)
                 {
                     Properties.Settings.Default.EditionInstalled = "EGE";
+                    AppSettings.App_Edition_EGE_Button.IsChecked = true;
                     Properties.Settings.Default.Save();
                 }
                 else

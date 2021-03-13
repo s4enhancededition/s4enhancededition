@@ -125,7 +125,7 @@ namespace S4EE
             };
 
             //ToDo RTM: WC2021
-            App_Maps_T02_CheckBox.IsEnabled = false; //REMOVEME
+            App_Maps_T02_CheckBox.IsEnabled = false; //REMOVEME && AddFiles
             App_Maps_T02_CheckBox.IsChecked = Properties.Settings.Default.Map_T02 switch
             {
                 ("1") => true,
