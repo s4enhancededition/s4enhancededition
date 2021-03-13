@@ -129,20 +129,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  
+
   <PropertyGroup>
     <SdkToolsPathMaybeWithx64Architecture>$(TargetFrameworkSDKToolsDirectory)</SdkToolsPathMaybeWithx64Architecture>
-    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <Target Name="FixAL1703Warning" BeforeTargets="GenerateSatelliteAssemblies" Condition="'$(PlatformTarget)' == 'x64'">
     <Message Text="Adjusting SDK tools directory to use x64 version of AL.EXE" />
     <PropertyGroup>
       <TargetFrameworkSDKToolsDirectory>$(TargetFrameworkSDKToolsDirectory)$(PlatformTarget)\</TargetFrameworkSDKToolsDirectory>
     </PropertyGroup>
-  </Target>
-  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="del $(ProjectDir)$(OutDir)Artifacts &#xD;&#xA;robocopy $(SolutionDir)\The Settlers IV Enhanced Edition Artifacts $(ProjectDir)$(OutDir)Artifacts" />
   </Target>
 
 </Project>
