@@ -73,36 +73,12 @@ namespace S4EE.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string EditionNew {
-            get {
-                return ((string)(this["EditionNew"]));
-            }
-            set {
-                this["EditionNew"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string TexturesInstalled {
             get {
                 return ((string)(this["TexturesInstalled"]));
             }
             set {
                 this["TexturesInstalled"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string TexturesNew {
-            get {
-                return ((string)(this["TexturesNew"]));
-            }
-            set {
-                this["TexturesNew"] = value;
             }
         }
         

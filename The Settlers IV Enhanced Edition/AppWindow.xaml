@@ -486,22 +486,31 @@
             <StackPanel.Background>
                 <ImageBrush ImageSource="/Resources/AppSettingsBackground.png" />
             </StackPanel.Background>
-            <StackPanel VerticalAlignment="Center" Margin="0,220,0,0">
-            <Label  x:Name="DownlaodLabel"
-                    Content="DOWNLOAD"
-                    HorizontalAlignment="Center"
-                    FontSize="28"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    Margin="10,10,10,0"
-                    VerticalAlignment="Center"
-                    HorizontalContentAlignment="Center"/>
-            <ProgressBar x:Name="ProgressBar"
-                         Margin="10"
-                         Height="60"
-                         Value="0" 
-                         FontSize="28"/>
+            <StackPanel VerticalAlignment="Center"
+                        Margin="0,220,0,0">
+                <Label  x:Name="DownlaodLabel"
+                        Content="DOWNLOAD"
+                        HorizontalAlignment="Center"
+                        FontSize="28"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Margin="10,10,10,0"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center" />
+                <ProgressBar x:Name="ProgressBar"
+                             Margin="10"
+                             Height="60"
+                             Value="0"
+                             FontSize="28" />
             </StackPanel>
+            <ScrollViewer  x:Name="LogInfoScroller"
+                           Margin="20"
+                           Height="250"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           VerticalScrollBarVisibility="Hidden">
+                <TextBlock  x:Name="LogInfo"></TextBlock>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 </Window>

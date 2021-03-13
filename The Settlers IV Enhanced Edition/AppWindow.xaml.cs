@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
 using System.Net;
 using System.Security.Cryptography;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,6 +33,7 @@ namespace S4EE
         public AppWindow()
         {
             InitializeComponent();
+            //INIT
             Log.LogWriter(LogName, "InitializeComponent");
             AppStart = new AppStart();
             Log.LogWriter(LogName, "AppStart");
@@ -40,27 +41,20 @@ namespace S4EE
             Log.LogWriter(LogName, "AppWebView");
             AppSettings = new AppSettings();
             Log.LogWriter(LogName, "AppSettings");
-
-            //ToDo
-            VersionChange(true);
-
+            //NAV
             FrameContent.Navigate(AppStart);
             Log.LogWriter(LogName, "AppStart");
-
-
-
-            // Versionsinfo der Assembly
-            Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            Log.LogWriter(LogName, "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
-
+            //CHECKS
+            Installationscheck();
+            Log.LogWriter(LogName, "Installationscheck");
             CleanUp();
             Log.LogWriter(LogName, "CleanUp");
             CheckUpdate();
             Log.LogWriter(LogName, "CheckUpdate");
 
+
         }
         #region Updater
-        //ToDo Rework
         private static void CleanUp()
         {
             if (File.Exists("TheSettlersIVEnhancedEditionSetup.exe"))
@@ -71,10 +65,12 @@ namespace S4EE
             Log.LogWriter(LogName, "No CleanUp");
 
         }
-
-        public void VersionChange(bool load = false)
+        public void Installationscheck()
         {
             Title = Properties.Resources.App_Name;
+            // Versionsinfo der Assembly
+            Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            Log.LogWriter(LogName, "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
             if (Properties.Settings.Default.Language == "")
             {
@@ -125,16 +121,12 @@ namespace S4EE
                 Log.LogWriter("VersionChange", "Keine Installation gefunden: Suche nach Installationen");
                 if (App.S4HE_AppPath != null)
                 {
-                    Properties.Settings.Default.EditionNew = "EHE";
-                    Log.LogWriter("VersionChange", "Editionsinstallation in Warteschlange " + Properties.Settings.Default.EditionNew);
-                    load = false;
+                    Properties.Settings.Default.EditionInstalled = "EHE";
                     Properties.Settings.Default.Save();
                 }
                 else if (App.S4GE_AppPath != null)
                 {
-                    Properties.Settings.Default.EditionNew = "EGE";
-                    Log.LogWriter("VersionChange", "Editionsinstallation in Warteschlange " + Properties.Settings.Default.EditionNew);
-                    load = false;
+                    Properties.Settings.Default.EditionInstalled = "EGE";
                     Properties.Settings.Default.Save();
                 }
                 else
@@ -144,14 +136,7 @@ namespace S4EE
                 }
             }
 
-            if (Properties.Settings.Default.EditionNew != "" && !load)
-            {
-                //ToDo Install Code
-                Properties.Settings.Default.EditionInstalled = Properties.Settings.Default.EditionNew;
-                Properties.Settings.Default.EditionNew = "";
-                Properties.Settings.Default.Save();
-                Log.LogWriter("VersionChange", "Neue Edition installiert " + Properties.Settings.Default.EditionInstalled);
-            }
+
 
             if (Properties.Settings.Default.TexturesInstalled == "")
             {
@@ -170,7 +155,6 @@ namespace S4EE
                     }
                     Properties.Settings.Default.Save();
                     Log.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
-                    load = false;
                 }
                 else if (App.S4GE_AppPath != null && (Properties.Settings.Default.EditionInstalled == "GE" || Properties.Settings.Default.EditionInstalled == "EHE"))
                 {
@@ -184,7 +168,6 @@ namespace S4EE
                     }
                     Properties.Settings.Default.Save();
                     Log.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
-                    load = false;
                 }
                 else
                 {
@@ -192,33 +175,8 @@ namespace S4EE
                 }
 
             }
-            if (Properties.Settings.Default.TexturesNew != "" && !load)
-            {
-                //ToDo Install Code
-                Properties.Settings.Default.TexturesInstalled = Properties.Settings.Default.TexturesNew;
-                Properties.Settings.Default.TexturesNew = "";
-                Properties.Settings.Default.Save();
-                Log.LogWriter("VersionChange", "Neue Texturen installiert " + Properties.Settings.Default.TexturesInstalled);
-            }
-            switch (Properties.Settings.Default.EditionInstalled)
-            {
-                case ("EHE"):
-                    Logo.Source = new BitmapImage(new Uri((@"/Resources/Logo_Enhanced_History_Edition_" + Properties.Settings.Default.Language + @"_200px.png"), UriKind.RelativeOrAbsolute));
-                    break;
-                case ("EGE"):
-                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Enhanced_Gold_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
-                    break;
-                case ("HE"):
-                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_History_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
-                    break;
-                case ("GE"):
-                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Gold_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
-                    break;
-            }
-            if (AppSettings != null)
-            {
-                AppSettings.Load(true);
-            }
+            SpracheFestlegen();
+
         }
         public void SpracheFestlegen()
         {
@@ -247,17 +205,30 @@ namespace S4EE
                 Button_Settings2.Style = style;
             }
         }
-
         public static string GetMD5Hash(string filename)
         {
             using FileStream stream = File.OpenRead(filename);
             return BitConverter.ToString(Sha256.ComputeHash(stream)).Replace("-", "");
         }
 
+        private void InstallprogressLogger(string taskname, int Progress, int maxProgess)
+        {
+            DownlaodLabel.Content = taskname;
+            ProgressBar.Value = (Progress / maxProgess)*100;
+            LogInfo.Inlines.Add("(" + Progress + @"/" + maxProgess + ") " + taskname + Environment.NewLine);
+            LogInfoScroller.ScrollToBottom();
+            Thread.Sleep(1000);
+        }
         async Task InstallerAsync()
         {
+            int maxProgess = 10;
+            DownlaodPanel.Visibility = Visibility.Visible;
+            DownlaodLabel.Content = "Installiere";
+            Log.LogWriter(LogName, "Installiere");
+
+            InstallprogressLogger("Installiere: " + Properties.Settings.Default.EditionInstalled, 1, maxProgess);
             switch (Properties.Settings.Default.EditionInstalled)
-            {   
+            {
                 case ("EHE"):
                     {
                         await Worker.ZipInstallerAsync(@"Artifacts\Edition_EHE.zip");
@@ -277,10 +248,11 @@ namespace S4EE
                     {
                         await Worker.ZipInstallerAsync(@"Artifacts\Edition_GE.zip");
                         break;
-                    }           
+                    }
             }
-            ProgressBar.Value = 50;
+            InstallprogressLogger("Installiert: " + Properties.Settings.Default.EditionInstalled, 2, maxProgess);
 
+            InstallprogressLogger("Installiere: " + Properties.Settings.Default.TexturesInstalled, 3, maxProgess);
             switch (Properties.Settings.Default.TexturesInstalled)
             {
                 case ("ORG"):
@@ -294,12 +266,11 @@ namespace S4EE
                         break;
                     }
             }
+            InstallprogressLogger("Installiert: " + Properties.Settings.Default.TexturesInstalled, 3, maxProgess);
 
-            ProgressBar.Value = 55;
-
+            InstallprogressLogger("Installationen Abgeschlossen", maxProgess, maxProgess);
         }
         #endregion
-
         #region Downloader&ZIP
         private void DownloadFileAsync(string URI, string File, string Name)
         {
@@ -334,33 +305,34 @@ namespace S4EE
             ProgressBar.Value = e.ProgressPercentage;
         }
         #endregion
-
         #region Buttons
         /// <summary>
         /// Navigation zur Play Page
         /// </summary>
         private async void Button_PlayClick(object sender, RoutedEventArgs e)
         {
-            //ToDo GE
             FrameContent.Navigate(AppStart);
             Log.LogWriter(LogName, "Navigate AppStart");
             await InstallerAsync();
-            switch (Properties.Settings.Default.EditionInstalled)
+            if (!App.DebugFlag)
             {
-                case ("HE"):
-                case ("EHE"):
-                    {
-                        Log.LogWriter(LogName, "Start S4_Main.exe");
-                        Process.Start(App.S4HE_AppPath + @"\S4_Main.exe");
-                        break;
-                    }
-                case ("GE"):
-                case ("EGE"):
-                    {
-                        Log.LogWriter(LogName, "Start S4.exe");
-                        Process.Start(App.S4GE_AppPath + @"\S4.exe");
-                        break;
-                    }
+                switch (Properties.Settings.Default.EditionInstalled)
+                {
+                    case ("HE"):
+                    case ("EHE"):
+                        {
+                            Log.LogWriter(LogName, "Start S4_Main.exe");
+                            Process.Start(App.S4HE_AppPath + @"\S4_Main.exe");
+                            break;
+                        }
+                    case ("GE"):
+                    case ("EGE"):
+                        {
+                            Log.LogWriter(LogName, "Start S4.exe");
+                            Process.Start(App.S4GE_AppPath + @"\S4.exe");
+                            break;
+                        }
+                }
             }
         }
         /// <summary>
@@ -415,6 +387,7 @@ namespace S4EE
         {
             if (!Properties.Settings.Default.EditorInstalled)
             {
+                //ToDo Installer
                 switch (Properties.Settings.Default.Language)
                 {
                     default:

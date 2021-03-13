@@ -37,6 +37,7 @@ namespace S4EE
                 {
                     //ToDo: "SilentUninstall-Implementation für Rollback auf Standardeinstellungen bei Deinstallation durch Setup"
                     Log.LogWriter(LogName, "SilentUninstall");
+
                     MessageBox.Show("NotImplement", "NotImplement", MessageBoxButton.OK, MessageBoxImage.Information);
                     Environment.Exit(0);
                     return;

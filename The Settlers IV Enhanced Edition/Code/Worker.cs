@@ -10,19 +10,8 @@ namespace S4EE
     class Worker
     {
         private static readonly string LogName = "Worker.cs";
-
         public static async Task ZipInstallerAsync(string zipFilePath)
         {
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window.GetType() == typeof(AppWindow))
-                {
-                    (window as AppWindow).DownlaodPanel.Visibility = Visibility.Visible;
-                    (window as AppWindow).DownlaodLabel.Content = "Installiere";
-                    Thread.Sleep(100);
-                }
-            }
-
             string InstallPath = "";
             switch (Properties.Settings.Default.EditionInstalled)
             {
@@ -48,58 +37,45 @@ namespace S4EE
                 return;
             }
 
-            using (ZipArchive archive = await Task.Run(() => ZipFile.OpenRead(zipFilePath)))
+            using ZipArchive archive = await Task.Run(() => ZipFile.OpenRead(zipFilePath));
+            foreach (ZipArchiveEntry entry in archive.Entries)
             {
-                foreach (ZipArchiveEntry entry in archive.Entries)
+                string completeFileName = Path.Combine(InstallPath, entry.FullName);
+                string directory = Path.GetDirectoryName(completeFileName);
+
+                if (!Directory.Exists(directory))
                 {
-                    string completeFileName = Path.Combine(InstallPath, entry.FullName);
-                    string directory = Path.GetDirectoryName(completeFileName);
-
-                    if (!Directory.Exists(directory))
+                    Directory.CreateDirectory(directory);
+                }
+                try
+                {
+                    if (entry.FullName.EndsWith(@"Uninstall.txt", StringComparison.OrdinalIgnoreCase))
                     {
-                        Directory.CreateDirectory(directory);
-                    }
-                    try
-                    {
-                        if (entry.FullName.EndsWith(@"Uninstall.txt", StringComparison.OrdinalIgnoreCase))
+                        string line;
+                        using StreamReader file = new(entry.Open());
+                        while ((line = file.ReadLine()) != null)
                         {
-                            string line;
-                            using StreamReader file = new(entry.Open());
-                            while ((line = file.ReadLine()) != null)
+                            System.Console.WriteLine(line);
+                            if (line.EndsWith(@"\"))
                             {
-                                System.Console.WriteLine(line);
-                                if(line.EndsWith(@"\"))
+                                if (Directory.Exists(InstallPath + line[..^1]))
                                 {
-                                    if (Directory.Exists(InstallPath+ line[..^1]))
-                                    {
-                                        Directory.Delete(InstallPath +line[..^1], true);
-                                    }
+                                    Directory.Delete(InstallPath + line[..^1], true);
                                 }
-                                Log.LogWriter(LogName, "Delete File" + InstallPath + line);
-
                             }
-                            await Task.Run(() => entry.ExtractToFile(completeFileName, true));
+                            Log.LogWriter(LogName, "Delete File" + InstallPath + line);
+
                         }
-                        if (!entry.FullName.EndsWith(@"/", StringComparison.OrdinalIgnoreCase))
-                        {
-                            await Task.Run(() => entry.ExtractToFile(completeFileName, true));
-                        }
+                        await Task.Run(() => entry.ExtractToFile(completeFileName, true));
                     }
-                    catch (Exception)
+                    if (!entry.FullName.EndsWith(@"/", StringComparison.OrdinalIgnoreCase))
                     {
-                        Log.LogWriter(LogName, "Fehler beim Installieren der Datei " + completeFileName);
+                        await Task.Run(() => entry.ExtractToFile(completeFileName, true));
                     }
                 }
-            }
-
-
-            foreach (Window window in Application.Current.Windows)
-            {
-                if (window.GetType() == typeof(AppWindow))
+                catch (Exception)
                 {
-                    (window as AppWindow).DownlaodLabel.Content = "Abgeschlossen";
-                    Thread.Sleep(100);
-                    (window as AppWindow).DownlaodPanel.Visibility = Visibility.Hidden;
+                    Log.LogWriter(LogName, "Fehler beim Installieren der Datei " + completeFileName);
                 }
             }
         }
