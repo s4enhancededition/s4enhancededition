@@ -385,7 +385,7 @@ namespace S4EE
                     foreach (FileInfo file in files)
                     {
                         string tempPath = Path.Combine(App.S4HE_AppPath + @"\Snd\S3\", file.Name);
-                        file.CopyTo(tempPath, false);
+                        file.CopyTo(tempPath, true);
                     }
                     break;
                 case ("GE"):
@@ -397,7 +397,7 @@ namespace S4EE
                     foreach (FileInfo file in files)
                     {
                         string tempPath = Path.Combine(App.S4GE_AppPath + @"\Snd\S3\", file.Name);
-                        file.CopyTo(tempPath, false);
+                        file.CopyTo(tempPath, true);
                     }
                     break;
             }
