@@ -7,9 +7,9 @@
     <RootNamespace>S4EE</RootNamespace>
     <UseWPF>true</UseWPF>
     <StartupObject>S4EE.App</StartupObject>
-    <AssemblyVersion>1.0.0.1043</AssemblyVersion>
-    <FileVersion>1.0.1043</FileVersion>
-    <Version>1.0.0.1043</Version>
+    <AssemblyVersion>1.0.0.1045</AssemblyVersion>
+    <FileVersion>1.0.1045</FileVersion>
+    <Version>1.0.0.1045</Version>
     <Copyright>© 2019-2021 Ortner MEDIA</Copyright>
     <Company>Ortner MEDIA</Company>
     <ApplicationIcon>Resources\S4EE_ICON.ico</ApplicationIcon>
@@ -132,6 +132,7 @@
   
   <PropertyGroup>
     <SdkToolsPathMaybeWithx64Architecture>$(TargetFrameworkSDKToolsDirectory)</SdkToolsPathMaybeWithx64Architecture>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <Target Name="FixAL1703Warning" BeforeTargets="GenerateSatelliteAssemblies" Condition="'$(PlatformTarget)' == 'x64'">
     <Message Text="Adjusting SDK tools directory to use x64 version of AL.EXE" />
@@ -140,5 +141,8 @@
     </PropertyGroup>
   </Target>
   <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="robocopy &quot;$(SolutionDir)\The Settlers IV Enhanced Edition Artifacts&quot;  &quot;$(ProjectDir)$(OutDir)Artifacts&quot; /E" />
+  </Target>
 
 </Project>

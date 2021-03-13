@@ -427,9 +427,9 @@ namespace S4EE
         {
             App_Language_deDE_Button.IsChecked = false;
             Properties.Settings.Default.Language = "en-US";
-            Log.LogWriter("???", "App_Language_enUS_Button_Checked");
+            Log.LogWriter(LogName, "App_Language_enUS_Button_Checked");
             LangChange();
-            Log.LogWriter("???", "App_Language_enUS_Button_Checked_FIN");
+            Log.LogWriter(LogName, "App_Language_enUS_Button_Checked_FIN");
 
         }
 
@@ -441,9 +441,9 @@ namespace S4EE
         {
             App_Language_enUS_Button.IsChecked = false;
             Properties.Settings.Default.Language = "de-DE";
-            Log.LogWriter("???", "App_Language_deDE_Button_Checked");
+            Log.LogWriter(LogName, "App_Language_deDE_Button_Checked");
             LangChange();
-            Log.LogWriter("???", "App_Language_deDE_Button_Checked_FIN");
+            Log.LogWriter(LogName, "App_Language_deDE_Button_Checked_FIN");
 
         }
 
@@ -469,7 +469,6 @@ namespace S4EE
                 }
             }
         }
-
         private void App_Misc_VIDEO_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             if (App.S4HE_AppPath != null)

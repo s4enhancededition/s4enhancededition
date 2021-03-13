@@ -15,7 +15,6 @@ using System.Windows.Media.Imaging;
 
 namespace S4EE
 {
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -26,7 +25,6 @@ namespace S4EE
         readonly AppSettings AppSettings;
         private static readonly SHA256 Sha256 = SHA256.Create();
         private static readonly string LogName = "App.xaml.cs";
-
         /// <summary>
         /// Startmethode der Anwendung
         /// </summary>
@@ -93,7 +91,6 @@ namespace S4EE
                 }
                 else if (App.S4GE_AppPath != null)
                 {
-                    //ToDo GE Sprache
                     string S4GE_Lang = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", null);
                     if (S4GE_Lang != null)
                     {
@@ -218,12 +215,37 @@ namespace S4EE
             string Deinstallieren = Properties.Resources.App_Install_Deinstalliere;
             string Installiert = Properties.Resources.App_Install_Installiert;
             string Deinstalliert = Properties.Resources.App_Install_Deinstalliert;
-            //ToDo Festlegen
+            //ToDo InstallerAsync maxProgess
             int maxProgess = 8;
             LogInfo.Inlines.Clear();
             DownlaodPanel.Visibility = Visibility.Visible;
 
-            //ToDo IngameLangSet
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("HE"):
+                case ("EHE"):
+                    string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
+                    if (File.Exists(settings))
+                    {
+                        IniFile s4settings = new(settings);
+                        switch (Properties.Settings.Default.Language)
+                        {
+                            case ("de-DE"):
+                                s4settings.Write("Language", "1", "GAMESETTINGS");
+                                break;
+                            default:
+                            case ("en-US"):
+                                if (s4settings.Read("Language", "GAMESETTINGS") == "1")
+                                {
+                                    s4settings.Write("Language", "0", "GAMESETTINGS");
+                                }
+                                break;
+                        }
+                        AppSettings.LangSet();
+                        Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
+                    }
+                    break;
+            }
 
             switch (Properties.Settings.Default.EditionInstalled)
             {
@@ -313,6 +335,8 @@ namespace S4EE
                         break;
                     }
             }
+            //ToDo InstallerAsync Music
+            Thread.Sleep(5000);
             DownlaodPanel.Visibility = Visibility.Hidden;
         }
         #endregion
