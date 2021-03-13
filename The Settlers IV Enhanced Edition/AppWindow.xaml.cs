@@ -254,12 +254,48 @@ namespace S4EE
             return BitConverter.ToString(Sha256.ComputeHash(stream)).Replace("-", "");
         }
 
-        public static async Task InstallerAsync()
+        async Task InstallerAsync()
         {
-            await Worker.ZipInstallerAsync(@"Artifacts\Edition_EHE.zip");
-            await Worker.ZipInstallerAsync(@"Artifacts\Edition_HE.zip");
-            await Worker.ZipInstallerAsync(@"Artifacts\Edition_GE.zip");
+            switch (Properties.Settings.Default.EditionInstalled)
+            {   
+                case ("EHE"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Edition_EHE.zip");
+                        break;
+                    }
+                case ("HE"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Edition_HE.zip");
+                        break;
+                    }
+                case ("EGE"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Edition_EGE.zip");
+                        break;
+                    }
+                case ("GE"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Edition_GE.zip");
+                        break;
+                    }           
+            }
+            ProgressBar.Value = 50;
 
+            switch (Properties.Settings.Default.TexturesInstalled)
+            {
+                case ("ORG"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_OldWorld.zip");
+                        break;
+                    }
+                case ("NW"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_NewWorld.zip");
+                        break;
+                    }
+            }
+
+            ProgressBar.Value = 55;
 
         }
         #endregion
