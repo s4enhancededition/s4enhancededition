@@ -221,6 +221,7 @@ namespace S4EE
         }
         async Task InstallerAsync()
         {
+            //ToDo
             int maxProgess = 10;
             DownlaodPanel.Visibility = Visibility.Visible;
             DownlaodLabel.Content = "Installiere";
@@ -267,6 +268,23 @@ namespace S4EE
                     }
             }
             InstallprogressLogger("Installiert: " + Properties.Settings.Default.TexturesInstalled, 3, maxProgess);
+            InstallprogressLogger("Installiere: " + Properties.Settings.Default.TexturesInstalled, 3, maxProgess);
+            switch (Properties.Settings.Default.TexturesInstalled)
+            {
+                case ("ORG"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_OldWorld.zip");
+                        break;
+                    }
+                case ("NW"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_NewWorld.zip");
+                        break;
+                    }
+            }
+            InstallprogressLogger("Installiert: " + Properties.Settings.Default.TexturesInstalled, 3, maxProgess);
+
+
 
             InstallprogressLogger("Installationen Abgeschlossen", maxProgess, maxProgess);
         }
