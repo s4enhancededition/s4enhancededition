@@ -224,10 +224,10 @@ für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
     <value>AUTOSAVE ALLE 5 MINUTEN (HISTORY EDITION)</value>
   </data>
   <data name="App_Misc_SAVE_SAVECLEANER" xml:space="preserve">
-    <value>SPEICHERSTÄNDE ARCHIVEREN (älter als 36 Stunden)</value>
+    <value>SPEICHERSTÄNDE ARCHIVEREN (älter als 48 Stunden)</value>
   </data>
   <data name="App_Misc_SAVE_SAVECLEANER_Information_Text" xml:space="preserve">
-    <value>Alle Speicherstände der ausgewählten Edition werden nach 36 Stunden in den Archiv-
+    <value>Alle Speicherstände der ausgewählten Edition werden nach 48 Stunden in den Archiv-
 ordner verschoben. Dadurch wird der Spielstände-Ordner klein gehalten.</value>
   </data>
   <data name="App_Misc_SAVE_Title" xml:space="preserve">

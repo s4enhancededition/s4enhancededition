@@ -393,7 +393,7 @@ namespace S4EE
                 case ("GE"):
                 case ("EGE"):
                     // If the destination directory doesn't exist, create it.       
-                    Directory.CreateDirectory(App.S4HE_AppPath + @"\Snd\S3\");
+                    Directory.CreateDirectory(App.S4GE_AppPath + @"\Snd\S3\");
 
                     // Get the files in the directory and copy them to the new location.
                     foreach (FileInfo file in files)

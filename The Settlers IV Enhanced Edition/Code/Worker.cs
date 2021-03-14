@@ -70,6 +70,16 @@ namespace S4EE
                             Log.LogWriter(LogName, "Delete File" + InstallPath + line);
                         }
                     }
+                    else if (entry.FullName.EndsWith(@"ddraw.dll", StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (!File.Exists(InstallPath + @"\exe\ddraw.dll"))
+                        {
+                            if (!entry.FullName.EndsWith(@"/", StringComparison.OrdinalIgnoreCase))
+                            {
+                                await Task.Run(() => entry.ExtractToFile(completeFileName, true));
+                            }
+                        }
+                    }
                     else
                     {
                         if (!entry.FullName.EndsWith(@"/", StringComparison.OrdinalIgnoreCase))
