@@ -6,29 +6,29 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary  Source="Styles\Button.xaml" /> 
-                <ResourceDictionary  Source="Styles\Calendar.xaml" />-->
-                <ResourceDictionary  Source="Styles\CheckBox.xaml" />
-                <!--<ResourceDictionary  Source="Styles\ComboBox.xaml" />
-                <ResourceDictionary  Source="Styles\DataGrid.xaml" />
-                <ResourceDictionary  Source="Styles\DatePicker.xaml" />
-                <ResourceDictionary  Source="Styles\Expander.xaml" />
-                <ResourceDictionary  Source="Styles\GroupBox.xaml" />
-                <ResourceDictionary  Source="Styles\Label.xaml" />
-                <ResourceDictionary  Source="Styles\ListBox.xaml" />
-                <ResourceDictionary  Source="Styles\ListView.xaml" />
-                <ResourceDictionary  Source="Styles\Menu.xaml" />-->
-                <ResourceDictionary  Source="Styles\ProgressBar.xaml" />
+                <!--<ResourceDictionary Source="Styles\Button.xaml" /> 
+                <ResourceDictionary Source="Styles\Calendar.xaml" />-->
+                <ResourceDictionary Source="Styles\CheckBox.xaml" />
+                <!--<ResourceDictionary Source="Styles\ComboBox.xaml" />
+                <ResourceDictionary Source="Styles\DataGrid.xaml" />
+                <ResourceDictionary Source="Styles\DatePicker.xaml" />
+                <ResourceDictionary Source="Styles\Expander.xaml" />
+                <ResourceDictionary Source="Styles\GroupBox.xaml" />
+                <ResourceDictionary Source="Styles\Label.xaml" />
+                <ResourceDictionary Source="Styles\ListBox.xaml" />
+                <ResourceDictionary Source="Styles\ListView.xaml" />
+                <ResourceDictionary Source="Styles\Menu.xaml" />-->
+                <ResourceDictionary Source="Styles\ProgressBar.xaml" />
                 <ResourceDictionary Source="Styles\RadioButton.xaml" />
-                <!-- <ResourceDictionary  Source="Styles\ScrollBar.xaml" />
-                <ResourceDictionary  Source="Styles\Slider.xaml" />
-                <ResourceDictionary  Source="Styles\StatusBar.xaml" />
-                <ResourceDictionary  Source="Styles\TabControl.xaml" />
-                <ResourceDictionary  Source="Styles\TabItem.xaml" />
-                <ResourceDictionary  Source="Styles\TextBox.xaml" />
-                <ResourceDictionary  Source="Styles\TreeView.xaml" />
-                <ResourceDictionary  Source="Styles\ToolTip.xaml" />
-                <ResourceDictionary  Source="Styles\ToolBar.xaml" />-->
+                <!-- <ResourceDictionary Source="Styles\ScrollBar.xaml" />
+                <ResourceDictionary Source="Styles\Slider.xaml" />
+                <ResourceDictionary Source="Styles\StatusBar.xaml" />
+                <ResourceDictionary Source="Styles\TabControl.xaml" />
+                <ResourceDictionary Source="Styles\TabItem.xaml" />
+                <ResourceDictionary Source="Styles\TextBox.xaml" />
+                <ResourceDictionary Source="Styles\TreeView.xaml" />
+                <ResourceDictionary Source="Styles\ToolTip.xaml" />
+                <ResourceDictionary Source="Styles\ToolBar.xaml" />-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

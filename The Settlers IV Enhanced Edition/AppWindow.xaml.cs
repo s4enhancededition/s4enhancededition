@@ -430,8 +430,13 @@ namespace S4EE
             Log.LogWriter(LogName, "Download New File Abgeschlossen");
             DownlaodLabel.Content = Properties.Resources.App_Update_Abgeschlossen;
             Log.LogWriter(LogName, "Install Update");
-            Process.Start("TheSettlersIVEnhancedEditionSetup.exe", "/silent");
-
+            //Process.Start("TheSettlersIVEnhancedEditionSetup.exe", "/silent");
+            var startInfo = new ProcessStartInfo
+            {
+                FileName = "TheSettlersIVEnhancedEditionSetup.exe",
+                Arguments = @"/silent"
+            };
+            Process.Start(startInfo);
         }
         private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
