@@ -3,9 +3,10 @@
 
 #define MyAppName "The Settlers IV Enhanced Edition"
 #define MyAppGroup "The Settlers IV"
-#define MyAppVersion "1.0.0.1049"
+#define MyAppVersion "1.0.0.1050"
 #define MyAppPublisher "Ortner MEDIA"
 #define MyAppURL "https://www.zocker-lounge.com/s4-enhanced-edition"
+#define MyAppCopyright "© 2019-2021 Ortner MEDIA"
 
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
@@ -61,6 +62,9 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId= {{74780053-A21A-43F0-9B91-9208F72095E9}
 AppName={#MyAppName}
+VersionInfoCopyright={#MyAppCopyright}
+VersionInfoVersion={#MyAppVersion}
+VersionInfoProductVersion={#MyAppVersion}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName}
 AppPublisher={#MyAppPublisher}
