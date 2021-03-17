@@ -658,7 +658,8 @@
                                         <CheckBox Name="App_Maps_S01_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  Checked="App_Maps_S01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_S01_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Maps_S01}"
                                                     Name="App_Maps_S01"
                                                     Foreground="White"

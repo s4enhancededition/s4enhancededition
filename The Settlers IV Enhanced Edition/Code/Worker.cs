@@ -108,6 +108,24 @@ namespace S4EE
                             }
                         }
                     }
+                    else if (entry.FullName.EndsWith(@".map", StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (!File.Exists(InstallPath + completeFileName))
+                        {
+                            if (!entry.FullName.EndsWith(@"/", StringComparison.OrdinalIgnoreCase))
+                            {
+                                await Task.Run(() => entry.ExtractToFile(completeFileName, true));
+                            }
+                        }
+                        else if (!File.Equals(InstallPath + completeFileName, entry))
+                        {
+
+                            if (!entry.FullName.EndsWith(@"/", StringComparison.OrdinalIgnoreCase))
+                            {
+                                await Task.Run(() => entry.ExtractToFile(completeFileName, true));
+                            }
+                        }
+                    }
                     else
                     {
                         if (!entry.FullName.EndsWith(@"/", StringComparison.OrdinalIgnoreCase))

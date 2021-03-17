@@ -116,7 +116,7 @@ namespace S4EE
                 ("1") => true,
                 _ => false,
             };
-            
+
             App_Maps_S01_CheckBox.IsChecked = Properties.Settings.Default.Map_S01 switch
             {
                 ("1") => true,
@@ -356,15 +356,6 @@ namespace S4EE
         }
         #endregion
         #region App_Textures
-        private void App_Maps_O01_CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            Properties.Settings.Default.Map_O01 = App_Maps_O01_CheckBox.IsChecked switch
-            {
-                true => "1",
-                false => "0",
-            };
-            Properties.Settings.Default.Save();
-        }
         private void App_Textures_ORG_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             App_Textures_ORG_Button.IsChecked = true;
@@ -430,7 +421,7 @@ namespace S4EE
                         var runExplorer = new ProcessStartInfo
                         {
                             FileName = "explorer.exe",
-                            Arguments = @"/N," + App.S4HE_AppPath.Replace(@"/", @"\") + @"Map\User"
+                            Arguments = @"/N," + App.S4HE_AppPath.Replace(@"/", @"\") + @"Map"
                         };
                         Process.Start(runExplorer);
                         break;
@@ -441,12 +432,30 @@ namespace S4EE
                         var runExplorer = new ProcessStartInfo
                         {
                             FileName = "explorer.exe",
-                            Arguments = @"/N," + App.S4GE_AppPath.Replace(@"/", @"\") + @"\Map\User"
+                            Arguments = @"/N," + App.S4GE_AppPath.Replace(@"/", @"\") + @"\Map"
                         };
                         Process.Start(runExplorer);
                         break;
                     }
             }
+        }
+        private void App_Maps_O01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_O01 = App_Maps_O01_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Maps_S01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_S01 = App_Maps_S01_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
         }
         #endregion
         #region App_Lang

@@ -386,6 +386,26 @@ namespace S4EE
                     }
             }
 
+            switch (Properties.Settings.Default.Map_S01)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_S01, 13, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_KAMPANGE_Pack01.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_S01, 14, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_S01, 13, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_KAMPANGE_Pack01_Un.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_S01, 14, maxProgess);
+                        break;
+                    }
+            }
+
+
             //ToDo RC03: InstallerAsync Maps
 
             DownlaodPanel.Visibility = Visibility.Hidden;
