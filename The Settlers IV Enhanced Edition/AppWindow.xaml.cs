@@ -48,8 +48,6 @@ namespace S4EE
             Log.LogWriter(LogName, "CleanUp");
             CheckUpdate();
             Log.LogWriter(LogName, "CheckUpdate");
-
-
         }
         #region Updater
         private static void CleanUp()
@@ -463,14 +461,12 @@ namespace S4EE
                 wc.DownloadFileCompleted += DownloadFileEventCompleted;
                 wc.DownloadFileAsync(new Uri(URI), File);
                 Log.LogWriter(LogName, "Download New File Async");
-
             }
             catch (Exception)
             {
                 Log.LogWriter(LogName, "Failed to download File");
             }
         }
-
         private void DownloadFileEventCompleted(object sender, AsyncCompletedEventArgs e)
         {
             Log.LogWriter(LogName, "Download New File Abgeschlossen");
@@ -494,7 +490,19 @@ namespace S4EE
         /// <summary>
         /// Navigation zur Play Page
         /// </summary>
-        private async void Button_PlayClick(object sender, RoutedEventArgs e)
+        private void Button_PlayClick(object sender, RoutedEventArgs e)
+        {
+            Log.LogWriter(LogName, "CheckUpdate");
+
+            if (CheckUpdate())
+            {
+                Log.LogWriter(LogName, "Kein Update gefunden");
+                Play();
+            }    
+            Log.LogWriter(LogName, "Update gefunden");
+        }
+
+        private async void Play()
         {
             FrameContent.Navigate(AppStart);
             Log.LogWriter(LogName, "Navigate AppStart");
@@ -654,6 +662,7 @@ namespace S4EE
         #region Update
         public bool CheckUpdate()
         {
+            LogInfo.Inlines.Clear();
             GitHubClient client = new(new ProductHeaderValue("s4enhancededition"));
             Task<IReadOnlyList<Release>> releaseTask;
             try
@@ -700,7 +709,7 @@ namespace S4EE
                     {
                         DownloadFileAsync(Asset.BrowserDownloadUrl, "TheSettlersIVEnhancedEditionSetup.exe", lrelease.TagName);
                         Log.LogWriter(LogName, "Update gefunden");
-
+                        return false;
                     }
                 }
             }
