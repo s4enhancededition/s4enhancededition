@@ -71,6 +71,32 @@ namespace S4EE
                             Log.LogWriter(LogName, "Delete File" + InstallPath + line);
                         }
                     }
+                    else if (entry.FullName.EndsWith(@"Rename_Map.txt", StringComparison.OrdinalIgnoreCase))
+                    {
+                        string line;
+                        using StreamReader file = new(entry.Open());
+                        while ((line = file.ReadLine()) != null)
+                        {
+                            if (File.Exists(InstallPath + line))
+                            {
+                                File.Move(InstallPath + line, InstallPath + line[..^4] + ".map");
+                            }
+                            Log.LogWriter(LogName, "Rename Map2 to Map" + InstallPath + line);
+                        }
+                    }
+                    else if (entry.FullName.EndsWith(@"Rename_Map2.txt", StringComparison.OrdinalIgnoreCase))
+                    {
+                        string line;
+                        using StreamReader file = new(entry.Open());
+                        while ((line = file.ReadLine()) != null)
+                        {
+                            if (File.Exists(InstallPath + line))
+                            {
+                                File.Move(InstallPath + line, InstallPath + line[..^4] + ".map");
+                            }
+                            Log.LogWriter(LogName, "Rename Map to Map2" + InstallPath + line);
+                        }
+                    }                 
                     else if (entry.FullName.EndsWith(@"ddraw.dll", StringComparison.OrdinalIgnoreCase))
                     {
                         if (!File.Exists(InstallPath + @"\exe\ddraw.dll"))

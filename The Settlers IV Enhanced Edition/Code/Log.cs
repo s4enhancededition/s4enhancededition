@@ -18,7 +18,7 @@ namespace S4EE
             if (App.DebugFlag)
             {
                 using StreamWriter w = File.AppendText("log.txt");
-                w.WriteLine($"{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fffffff zzzz", System.Globalization.CultureInfo.InvariantCulture)} {logModule.PadRight(25)[..25]} {(logMessage.Length > 100 ? logMessage[..100] : logMessage)}");
+                w.WriteLine($"{DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fffffff zzzz", System.Globalization.CultureInfo.InvariantCulture)} {logModule.PadRight(25)[..25]} {(logMessage.Length > 200 ? logMessage[..200] : logMessage)}");
             }
         }
     }

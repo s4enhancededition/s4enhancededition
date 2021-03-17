@@ -367,6 +367,24 @@ namespace S4EE
 
                     }
             }
+            switch (Properties.Settings.Default.Map_O01)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_O01, 10, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\Maps_Orginal.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_O01, 11, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_O01, 10, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_ORGINAL_Deinstallieren.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_O01, 11, maxProgess);
+                        break;
+                    }
+            }
 
             //ToDo RC03: InstallerAsync Maps
 
