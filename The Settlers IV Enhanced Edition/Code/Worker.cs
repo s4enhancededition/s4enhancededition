@@ -2,6 +2,7 @@
 using System.IO;
 using System.IO.Compression;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace S4EE
 {
@@ -84,7 +85,27 @@ namespace S4EE
                     {
                         if (!entry.FullName.EndsWith(@"/", StringComparison.OrdinalIgnoreCase))
                         {
-                            await Task.Run(() => entry.ExtractToFile(completeFileName, true));
+                            try
+                            {
+                                await Task.Run(() =>
+                                {
+                                    try
+                                    {
+                                        entry.ExtractToFile(completeFileName, true);
+                                    }
+                                    catch
+                                    {
+                                        MessageBox.Show(Properties.Resources.MSB_Error_Rechte_Text, Properties.Resources.MSB_Error_Rechte, MessageBoxButton.OK, MessageBoxImage.Error);
+                                        Environment.Exit(0);
+                                    }
+                                });
+                            }
+                            catch
+                            {
+                                MessageBox.Show(Properties.Resources.MSB_Error_Rechte_Text, Properties.Resources.MSB_Error_Rechte, MessageBoxButton.OK, MessageBoxImage.Error);
+                                Environment.Exit(0);
+
+                            }
                         }
                     }
                 }

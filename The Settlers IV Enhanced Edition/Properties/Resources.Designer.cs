@@ -541,6 +541,24 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die LACK OF RIGHTS ähnelt.
+        /// </summary>
+        public static string MSB_Error_Rechte {
+            get {
+                return ResourceManager.GetString("MSB_Error_Rechte", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Missing rights. Please start the application as administrator. ähnelt.
+        /// </summary>
+        public static string MSB_Error_Rechte_Text {
+            get {
+                return ResourceManager.GetString("MSB_Error_Rechte_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die FATAL ERROR - SOMETHING FAILED ähnelt.
         /// </summary>
         public static string MSB_Error_Text {

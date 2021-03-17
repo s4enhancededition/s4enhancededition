@@ -526,14 +526,23 @@ namespace S4EE
         /// Startmethode vom Editor 
         /// Zunächst wird dafür überprüft ob der Editor bereits einmal gestartet wurde. 
         /// </summary>
-        private void Button_Editor(object sender, RoutedEventArgs e)
+        private async void Button_Editor(object sender, RoutedEventArgs e)
         {
             if (!Properties.Settings.Default.EditorInstalled)
             {
-                //ToDo RC03: Editor
+                Log.LogWriter(LogName, "Editor Plus Installation gestartete");
+                try
+                {
+                    await Worker.ZipInstallerAsync(@"Artifacts\Editor_Plus.zip");
+                }
+                catch
+                {
+                    MessageBox.Show(Properties.Resources.MSB_Error_Rechte, Properties.Resources.MSB_Error_Rechte_Text, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
                 switch (Properties.Settings.Default.Language)
                 {
-                    default:
+                    default: 
                     case ("en-US"):
                         {
                             var startInfo = new ProcessStartInfo
@@ -566,7 +575,7 @@ namespace S4EE
                 var startInfo = new ProcessStartInfo
                 {
                     WorkingDirectory = App.S4HE_AppPath + @"\Editor\",
-                    FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditorFast.bat",
+                    FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditor_Fast.bat",
                     CreateNoWindow = true
                 };
                 Process.Start(startInfo);
@@ -664,5 +673,7 @@ namespace S4EE
             return true;
         }
         #endregion
+
+
     }
 }

@@ -279,6 +279,12 @@ at least once is required.</value>
   <data name="MSB_Error" xml:space="preserve">
     <value>FATAL ERROR</value>
   </data>
+  <data name="MSB_Error_Rechte" xml:space="preserve">
+    <value>LACK OF RIGHTS</value>
+  </data>
+  <data name="MSB_Error_Rechte_Text" xml:space="preserve">
+    <value>Missing rights. Please start the application as administrator.</value>
+  </data>
   <data name="MSB_Error_Text" xml:space="preserve">
     <value>FATAL ERROR - SOMETHING FAILED</value>
   </data>

@@ -252,7 +252,7 @@ ordner verschoben. Dadurch wird der Spielstände-Ordner klein gehalten.</value>
     <value>DIE SIEDLER III MUSIK (zusätzlich)</value>
   </data>
   <data name="App_Music_S3_Information_Text" xml:space="preserve">
-    <value>Du benötigst hierfür eine installierte Version von der DIE SIEDLER  III HISTORY EDITION, 
+    <value>Du benötigst hierfür eine installierte Version von der DIE SIEDLER III HISTORY EDITION, 
 die mindestens einmal gestartet wurde.</value>
   </data>
   <data name="App_Music_Title" xml:space="preserve">
@@ -279,6 +279,12 @@ die mindestens einmal gestartet wurde.</value>
   <data name="MSB_Error" xml:space="preserve">
     <value>FATALER FEHLER</value>
     <comment>!</comment>
+  </data>
+  <data name="MSB_Error_Rechte" xml:space="preserve">
+    <value>FEHLENDE RECHTE</value>
+  </data>
+  <data name="MSB_Error_Rechte_Text" xml:space="preserve">
+    <value>Fehlende Rechte. Bitte die Anwendung als Administrator starten.</value>
   </data>
   <data name="MSB_Error_Text" xml:space="preserve">
     <value>FATALER FEHLER - ETWAS IST FEHLGESCHLAGEN</value>
