@@ -233,6 +233,24 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die STANDARD UBISOFT MAPS ähnelt.
+        /// </summary>
+        public static string App_Maps_O01 {
+            get {
+                return ResourceManager.GetString("App_Maps_O01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die STANDARD MAPS ähnelt.
+        /// </summary>
+        public static string App_Maps_Orignal {
+            get {
+                return ResourceManager.GetString("App_Maps_Orignal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ATLANTIS LEBT (2011) ähnelt.
         /// </summary>
         public static string App_Maps_S01 {

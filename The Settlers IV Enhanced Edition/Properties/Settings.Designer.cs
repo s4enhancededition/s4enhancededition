@@ -201,5 +201,17 @@ namespace S4EE.Properties {
                 this["Map_TR01"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_O01 {
+            get {
+                return ((string)(this["Map_O01"]));
+            }
+            set {
+                this["Map_O01"] = value;
+            }
+        }
     }
 }

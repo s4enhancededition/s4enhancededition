@@ -111,7 +111,12 @@ namespace S4EE
                 _ => false,
             };
 
-
+            App_Maps_O01_CheckBox.IsChecked = Properties.Settings.Default.Map_O01 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+            
             App_Maps_S01_CheckBox.IsChecked = Properties.Settings.Default.Map_S01 switch
             {
                 ("1") => true,
@@ -234,7 +239,7 @@ namespace S4EE
                 }
             }
             //ToDo RC03: Maps, Misc\SAVE, SAVE\GAME, SAVE\Editor
-            App_Maps_S01_CheckBox.IsEnabled = false;
+            //App_Maps_S01_CheckBox.IsEnabled = false;
             App_Maps_T01_CheckBox.IsEnabled = false;
             App_Maps_T02_CheckBox.IsEnabled = false;
             App_Maps_C01_CheckBox.IsEnabled = false;
@@ -351,6 +356,15 @@ namespace S4EE
         }
         #endregion
         #region App_Textures
+        private void App_Maps_O01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_O01 = App_Maps_O01_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
         private void App_Textures_ORG_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             App_Textures_ORG_Button.IsChecked = true;
@@ -583,6 +597,8 @@ namespace S4EE
             App_Music_Title.Content = Properties.Resources.App_Music_Title;
             App_Music_S3.Content = Properties.Resources.App_Music_S3;
             App_Music_S3_Information_Text.Content = Properties.Resources.App_Music_S3_Information_Text;
+            App_Maps_Title_Orignal.Content = Properties.Resources.App_Maps_Orignal;
+            App_Maps_O01.Content = Properties.Resources.App_Maps_O01;
             App_Maps_Title_SINGLEPLAYER.Content = Properties.Resources.App_Maps_Title_SINGLEPLAYER;
             App_Maps_S01.Content = Properties.Resources.App_Maps_S01;
             App_Maps_Title_TOURNAMENTS.Content = Properties.Resources.App_Maps_Title_TOURNAMENTS;

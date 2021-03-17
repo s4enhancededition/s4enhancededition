@@ -584,11 +584,11 @@
                                         <Label Foreground="#b4875e"
                                                Background="Black"
                                                FontSize="24"
-                                               Name="App_Maps_Title_SINGLEPLAYER"
+                                               Name="App_Maps_Title_Orignal"
                                                FontWeight="Bold"
                                                Margin="3"
                                                Padding="10"
-                                               Content="{x:Static p:Resources.App_Maps_Title_SINGLEPLAYER}"></Label>
+                                               Content="{x:Static p:Resources.App_Maps_Orignal}"></Label>
                                         <Button Click="Button_Maps"
                                                 Name="Button_Maps1"
                                                 Width="200"
@@ -625,6 +625,33 @@
                                                 </Style>
                                             </Button.Style>
                                         </Button>
+                                    </Grid>
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_O01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_O01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_O01_CheckBox_Checked">
+                                            <Label  Content="{x:Static p:Resources.App_Maps_O01}"
+                                                    Name="App_Maps_O01"
+                                                    Foreground="White"
+                                                    FontSize="16"
+                                                    Margin="6"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Foreground="#b4875e"
+                                               Background="Black"
+                                               FontSize="24"
+                                               Name="App_Maps_Title_SINGLEPLAYER"
+                                               FontWeight="Bold"
+                                               Margin="3"
+                                               Padding="10"
+                                               Content="{x:Static p:Resources.App_Maps_Title_SINGLEPLAYER}"></Label>
+                                        
                                     </Grid>
                                     <Grid Background="Black"
                                           Margin="3">

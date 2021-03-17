@@ -68,6 +68,14 @@ namespace S4EE
             // Versionsinfo der Assembly
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             Log.LogWriter(LogName, "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+
+            if(Properties.Settings.Default.Map_O01 == "")
+            {
+                Log.LogWriter(LogName, "Maps Default Original");
+                Properties.Settings.Default.Map_O01 = "1";
+                Properties.Settings.Default.Save();
+                Log.LogWriter(LogName, "Maps Default Original Set");
+            }
             if (Properties.Settings.Default.Language == "")
             {
                 Log.LogWriter("VersionChange", "Keine Sprache gefunden: Suche nach Standardsprache");

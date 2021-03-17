@@ -175,6 +175,12 @@ für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
   <data name="App_Maps_M01" xml:space="preserve">
     <value>METZEL MAP PACK (by ramseslein)</value>
   </data>
+  <data name="App_Maps_O01" xml:space="preserve">
+    <value>STANDARD UBISOFT MAPS</value>
+  </data>
+  <data name="App_Maps_Orignal" xml:space="preserve">
+    <value>STANDARD MAPS</value>
+  </data>
   <data name="App_Maps_S01" xml:space="preserve">
     <value>ATLANTIS LEBT (2011)</value>
   </data>
