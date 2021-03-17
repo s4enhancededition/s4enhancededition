@@ -920,7 +920,6 @@
                                         <CheckBox Name="App_Misc_SAVE_AUTOSAVE_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
-                                                  IsChecked="True"
                                                   Click="App_Misc_SAVE_AUTOSAVE_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Misc_SAVE_AUTOSAVE}"
                                                     Name="App_Misc_SAVE_AUTOSAVE"
@@ -936,7 +935,7 @@
                                         <CheckBox Name="App_Misc_SAVE_SAVECLEANER_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  Click="App_Misc_SAVE_SAVECLEANER_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Misc_SAVE_SAVECLEANER}"
                                                     Name="App_Misc_SAVE_SAVECLEANER"
                                                     Foreground="White"
@@ -967,7 +966,6 @@
                                         <CheckBox Name="App_Misc_VIDEO_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
-                                                  IsChecked="True"
                                                   Click="App_Misc_VIDEO_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Misc_VIDEO}"
                                                     Name="App_Misc_VIDEO"
@@ -982,8 +980,7 @@
                                           Margin="3">
                                         <CheckBox Name="App_Misc_MISSIONS_CheckBox"
                                                   Margin="24,0,0,0"
-                                                  VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  VerticalContentAlignment="Center">
                                             <Label  Content="{x:Static p:Resources.App_Misc_MISSIONS}"
                                                     Name="App_Misc_MISSIONS"
                                                     Foreground="White"
@@ -997,8 +994,7 @@
                                           Margin="3">
                                         <CheckBox Name="App_Misc_MINE_CheckBox"
                                                   Margin="24,0,0,0"
-                                                  VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  VerticalContentAlignment="Center">
                                             <Label  Content="{x:Static p:Resources.App_Misc_MINE}"
                                                     Name="App_Misc_MINE"
                                                     Foreground="White"
@@ -1012,8 +1008,7 @@
                                           Margin="3">
                                         <CheckBox Name="App_Misc_LEGACYCONTROLS_CheckBox"
                                                   Margin="24,0,0,0"
-                                                  VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  VerticalContentAlignment="Center">
                                             <Label  Content="{x:Static p:Resources.App_Misc_LEGACYCONTROLS}"
                                                     Name="App_Misc_LEGACYCONTROLS"
                                                     Foreground="White"
@@ -1035,8 +1030,7 @@
                                           Margin="3">
                                         <CheckBox Name="App_Misc_FIXES_EDITOR_CheckBox"
                                                   Margin="24,0,0,0"
-                                                  VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  VerticalContentAlignment="Center">
                                             <Label  Content="{x:Static p:Resources.App_Misc_FIXES_EDITOR}"
                                                     Name="App_Misc_FIXES_EDITOR"
                                                     Foreground="White"

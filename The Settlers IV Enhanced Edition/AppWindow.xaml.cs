@@ -574,18 +574,10 @@ namespace S4EE
         /// </summary>
         private async void Button_Editor(object sender, RoutedEventArgs e)
         {
-            if (!Properties.Settings.Default.EditorInstalled)
+            if (Properties.Settings.Default.EditorInstalled != true)
             {
-                Log.LogWriter(LogName, "Editor Plus Installation gestartete");
-                try
-                {
-                    await Worker.ZipInstallerAsync(@"Artifacts\Editor_Plus.zip");
-                }
-                catch
-                {
-                    MessageBox.Show(Properties.Resources.MSB_Error_Rechte, Properties.Resources.MSB_Error_Rechte_Text, MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-
+                Log.LogWriter(LogName, "Editor Plus Installation gestartet");
+                await Worker.ZipInstallerAsync(@"Artifacts\Editor_Plus.zip");
                 switch (Properties.Settings.Default.Language)
                 {
                     default:

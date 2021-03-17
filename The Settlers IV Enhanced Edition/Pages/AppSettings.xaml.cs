@@ -461,6 +461,7 @@ namespace S4EE
         #region App_Lang
         private void App_Language_enUS_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            Properties.Settings.Default.EditorInstalled = false;
             App_Language_enUS_Button.IsChecked = true;
         }
         private void App_Language_enUS_Button_Checked(object sender, RoutedEventArgs e)
@@ -475,6 +476,7 @@ namespace S4EE
 
         private void App_Language_deDE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            Properties.Settings.Default.EditorInstalled = false;
             App_Language_deDE_Button.IsChecked = true;
         }
         private void App_Language_deDE_Button_Checked(object sender, RoutedEventArgs e)
@@ -491,6 +493,7 @@ namespace S4EE
         #region App_Misc
         private void App_Misc_SAVE_AUTOSAVE_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
+            //ToDo App_Misc_SAVE_AUTOSAVE_CheckBox_Checked
             if (App.S4HE_AppPath != null)
             {
                 string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
@@ -509,6 +512,28 @@ namespace S4EE
                 }
             }
         }
+        private void App_Misc_SAVE_SAVECLEANER_Checked(object sender, RoutedEventArgs e)
+        {
+            //ToDo App_Misc_SAVE_SAVECLEANER_Checked
+            if (App.S4HE_AppPath != null)
+            {
+                string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
+                if (File.Exists(settings))
+                {
+                    if (App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked == true)
+                    {
+                        IniFile s4settings = new(settings);
+                        s4settings.Write("AutoSaveInterval", "5", "GAMESETTINGS");
+                    }
+                    else
+                    {
+                        IniFile s4settings = new(settings);
+                        s4settings.Write("AutoSaveInterval", "0", "GAMESETTINGS");
+                    }
+                }
+            }
+        }
+
         private void App_Misc_VIDEO_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             if (App.S4HE_AppPath != null)
@@ -581,7 +606,6 @@ namespace S4EE
                 Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             }
             SpracheFestlegen();
-            Properties.Settings.Default.EditorInstalled = false;
             Properties.Settings.Default.Save();
         }
 

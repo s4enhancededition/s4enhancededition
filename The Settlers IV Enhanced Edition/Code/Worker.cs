@@ -130,27 +130,18 @@ namespace S4EE
                     {
                         if (!entry.FullName.EndsWith(@"/", StringComparison.OrdinalIgnoreCase))
                         {
-                            try
+                            await Task.Run(() =>
                             {
-                                await Task.Run(() =>
+                                try
                                 {
-                                    try
-                                    {
-                                        entry.ExtractToFile(completeFileName, true);
-                                    }
-                                    catch
-                                    {
-                                        MessageBox.Show(Properties.Resources.MSB_Error_Rechte_Text, Properties.Resources.MSB_Error_Rechte, MessageBoxButton.OK, MessageBoxImage.Error);
-                                        Environment.Exit(0);
-                                    }
-                                });
-                            }
-                            catch
-                            {
-                                MessageBox.Show(Properties.Resources.MSB_Error_Rechte_Text, Properties.Resources.MSB_Error_Rechte, MessageBoxButton.OK, MessageBoxImage.Error);
-                                Environment.Exit(0);
-
-                            }
+                                    entry.ExtractToFile(completeFileName, true);
+                                }
+                                catch
+                                {
+                                    MessageBox.Show(Properties.Resources.MSB_Error_Rechte_Text, Properties.Resources.MSB_Error_Rechte, MessageBoxButton.OK, MessageBoxImage.Error);
+                                    Environment.Exit(0);
+                                }
+                            });
                         }
                     }
                 }
