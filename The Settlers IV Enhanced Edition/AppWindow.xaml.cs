@@ -69,7 +69,7 @@ namespace S4EE
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             Log.LogWriter(LogName, "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
-            if(Properties.Settings.Default.Map_O01 == "")
+            if (Properties.Settings.Default.Map_O01 == "")
             {
                 Log.LogWriter(LogName, "Maps Default Original");
                 Properties.Settings.Default.Map_O01 = "1";
@@ -371,17 +371,17 @@ namespace S4EE
             {
                 case ("1"):
                     {
-                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_O01, 10, maxProgess);
-                        await Worker.ZipInstallerAsync(@"Artifacts\Maps_Orginal.zip");
-                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_O01, 11, maxProgess);
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_O01, 11, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_ORGINAL.zip", "Map");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_O01, 12, maxProgess);
                         break;
                     }
                 default:
                 case ("0"):
                     {
-                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_O01, 10, maxProgess);
-                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_ORGINAL_Deinstallieren.zip");
-                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_O01, 11, maxProgess);
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_O01, 11, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_ORGINAL.zip", "Ma2");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_O01, 12, maxProgess);
                         break;
                     }
             }
@@ -568,7 +568,7 @@ namespace S4EE
 
                 switch (Properties.Settings.Default.Language)
                 {
-                    default: 
+                    default:
                     case ("en-US"):
                         {
                             var startInfo = new ProcessStartInfo

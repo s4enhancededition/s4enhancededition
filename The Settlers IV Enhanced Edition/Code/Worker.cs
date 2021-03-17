@@ -9,7 +9,7 @@ namespace S4EE
     class Worker
     {
         private static readonly string LogName = "Worker.cs";
-        public static async Task ZipInstallerAsync(string zipFilePath)
+        public static async Task ZipInstallerAsync(string zipFilePath, string mode = "")
         {
             string InstallPath = "";
             switch (Properties.Settings.Default.EditionInstalled)
@@ -75,28 +75,29 @@ namespace S4EE
                     {
                         string line;
                         using StreamReader file = new(entry.Open());
-                        while ((line = file.ReadLine()) != null)
+                        if (mode == "Map")
                         {
-                            if (File.Exists(InstallPath + line))
+                            while ((line = file.ReadLine()) != null)
                             {
-                                File.Move(InstallPath + line, InstallPath + line[..^4] + ".map");
+                                if (File.Exists(InstallPath + line[..^4] + ".ma2"))
+                                {
+                                    File.Move(InstallPath + line[..^4] + ".ma2", InstallPath + line[..^4] + ".map");
+                                }
+                                Log.LogWriter(LogName, "Rename Ma2 to Map" + InstallPath + line);
                             }
-                            Log.LogWriter(LogName, "Rename Map2 to Map" + InstallPath + line);
+                        }
+                        else if (mode == "Ma2")
+                        {
+                            while ((line = file.ReadLine()) != null)
+                            {
+                                if (File.Exists(InstallPath + line))
+                                {
+                                    File.Move(InstallPath + line, InstallPath + line[..^4] + ".ma2");
+                                }
+                                Log.LogWriter(LogName, "Rename Map to Ma2" + InstallPath + line);
+                            }
                         }
                     }
-                    else if (entry.FullName.EndsWith(@"Rename_Map2.txt", StringComparison.OrdinalIgnoreCase))
-                    {
-                        string line;
-                        using StreamReader file = new(entry.Open());
-                        while ((line = file.ReadLine()) != null)
-                        {
-                            if (File.Exists(InstallPath + line))
-                            {
-                                File.Move(InstallPath + line, InstallPath + line[..^4] + ".map");
-                            }
-                            Log.LogWriter(LogName, "Rename Map to Map2" + InstallPath + line);
-                        }
-                    }                 
                     else if (entry.FullName.EndsWith(@"ddraw.dll", StringComparison.OrdinalIgnoreCase))
                     {
                         if (!File.Exists(InstallPath + @"\exe\ddraw.dll"))
