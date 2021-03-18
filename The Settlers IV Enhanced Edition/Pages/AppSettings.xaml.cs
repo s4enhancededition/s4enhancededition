@@ -204,7 +204,7 @@ namespace S4EE
                     }
                 }
             }
-            //ToDo V1.1: Buttons aktivieren
+            //ToDo V1.1: Buttons aktivieren & Coden
             App_Maps_C01_CheckBox.IsEnabled = false;
             App_Maps_B01_CheckBox.IsEnabled = false;
             App_Maps_M01_CheckBox.IsEnabled = false;

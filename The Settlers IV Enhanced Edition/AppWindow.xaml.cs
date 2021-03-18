@@ -177,6 +177,7 @@ namespace S4EE
         }
         private void Checksumme()
         {
+            //ToDo V1.2 AntiCheat
             if (App.S4HE_AppPath == null)
             {
                 MessageBox.Show(Properties.Resources.MSB_Error_Mod, Properties.Resources.MSB_Error_Mod_Text, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -441,7 +442,8 @@ namespace S4EE
                         break;
                     }
             }
-
+            //ToDo V1.1: InstallerAsync Maps
+            //ToDo V1.2: Remastered Maps
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("HE"):
@@ -466,9 +468,6 @@ namespace S4EE
                         break;
                     }
             }
-            //ToDo V1.1: InstallerAsync Maps
-
-            //ToDo V1.2: Remastered Maps
             DownlaodPanel.Visibility = Visibility.Hidden;
         }
         private static void CopyS3()
@@ -736,15 +735,15 @@ namespace S4EE
             catch (Exception)
             {
                 Log.LogWriter(LogName, "Kein Update gefunden - Error Github");
-                MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
+                //MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
             }
             IReadOnlyList<Release> releases = releaseTask.Result;
             if (releases.Count == 0)
             {
                 Log.LogWriter(LogName, "Kein Update gefunden - Error Github");
-                MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                return false;
+                //MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                return true;
             }
             Version version = new("0.0.0.0");
             Release lrelease = new("");

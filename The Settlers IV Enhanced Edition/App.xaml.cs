@@ -35,9 +35,8 @@ namespace S4EE
                 // SilentUninstall für Rollback auf Standardeinstellungen bei Deinstallation durch Setup
                 if (e.Args[i] == "/SilentUninstall")
                 {
-                    //ToDo V1.1: "SilentUninstall-Implementation für Rollback auf Standardeinstellungen bei Deinstallation durch Setup"
+                    //ToDo V1.2: "SilentUninstall-Implementation für Rollback auf Standardeinstellungen bei Deinstallation durch Setup"
                     Log.LogWriter(LogName, "SilentUninstall");
-
                     //MessageBox.Show("Coming Soon", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
                     Environment.Exit(0);
                     return;
