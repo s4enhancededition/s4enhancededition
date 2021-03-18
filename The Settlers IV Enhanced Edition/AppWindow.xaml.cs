@@ -58,15 +58,14 @@ namespace S4EE
                 File.Delete("TheSettlersIVEnhancedEditionSetup.exe");
             }
             Log.LogWriter(LogName, "No CleanUp");
-
         }
         public void Installationscheck()
         {
+            Checksumme();
             Title = Properties.Resources.App_Name;
             // Versionsinfo der Assembly
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             Log.LogWriter(LogName, "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
-
             if (Properties.Settings.Default.Map_O01 == "")
             {
                 Log.LogWriter(LogName, "Maps Default Original");
@@ -176,6 +175,15 @@ namespace S4EE
             }
             SpracheFestlegen();
         }
+        private void Checksumme()
+        {
+            if (App.S4HE_AppPath == null)
+            {
+                MessageBox.Show(Properties.Resources.MSB_Error_Mod, Properties.Resources.MSB_Error_Mod_Text, MessageBoxButton.OK, MessageBoxImage.Error);
+                Environment.Exit(0);
+                return;
+            }
+        }
         public void SpracheFestlegen()
         {
             //GUI
@@ -203,7 +211,7 @@ namespace S4EE
                 Button_Settings2.Style = style;
             }
         }
-        public static string GetMD5Hash(string filename)
+        private static string GetMD5Hash(string filename)
         {
             using FileStream stream = File.OpenRead(filename);
             return BitConverter.ToString(Sha256.ComputeHash(stream)).Replace("-", "");
@@ -222,11 +230,10 @@ namespace S4EE
             string Deinstallieren = Properties.Resources.App_Install_Deinstalliere;
             string Installiert = Properties.Resources.App_Install_Installiert;
             string Deinstalliert = Properties.Resources.App_Install_Deinstalliert;
-            //ToDo RC03/RTM: InstallerAsync maxProgess
-            int maxProgess = 10;
+            //ToDo V1.1: InstallerAsync maxProgess
+            int maxProgess = 18;
             LogInfo.Inlines.Clear();
             DownlaodPanel.Visibility = Visibility.Visible;
-
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("HE"):
@@ -253,7 +260,6 @@ namespace S4EE
                     }
                     break;
             }
-
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("EHE"):
@@ -323,7 +329,6 @@ namespace S4EE
                         break;
                     }
             }
-
             switch (Properties.Settings.Default.Mod_HotKeys)
             {
                 case ("1"):
@@ -342,7 +347,6 @@ namespace S4EE
                         break;
                     }
             }
-
             switch (Properties.Settings.Default.Music_S3)
             {
                 case ("1"):
@@ -367,6 +371,7 @@ namespace S4EE
             }
             switch (Properties.Settings.Default.Map_O01)
             {
+                default:
                 case ("1"):
                     {
                         InstallprogressLogger(Installieren, Properties.Resources.App_Maps_O01, 11, maxProgess);
@@ -374,7 +379,6 @@ namespace S4EE
                         InstallprogressLogger(Installiert, Properties.Resources.App_Maps_O01, 12, maxProgess);
                         break;
                     }
-                default:
                 case ("0"):
                     {
                         InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_O01, 11, maxProgess);
@@ -383,7 +387,6 @@ namespace S4EE
                         break;
                     }
             }
-
             switch (Properties.Settings.Default.Map_S01)
             {
                 case ("1"):
@@ -402,10 +405,70 @@ namespace S4EE
                         break;
                     }
             }
+            switch (Properties.Settings.Default.Map_T01)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_T01, 15, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TOURNAMENT_TM2020.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_T01, 16, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_T01, 15, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TOURNAMENT_TM2020_Un.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_T01, 16, maxProgess);
+                        break;
+                    }
+            }
+            switch (Properties.Settings.Default.Map_T02)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_T02, 17, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TOURNAMENT_WC2021.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_T02, 18, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_T02, 17, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TOURNAMENT_WC2021_Un.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_T02, 18, maxProgess);
+                        break;
+                    }
+            }
 
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
+                        IniFile s4settings = new(settings);
+                        switch (Properties.Settings.Default.AutoSave)
+                        {
+                            case ("5"):
+                            default:
+                                {
+                                    s4settings.Write("AutoSaveInterval", "5", "GAMESETTINGS");
+                                    break;
+                                }
+                            case ("0"):
+                                {
+                                    s4settings.Write("AutoSaveInterval", "0", "GAMESETTINGS");
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+            }
+            //ToDo V1.1: InstallerAsync Maps
 
-            //ToDo RC03: InstallerAsync Maps
-
+            //ToDo V1.2: Remastered Maps
             DownlaodPanel.Visibility = Visibility.Hidden;
         }
         private static void CopyS3()
@@ -498,15 +561,15 @@ namespace S4EE
             {
                 Log.LogWriter(LogName, "Kein Update gefunden");
                 Play();
-            }    
+            }
             Log.LogWriter(LogName, "Update gefunden");
         }
-
         private async void Play()
         {
             FrameContent.Navigate(AppStart);
             Log.LogWriter(LogName, "Navigate AppStart");
             await InstallerAsync();
+            Checksumme();
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("HE"):
@@ -582,7 +645,7 @@ namespace S4EE
         /// </summary>
         private async void Button_Editor(object sender, RoutedEventArgs e)
         {
-            if (Properties.Settings.Default.EditorInstalled != true)
+            if (Properties.Settings.Default.EditorInstalled != "1")
             {
                 Log.LogWriter(LogName, "Editor Plus Installation gestartet");
                 await Worker.ZipInstallerAsync(@"Artifacts\Editor_Plus.zip");
@@ -612,7 +675,7 @@ namespace S4EE
                             break;
                         }
                 }
-                Properties.Settings.Default.EditorInstalled = true;
+                Properties.Settings.Default.EditorInstalled = "1";
                 Properties.Settings.Default.Save();
                 Log.LogWriter(LogName, "EditorInstalled True");
             }
@@ -720,7 +783,5 @@ namespace S4EE
             return true;
         }
         #endregion
-
-
     }
 }

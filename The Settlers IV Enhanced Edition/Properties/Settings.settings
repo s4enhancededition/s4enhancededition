@@ -8,7 +8,7 @@
     <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="EditorInstalled" Type="System.Boolean" Scope="User">
+    <Setting Name="EditorInstalled" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="EditionInstalled" Type="System.String" Scope="User">
@@ -48,6 +48,9 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Map_O01" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AutoSave" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

@@ -49,9 +49,10 @@ namespace S4EE.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool EditorInstalled {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EditorInstalled {
             get {
-                return ((bool)(this["EditorInstalled"]));
+                return ((string)(this["EditorInstalled"]));
             }
             set {
                 this["EditorInstalled"] = value;
@@ -211,6 +212,18 @@ namespace S4EE.Properties {
             }
             set {
                 this["Map_O01"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AutoSave {
+            get {
+                return ((string)(this["AutoSave"]));
+            }
+            set {
+                this["AutoSave"] = value;
             }
         }
     }

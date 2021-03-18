@@ -246,7 +246,7 @@ This keeps the game saves folder small.</value>
     <value>PLAY INGAME VIDEOS</value>
   </data>
   <data name="App_Mod_Hotkeys" xml:space="preserve">
-    <value>HOTKEYS MOD (by Wizzardmaker and kdsystem1337)</value>
+    <value>HOTKEYS MOD v2 (by Wizzardmaker and kdsystem1337)</value>
   </data>
   <data name="App_Mod_Title" xml:space="preserve">
     <value>MODS</value>
@@ -284,6 +284,12 @@ at least once is required.</value>
   </data>
   <data name="MSB_Error" xml:space="preserve">
     <value>FATAL ERROR</value>
+  </data>
+  <data name="MSB_Error_Mod" xml:space="preserve">
+    <value>Unforeseen modification</value>
+  </data>
+  <data name="MSB_Error_Mod_Text" xml:space="preserve">
+    <value>Unforeseen modification to game files detected, please reset the game once to original state.</value>
   </data>
   <data name="MSB_Error_Rechte" xml:space="preserve">
     <value>LACK OF RIGHTS</value>

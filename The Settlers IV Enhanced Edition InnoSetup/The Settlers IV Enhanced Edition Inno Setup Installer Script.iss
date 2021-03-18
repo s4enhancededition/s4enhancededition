@@ -3,7 +3,7 @@
 
 #define MyAppName "The Settlers IV Enhanced Edition"
 #define MyAppGroup "The Settlers IV"
-#define MyAppVersion "1.0.0.1055"
+#define MyAppVersion "1.0.0.1060"
 #define MyAppPublisher "Ortner MEDIA"
 #define MyAppURL "https://www.zocker-lounge.com/s4-enhanced-edition"
 #define MyAppCopyright "© 2019-2021 Ortner MEDIA"
@@ -111,7 +111,7 @@ Type: filesandordirs; Name: "{app}"
 Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Flags: nowait postinstall hidewizard; Description: "{cm:LaunchProgram, {#MyAppName}}"
 
 [UninstallRun]
-Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Parameters: "/SilentUninstall";
+;Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Parameters: "/SilentUninstall";
 
 
 

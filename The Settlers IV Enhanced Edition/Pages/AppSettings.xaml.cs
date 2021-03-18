@@ -59,10 +59,10 @@ namespace S4EE
                     Log.LogWriter(LogName, "Music_S3 Fehlt unerwartet");
                 }
             }
-
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("EHE"):
+                default:
                     App_Edition_EHE_Button.IsChecked = true;
                     break;
                 case ("EGE"):
@@ -78,6 +78,7 @@ namespace S4EE
             switch (Properties.Settings.Default.TexturesInstalled)
             {
                 case ("ORG"):
+                default:
                     App_Textures_ORG_Button.IsChecked = true;
                     break;
                 case ("NW"):
@@ -98,58 +99,46 @@ namespace S4EE
                 ("1") => true,
                 _ => false,
             };
-
             App_Mod_Hotkeys_CheckBox.IsChecked = Properties.Settings.Default.Mod_HotKeys switch
             {
                 ("1") => true,
                 _ => false,
             };
-
             App_Music_S3_CheckBox.IsChecked = Properties.Settings.Default.Music_S3 switch
             {
                 ("1") => true,
                 _ => false,
             };
-
             App_Maps_O01_CheckBox.IsChecked = Properties.Settings.Default.Map_O01 switch
             {
-                ("1") => true,
-                _ => false,
+                ("0") => false,
+                _ => true,
             };
-
             App_Maps_S01_CheckBox.IsChecked = Properties.Settings.Default.Map_S01 switch
             {
                 ("1") => true,
                 _ => false,
             };
-
             App_Maps_T01_CheckBox.IsChecked = Properties.Settings.Default.Map_T01 switch
             {
                 ("1") => true,
                 _ => false,
             };
-
-            //ToDo RTM: WC2021
-            App_Maps_T02_CheckBox.IsEnabled = false; //REMOVEME && AddFiles
             App_Maps_T02_CheckBox.IsChecked = Properties.Settings.Default.Map_T02 switch
             {
                 ("1") => true,
                 _ => false,
             };
-
             App_Maps_C01_CheckBox.IsChecked = Properties.Settings.Default.Map_C01 switch
             {
                 ("1") => true,
                 _ => false,
             };
-
             App_Maps_B01_CheckBox.IsChecked = Properties.Settings.Default.Map_B01 switch
             {
                 ("1") => true,
                 _ => false,
             };
-
-
             App_Maps_M01_CheckBox.IsChecked = Properties.Settings.Default.Map_M01 switch
             {
                 ("1") => true,
@@ -162,37 +151,14 @@ namespace S4EE
                 _ => false,
             };
 
-            //SAVE Intervall
-            if (App.S4HE_AppPath != null)
+            App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked = Properties.Settings.Default.AutoSave switch
             {
-                string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
-                if (File.Exists(settings))
-                {
-                    IniFile s4settings = new(settings);
-                    if (s4settings.Read("AutoSaveInterval", "GAMESETTINGS") == "5")
-                    {
-                        App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked = true;
-                    }
-                    else
-                        App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked = false;
-                }
-                else
-                {
-                    App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked = false;
-                    App_Misc_SAVE_AUTOSAVE_CheckBox.IsEnabled = false;
-                }
-            }
-            else
-            {
-                App_Misc_SAVE_AUTOSAVE_CheckBox.IsEnabled = false;
-            }
+                ("0") => false,
+                _ => true,
+            };
 
-            //ToDo RC03: SAVEMANGER
-
-            App_Misc_SAVE_SAVECLEANER_CheckBox.IsChecked = false;
-            App_Misc_SAVE_SAVECLEANER_CheckBox.IsEnabled = false;
-
-            //ToDo RC03: VIDEOS (für jede Edition gleich machen)
+            //ToDo V1.1: VIDEOS
+            //(für jede Edition gleich machen)
             if (App.S4HE_AppPath != null)
             {
                 switch (Properties.Settings.Default.EditionInstalled)
@@ -238,22 +204,17 @@ namespace S4EE
                     }
                 }
             }
-            //ToDo RC03: Maps, Misc\SAVE, SAVE\GAME, SAVE\Editor
-            //App_Maps_S01_CheckBox.IsEnabled = false;
-            App_Maps_T01_CheckBox.IsEnabled = false;
-            App_Maps_T02_CheckBox.IsEnabled = false;
+            //ToDo V1.1: Buttons aktivieren
             App_Maps_C01_CheckBox.IsEnabled = false;
             App_Maps_B01_CheckBox.IsEnabled = false;
             App_Maps_M01_CheckBox.IsEnabled = false;
             App_Maps_TR01_CheckBox.IsEnabled = false;
-            App_Misc_SAVE_AUTOSAVE_CheckBox.IsEnabled = false;
             App_Misc_SAVE_SAVECLEANER_CheckBox.IsEnabled = false;
             App_Misc_VIDEO_CheckBox.IsEnabled = false;
             App_Misc_MISSIONS_CheckBox.IsEnabled = false;
             App_Misc_MINE_CheckBox.IsEnabled = false;
             App_Misc_LEGACYCONTROLS_CheckBox.IsEnabled = false;
             App_Misc_FIXES_EDITOR_CheckBox.IsEnabled = false;
-
         }
         #region App_Edition
         private void App_Edition_EHE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -366,7 +327,6 @@ namespace S4EE
             Properties.Settings.Default.TexturesInstalled = "ORG";
             Properties.Settings.Default.Save();
         }
-
         private void App_Textures_NW_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             App_Textures_NW_Button.IsChecked = true;
@@ -410,11 +370,11 @@ namespace S4EE
         }
         #endregion
         #region App_Maps
-        //KATEN ORDNER ÖFFNEN
         private void Button_Maps(object sender, RoutedEventArgs e)
         {
             switch (Properties.Settings.Default.EditionInstalled)
             {
+                default:
                 case ("HE"):
                 case ("EHE"):
                     {
@@ -457,11 +417,29 @@ namespace S4EE
             };
             Properties.Settings.Default.Save();
         }
+        private void App_Maps_T01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_T01 = App_Maps_T01_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Maps_T02_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_T02 = App_Maps_T02_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
         #endregion
         #region App_Lang
         private void App_Language_enUS_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Properties.Settings.Default.EditorInstalled = false;
+            Properties.Settings.Default.EditorInstalled = "0";
             App_Language_enUS_Button.IsChecked = true;
         }
         private void App_Language_enUS_Button_Checked(object sender, RoutedEventArgs e)
@@ -473,10 +451,9 @@ namespace S4EE
             Log.LogWriter(LogName, "App_Language_enUS_Button_Checked_FIN");
 
         }
-
         private void App_Language_deDE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Properties.Settings.Default.EditorInstalled = false;
+            Properties.Settings.Default.EditorInstalled = "0";
             App_Language_deDE_Button.IsChecked = true;
         }
         private void App_Language_deDE_Button_Checked(object sender, RoutedEventArgs e)
@@ -486,54 +463,22 @@ namespace S4EE
             Log.LogWriter(LogName, "App_Language_deDE_Button_Checked");
             LangChange();
             Log.LogWriter(LogName, "App_Language_deDE_Button_Checked_FIN");
-
         }
-
-        #endregion      
+        #endregion
         #region App_Misc
         private void App_Misc_SAVE_AUTOSAVE_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            //ToDo App_Misc_SAVE_AUTOSAVE_CheckBox_Checked
-            if (App.S4HE_AppPath != null)
+            Properties.Settings.Default.AutoSave = App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked switch
             {
-                string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
-                if (File.Exists(settings))
-                {
-                    if (App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked == true)
-                    {
-                        IniFile s4settings = new(settings);
-                        s4settings.Write("AutoSaveInterval", "5", "GAMESETTINGS");
-                    }
-                    else
-                    {
-                        IniFile s4settings = new(settings);
-                        s4settings.Write("AutoSaveInterval", "0", "GAMESETTINGS");
-                    }
-                }
-            }
+                true => "5",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
         }
         private void App_Misc_SAVE_SAVECLEANER_Checked(object sender, RoutedEventArgs e)
         {
-            //ToDo App_Misc_SAVE_SAVECLEANER_Checked
-            if (App.S4HE_AppPath != null)
-            {
-                string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
-                if (File.Exists(settings))
-                {
-                    if (App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked == true)
-                    {
-                        IniFile s4settings = new(settings);
-                        s4settings.Write("AutoSaveInterval", "5", "GAMESETTINGS");
-                    }
-                    else
-                    {
-                        IniFile s4settings = new(settings);
-                        s4settings.Write("AutoSaveInterval", "0", "GAMESETTINGS");
-                    }
-                }
-            }
+            
         }
-
         private void App_Misc_VIDEO_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             if (App.S4HE_AppPath != null)
@@ -592,7 +537,6 @@ namespace S4EE
             SpracheFestlegen();
             LangChange();
         }
-
         private void LangChange()
         {
             if (Properties.Settings.Default.Language == "de-DE")
@@ -608,8 +552,6 @@ namespace S4EE
             SpracheFestlegen();
             Properties.Settings.Default.Save();
         }
-
-
         private void SpracheFestlegen()
         {
             //Sprache Festlegen
@@ -676,7 +618,7 @@ namespace S4EE
         #endregion
         private void Button_Settings(object sender, RoutedEventArgs e)
         {
-            //ToDo RC03: Missions
+            //ToDo V1.1: Missions
             //Spielstände
             IniFile s4settings = new(App.S4HE_AppPath + @"Config\GAMESETTINGS.cfg");
             //MessageBoxResult resultsettings = MessageBox.Show(Properties.Resources.MSB_Missionen_Text, Properties.Resources.MSB_Missionen, MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -707,7 +649,5 @@ namespace S4EE
             };
             Process.Start(startInfo);
         }
-
-
     }
 }

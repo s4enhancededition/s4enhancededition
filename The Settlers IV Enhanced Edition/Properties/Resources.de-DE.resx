@@ -246,7 +246,7 @@ ordner verschoben. Dadurch wird der Spielstände-Ordner klein gehalten.</value>
     <value>VIDEOS ABSPIELEN</value>
   </data>
   <data name="App_Mod_Hotkeys" xml:space="preserve">
-    <value>HOTKEYS MOD (by Wizzardmaker and kdsystem1337)</value>
+    <value>HOTKEYS MOD v2 (by Wizzardmaker and kdsystem1337)</value>
   </data>
   <data name="App_Mod_Title" xml:space="preserve">
     <value>MODS</value>
@@ -285,6 +285,12 @@ die mindestens einmal gestartet wurde.</value>
   <data name="MSB_Error" xml:space="preserve">
     <value>FATALER FEHLER</value>
     <comment>!</comment>
+  </data>
+  <data name="MSB_Error_Mod" xml:space="preserve">
+    <value>Nicht vorhergesehene Modifikation</value>
+  </data>
+  <data name="MSB_Error_Mod_Text" xml:space="preserve">
+    <value>Nicht vorhergesehene Modifikation an Spieldateien erkannt, bitte das Spiel einmal auf Originalzustand zurücksetzen.</value>
   </data>
   <data name="MSB_Error_Rechte" xml:space="preserve">
     <value>FEHLENDE RECHTE</value>

@@ -441,7 +441,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die HOTKEYS MOD (by Wizzardmaker and kdsystem1337) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die HOTKEYS MOD v2 (by Wizzardmaker and kdsystem1337) ähnelt.
         /// </summary>
         public static string App_Mod_Hotkeys {
             get {
@@ -555,6 +555,24 @@ namespace S4EE.Properties {
         public static string MSB_Error {
             get {
                 return ResourceManager.GetString("MSB_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Unforeseen modification ähnelt.
+        /// </summary>
+        public static string MSB_Error_Mod {
+            get {
+                return ResourceManager.GetString("MSB_Error_Mod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Unforeseen modification to game files detected, please reset the game once to original state. ähnelt.
+        /// </summary>
+        public static string MSB_Error_Mod_Text {
+            get {
+                return ResourceManager.GetString("MSB_Error_Mod_Text", resourceCulture);
             }
         }
         
