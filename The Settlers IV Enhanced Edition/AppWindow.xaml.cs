@@ -539,10 +539,10 @@ namespace S4EE
             var startInfo = new ProcessStartInfo
             {
                 FileName = "TheSettlersIVEnhancedEditionSetup.exe",
-                //Arguments = @"/silent"
+                Arguments = @"/silent"
             };
             Process.Start(startInfo);
-            Environment.Exit(0);
+            //Environment.Exit(0);
         }
         private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
