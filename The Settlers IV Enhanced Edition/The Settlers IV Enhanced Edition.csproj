@@ -7,9 +7,9 @@
     <RootNamespace>S4EE</RootNamespace>
     <UseWPF>true</UseWPF>
     <StartupObject>S4EE.App</StartupObject>
-    <AssemblyVersion>1.0.1.1066</AssemblyVersion>
-    <FileVersion>1.0.1.1066</FileVersion>
-    <Version>1.0.1.1066</Version>
+    <AssemblyVersion>1.0.1.1067</AssemblyVersion>
+    <FileVersion>1.0.1.1067</FileVersion>
+    <Version>1.0.1.1067</Version>
     <Copyright>© 2019-2021 Ortner MEDIA</Copyright>
     <Company>Ortner MEDIA</Company>
     <ApplicationIcon>Resources\S4EE_ICON.ico</ApplicationIcon>
@@ -30,11 +30,6 @@
     <None Remove="Resources\Button_Settings_Maps_Folder_en-US.png" />
     <None Remove="Resources\Button_Settings_Maps_Folder_hell_de-DE.png" />
     <None Remove="Resources\Button_Settings_Maps_Folder_hell_en-US.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.774.44" />
-    <PackageReference Include="Octokit" Version="0.50.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -98,6 +93,11 @@
     <Resource Include="Resources\AppSettingsBackground.png" />
     <Content Include="Resources\S4EE_ICON.png" />
     <Content Include="Resources\S4EE_ICON.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.774.44" />
+    <PackageReference Include="Octokit" Version="0.50.0" />
   </ItemGroup>
 
   <ItemGroup>
