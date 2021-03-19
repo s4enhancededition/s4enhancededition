@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hotkeys", "Hotkeys\Hotkeys.vcxproj", "{F52CB381-CD68-4C0F-81FF-ACECC3F0BF9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F52CB381-CD68-4C0F-81FF-ACECC3F0BF9A}.Debug|x86.ActiveCfg = Debug|Win32
+		{F52CB381-CD68-4C0F-81FF-ACECC3F0BF9A}.Debug|x86.Build.0 = Debug|Win32
+		{F52CB381-CD68-4C0F-81FF-ACECC3F0BF9A}.Release|x86.ActiveCfg = Release|Win32
+		{F52CB381-CD68-4C0F-81FF-ACECC3F0BF9A}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F599A2E4-3C9B-4F69-A5FD-18BEA55F28E4}
+	EndGlobalSection
+EndGlobal

@@ -88,6 +88,7 @@ namespace S4EE
                             _ => "en-US",
                         };
                         Properties.Settings.Default.Save();
+                        //ToDo V1.1 GUI
                         AppSettings.LangSet();
                         Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
                         return;
