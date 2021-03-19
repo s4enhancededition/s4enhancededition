@@ -233,7 +233,7 @@ namespace S4EE
             string Installiert = Properties.Resources.App_Install_Installiert;
             string Deinstalliert = Properties.Resources.App_Install_Deinstalliert;
             //ToDo V1.1: InstallerAsync maxProgess
-            int maxProgess = 18;
+            int maxProgess = 20;
             LogInfo.Inlines.Clear();
             DownlaodPanel.Visibility = Visibility.Visible;
             switch (Properties.Settings.Default.EditionInstalled)
@@ -440,6 +440,42 @@ namespace S4EE
                         InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_T02, 17, maxProgess);
                         await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TOURNAMENT_WC2021_Un.zip");
                         InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_T02, 18, maxProgess);
+                        break;
+                    }
+            }
+            switch (Properties.Settings.Default.Map_C01)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_C01, 19, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_COOP_Pack01.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_C01, 20, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_C01, 19, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_COOP_Pack01_Un.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_C01, 20, maxProgess);
+                        break;
+                    }
+            }
+            switch (Properties.Settings.Default.Map_B01)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_B01, 21, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_BUDDEL_Pack01.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_B01, 22, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_B01, 21, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_BUDDEL_Pack01_Un.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_B01, 22, maxProgess);
                         break;
                     }
             }

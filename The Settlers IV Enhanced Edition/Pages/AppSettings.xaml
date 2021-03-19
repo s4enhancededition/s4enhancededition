@@ -722,7 +722,8 @@
                                         <CheckBox Name="App_Maps_C01_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  Checked="App_Maps_C01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_C01_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Maps_C01}"
                                                     Name="App_Maps_C01"
                                                     Foreground="White"
@@ -745,7 +746,8 @@
                                         <CheckBox Name="App_Maps_B01_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
-                                                  IsChecked="True">
+                                                  Checked="App_Maps_B01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_B01_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Maps_B01}"
                                                     Name="App_Maps_B01"
                                                     Foreground="White"

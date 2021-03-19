@@ -205,10 +205,6 @@ namespace S4EE
                 }
             }
             //ToDo V1.1: Buttons aktivieren & Coden
-            App_Maps_C01_CheckBox.IsEnabled = false;
-            App_Maps_B01_CheckBox.IsEnabled = false;
-            App_Maps_M01_CheckBox.IsEnabled = false;
-            App_Maps_TR01_CheckBox.IsEnabled = false;
             App_Misc_SAVE_SAVECLEANER_CheckBox.IsEnabled = false;
             App_Misc_VIDEO_CheckBox.IsEnabled = false;
             App_Misc_MISSIONS_CheckBox.IsEnabled = false;
@@ -429,6 +425,24 @@ namespace S4EE
         private void App_Maps_T02_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Map_T02 = App_Maps_T02_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Maps_C01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_C01 = App_Maps_C01_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Maps_B01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_B01 = App_Maps_B01_CheckBox.IsChecked switch
             {
                 true => "1",
                 false => "0",
