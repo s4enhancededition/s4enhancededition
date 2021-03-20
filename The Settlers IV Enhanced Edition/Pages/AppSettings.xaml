@@ -1001,7 +1001,8 @@
                                           Margin="3">
                                         <CheckBox Name="App_Misc_MISSIONS_CheckBox"
                                                   Margin="24,0,0,0"
-                                                  VerticalContentAlignment="Center">
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_MISSIONS_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Misc_MISSIONS}"
                                                     Name="App_Misc_MISSIONS"
                                                     Foreground="White"
@@ -1015,7 +1016,8 @@
                                           Margin="3">
                                         <CheckBox Name="App_Misc_MINE_CheckBox"
                                                   Margin="24,0,0,0"
-                                                  VerticalContentAlignment="Center">
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_MINE_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Misc_MINE}"
                                                     Name="App_Misc_MINE"
                                                     Foreground="White"
@@ -1029,7 +1031,8 @@
                                           Margin="3">
                                         <CheckBox Name="App_Misc_LEGACYCONTROLS_CheckBox"
                                                   Margin="24,0,0,0"
-                                                  VerticalContentAlignment="Center">
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_LEGACYCONTROLS_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Misc_LEGACYCONTROLS}"
                                                     Name="App_Misc_LEGACYCONTROLS"
                                                     Foreground="White"
@@ -1051,7 +1054,8 @@
                                           Margin="3">
                                         <CheckBox Name="App_Misc_FIXES_EDITOR_CheckBox"
                                                   Margin="24,0,0,0"
-                                                  VerticalContentAlignment="Center">
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_FIXES_EDITOR_CheckBox_Checked">
                                             <Label  Content="{x:Static p:Resources.App_Misc_FIXES_EDITOR}"
                                                     Name="App_Misc_FIXES_EDITOR"
                                                     Foreground="White"

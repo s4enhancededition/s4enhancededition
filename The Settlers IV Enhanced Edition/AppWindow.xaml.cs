@@ -212,7 +212,7 @@ namespace S4EE
             //ToDo V1.2 AntiCheat
             if (App.S4HE_AppPath == null)
             {
-                MessageBox.Show(Properties.Resources.MSB_Error_Mod, Properties.Resources.MSB_Error_Mod_Text, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Properties.Resources.MSB_Error_Mod_Text, Properties.Resources.MSB_Error_Mod, MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(0);
                 return;
             }
@@ -587,7 +587,6 @@ namespace S4EE
             }
             InstallprogressLogger(Installiert, Properties.Resources.App_Misc_SAVE_AUTOSAVE, 30, maxProgess);
             //SAVECLEANER
-            //ToDo
             InstallprogressLogger(Installieren, Properties.Resources.App_Misc_SAVE_SAVECLEANER, 31, maxProgess);
             switch (Properties.Settings.Default.EditionInstalled)
             {
@@ -597,18 +596,17 @@ namespace S4EE
                         string folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Save";
                         if (Directory.Exists(folder))
                         {
-                            MessageBox.Show(folder, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Information);
+                            await Worker.SaveCleaner(folder);
                         }
                         break;
                     }
-
                 case ("GE"):
                 case ("EGE"):
                     {
                         string folder = App.S4GE_AppPath + @"\Save";
                         if (Directory.Exists(folder))
                         {
-                            MessageBox.Show(folder, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Information);
+                            await Worker.SaveCleaner(folder);
                         }
                         break;
                     }
@@ -665,6 +663,8 @@ namespace S4EE
 
             DownlaodPanel.Visibility = Visibility.Hidden;
         }
+
+       
         private static void CopyS3()
         {
             DirectoryInfo dir = new(App.S3HE_AppPath + @"\Theme");

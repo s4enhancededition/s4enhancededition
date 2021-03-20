@@ -175,13 +175,30 @@ namespace S4EE
                 _ => true,
             };
 
-            //ToDo V1.1: Buttons aktivieren & Coden
-            App_Misc_MISSIONS_CheckBox.IsEnabled = false;
-            App_Misc_MINE_CheckBox.IsEnabled = false;
-            App_Misc_LEGACYCONTROLS_CheckBox.IsEnabled = false;
-            App_Misc_FIXES_EDITOR_CheckBox.IsEnabled = false;
-        }
+            App_Misc_MISSIONS_CheckBox.IsChecked = Properties.Settings.Default.VideosShow switch
+            {
+                ("0") => false,
+                _ => true,
+            };
 
+            App_Misc_MINE_CheckBox.IsChecked = Properties.Settings.Default.VideosShow switch
+            {
+                ("0") => false,
+                _ => true,
+            };
+
+            App_Misc_LEGACYCONTROLS_CheckBox.IsChecked = Properties.Settings.Default.VideosShow switch
+            {
+                ("0") => false,
+                _ => true,
+            };
+
+            App_Misc_FIXES_EDITOR_CheckBox.IsChecked = Properties.Settings.Default.VideosShow switch
+            {
+                ("0") => false,
+                _ => true,
+            };
+        }
         #region App_Edition
         private void App_Edition_EHE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -499,6 +516,42 @@ namespace S4EE
         private void App_Misc_VIDEO_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.VideosShow = App_Misc_VIDEO_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Misc_MISSIONS_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Missions = App_Misc_MISSIONS_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Misc_MINE_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Minen = App_Misc_MINE_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Misc_LEGACYCONTROLS_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.LegacyControls = App_Misc_LEGACYCONTROLS_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Misc_FIXES_EDITOR_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.EditorFix = App_Misc_FIXES_EDITOR_CheckBox.IsChecked switch
             {
                 true => "1",
                 false => "0",

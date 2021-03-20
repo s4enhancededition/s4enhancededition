@@ -262,5 +262,53 @@ namespace S4EE.Properties {
                 this["SaveCleaner"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Missions {
+            get {
+                return ((string)(this["Missions"]));
+            }
+            set {
+                this["Missions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Minen {
+            get {
+                return ((string)(this["Minen"]));
+            }
+            set {
+                this["Minen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LegacyControls {
+            get {
+                return ((string)(this["LegacyControls"]));
+            }
+            set {
+                this["LegacyControls"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string EditorFix {
+            get {
+                return ((string)(this["EditorFix"]));
+            }
+            set {
+                this["EditorFix"] = value;
+            }
+        }
     }
 }

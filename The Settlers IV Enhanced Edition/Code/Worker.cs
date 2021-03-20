@@ -151,5 +151,31 @@ namespace S4EE
                 }
             }
         }
+        public static Task SaveCleaner(string Folder)
+        {
+            DateTime dt = DateTime.Now.Add(new TimeSpan(-48, 0, 0));
+            try
+            {
+                foreach (var entry in Directory.GetFiles(Folder))
+                {
+                    DateTime entrydate = File.GetLastWriteTime(entry);
+                    if (dt >= entrydate)
+                    {
+                        string FolderArchiv = Folder + @"\Archiv-" + entrydate.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+
+                        if (!Directory.Exists(FolderArchiv))
+                        {
+                            Directory.CreateDirectory(FolderArchiv);
+                        }
+                        File.Move(entry, FolderArchiv + entry.Replace(Folder, ""));
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            return Task.CompletedTask;
+        }
     }
 }
