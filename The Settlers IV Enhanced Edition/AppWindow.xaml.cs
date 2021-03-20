@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +26,8 @@ namespace S4EE
         readonly AppSettings AppSettings;
         private static readonly SHA256 Sha256 = SHA256.Create();
         private static readonly string LogName = "App.xaml.cs";
+        string Filename = "";
+        bool Error = false;
         /// <summary>
         /// Startmethode der Anwendung
         /// </summary>
@@ -241,16 +245,178 @@ namespace S4EE
             }
             SpracheFestlegen();
         }
-        private static void Checksumme()
+        private void Checksumme()
         {
+            Filename = "";
+            Error = false;
             //ToDo V1.2 AntiCheat
-            if (App.S4HE_AppPath == null)
+            string Path = "";
+            //Editionsglobal
+            switch (Properties.Settings.Default.EditionInstalled)
             {
-                MessageBox.Show(Properties.Resources.MSB_Error_Mod_Text, Properties.Resources.MSB_Error_Mod, MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(0);
-                return;
+                case ("EHE"):
+                case ("HE"):
+                    {
+                        Path = App.S4HE_AppPath;
+                        CheckMD5Hash(Path, @"binkw32.dll", "915afe5764d58fa9ee508948ae078f3673f1b052d81b365e15da6b85d9ae4d6b");
+                        CheckMD5Hash(Path, @"binkw32hooked.dll", "b80c9c91cf3d354d38a89d136793a141c9cbd19e2a6118c8a3863af674e7cd8f");
+                        CheckMD5Hash(Path, @"Config\AINames.cfg", "3b49bfcf7aa0754cfdd2336e6c19f8792e7492db1b663d335abbe5fc9789a2e9");
+                        CheckMD5Hash(Path, @"Config\Animals.cfg", "860395c4ae455784f9e4ccb983e10afae015e476dacd7890275e7474ace0574d");
+                        CheckMD5Hash(Path, @"Config\Balancing.cfg", "7c541207be13b986f275dfd00469e18ac9caded72e66a6ba5396420d46552a14");
+                        CheckMD5Hash(Path, @"Config\Magic.cfg", "90bd35e3caea0718cce3be5a771a6abbd93946006e9a0c1ccd3f50f97f8419f3");
+                        CheckMD5Hash(Path, @"Config\MainConfig.cfg", "db4e768730922d8982869c7277a16a9830e6d31c1cfaf0f851ed7a1f002a8f8a");
+                        CheckMD5Hash(Path, @"Config\Network.cfg", "f9640edbc5d98e9d109847c71dc2da650fa3420292db6a35d187c8fc2497f64b");
+                        CheckMD5Hash(Path, @"Config\Transport.cfg", "5a69deefc08d9670772f87638fafd64f54be355ba59517d893fe99d84bcc9539");
+                        CheckMD5Hash(Path, @"GameData\buildingInfo.xml", "b1828250fb9a8794e98305458716ad3299d8a5d61583268d343da786abc6c0cb");
+                        CheckMD5Hash(Path, @"GameData\BuildingTrigger.xml", "0430ef9758456c479f4686ebf5d8733986180706f6e2329700fbda73534a1dd9");
+                        CheckMD5Hash(Path, @"GameData\effectsInfo.xml", "1ae2e51a7dc60c071c378fd311f1c13b9e945bd6c6153ba4e63821d20d911770");
+                        CheckMD5Hash(Path, @"GameData\jobInfo.xml", "158a7397ff70922bbb4e0d0485eedc14aabc9fedb2510a0cf1af7178b16a56c2");
+                        CheckMD5Hash(Path, @"GameData\jobSoundList.xml", "d11bb9879c003655da717e5ca860d70299019a95289c06bc18f26b6b924e4aaf");
+                        CheckMD5Hash(Path, @"GameData\objectInfo.xml", "279b0d4226fb44ec9ff4c2566feb9c6f2a01ebbddd50c4c33d4d39df7338dec9");
+                        CheckMD5Hash(Path, @"GameData\SettlerValuesMp.xml", "9dcfe0c4c2991591fa04233b2f90e2f0b0f590fad427f658418842790ff827d2");
+                        CheckMD5Hash(Path, @"GameData\VehicleInfo.xml", "63aeec6ff03712d9052a48ae1416f2f3e57e500594e73ee9ea224bc0e6679aad");
+                        CheckMD5Hash(Path, @"Mp3dec.asi", "51765b5a747bd2c5255b727557a7927c8318e09919bd9b4ef4b4019e801cd562");
+                        CheckMD5Hash(Path, @"mss32.dll", "2a515199cc7a2e1ccd8d756efdaab07cedd5c3052309ef1c7499c2560e2097bd");
+                        CheckMD5Hash(Path, @"S4_Main.exe", "f6dbb89072f3f0fefa35de23810a22317b8621e7a8a0aec2503ef28aaa25ea0b");
+                        //CheckMD5Hash(Path, @"S4_MainD.exe", "f53bfe8335f824d44e75fa342ee79c1ef04051bb32865fd856083fc964510377");
+                        //CheckMD5Hash(Path, @"S4_MainD.ilk", "514e57aca54e75b53d183460fe391262154903eb4f8213ec85ba00ae697b88ff");
+                        CheckMD5Hash(Path, @"S4ModApi.dll", "add85ace2c8ac2fdfc47f0d0c01804923f97b1ab30c826589728862b3bf84a46");
+                        CheckMD5Hash(Path, @"Script\Internal\CheckInstallation.txt", "c777dd5d254b14b90dae03fe32b18f11bbc86cce51d4eb8a9871379df6ac8f46");
+                        CheckMD5Hash(Path, @"Script\Internal\StartResources.txt", "3c6e1668353ab642466f3061ad4ab1b4adee869f05158e21010849162074416d");
+                        break;
+                    }
+                case ("GE"):
+                case ("EGE"):
+                    {
+                        Path = App.S4HE_AppPath;
+                        break;
+                    }
+            }
+
+            //Spezifisches
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("HE"):
+                    {
+                        CheckMD5Hash(Path, @"GameData\SettlerValues.xml", "C50659FB64049D0B6C1550E0A089DB38FF8E7A3BE3AB3230BF4254E7AA20DA62");
+                        var path = Path + @"Plugins";
+                        var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
+                                             .OrderBy(p => p).ToList();
+
+                        SHA256 sha256 = SHA256.Create();
+
+                        for (int i = 0; i < files.Count; i++)
+                        {
+                            string file = files[i];
+
+                            string relativePath = file[(path.Length + 1)..];
+                            byte[] pathBytes = Encoding.UTF8.GetBytes(relativePath.ToLower());
+                            sha256.TransformBlock(pathBytes, 0, pathBytes.Length, pathBytes, 0);
+
+                            byte[] contentBytes = File.ReadAllBytes(file);
+                            if (i == files.Count - 1)
+                                sha256.TransformFinalBlock(contentBytes, 0, contentBytes.Length);
+                            else
+                                sha256.TransformBlock(contentBytes, 0, contentBytes.Length, contentBytes, 0);
+                        }
+                        try
+                        {
+                            if (BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "EEADB2836CCECE343DC766E21D3F69A36AA4B1EA7E8A03DD949758A32659B2C7"
+                                || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "A0B60713FA4A3F43D4941962855A61B8BBAFCBC6BD4E935E9FF6EA2E413D564B"
+                                || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "2EFEDC0A4A787F13531CBAB95A7FDB677C6B3D1FFE980BA5B44A8BA34766147F")
+                            {
+                                Log.LogWriter("SHA256", "Plugins OK");
+                            }
+                            else
+                            {
+                                Log.LogWriter("SHA256", "Plugins FAIL");
+                                Filename += "Plugins Failed" + ", ";
+                                Error = true;
+                            }
+                            Log.LogWriter("SHA256", BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper());
+                        }
+                        catch (Exception)
+                        {
+                            Log.LogWriter("SHA256", "Plugins (evtl.) FAIL");
+                        }
+                        break;
+                    }
+                case ("EHE"):
+                    {
+                        CheckMD5Hash(Path, @"GameData\SettlerValues.xml", "9dcfe0c4c2991591fa04233b2f90e2f0b0f590fad427f658418842790ff827d2");
+                        CheckMD5Hash(Path, @"Plugins\RequestLimitExtender.asi", "a82cacd5b2fe8bc5d69ed23c86cd943de3c9b5e3f90f55672fcba0d2b1ff7191");
+                        CheckMD5Hash(Path, @"Plugins\SettlerLimitExtender.asi", "b22c4d7f7544f777672f8622c38d5955ec0bccd90875c5cb0e637623c90147c3");
+
+
+                        var path = Path + @"Plugins";
+                        var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
+                                             .OrderBy(p => p).ToList();
+
+                        SHA256 sha256 = SHA256.Create();
+
+                        for (int i = 0; i < files.Count; i++)
+                        {
+                            string file = files[i];
+
+                            string relativePath = file[(path.Length + 1)..];
+                            byte[] pathBytes = Encoding.UTF8.GetBytes(relativePath.ToLower());
+                            sha256.TransformBlock(pathBytes, 0, pathBytes.Length, pathBytes, 0);
+
+                            byte[] contentBytes = File.ReadAllBytes(file);
+                            if (i == files.Count - 1)
+                                sha256.TransformFinalBlock(contentBytes, 0, contentBytes.Length);
+                            else
+                                sha256.TransformBlock(contentBytes, 0, contentBytes.Length, contentBytes, 0);
+                        }
+
+                        if (BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "3D1060D66BB4414FDA9500E1A2B02C7579E55277F225B36AFDC80811180FB35F"
+                            || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "B058F7E0345A561488993AFC9D99BF4FC1E5F8AC356F10541E66D3FFAF0C86D4"
+                            || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "BC2A2F7CE988D60764DCA49C3EC9E9ECE45ECD4F285B2DC5D03C80F674E569CE"
+                            || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "D4D23B62E051279101882DD9F448EA273F25C8111FA2F6DCE82A6AB12D78FCDF")
+                        {
+                            Log.LogWriter("SHA256", "Plugins OK");
+
+                        }
+                        else
+                        {
+                            Log.LogWriter("SHA256", "Plugins FAIL");
+                            Filename += "Plugins Failed" + ", ";
+                            Error = true;
+                        }
+                        Log.LogWriter("SHA256", BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper());
+
+                        break;
+                    }
+                case ("GE"):
+                    {
+                        //ToDo
+                        break;
+                    }
+                case ("EGE"):
+                    {
+                        //ToDo
+                        break;
+                    }
+            }
+
+
+            if (Error)
+            {
+                MessageBox.Show(Properties.Resources.MSB_Error_Mod_Text + Filename, Properties.Resources.MSB_Error_Mod, MessageBoxButton.OK, MessageBoxImage.Error);
+                //Environment.Exit(0);
+                //return;
+            }
+
+        }
+        private void CheckMD5Hash(string Path, string File, string MD256)
+        {
+            if (GetMD5Hash(Path + File) != MD256.ToUpper())
+            {
+                Filename += File + ",";
+                Error = true;
             }
         }
+
         public void SpracheFestlegen()
         {
             //GUI
@@ -704,7 +870,7 @@ namespace S4EE
                         {
                             case ("1"):
                                 {
-                                   
+
                                     string[] lines = {  @"//",
                                         @"// Automatically generated file. Do not edit!",
                                         @"// ",
