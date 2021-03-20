@@ -36,6 +36,12 @@ namespace S4EE
             }
             else
             {
+                //CHECKS
+                Installationscheck();
+                Log.LogWriter(LogName, "Installationscheck");
+                //CHECKS
+                CleanUp();
+                Log.LogWriter(LogName, "CleanUp");
                 //INIT
                 Log.LogWriter(LogName, "InitializeComponent");
                 AppStart = new AppStart();
@@ -47,11 +53,6 @@ namespace S4EE
                 //NAV
                 FrameContent.Navigate(AppStart);
                 Log.LogWriter(LogName, "AppStart");
-                //CHECKS
-                Installationscheck();
-                Log.LogWriter(LogName, "Installationscheck");
-                CleanUp();
-                Log.LogWriter(LogName, "CleanUp");
                 CheckUpdate();
                 Log.LogWriter(LogName, "CheckUpdate");
             }
@@ -76,10 +77,10 @@ namespace S4EE
             Log.LogWriter(LogName, "Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
             if (Properties.Settings.Default.Map_O01 == "")
             {
-                Log.LogWriter(LogName, "Maps Default Original");
+                Log.LogWriter("Maps", "Maps Default Original");
                 Properties.Settings.Default.Map_O01 = "1";
                 Properties.Settings.Default.Save();
-                Log.LogWriter(LogName, "Maps Default Original Set");
+                Log.LogWriter("Maps", "Maps Default Original Set");
             }
             if (Properties.Settings.Default.Language == "")
             {
@@ -96,25 +97,30 @@ namespace S4EE
                             _ => "en-US",
                         };
                         Properties.Settings.Default.Save();
-                        switch (Properties.Settings.Default.Language)
-                        {
+                        //switch (Properties.Settings.Default.Language)
+                        //{
 
-                            case ("de-DE"):
-                                {
-                                    AppSettings.App_Language_deDE_Button.IsChecked = true;
-                                    break;
-                                }
+                        //    case ("de-DE"):
+                        //        {
+                        //            AppSettings.App_Language_deDE_Button.IsChecked = true;
+                        //            break;
+                        //        }
 
-                            case ("en-US"):
-                                {
-                                    AppSettings.App_Language_enUS_Button.IsChecked = true;
-                                    break;
-                                }
+                        //    case ("en-US"):
+                        //        {
+                        //            AppSettings.App_Language_enUS_Button.IsChecked = true;
+                        //            break;
+                        //        }
 
-                        }
+                        //}
                         AppSettings.LangSet();
                         Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
-                        return;
+                    }
+                    else
+                    {
+                        Properties.Settings.Default.Language = "en-US";
+                        Properties.Settings.Default.Save();
+                        //AppSettings.App_Language_enUS_Button.IsChecked = true;
                     }
                 }
                 else if (App.S4GE_AppPath != null)
@@ -133,20 +139,19 @@ namespace S4EE
 
                             case ("de-DE"):
                                 {
-                                    AppSettings.App_Language_deDE_Button.IsChecked = true;
+                                    //AppSettings.App_Language_deDE_Button.IsChecked = true;
                                     break;
                                 }
 
                             case ("en-US"):
                                 {
-                                    AppSettings.App_Language_enUS_Button.IsChecked = true;
+                                    //AppSettings.App_Language_enUS_Button.IsChecked = true;
                                     break;
                                 }
 
                         }
                         AppSettings.LangSet();
                         Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
-                        return;
                     }
                 }
                 else
@@ -157,17 +162,17 @@ namespace S4EE
             }
             if (Properties.Settings.Default.EditionInstalled == "")
             {
-                Log.LogWriter("VersionChange", "Keine Installation gefunden: Suche nach Installationen");
+                Log.LogWriter("Version", "Keine Installation gefunden: Suche nach Installationen");
                 if (App.S4HE_AppPath != null)
                 {
                     Properties.Settings.Default.EditionInstalled = "EHE";
-                    AppSettings.App_Edition_EHE_Button.IsChecked = true;
+                    //AppSettings.App_Edition_EHE_Button.IsChecked = true;
                     Properties.Settings.Default.Save();
                 }
                 else if (App.S4GE_AppPath != null)
                 {
                     Properties.Settings.Default.EditionInstalled = "EGE";
-                    AppSettings.App_Edition_EGE_Button.IsChecked = true;
+                    //AppSettings.App_Edition_EGE_Button.IsChecked = true;
                     Properties.Settings.Default.Save();
                 }
                 else
@@ -178,9 +183,9 @@ namespace S4EE
             }
             if (Properties.Settings.Default.TexturesInstalled == "")
             {
-                Log.LogWriter("VersionChange", "Keine Texturen gefunden: Suche nach Texturen");
+                Log.LogWriter("Texturen", "Keine Texturen gefunden: Suche nach Texturen");
 
-                if (App.S4HE_AppPath != null && (Properties.Settings.Default.EditionInstalled == "HE" || Properties.Settings.Default.EditionInstalled == "EHE"))
+                if (App.S4HE_AppPath != null)
                 {
 
                     if (GetMD5Hash(App.S4HE_AppPath + @"\Gfx\2.gl5") == "A878998C135502053A5ED532C198CCACD15AC5F7331512D6FC73FE406FDB59CD")
@@ -192,9 +197,9 @@ namespace S4EE
                         Properties.Settings.Default.TexturesInstalled = "NW";
                     }
                     Properties.Settings.Default.Save();
-                    Log.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
+                    Log.LogWriter("Texturen", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
                 }
-                else if (App.S4GE_AppPath != null && (Properties.Settings.Default.EditionInstalled == "GE" || Properties.Settings.Default.EditionInstalled == "EHE"))
+                else if (App.S4GE_AppPath != null)
                 {
                     if (GetMD5Hash(App.S4GE_AppPath + @"\Gfx\2.gl5") == "A878998C135502053A5ED532C198CCACD15AC5F7331512D6FC73FE406FDB59CD")
                     {
@@ -205,13 +210,34 @@ namespace S4EE
                         Properties.Settings.Default.TexturesInstalled = "NW";
                     }
                     Properties.Settings.Default.Save();
-                    Log.LogWriter("VersionChange", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
+                    Log.LogWriter("Texturen", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
                 }
                 else
                 {
-                    Log.LogWriter("VersionChange", "Keine Texturen gefunden: Suche nach Texturen abgeschlossen mit Fehler");
+                    Log.LogWriter("Texturen", "Keine LegacyControls gefunden: Suche nach LegacyControls abgeschlossen mit Fehler");
                 }
+            }
 
+            if (Properties.Settings.Default.LegacyControls == "")
+            {
+                Log.LogWriter("LegacyControls", "Keine LegacyControls gefunden: Suche nach LegacyControls");
+
+                if (App.S4HE_AppPath != null)
+                {
+                    string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
+                    IniFile s4settings = new(settings);
+                    Properties.Settings.Default.LegacyControls = s4settings.Read("LegacyMouse", "GAMESETTINGS") switch
+                    {
+                        ("1") => "1",
+                        _ => "0",
+                    };
+                    Properties.Settings.Default.Save();
+                    Log.LogWriter("VersionChange", "LegacyControls Installed " + Properties.Settings.Default.LegacyControls);
+                }
+                else
+                {
+                    Log.LogWriter("VersionChange", "Keine LegacyControls gefunden: Suche nach LegacyControls abgeschlossen mit Fehler");
+                }
             }
             SpracheFestlegen();
         }
@@ -677,10 +703,8 @@ namespace S4EE
                         switch (Properties.Settings.Default.Missions)
                         {
                             case ("1"):
-                            default:
                                 {
-                                    IniFile s4settings = new(App.S4HE_AppPath + @"Config\GAMESETTINGS.cfg");
-                                    s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
+                                   
                                     string[] lines = {  @"//",
                                         @"// Automatically generated file. Do not edit!",
                                         @"// ",
@@ -699,6 +723,7 @@ namespace S4EE
                                     File.WriteAllLines(App.S4HE_AppPath + @"Config\MiscData2.cfg", lines);
                                     break;
                                 }
+                            default:
                             case ("0"):
                                 {
                                     break;
@@ -712,10 +737,7 @@ namespace S4EE
                         switch (Properties.Settings.Default.Missions)
                         {
                             case ("1"):
-                            default:
                                 {
-                                    IniFile s4settings = new(App.S4GE_AppPath + @"Config\GAMESETTINGS.cfg");
-                                    s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
                                     string[] lines = {  @"//",
                                         @"// Automatically generated file. Do not edit!",
                                         @"// ",
@@ -734,6 +756,7 @@ namespace S4EE
                                     File.WriteAllLines(App.S4GE_AppPath + @"Config\MiscData2.cfg", lines);
                                     break;
                                 }
+                            default:
                             case ("0"):
                                 {
                                     break;
@@ -753,12 +776,12 @@ namespace S4EE
                         switch (Properties.Settings.Default.Minen)
                         {
                             case ("1"):
-                            default:
                                 {
                                     IniFile s4settings = new(App.S4HE_AppPath + @"Config\WarningTypes.cfg");
                                     s4settings.Write("GUI_WARN_MINE_EMPTY", "<WARNING_ECO_MISSING_RESOURCES>", "WARNINGMSG_CLASSIFICATION");
                                     break;
                                 }
+                            default:
                             case ("0"):
                                 {
                                     IniFile s4settings = new(App.S4HE_AppPath + @"Config\WarningTypes.cfg");
@@ -796,6 +819,11 @@ namespace S4EE
                     }
             }
             InstallprogressLogger(Installiert, Properties.Resources.App_Misc_LEGACYCONTROLS, 40, maxProgess);
+
+            //ToDo: V1.2 "Ressourcen Gefunden abschalten"
+            //IniFile s4settings = new(App.S4GE_AppPath + @"Config\GAMESETTINGS.cfg");
+            //s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
+
             DownlaodPanel.Visibility = Visibility.Hidden;
         }
         async static void Deinstaller()

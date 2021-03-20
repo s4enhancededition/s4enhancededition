@@ -386,7 +386,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ACTIVATE INEFFICIENT MINE WARNING ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ACTIVATE INEFFICIENT MINE WARNING (HISTORY EDITION) ähnelt.
         /// </summary>
         public static string App_Misc_MINE {
             get {

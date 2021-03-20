@@ -175,26 +175,26 @@ namespace S4EE
 
             App_Misc_MISSIONS_CheckBox.IsChecked = Properties.Settings.Default.Missions switch
             {
-                ("0") => false,
-                _ => true,
+                ("1") => true,
+                _ => false,
             };
 
             App_Misc_MINE_CheckBox.IsChecked = Properties.Settings.Default.Minen switch
             {
-                ("0") => false,
-                _ => true,
+                ("1") => true,
+                _ => false,
             };
 
             App_Misc_LEGACYCONTROLS_CheckBox.IsChecked = Properties.Settings.Default.LegacyControls switch
             {
-                ("0") => false,
-                _ => true,
+                ("1") => true,
+                _ => false,
             };
 
             App_Misc_FIXES_EDITOR_CheckBox.IsChecked = Properties.Settings.Default.EditorFix switch
             {
-                ("0") => false,
-                _ => true,
+                ("1") => true,
+                _ => false,
             };
         }
         #region App_Edition

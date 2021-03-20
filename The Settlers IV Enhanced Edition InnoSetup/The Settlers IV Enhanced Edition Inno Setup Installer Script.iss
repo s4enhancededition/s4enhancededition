@@ -112,8 +112,7 @@ Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Flags: postinstall hidew
 ;Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Flags: nowait postinstall hidewizard; Description: "{cm:LaunchProgram, {#MyAppName}}"
 
 [UninstallRun]
-;Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Parameters: "/SilentUninstall";
-
+Filename: "{app}\The Settlers IV Enhanced Edition.EXE"; Parameters: "/SilentUninstall"; RunOnceId: "TSIVEEUN"
 
 
 //////////////////////////////////////////////////////////
