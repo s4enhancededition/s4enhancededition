@@ -74,7 +74,6 @@ namespace S4EE
         }
         public void Installationscheck()
         {
-            Checksumme();
             Title = Properties.Resources.App_Name;
             // Versionsinfo der Assembly
             Versiontext.Content = "Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -117,7 +116,7 @@ namespace S4EE
                         //        }
 
                         //}
-                        AppSettings.LangSet();
+                        //AppSettings.LangSet();
                         Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
                     }
                     else
@@ -299,28 +298,29 @@ namespace S4EE
                 case ("HE"):
                     {
                         CheckMD5Hash(Path, @"GameData\SettlerValues.xml", "C50659FB64049D0B6C1550E0A089DB38FF8E7A3BE3AB3230BF4254E7AA20DA62");
-                        var path = Path + @"Plugins";
-                        var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
-                                             .OrderBy(p => p).ToList();
-
-                        SHA256 sha256 = SHA256.Create();
-
-                        for (int i = 0; i < files.Count; i++)
+                        if (File.Exists(Path + @"Plugins"))
                         {
-                            string file = files[i];
+                            var path = Path + @"Plugins";
+                            var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
+                                                 .OrderBy(p => p).ToList();
 
-                            string relativePath = file[(path.Length + 1)..];
-                            byte[] pathBytes = Encoding.UTF8.GetBytes(relativePath.ToLower());
-                            sha256.TransformBlock(pathBytes, 0, pathBytes.Length, pathBytes, 0);
+                            SHA256 sha256 = SHA256.Create();
 
-                            byte[] contentBytes = File.ReadAllBytes(file);
-                            if (i == files.Count - 1)
-                                sha256.TransformFinalBlock(contentBytes, 0, contentBytes.Length);
-                            else
-                                sha256.TransformBlock(contentBytes, 0, contentBytes.Length, contentBytes, 0);
-                        }
-                        try
-                        {
+                            for (int i = 0; i < files.Count; i++)
+                            {
+                                string file = files[i];
+
+                                string relativePath = file[(path.Length + 1)..];
+                                byte[] pathBytes = Encoding.UTF8.GetBytes(relativePath.ToLower());
+                                sha256.TransformBlock(pathBytes, 0, pathBytes.Length, pathBytes, 0);
+
+                                byte[] contentBytes = File.ReadAllBytes(file);
+                                if (i == files.Count - 1)
+                                    sha256.TransformFinalBlock(contentBytes, 0, contentBytes.Length);
+                                else
+                                    sha256.TransformBlock(contentBytes, 0, contentBytes.Length, contentBytes, 0);
+                            }
+
                             if (BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "EEADB2836CCECE343DC766E21D3F69A36AA4B1EA7E8A03DD949758A32659B2C7"
                                 || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "A0B60713FA4A3F43D4941962855A61B8BBAFCBC6BD4E935E9FF6EA2E413D564B"
                                 || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "2EFEDC0A4A787F13531CBAB95A7FDB677C6B3D1FFE980BA5B44A8BA34766147F")
@@ -335,10 +335,6 @@ namespace S4EE
                             }
                             Log.LogWriter("SHA256", BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper());
                         }
-                        catch (Exception)
-                        {
-                            Log.LogWriter("SHA256", "Plugins (evtl.) FAIL");
-                        }
                         break;
                     }
                 case ("EHE"):
@@ -348,45 +344,47 @@ namespace S4EE
                         CheckMD5Hash(Path, @"Plugins\SettlerLimitExtender.asi", "b22c4d7f7544f777672f8622c38d5955ec0bccd90875c5cb0e637623c90147c3");
 
 
-                        var path = Path + @"Plugins";
-                        var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
-                                             .OrderBy(p => p).ToList();
-
-                        SHA256 sha256 = SHA256.Create();
-
-                        for (int i = 0; i < files.Count; i++)
+                        if (File.Exists(Path + @"Plugins"))
                         {
-                            string file = files[i];
+                            var path = Path + @"Plugins";
+                            var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
+                                                 .OrderBy(p => p).ToList();
 
-                            string relativePath = file[(path.Length + 1)..];
-                            byte[] pathBytes = Encoding.UTF8.GetBytes(relativePath.ToLower());
-                            sha256.TransformBlock(pathBytes, 0, pathBytes.Length, pathBytes, 0);
+                            SHA256 sha256 = SHA256.Create();
 
-                            byte[] contentBytes = File.ReadAllBytes(file);
-                            if (i == files.Count - 1)
-                                sha256.TransformFinalBlock(contentBytes, 0, contentBytes.Length);
+                            for (int i = 0; i < files.Count; i++)
+                            {
+                                string file = files[i];
+
+                                string relativePath = file[(path.Length + 1)..];
+                                byte[] pathBytes = Encoding.UTF8.GetBytes(relativePath.ToLower());
+                                sha256.TransformBlock(pathBytes, 0, pathBytes.Length, pathBytes, 0);
+
+                                byte[] contentBytes = File.ReadAllBytes(file);
+                                if (i == files.Count - 1)
+                                    sha256.TransformFinalBlock(contentBytes, 0, contentBytes.Length);
+                                else
+                                    sha256.TransformBlock(contentBytes, 0, contentBytes.Length, contentBytes, 0);
+                            }
+
+                            if (BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "3D1060D66BB4414FDA9500E1A2B02C7579E55277F225B36AFDC80811180FB35F"
+                                || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "B058F7E0345A561488993AFC9D99BF4FC1E5F8AC356F10541E66D3FFAF0C86D4"
+                                || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "BC2A2F7CE988D60764DCA49C3EC9E9ECE45ECD4F285B2DC5D03C80F674E569CE"
+                                || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "D4D23B62E051279101882DD9F448EA273F25C8111FA2F6DCE82A6AB12D78FCDF")
+                            {
+                                Log.LogWriter("SHA256", "Plugins OK");
+                            }
                             else
-                                sha256.TransformBlock(contentBytes, 0, contentBytes.Length, contentBytes, 0);
+                            {
+                                Log.LogWriter("SHA256", "Plugins FAIL");
+                                Filename += "Plugins Failed" + ", ";
+                                Error = true;
+                            }
+                            Log.LogWriter("SHA256", BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper());
                         }
-
-                        if (BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "3D1060D66BB4414FDA9500E1A2B02C7579E55277F225B36AFDC80811180FB35F"
-                            || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "B058F7E0345A561488993AFC9D99BF4FC1E5F8AC356F10541E66D3FFAF0C86D4"
-                            || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "BC2A2F7CE988D60764DCA49C3EC9E9ECE45ECD4F285B2DC5D03C80F674E569CE"
-                            || BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper() == "D4D23B62E051279101882DD9F448EA273F25C8111FA2F6DCE82A6AB12D78FCDF")
-                        {
-                            Log.LogWriter("SHA256", "Plugins OK");
-
-                        }
-                        else
-                        {
-                            Log.LogWriter("SHA256", "Plugins FAIL");
-                            Filename += "Plugins Failed" + ", ";
-                            Error = true;
-                        }
-                        Log.LogWriter("SHA256", BitConverter.ToString(sha256.Hash).Replace("-", "").ToUpper());
-
-                        break;
                     }
+                    break;
+
                 case ("GE"):
                     {
                         //ToDo
@@ -410,10 +408,17 @@ namespace S4EE
         }
         private void CheckMD5Hash(string Path, string File, string MD256)
         {
-            if (GetMD5Hash(Path + File) != MD256.ToUpper())
+            try
             {
-                Filename += File + ",";
-                Error = true;
+                if (GetMD5Hash(Path + File) != MD256.ToUpper())
+                {
+                    Filename += File + ",";
+                    Error = true;
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
 

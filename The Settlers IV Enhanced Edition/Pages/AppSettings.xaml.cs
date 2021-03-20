@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -560,18 +561,25 @@ namespace S4EE
         #region Sprachenmethoden
         public void LangSet()
         {
-            if (Properties.Settings.Default.Language == "de-DE")
+            try
             {
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
-                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
+                if (Properties.Settings.Default.Language == "de-DE")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+                    Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("de-DE");
+                }
+                else
+                {
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                    Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+                }
+                SpracheFestlegen();
+                LangChange();
             }
-            else
+            catch (Exception)
             {
-                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
-                Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+
             }
-            SpracheFestlegen();
-            LangChange();
         }
         private void LangChange()
         {
