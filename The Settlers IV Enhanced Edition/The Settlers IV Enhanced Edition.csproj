@@ -7,9 +7,9 @@
     <RootNamespace>S4EE</RootNamespace>
     <UseWPF>true</UseWPF>
     <StartupObject>S4EE.App</StartupObject>
-    <AssemblyVersion>1.0.0.1080</AssemblyVersion>
-    <FileVersion>1.1.0.1080</FileVersion>
-    <Version>1.1.0.1080</Version>
+    <AssemblyVersion>1.1.0.1082</AssemblyVersion>
+    <FileVersion>1.1.0.1082</FileVersion>
+    <Version>1.1.0.1082</Version>
     <Copyright>© 2019-2021 Ortner MEDIA</Copyright>
     <Company>Ortner MEDIA</Company>
     <ApplicationIcon>Resources\S4EE_ICON.ico</ApplicationIcon>
