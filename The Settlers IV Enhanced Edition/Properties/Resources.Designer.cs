@@ -251,7 +251,16 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ATLANTIS LEBT (2011) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die REMASTERED SINGELPLAYER MAP PACK (by UltimateSpinDash) ähnelt.
+        /// </summary>
+        public static string App_Maps_R01 {
+            get {
+                return ResourceManager.GetString("App_Maps_R01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die CAMPAIGN: ATLANTIS LEBT (2011) ähnelt.
         /// </summary>
         public static string App_Maps_S01 {
             get {
@@ -305,7 +314,16 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die SINGLE PLAYER CAMPAIGNS ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die REMASTERED ähnelt.
+        /// </summary>
+        public static string App_Maps_Title_REMASTER {
+            get {
+                return ResourceManager.GetString("App_Maps_Title_REMASTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die SINGLE PLAYER  ähnelt.
         /// </summary>
         public static string App_Maps_Title_SINGLEPLAYER {
             get {
@@ -441,7 +459,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die HOTKEYS MOD v2 (by Wizzardmaker and kdsystem1337) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die HOTKEYS MOD v2 (by Wizzardmaker &amp; kdsystem1337 - HISTORY EDITION) ähnelt.
         /// </summary>
         public static string App_Mod_Hotkeys {
             get {

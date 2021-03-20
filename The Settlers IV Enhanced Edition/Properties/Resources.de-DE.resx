@@ -181,8 +181,11 @@ für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
   <data name="App_Maps_Orignal" xml:space="preserve">
     <value>STANDARD MAPS</value>
   </data>
+  <data name="App_Maps_R01" xml:space="preserve">
+    <value>REMASTERED MAP PACK (by UltimateSpinDash)</value>
+  </data>
   <data name="App_Maps_S01" xml:space="preserve">
-    <value>ATLANTIS LEBT (2011)</value>
+    <value>KAMPANGE: ATLANTIS LEBT (2011)</value>
   </data>
   <data name="App_Maps_T01" xml:space="preserve">
     <value>THE SETTLERS TOURNAMENT 2020 MAPS</value>
@@ -200,7 +203,7 @@ für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
     <value>METZEL</value>
   </data>
   <data name="App_Maps_Title_SINGLEPLAYER" xml:space="preserve">
-    <value>SINGLEPLAYER KAMPAGNEN</value>
+    <value>SINGLEPLAYER</value>
   </data>
   <data name="App_Maps_Title_TOURNAMENTS" xml:space="preserve">
     <value>TOURNAMENTS</value>
@@ -246,7 +249,7 @@ ordner verschoben. Dadurch wird der Spielstände-Ordner klein gehalten.</value>
     <value>VIDEOS ABSPIELEN</value>
   </data>
   <data name="App_Mod_Hotkeys" xml:space="preserve">
-    <value>HOTKEYS MOD v2 (by Wizzardmaker and kdsystem1337)</value>
+    <value>HOTKEYS MOD v2 (by Wizzardmaker &amp; kdsystem1337 - HISTORY EDITION)</value>
   </data>
   <data name="App_Mod_Title" xml:space="preserve">
     <value>MODS</value>

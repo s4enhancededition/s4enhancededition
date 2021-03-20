@@ -88,7 +88,22 @@ namespace S4EE
                             _ => "en-US",
                         };
                         Properties.Settings.Default.Save();
-                        //ToDo V1.1 GUI
+                        switch (Properties.Settings.Default.Language)
+                        {
+
+                            case ("de-DE"):
+                                {
+                                    AppSettings.App_Language_deDE_Button.IsChecked = true;
+                                    break;
+                                }
+
+                            case ("en-US"):
+                                {
+                                    AppSettings.App_Language_enUS_Button.IsChecked = true;
+                                    break;
+                                }
+
+                        }
                         AppSettings.LangSet();
                         Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
                         return;
@@ -105,6 +120,22 @@ namespace S4EE
                             _ => "en-US",
                         };
                         Properties.Settings.Default.Save();
+                        switch (Properties.Settings.Default.Language)
+                        {
+
+                            case ("de-DE"):
+                                {
+                                    AppSettings.App_Language_deDE_Button.IsChecked = true;
+                                    break;
+                                }
+
+                            case ("en-US"):
+                                {
+                                    AppSettings.App_Language_enUS_Button.IsChecked = true;
+                                    break;
+                                }
+
+                        }
                         AppSettings.LangSet();
                         Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
                         return;
@@ -233,7 +264,7 @@ namespace S4EE
             string Installiert = Properties.Resources.App_Install_Installiert;
             string Deinstalliert = Properties.Resources.App_Install_Deinstalliert;
             //ToDo V1.1: InstallerAsync maxProgess
-            int maxProgess = 20;
+            int maxProgess = 40;
             LogInfo.Inlines.Clear();
             DownlaodPanel.Visibility = Visibility.Visible;
             switch (Properties.Settings.Default.EditionInstalled)
@@ -276,7 +307,6 @@ namespace S4EE
                         InstallprogressLogger(Installieren, Properties.Resources.App_Edition_HE, 1, maxProgess);
                         await Worker.ZipInstallerAsync(@"Artifacts\Edition_HE.zip");
                         InstallprogressLogger(Installiert, Properties.Resources.App_Edition_HE, 2, maxProgess);
-
                         break;
                     }
                 case ("EGE"):
@@ -300,7 +330,6 @@ namespace S4EE
                 case ("ORG"):
                     {
                         InstallprogressLogger(Installieren, Properties.Resources.App_Textures_ORG, 3, maxProgess);
-
                         await Worker.ZipInstallerAsync(@"Artifacts\Textures_OldWorld.zip");
                         InstallprogressLogger(Installiert, Properties.Resources.App_Textures_ORG, 4, maxProgess);
                         break;
@@ -366,9 +395,6 @@ namespace S4EE
                         await Worker.ZipInstallerAsync(@"Artifacts\Music_S3_Deinstallieren.zip");
                         InstallprogressLogger(Deinstalliert, Properties.Resources.App_Music_S3, 10, maxProgess);
                         break;
-                    }
-                    {
-
                     }
             }
             switch (Properties.Settings.Default.Map_O01)
@@ -479,8 +505,62 @@ namespace S4EE
                         break;
                     }
             }
-            //ToDo V1.1: InstallerAsync Maps
-            //ToDo V1.2: Remastered Maps
+            switch (Properties.Settings.Default.Map_M01)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_M01, 23, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_METZEL_Pack01.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_M01, 24, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_M01, 23, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_METZEL_Pack01_Un.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_M01, 24, maxProgess);
+                        break;
+                    }
+            }
+            switch (Properties.Settings.Default.Map_TR01)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_TR01, 25, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TRAIN_Pack01.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_TR01, 26, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_TR01, 25, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TRAIN_Pack01_Un.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_TR01, 26, maxProgess);
+                        break;
+                    }
+            }
+            switch (Properties.Settings.Default.Map_R01)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_R01, 27, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_REMASTER_Pack01.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_R01, 28, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_R01, 27, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_REMASTER_Pack01_Un.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_R01, 28, maxProgess);
+                        break;
+                    }
+            }
+            //AUTOSAVE
+            InstallprogressLogger(Installieren, Properties.Resources.App_Misc_SAVE_AUTOSAVE, 29, maxProgess);
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("HE"):
@@ -505,6 +585,84 @@ namespace S4EE
                         break;
                     }
             }
+            InstallprogressLogger(Installiert, Properties.Resources.App_Misc_SAVE_AUTOSAVE, 30, maxProgess);
+            //SAVECLEANER
+            //ToDo
+            InstallprogressLogger(Installieren, Properties.Resources.App_Misc_SAVE_SAVECLEANER, 31, maxProgess);
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        string folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Save";
+                        if (Directory.Exists(folder))
+                        {
+                            MessageBox.Show(folder, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        break;
+                    }
+
+                case ("GE"):
+                case ("EGE"):
+                    {
+                        string folder = App.S4GE_AppPath + @"\Save";
+                        if (Directory.Exists(folder))
+                        {
+                            MessageBox.Show(folder, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        break;
+                    }
+            }
+            InstallprogressLogger(Installiert, Properties.Resources.App_Misc_SAVE_SAVECLEANER, 32, maxProgess);
+
+            InstallprogressLogger(Installieren, Properties.Resources.App_Misc_VIDEO, 33, maxProgess);
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        string settings = App.S4HE_AppPath + @"Config\video.cfg";
+                        IniFile s4settings = new(settings);
+                        switch (Properties.Settings.Default.VideosShow)
+                        {
+                            case ("1"):
+                            default:
+                                {
+                                    s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
+                                    break;
+                                }
+                            case ("0"):
+                                {
+                                    s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case ("GE"):
+                case ("EGE"):
+                    {
+                        string settings = App.S4GE_AppPath + @"Config\video.cfg";
+                        IniFile s4settings = new(settings);
+                        switch (Properties.Settings.Default.VideosShow)
+                        {
+                            case ("1"):
+                            default:
+                                {
+                                    s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
+                                    break;
+                                }
+                            case ("0"):
+                                {
+                                    s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+            }
+            InstallprogressLogger(Installiert, Properties.Resources.App_Misc_VIDEO, 34, maxProgess);
+
             DownlaodPanel.Visibility = Visibility.Hidden;
         }
         private static void CopyS3()
@@ -607,6 +765,20 @@ namespace S4EE
             Log.LogWriter(LogName, "Navigate AppStart");
             await InstallerAsync();
             Checksumme();
+            switch (Properties.Settings.Default.Language)
+            {
+                default:
+                case ("en-US"):
+                    {
+                        AppWebView.webView.Source = new Uri("https://www.zocker-lounge.com/s4-enhanced-edition/news-eng");
+                        break;
+                    }
+                case ("de-DE"):
+                    {
+                        AppWebView.webView.Source = new Uri("https://www.zocker-lounge.com/s4-enhanced-edition/news");
+                        break;
+                    }
+            }
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("HE"):
@@ -682,8 +854,24 @@ namespace S4EE
         /// </summary>
         private async void Button_Editor(object sender, RoutedEventArgs e)
         {
-            if (Properties.Settings.Default.EditorInstalled != "1")
+            if (File.Exists(App.S4HE_AppPath + @"\Editor\" + @"RunEditorEN_v2.bat") &&
+                File.Exists(App.S4HE_AppPath + @"\Editor\" + @"RunEditorDE_v2.bat") &&
+                File.Exists(App.S4HE_AppPath + @"\Editor\" + @"InstallEditor_En.bat") &&
+                File.Exists(App.S4HE_AppPath + @"\Editor\" + @"InstallEditor_De.bat") &&
+                Properties.Settings.Default.EditorInstalled == "1")
             {
+                var startInfo = new ProcessStartInfo
+                {
+                    WorkingDirectory = App.S4HE_AppPath + @"\Editor\",
+                    FileName = App.S4HE_AppPath + @"\Editor\" + @"S4Editor.exe",
+                    CreateNoWindow = true
+                };
+                Process.Start(startInfo);
+                Log.LogWriter(LogName, "Editor Start");
+            }
+            else
+            {
+
                 Log.LogWriter(LogName, "Editor Plus Installation gestartet");
                 await Worker.ZipInstallerAsync(@"Artifacts\Editor_Plus.zip");
                 switch (Properties.Settings.Default.Language)
@@ -715,17 +903,6 @@ namespace S4EE
                 Properties.Settings.Default.EditorInstalled = "1";
                 Properties.Settings.Default.Save();
                 Log.LogWriter(LogName, "EditorInstalled True");
-            }
-            else
-            {
-                var startInfo = new ProcessStartInfo
-                {
-                    WorkingDirectory = App.S4HE_AppPath + @"\Editor\",
-                    FileName = App.S4HE_AppPath + @"\Editor\" + @"RunEditor_Fast.bat",
-                    CreateNoWindow = true
-                };
-                Process.Start(startInfo);
-                Log.LogWriter(LogName, "EditorInstalled Start");
             }
         }
         private void Button_Settings(object sender, RoutedEventArgs e)

@@ -226,5 +226,41 @@ namespace S4EE.Properties {
                 this["AutoSave"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_R01 {
+            get {
+                return ((string)(this["Map_R01"]));
+            }
+            set {
+                this["Map_R01"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string VideosShow {
+            get {
+                return ((string)(this["VideosShow"]));
+            }
+            set {
+                this["VideosShow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SaveCleaner {
+            get {
+                return ((string)(this["SaveCleaner"]));
+            }
+            set {
+                this["SaveCleaner"] = value;
+            }
+        }
     }
 }

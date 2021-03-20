@@ -15,7 +15,7 @@
         MaxHeight="670"
         MaxWidth="1200"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="CanMinimize">
     <Window.Background>
         <ImageBrush ImageSource="/Resources/AppBackground.png" />
     </Window.Background>

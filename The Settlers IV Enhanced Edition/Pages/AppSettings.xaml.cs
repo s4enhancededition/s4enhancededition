@@ -151,67 +151,37 @@ namespace S4EE
                 _ => false,
             };
 
+            App_Maps_R01_CheckBox.IsChecked = Properties.Settings.Default.Map_R01 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
+
             App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked = Properties.Settings.Default.AutoSave switch
             {
                 ("0") => false,
                 _ => true,
             };
 
-            //ToDo V1.1: VIDEOS
-            //(für jede Edition gleich machen)
-            if (App.S4HE_AppPath != null)
+            App_Misc_SAVE_SAVECLEANER_CheckBox.IsChecked = Properties.Settings.Default.SaveCleaner switch
             {
-                switch (Properties.Settings.Default.EditionInstalled)
-                {
-                    case ("EGE"):
-                    case ("HE"):
-                        string settings = new(App.S4HE_AppPath + @"Config\video.cfg");
-                        if (File.Exists(settings))
-                        {
-                            IniFile s4settings = new(settings);
-                            if (s4settings.Read("ShowVideos", "ADVGAMESETTINGS") == "1")
-                            {
-                                App_Misc_VIDEO_CheckBox.IsChecked = true;
-                            }
-                            else
-                            {
-                                App_Misc_VIDEO_CheckBox.IsChecked = false;
-                            }
-                        }
-                        break;
-                }
-                if (App.S3HE_AppPath != null)
-                {
-                    switch (Properties.Settings.Default.EditionInstalled)
-                    {
-                        case ("EGE"):
-                        case ("GE"):
-                            string settings = new(App.S4GE_AppPath + @"Config\video.cfg");
-                            if (File.Exists(settings))
-                            {
-                                IniFile s4settings = new(settings);
-                                if (s4settings.Read("ShowVideos", "ADVGAMESETTINGS") == "1")
-                                {
-                                    App_Misc_VIDEO_CheckBox.IsChecked = true;
-                                }
-                                else
-                                {
-                                    App_Misc_VIDEO_CheckBox.IsChecked = false;
-                                }
-                            }
+                ("48") => true,
+                _ => false,
+            };
 
-                            break;
-                    }
-                }
-            }
+            App_Misc_VIDEO_CheckBox.IsChecked = Properties.Settings.Default.VideosShow switch
+            {
+                ("0") => false,
+                _ => true,
+            };
+
             //ToDo V1.1: Buttons aktivieren & Coden
-            App_Misc_SAVE_SAVECLEANER_CheckBox.IsEnabled = false;
-            App_Misc_VIDEO_CheckBox.IsEnabled = false;
             App_Misc_MISSIONS_CheckBox.IsEnabled = false;
             App_Misc_MINE_CheckBox.IsEnabled = false;
             App_Misc_LEGACYCONTROLS_CheckBox.IsEnabled = false;
             App_Misc_FIXES_EDITOR_CheckBox.IsEnabled = false;
         }
+
         #region App_Edition
         private void App_Edition_EHE_Button_Checked(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -448,6 +418,34 @@ namespace S4EE
                 false => "0",
             };
             Properties.Settings.Default.Save();
+
+        }
+        private void App_Maps_M01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_M01 = App_Maps_M01_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Maps_TR01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_TR01 = App_Maps_TR01_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Maps_R01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_R01 = App_Maps_R01_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
         }
         #endregion
         #region App_Lang
@@ -491,48 +489,21 @@ namespace S4EE
         }
         private void App_Misc_SAVE_SAVECLEANER_Checked(object sender, RoutedEventArgs e)
         {
-            
+            Properties.Settings.Default.SaveCleaner = App_Misc_SAVE_SAVECLEANER_CheckBox.IsChecked switch
+            {
+                true => "48",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
         }
         private void App_Misc_VIDEO_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if (App.S4HE_AppPath != null)
+            Properties.Settings.Default.VideosShow = App_Misc_VIDEO_CheckBox.IsChecked switch
             {
-
-                string settings = new(App.S4HE_AppPath + @"Config\Video.cfg");
-                if (File.Exists(settings))
-                {
-                    if (App_Misc_VIDEO_CheckBox.IsChecked == true)
-                    {
-                        IniFile s4settings = new(settings);
-                        s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
-                    }
-                    else
-                    {
-                        IniFile s4settings = new(settings);
-                        s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
-                    }
-                }
-
-            }
-            if (App.S4GE_AppPath != null)
-            {
-
-                string settings = new(App.S4GE_AppPath + @"Config\video.cfg");
-                if (File.Exists(settings))
-                {
-                    if (App_Misc_VIDEO_CheckBox.IsChecked == true)
-                    {
-                        IniFile s4settings = new(settings);
-                        s4settings.Write("ShowVideos", "1", "ADVGAMESETTINGS");
-                    }
-                    else
-                    {
-                        IniFile s4settings = new(settings);
-                        s4settings.Write("ShowVideos", "0", "ADVGAMESETTINGS");
-                    }
-                }
-
-            }
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
         }
         #endregion
         #region Sprachenmethoden
