@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
+﻿using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -175,25 +173,25 @@ namespace S4EE
                 _ => true,
             };
 
-            App_Misc_MISSIONS_CheckBox.IsChecked = Properties.Settings.Default.VideosShow switch
+            App_Misc_MISSIONS_CheckBox.IsChecked = Properties.Settings.Default.Missions switch
             {
                 ("0") => false,
                 _ => true,
             };
 
-            App_Misc_MINE_CheckBox.IsChecked = Properties.Settings.Default.VideosShow switch
+            App_Misc_MINE_CheckBox.IsChecked = Properties.Settings.Default.Minen switch
             {
                 ("0") => false,
                 _ => true,
             };
 
-            App_Misc_LEGACYCONTROLS_CheckBox.IsChecked = Properties.Settings.Default.VideosShow switch
+            App_Misc_LEGACYCONTROLS_CheckBox.IsChecked = Properties.Settings.Default.LegacyControls switch
             {
                 ("0") => false,
                 _ => true,
             };
 
-            App_Misc_FIXES_EDITOR_CheckBox.IsChecked = Properties.Settings.Default.VideosShow switch
+            App_Misc_FIXES_EDITOR_CheckBox.IsChecked = Properties.Settings.Default.EditorFix switch
             {
                 ("0") => false,
                 _ => true,
@@ -654,38 +652,5 @@ namespace S4EE
             }
         }
         #endregion
-        private void Button_Settings(object sender, RoutedEventArgs e)
-        {
-            //ToDo V1.1: Missions
-            //Spielstände
-            IniFile s4settings = new(App.S4HE_AppPath + @"Config\GAMESETTINGS.cfg");
-            //MessageBoxResult resultsettings = MessageBox.Show(Properties.Resources.MSB_Missionen_Text, Properties.Resources.MSB_Missionen, MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
-            string[] lines = {  @"//",
-                                        @"// Automatically generated file. Do not edit!",
-                                        @"// ",
-                                        @"",
-                                        @"[MISCDATA2]",
-                                        @"{",
-                                        @"    Data01 = 237338634",
-                                        @"    Data02 = -467991751",
-                                        @"    Data03 = 2005954587",
-                                        @"    Data04 = -399514398",
-                                        @"    Data05 = -2147273387",
-                                        @"    Data06 = 803908",
-                                        @"    Data07 = 808276",
-                                        @"}"
-                                      };
-            File.WriteAllLines(App.S4HE_AppPath + @"Config\MiscData2.cfg", lines);
-
-            //Config
-            var startInfo = new ProcessStartInfo
-            {
-                WorkingDirectory = App.S4HE_AppPath + @"\Config\",
-                FileName = App.S4HE_AppPath + @"\Config\" + @"Settlers4Config.exe"
-            };
-            Process.Start(startInfo);
-        }
     }
 }

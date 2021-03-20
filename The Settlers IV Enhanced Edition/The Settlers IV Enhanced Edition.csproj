@@ -7,9 +7,9 @@
     <RootNamespace>S4EE</RootNamespace>
     <UseWPF>true</UseWPF>
     <StartupObject>S4EE.App</StartupObject>
-    <AssemblyVersion>1.1.0.1070</AssemblyVersion>
-    <FileVersion>1.1.0.1070</FileVersion>
-    <Version>1.1.0.1070</Version>
+    <AssemblyVersion>1.1.0.1075</AssemblyVersion>
+    <FileVersion>1.1.0.1075</FileVersion>
+    <Version>1.1.0.1075</Version>
     <Copyright>© 2019-2021 Ortner MEDIA</Copyright>
     <Company>Ortner MEDIA</Company>
     <ApplicationIcon>Resources\S4EE_ICON.ico</ApplicationIcon>
@@ -20,17 +20,6 @@
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Resources\Button_PLAY_de-DE.png" />
-    <None Remove="Resources\Button_PLAY_hell_de-DE.png" />
-    <None Remove="Resources\Button_SETTINGS_de-DE.png" />
-    <None Remove="Resources\Button_SETTINGS_hell_de-DE.png" />
-    <None Remove="Resources\Button_Settings_Maps_Folder_de-DE.png" />
-    <None Remove="Resources\Button_Settings_Maps_Folder_en-US.png" />
-    <None Remove="Resources\Button_Settings_Maps_Folder_hell_de-DE.png" />
-    <None Remove="Resources\Button_Settings_Maps_Folder_hell_en-US.png" />
-  </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\AppBackground.png" />

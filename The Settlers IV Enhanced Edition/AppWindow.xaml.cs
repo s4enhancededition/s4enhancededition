@@ -30,24 +30,32 @@ namespace S4EE
         public AppWindow()
         {
             InitializeComponent();
-            //INIT
-            Log.LogWriter(LogName, "InitializeComponent");
-            AppStart = new AppStart();
-            Log.LogWriter(LogName, "AppStart");
-            AppWebView = new AppWebView();
-            Log.LogWriter(LogName, "AppWebView");
-            AppSettings = new AppSettings();
-            Log.LogWriter(LogName, "AppSettings");
-            //NAV
-            FrameContent.Navigate(AppStart);
-            Log.LogWriter(LogName, "AppStart");
-            //CHECKS
-            Installationscheck();
-            Log.LogWriter(LogName, "Installationscheck");
-            CleanUp();
-            Log.LogWriter(LogName, "CleanUp");
-            CheckUpdate();
-            Log.LogWriter(LogName, "CheckUpdate");
+            if (App.DeinstallierenFlag)
+            {
+                Deinstaller();
+            }
+            else
+            {
+                //INIT
+                Log.LogWriter(LogName, "InitializeComponent");
+                AppStart = new AppStart();
+                Log.LogWriter(LogName, "AppStart");
+                AppWebView = new AppWebView();
+                Log.LogWriter(LogName, "AppWebView");
+                AppSettings = new AppSettings();
+                Log.LogWriter(LogName, "AppSettings");
+                //NAV
+                FrameContent.Navigate(AppStart);
+                Log.LogWriter(LogName, "AppStart");
+                //CHECKS
+                Installationscheck();
+                Log.LogWriter(LogName, "Installationscheck");
+                CleanUp();
+                Log.LogWriter(LogName, "CleanUp");
+                CheckUpdate();
+                Log.LogWriter(LogName, "CheckUpdate");
+            }
+
         }
         #region Updater
         private static void CleanUp()
@@ -207,7 +215,7 @@ namespace S4EE
             }
             SpracheFestlegen();
         }
-        private void Checksumme()
+        private static void Checksumme()
         {
             //ToDo V1.2 AntiCheat
             if (App.S4HE_AppPath == null)
@@ -263,7 +271,6 @@ namespace S4EE
             string Deinstallieren = Properties.Resources.App_Install_Deinstalliere;
             string Installiert = Properties.Resources.App_Install_Installiert;
             string Deinstalliert = Properties.Resources.App_Install_Deinstalliert;
-            //ToDo V1.1: InstallerAsync maxProgess
             int maxProgess = 40;
             LogInfo.Inlines.Clear();
             DownlaodPanel.Visibility = Visibility.Visible;
@@ -612,7 +619,7 @@ namespace S4EE
                     }
             }
             InstallprogressLogger(Installiert, Properties.Resources.App_Misc_SAVE_SAVECLEANER, 32, maxProgess);
-
+            //VIDEOS
             InstallprogressLogger(Installieren, Properties.Resources.App_Misc_VIDEO, 33, maxProgess);
             switch (Properties.Settings.Default.EditionInstalled)
             {
@@ -660,11 +667,152 @@ namespace S4EE
                     }
             }
             InstallprogressLogger(Installiert, Properties.Resources.App_Misc_VIDEO, 34, maxProgess);
-
+            //MISSIONS
+            InstallprogressLogger(Installieren, Properties.Resources.App_Misc_MISSIONS, 35, maxProgess);
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        switch (Properties.Settings.Default.Missions)
+                        {
+                            case ("1"):
+                            default:
+                                {
+                                    IniFile s4settings = new(App.S4HE_AppPath + @"Config\GAMESETTINGS.cfg");
+                                    s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
+                                    string[] lines = {  @"//",
+                                        @"// Automatically generated file. Do not edit!",
+                                        @"// ",
+                                        @"",
+                                        @"[MISCDATA2]",
+                                        @"{",
+                                        @"    Data01 = 237338634",
+                                        @"    Data02 = -467991751",
+                                        @"    Data03 = 2005954587",
+                                        @"    Data04 = -399514398",
+                                        @"    Data05 = -2147273387",
+                                        @"    Data06 = 803908",
+                                        @"    Data07 = 808276",
+                                        @"}"
+                                      };
+                                    File.WriteAllLines(App.S4HE_AppPath + @"Config\MiscData2.cfg", lines);
+                                    break;
+                                }
+                            case ("0"):
+                                {
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+                case ("GE"):
+                case ("EGE"):
+                    {
+                        switch (Properties.Settings.Default.Missions)
+                        {
+                            case ("1"):
+                            default:
+                                {
+                                    IniFile s4settings = new(App.S4GE_AppPath + @"Config\GAMESETTINGS.cfg");
+                                    s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
+                                    string[] lines = {  @"//",
+                                        @"// Automatically generated file. Do not edit!",
+                                        @"// ",
+                                        @"",
+                                        @"[MISCDATA2]",
+                                        @"{",
+                                        @"    Data01 = 237338634",
+                                        @"    Data02 = -467991751",
+                                        @"    Data03 = 2005954587",
+                                        @"    Data04 = -399514398",
+                                        @"    Data05 = -2147273387",
+                                        @"    Data06 = 803908",
+                                        @"    Data07 = 808276",
+                                        @"}"
+                                      };
+                                    File.WriteAllLines(App.S4GE_AppPath + @"Config\MiscData2.cfg", lines);
+                                    break;
+                                }
+                            case ("0"):
+                                {
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+            }
+            InstallprogressLogger(Installiert, Properties.Resources.App_Misc_MISSIONS, 36, maxProgess);
+            //MINEN
+            InstallprogressLogger(Installieren, Properties.Resources.App_Misc_MINE, 37, maxProgess);
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        switch (Properties.Settings.Default.Minen)
+                        {
+                            case ("1"):
+                            default:
+                                {
+                                    IniFile s4settings = new(App.S4HE_AppPath + @"Config\WarningTypes.cfg");
+                                    s4settings.Write("GUI_WARN_MINE_EMPTY", "<WARNING_ECO_MISSING_RESOURCES>", "WARNINGMSG_CLASSIFICATION");
+                                    break;
+                                }
+                            case ("0"):
+                                {
+                                    IniFile s4settings = new(App.S4HE_AppPath + @"Config\WarningTypes.cfg");
+                                    s4settings.Write("GUI_WARN_MINE_EMPTY", "", "WARNINGMSG_CLASSIFICATION");
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+            }
+            InstallprogressLogger(Installiert, Properties.Resources.App_Misc_MINE, 38, maxProgess);
+            //LegacyControls
+            InstallprogressLogger(Installieren, Properties.Resources.App_Misc_LEGACYCONTROLS, 39, maxProgess);
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
+                        IniFile s4settings = new(settings);
+                        switch (Properties.Settings.Default.LegacyControls)
+                        {
+                            case ("1"):
+                                {
+                                    s4settings.Write("LegacyMouse", "1", "GAMESETTINGS");
+                                    break;
+                                }
+                            case ("0"):
+                                {
+                                    s4settings.Write("LegacyMouse", "0", "GAMESETTINGS");
+                                    break;
+                                }
+                        }
+                        break;
+                    }
+            }
+            InstallprogressLogger(Installiert, Properties.Resources.App_Misc_LEGACYCONTROLS, 40, maxProgess);
             DownlaodPanel.Visibility = Visibility.Hidden;
         }
+        async static void Deinstaller()
+        {
+            if (App.S4HE_AppPath != null)
+            {
+                Properties.Settings.Default.EditionInstalled = "HE";
+                await Worker.ZipInstallerAsync(@"Artifacts\Edition_HE_Deinstallieren.zip");
+            }
+            if (App.S4GE_AppPath != null)
+            {
+                Properties.Settings.Default.EditionInstalled = "GE";
+                await Worker.ZipInstallerAsync(@"Artifacts\Edition_GE_Deinstallieren.zip");
+            }
 
-       
+            Environment.Exit(0);
+        }
         private static void CopyS3()
         {
             DirectoryInfo dir = new(App.S3HE_AppPath + @"\Theme");
@@ -854,6 +1002,20 @@ namespace S4EE
         /// </summary>
         private async void Button_Editor(object sender, RoutedEventArgs e)
         {
+            switch (Properties.Settings.Default.EditorFix)
+            {
+                case ("1"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Editor_withFix.zip");
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        await Worker.ZipInstallerAsync(@"Artifacts\Editor_withoutFix.zip");
+                        break;
+                    }
+            }
             if (File.Exists(App.S4HE_AppPath + @"\Editor\" + @"RunEditorEN_v2.bat") &&
                 File.Exists(App.S4HE_AppPath + @"\Editor\" + @"RunEditorDE_v2.bat") &&
                 File.Exists(App.S4HE_AppPath + @"\Editor\" + @"InstallEditor_En.bat") &&

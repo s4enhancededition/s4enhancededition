@@ -14,6 +14,7 @@ namespace S4EE
         private static readonly string LogName = "App.xaml.cs";
         // DebugFlag für Log Schreiben
         public static bool DebugFlag = false;
+        public static bool DeinstallierenFlag = false;
         // Verzeichnisse der Spiele auslesen
         public static readonly string S3HE_AppPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\11784", "InstallDir", null);
         public static readonly string S4HE_AppPath = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\11785", "InstallDir", null);
@@ -21,7 +22,7 @@ namespace S4EE
         /// <summary>
         /// Einstiegspunkt der Anwendung
         /// </summary>
-        void App_Startup(object sender, StartupEventArgs e)
+        public void App_Startup(object sender, StartupEventArgs e)
         {
             for (int i = 0; i != e.Args.Length; ++i)
             {
@@ -35,11 +36,8 @@ namespace S4EE
                 // SilentUninstall für Rollback auf Standardeinstellungen bei Deinstallation durch Setup
                 if (e.Args[i] == "/SilentUninstall")
                 {
-                    //ToDo V1.2: "SilentUninstall-Implementation für Rollback auf Standardeinstellungen bei Deinstallation durch Setup"
                     Log.LogWriter(LogName, "SilentUninstall");
-                    //MessageBox.Show("Coming Soon", "Coming Soon", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Environment.Exit(0);
-                    return;
+                    DeinstallierenFlag = true;
                 }
             }
             // Upgrade der Userbezogenen Einstellungsdatei bei neuer Versionnummer
