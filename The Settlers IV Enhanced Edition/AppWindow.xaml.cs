@@ -1079,8 +1079,9 @@ namespace S4EE
             //Process.Start("TheSettlersIVEnhancedEditionSetup.exe", "/silent");
             var startInfo = new ProcessStartInfo
             {
-                FileName = "TheSettlersIVEnhancedEditionSetup.exe",
-                Arguments = @"/silent"
+                FileName = "TheSettlersIVEnhancedEditionSetup.exe"
+                //,
+                //Arguments = @"/silent"
             };
             Process.Start(startInfo);
             //Environment.Exit(0);
