@@ -1084,7 +1084,7 @@ namespace S4EE
                 //Arguments = @"/silent"
             };
             Process.Start(startInfo);
-            //Environment.Exit(0);
+            Environment.Exit(0);
         }
         private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
