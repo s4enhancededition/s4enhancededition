@@ -8,8 +8,7 @@
         Title="Info"
         Height="458"
         Width="560"
-        ResizeMode="NoResize"
-        WindowStyle="ToolWindow">
+        ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/App_Info_Hotkeys.png" />
