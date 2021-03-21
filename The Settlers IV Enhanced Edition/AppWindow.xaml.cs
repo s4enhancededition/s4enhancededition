@@ -248,7 +248,6 @@ namespace S4EE
         {
             Filename = "";
             Error = false;
-            //ToDo V1.2 AntiCheat
             string Path = "";
             //Editionsglobal
             switch (Properties.Settings.Default.EditionInstalled)
@@ -298,7 +297,7 @@ namespace S4EE
                 case ("HE"):
                     {
                         CheckMD5Hash(Path, @"GameData\SettlerValues.xml", "C50659FB64049D0B6C1550E0A089DB38FF8E7A3BE3AB3230BF4254E7AA20DA62");
-                        if (File.Exists(Path + @"Plugins"))
+                        if (Directory.Exists(Path + @"Plugins"))
                         {
                             var path = Path + @"Plugins";
                             var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
@@ -344,7 +343,7 @@ namespace S4EE
                         CheckMD5Hash(Path, @"Plugins\SettlerLimitExtender.asi", "b22c4d7f7544f777672f8622c38d5955ec0bccd90875c5cb0e637623c90147c3");
 
 
-                        if (File.Exists(Path + @"Plugins"))
+                        if (Directory.Exists(Path + @"Plugins"))
                         {
                             var path = Path + @"Plugins";
                             var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories)
