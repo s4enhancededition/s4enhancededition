@@ -428,7 +428,44 @@
                                         Margin="6"
                                         FontWeight="Bold"
                                         FontFamily="Segoe UI" />
+                                
                             </CheckBox>
+                            <Button Click="Button_Hotkeys"
+                                    Name="Button_Hotkeys_Info"
+                                    Width="37"
+                                    Height="37"
+                                    Margin="10,10,10,10"
+                                    HorizontalAlignment="Right">
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <ImageBrush ImageSource="/Resources/Button_Settings_Info.png" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <Border Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center"
+                                                                          VerticalAlignment="Center" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver"
+                                                     Value="True">
+                                                <Setter Property="Background">
+                                                    <Setter.Value>
+                                                        <ImageBrush ImageSource="/Resources/Button_Settings_Info_hell.png" />
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
                         </Grid>
                     </StackPanel>
                 </TabItem>

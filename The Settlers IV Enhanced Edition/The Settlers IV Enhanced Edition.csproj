@@ -7,9 +7,9 @@
     <RootNamespace>S4EE</RootNamespace>
     <UseWPF>true</UseWPF>
     <StartupObject>S4EE.App</StartupObject>
-    <AssemblyVersion>1.1.0.1082</AssemblyVersion>
-    <FileVersion>1.1.0.1082</FileVersion>
-    <Version>1.1.0.1082</Version>
+    <AssemblyVersion>1.1.1.1085</AssemblyVersion>
+    <FileVersion>1.1.1.1085</FileVersion>
+    <Version>1.1.1.1085</Version>
     <Copyright>© 2019-2021 Ortner MEDIA</Copyright>
     <Company>Ortner MEDIA</Company>
     <ApplicationIcon>Resources\S4EE_ICON.ico</ApplicationIcon>
@@ -22,11 +22,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\App_Info_Hotkeys.png" />
+    <None Remove="Resources\Button_Settings_Info.png" />
+    <None Remove="Resources\Button_Settings_Info_hell.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\AppBackground.png" />
     <Resource Include="Resources\AppSettingsSiedler2.png" />
     <Resource Include="Resources\AppSettingsSiedler3.png" />
     <Resource Include="Resources\AppSettingsSiedler4.png" />
     <Resource Include="Resources\AppStartBackground.png" />
+    <Resource Include="Resources\App_Info_Hotkeys.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Button_CHANGELOG.png" />
     <Resource Include="Resources\Button_CHANGELOG_hell.png" />
     <Resource Include="Resources\Button_EDITOR+.png" />
@@ -41,6 +50,8 @@
     <Resource Include="Resources\Button_SETTINGS_en-US.png" />
     <Resource Include="Resources\Button_SETTINGS_hell_en-US.png" />
     <Resource Include="Resources\Button_SETTINGS_hell_de-DE.png" />
+    <Resource Include="Resources\Button_Settings_Info.png" />
+    <Resource Include="Resources\Button_Settings_Info_hell.png" />
     <Resource Include="Resources\Button_Settings_Maps_Folder_de-DE.png" />
     <Resource Include="Resources\Button_Settings_Maps_Folder_en-US.png" />
     <Resource Include="Resources\Button_Settings_Maps_Folder_hell_de-DE.png" />

@@ -660,5 +660,11 @@ namespace S4EE
             }
         }
         #endregion
+
+        private void Button_Hotkeys(object sender, RoutedEventArgs e)
+        {
+            Window Info = new S4EE.Windows.Info();
+            Info.ShowDialog();
+        }
     }
 }

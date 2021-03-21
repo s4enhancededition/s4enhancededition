@@ -459,7 +459,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die HOTKEYS MOD v2 (by Wizzardmaker &amp; kdsystem1337 - HISTORY EDITION) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die HOTKEYS MOD v2 (by Wizzardmaker &amp; kdsystem1337 - HISTORY E.) ähnelt.
         /// </summary>
         public static string App_Mod_Hotkeys {
             get {
