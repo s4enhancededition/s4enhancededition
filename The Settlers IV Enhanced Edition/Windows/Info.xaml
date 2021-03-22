@@ -6,12 +6,10 @@
         xmlns:local="clr-namespace:S4EE.Windows"
         mc:Ignorable="d"
         Title="Info"
-        Height="458"
-        Width="560"
+        Height="527"
+        Width="660"
         ResizeMode="NoResize">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Resources/App_Info_Hotkeys.png" />
-        </Grid.Background>
+        <Image Name="Infogrid" Margin="-5"></Image>
     </Grid>
 </Window>
