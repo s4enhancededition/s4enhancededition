@@ -54,7 +54,11 @@ namespace S4EE
                         using StreamReader file = new(entry.Open());
                         while ((line = file.ReadLine()) != null)
                         {
-                            if (line.EndsWith(@"\"))
+                            if (line.EndsWith(@"Plugins\") && App.DebugFlag)
+                            {
+
+                            }
+                            else if (line.EndsWith(@"\"))
                             {
                                 if (Directory.Exists(InstallPath + line[..^1]))
                                 {
