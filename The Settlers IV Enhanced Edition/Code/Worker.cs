@@ -171,7 +171,15 @@ namespace S4EE
                         {
                             Directory.CreateDirectory(FolderArchiv);
                         }
-                        File.Move(entry, FolderArchiv + entry.Replace(Folder, ""));
+                        if (!File.Exists(FolderArchiv + entry.Replace(Folder, "")))
+                        {
+                            File.Move(entry, FolderArchiv + entry.Replace(Folder, ""));
+                        }
+                        else 
+                        {
+                            File.Delete(FolderArchiv + entry.Replace(Folder, ""));
+                            File.Move(entry, FolderArchiv + entry.Replace(Folder, ""));
+                        }
                     }
                 }
             }

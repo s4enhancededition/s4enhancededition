@@ -715,20 +715,30 @@ namespace S4EE
                 case ("HE"):
                 case ("EHE"):
                     {
-                        string folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Save";
-                        if (Directory.Exists(folder))
+                        switch (Properties.Settings.Default.SaveCleaner)
                         {
-                            await Worker.SaveCleaner(folder);
+                            case ("48"):
+                                string folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Save";
+                                if (Directory.Exists(folder))
+                                {
+                                    await Worker.SaveCleaner(folder);
+                                }
+                                break;
                         }
                         break;
                     }
                 case ("GE"):
                 case ("EGE"):
                     {
-                        string folder = App.S4GE_AppPath + @"\Save";
-                        if (Directory.Exists(folder))
+                        switch (Properties.Settings.Default.SaveCleaner)
                         {
-                            await Worker.SaveCleaner(folder);
+                            case ("48"):
+                                string folder = App.S4GE_AppPath + @"\Save";
+                                if (Directory.Exists(folder))
+                                {
+                                    await Worker.SaveCleaner(folder);
+                                }
+                                break;
                         }
                         break;
                     }
