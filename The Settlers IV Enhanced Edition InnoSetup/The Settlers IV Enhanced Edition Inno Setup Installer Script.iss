@@ -3,7 +3,7 @@
 
 #define MyAppName "The Settlers IV Enhanced Edition"
 #define MyAppGroup "The Settlers IV"
-#define MyAppVersion "1.1.6.1096"
+#define MyAppVersion "1.1.7.1097"
 #define MyAppPublisher "Ortner MEDIA"
 #define MyAppURL "https://www.zocker-lounge.com/s4-enhanced-edition"
 #define MyAppCopyright "© 2019-2021 Ortner MEDIA"
@@ -18,7 +18,6 @@
 
 // contribute: https://github.com/DomGries/InnoDependencyInstaller
 // official article: https://codeproject.com/Articles/20868/Inno-Setup-Dependency-Installer
-
 
 #define UseEdgeWebView2
 // comment out dependency defines to disable installing them
