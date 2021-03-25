@@ -852,7 +852,7 @@ namespace S4EE
                                         @"    Data07 = 808276",
                                         @"}"
                                       };
-                                    File.WriteAllLines(App.S4GE_AppPath + @"Config\MiscData2.cfg", lines);
+                                    File.WriteAllLines(App.S4GE_AppPath + @"\Config\MiscData2.cfg", lines);
                                     break;
                                 }
                             default:
