@@ -142,8 +142,11 @@ namespace S4EE
                                 }
                                 catch
                                 {
-                                    MessageBox.Show(Properties.Resources.MSB_Error_Rechte_Text, Properties.Resources.MSB_Error_Rechte, MessageBoxButton.OK, MessageBoxImage.Error);
-                                    Environment.Exit(0);
+                                    if (mode != "Textures")
+                                    {
+                                        MessageBox.Show(Properties.Resources.MSB_Error_Rechte_Text, Properties.Resources.MSB_Error_Rechte, MessageBoxButton.OK, MessageBoxImage.Error);
+                                        Environment.Exit(0);
+                                    }
                                 }
                             });
                         }
@@ -175,7 +178,7 @@ namespace S4EE
                         {
                             File.Move(entry, FolderArchiv + entry.Replace(Folder, ""));
                         }
-                        else 
+                        else
                         {
                             File.Delete(FolderArchiv + entry.Replace(Folder, ""));
                             File.Move(entry, FolderArchiv + entry.Replace(Folder, ""));

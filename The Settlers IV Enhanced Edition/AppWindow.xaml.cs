@@ -388,7 +388,10 @@ namespace S4EE
             string Deinstalliert = Properties.Resources.App_Install_Deinstalliert;
             int maxProgess = 40;
             LogInfo.Inlines.Clear();
-            DownlaodPanel.Visibility = Visibility.Visible;
+            if (App.DebugFlag)
+            {
+                DownlaodPanel.Visibility = Visibility.Visible;
+            }
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("HE"):
@@ -452,14 +455,14 @@ namespace S4EE
                 case ("ORG"):
                     {
                         InstallprogressLogger(Installieren, Properties.Resources.App_Textures_ORG, 3, maxProgess);
-                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_OldWorld.zip");
+                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_OldWorld.zip", "Textures");
                         InstallprogressLogger(Installiert, Properties.Resources.App_Textures_ORG, 4, maxProgess);
                         break;
                     }
                 case ("NW"):
                     {
                         InstallprogressLogger(Installieren, Properties.Resources.App_Textures_NW, 3, maxProgess);
-                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_NewWorld.zip");
+                        await Worker.ZipInstallerAsync(@"Artifacts\Textures_NewWorld.zip", "Textures");
                         InstallprogressLogger(Installiert, Properties.Resources.App_Textures_NW, 4, maxProgess);
                         break;
                     }
