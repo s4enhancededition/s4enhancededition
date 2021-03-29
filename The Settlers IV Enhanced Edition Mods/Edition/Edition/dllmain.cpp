@@ -70,6 +70,34 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 			return (HRESULT)0;
 		};
 		s4->CreateCustomUiElement(&cuie2);
+
+		S4CustomUiElement cuie3 = { 0 };
+		cuie3.size = sizeof(cuie3);
+		cuie3.szImg = imgFn;
+		cuie3.x = 0;
+		cuie3.y = 0;
+		cuie3.screen = S4_SCREEN_AFTERGAME_SUMMARY;
+		cuie3.actionHandler = [](LPCVOID lpUiElement, S4_CUSTOM_UI_ENUM newstate) {
+			if (newstate & S4_CUSTOM_UI_SELECTED) {
+				CleanUp();
+			}
+			return (HRESULT)0;
+		};
+		s4->CreateCustomUiElement(&cuie3);
+
+		S4CustomUiElement cuie4 = { 0 };
+		cuie4.size = sizeof(cuie4);
+		cuie4.szImg = imgFn;
+		cuie4.x = 0;
+		cuie4.y = 0;
+		cuie4.screen = S4_SCREEN_AFTERGAME_DETAILS;
+		cuie4.actionHandler = [](LPCVOID lpUiElement, S4_CUSTOM_UI_ENUM newstate) {
+			if (newstate & S4_CUSTOM_UI_SELECTED) {
+				CleanUp();
+			}
+			return (HRESULT)0;
+		};
+		s4->CreateCustomUiElement(&cuie4);
 		break;
 	}
 	case DLL_THREAD_ATTACH:
