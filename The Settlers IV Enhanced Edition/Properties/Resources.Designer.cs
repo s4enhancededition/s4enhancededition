@@ -620,5 +620,23 @@ namespace S4EE.Properties {
                 return ResourceManager.GetString("MSB_Error_Text", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
+        /// </summary>
+        public static string MSB_Info {
+            get {
+                return ResourceManager.GetString("MSB_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die OK ähnelt.
+        /// </summary>
+        public static string MSB_Info_Text {
+            get {
+                return ResourceManager.GetString("MSB_Info_Text", resourceCulture);
+            }
+        }
     }
 }

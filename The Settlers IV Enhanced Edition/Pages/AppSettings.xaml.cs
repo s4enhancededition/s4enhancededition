@@ -381,6 +381,21 @@ namespace S4EE
                     }
             }
         }
+        //ToDo: v1.2 Maps: TM2021
+        private void Button_TM2021Maps(object sender, RoutedEventArgs e)
+        {
+            switch (Properties.Settings.Default.EditionInstalled)
+            {
+                default:
+                case ("HE"):
+                case ("EHE"):
+                    {
+                        Window Maps2021 = new S4EE.Windows.Maps2021();
+                        Maps2021.ShowDialog();
+                        break;
+                    }
+            }
+        }
         private void App_Maps_O01_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Map_O01 = App_Maps_O01_CheckBox.IsChecked switch
@@ -666,5 +681,7 @@ namespace S4EE
             Window Info = new S4EE.Windows.Info();
             Info.ShowDialog();
         }
+
+
     }
 }

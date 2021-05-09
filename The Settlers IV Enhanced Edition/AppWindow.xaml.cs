@@ -922,7 +922,7 @@ namespace S4EE
             }
             InstallprogressLogger(Installiert, Properties.Resources.App_Misc_LEGACYCONTROLS, 40, maxProgess);
 
-            //ToDo: V1.2 "Ressourcen Gefunden abschalten"
+            //ToDo: V1.3 "Ressourcen Gefunden abschalten"
             //IniFile s4settings = new(App.S4GE_AppPath + @"Config\GAMESETTINGS.cfg");
             //s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
 
@@ -1038,7 +1038,7 @@ namespace S4EE
             }
             Log.LogWriter(LogName, "Update gefunden");
         }
-        private async void Play()
+        public async void Play()
         {
             FrameContent.Navigate(AppStart);
             Log.LogWriter(LogName, "Navigate AppStart");

@@ -306,4 +306,10 @@ at least once is required.</value>
   <data name="MSB_Error_Text" xml:space="preserve">
     <value>FATAL ERROR - SOMETHING FAILED</value>
   </data>
+  <data name="MSB_Info" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MSB_Info_Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>

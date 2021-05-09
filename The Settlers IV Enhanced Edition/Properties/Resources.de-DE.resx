@@ -305,4 +305,10 @@ die mindestens einmal gestartet wurde.</value>
     <value>FATALER FEHLER - ETWAS IST FEHLGESCHLAGEN</value>
     <comment>!</comment>
   </data>
+  <data name="MSB_Info" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="MSB_Info_Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
 </root>
