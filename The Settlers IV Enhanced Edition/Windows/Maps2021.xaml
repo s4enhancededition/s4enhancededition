@@ -1,57 +1,19 @@
-﻿<Window x:Class="S4EE.Windows.Maps2021"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:S4EE.Windows"
-        xmlns:Properties="clr-namespace:S4EE.Properties"
-        xmlns:p="clr-namespace:S4EE.Properties"
-        mc:Ignorable="d"
-        Title="MAP MANGER"
-        Height="256"
-        Width="512"
-        ResizeMode="NoResize">
+﻿<Window x:Class="S4EE.Windows.Maps2021" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:S4EE.Windows" xmlns:Properties="clr-namespace:S4EE.Properties" xmlns:p="clr-namespace:S4EE.Properties" mc:Ignorable="d" Title="MAP-MANAGER" Height="256" Width="512" ResizeMode="NoResize">
     <Grid Background="#FF1E1E1E">
         <StackPanel Margin="6">
-            <Label Foreground="#b4875e"
-                               Background="Black"
-                               FontSize="24"
-                               FontWeight="Bold"
-                               Margin="3"
-                               Padding="10"
-                               Content="{x:Static p:Resources.App_Maps_Title_TOURNAMENTS}" />
-            <StackPanel Background="#000000"
-                                    Margin="3"
-                                  >
-                <Label  Content="{x:Static p:Resources.App_Maps_T02}"
-                                        Foreground="White"
-                                        FontSize="16"
-                                        Margin="6"
-                                        FontWeight="Bold"
-                                        FontFamily="Segoe UI" />
+            <Label Foreground="#b4875e" Background="Black" FontSize="24" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Maps_Title_TOURNAMENTS}" />
+            <StackPanel Background="#000000" Margin="3">
+                <Label Content="{x:Static p:Resources.App_Maps_T02}" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
                 <StackPanel Orientation="Horizontal">
-                    <Label  Content="ID" Width="36"
-                                        Foreground="White"
-                                        FontSize="16"
-                                        Margin="6"
-                                        FontWeight="Bold"
-                                        FontFamily="Segoe UI" />
-                    <TextBox  Height="22" Width="100" Name="ID" ></TextBox>
-                    <Label  Content="PW" Width="36"
-                                        Foreground="White"
-                                        FontSize="16"
-                                        Margin="6"
-                                        FontWeight="Bold"
-                                        FontFamily="Segoe UI" />
-                    <TextBox  Height="22" Width="250" Name="PW" ></TextBox>
+                    <Label Content="ID" Width="36" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                    <TextBox Height="22" Width="100" Name="ID"></TextBox>
+                    <Label Content="PW" Width="36" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                    <TextBox Height="22" Width="250" Name="PW"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-         
-
-                </StackPanel>
+                <StackPanel Orientation="Horizontal"></StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="ADD-MAP" Height="20" Width="100" Margin="5" Click="Button_MAPSADD_Click"/>
-                    <Button Content="REMOVE-MAP" Height="20" Width="100" Margin="5" Click="Button_REMOVEMAP_Click"/>
+                    <Button Content="ADD-MAP" Height="20" Width="100" Margin="5" Click="Button_MAPSADD_Click" />
+                    <Button Content="REMOVE-MAP" Height="20" Width="100" Margin="5" Click="Button_REMOVEMAP_Click" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
