@@ -1,0 +1,2 @@
+.\7z a MapPack_TOURNAMENT_WC2021_MAP000.zip Map\User\WC2021-MAP000.map -r -tzip -pg2aUZdwTg6!FjvzHUYKJSqGrseFhgaf#
+
