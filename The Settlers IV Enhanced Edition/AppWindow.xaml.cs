@@ -160,7 +160,8 @@ namespace S4EE
                 else
                 {
                     MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                    Environment.Exit(1);
+                    //ToDo auskomentieren
+                    //Environment.Exit(1);
                 }
             }
             if (Properties.Settings.Default.EditionInstalled == "")
@@ -181,7 +182,8 @@ namespace S4EE
                 else
                 {
                     MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                    Environment.Exit(1);
+                    //ToDo auskomentieren
+                    //Environment.Exit(1);
                 }
             }
             if (Properties.Settings.Default.TexturesInstalled == "")

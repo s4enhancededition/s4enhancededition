@@ -523,6 +523,60 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Zufallsgenerator ähnelt.
+        /// </summary>
+        public static string App_RND {
+            get {
+                return ResourceManager.GetString("App_RND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Maya ähnelt.
+        /// </summary>
+        public static string App_RND_M {
+            get {
+                return ResourceManager.GetString("App_RND_M", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Römer ähnelt.
+        /// </summary>
+        public static string App_RND_R {
+            get {
+                return ResourceManager.GetString("App_RND_R", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Würfeln ähnelt.
+        /// </summary>
+        public static string App_RND_Roll {
+            get {
+                return ResourceManager.GetString("App_RND_Roll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Trojaner ähnelt.
+        /// </summary>
+        public static string App_RND_T {
+            get {
+                return ResourceManager.GetString("App_RND_T", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wikinger ähnelt.
+        /// </summary>
+        public static string App_RND_W {
+            get {
+                return ResourceManager.GetString("App_RND_W", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die NEW WORLD ADD-ON TEXTURES ähnelt.
         /// </summary>
         public static string App_Textures_NW {
