@@ -26,7 +26,7 @@ namespace S4EE
                 App_Edition_HE_Button.IsEnabled = false;
                 switch (Properties.Settings.Default.EditionInstalled)
                 {
-                    case ("EGE"):
+                    case ("EHE"):
                     case ("HE"):
                         Properties.Settings.Default.EditionInstalled = "";
                         Properties.Settings.Default.Save();

@@ -98,23 +98,6 @@ namespace S4EE
                             _ => "en-US",
                         };
                         Properties.Settings.Default.Save();
-                        //switch (Properties.Settings.Default.Language)
-                        //{
-
-                        //    case ("de-DE"):
-                        //        {
-                        //            AppSettings.App_Language_deDE_Button.IsChecked = true;
-                        //            break;
-                        //        }
-
-                        //    case ("en-US"):
-                        //        {
-                        //            AppSettings.App_Language_enUS_Button.IsChecked = true;
-                        //            break;
-                        //        }
-
-                        //}
-                        //AppSettings.LangSet();
                         Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
                     }
                     else
@@ -126,7 +109,7 @@ namespace S4EE
                 }
                 else if (App.S4GE_AppPath != null)
                 {
-                    string S4GE_Lang = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", null);
+                    string S4GE_Lang = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", "[1337]").ToString() == "[1337]" ? null : Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", "").ToString();
                     if (S4GE_Lang != null)
                     {
                         Properties.Settings.Default.Language = S4GE_Lang switch
@@ -135,31 +118,12 @@ namespace S4EE
                             _ => "en-US",
                         };
                         Properties.Settings.Default.Save();
-                        switch (Properties.Settings.Default.Language)
-                        {
-
-                            case ("de-DE"):
-                                {
-                                    //AppSettings.App_Language_deDE_Button.IsChecked = true;
-                                    break;
-                                }
-
-                            case ("en-US"):
-                                {
-                                    //AppSettings.App_Language_enUS_Button.IsChecked = true;
-                                    break;
-                                }
-
-                        }
-                        AppSettings.LangSet();
                         Log.LogWriter("VersionChange", "Sprache gesetzt " + Properties.Settings.Default.EditionInstalled + " " + Properties.Settings.Default.Language);
                     }
                 }
                 else
                 {
                     MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                    //ToDo V1.4 Cleanup
-                    //Environment.Exit(1);
                 }
             }
             if (Properties.Settings.Default.EditionInstalled == "")
@@ -180,8 +144,6 @@ namespace S4EE
                 else
                 {
                     MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                    //ToDo V1.4 Cleanup
-                    //Environment.Exit(1);
                 }
             }
             if (Properties.Settings.Default.TexturesInstalled == "")
@@ -346,7 +308,7 @@ namespace S4EE
             switch (Properties.Settings.Default.EditionInstalled)
             {
                 case ("EHE"):
-                    Logo.Source = new BitmapImage(new Uri((@"/Resources/Logo_Enhanced_History_Edition_" + Properties.Settings.Default.Language + @"_200px.png"), UriKind.RelativeOrAbsolute));
+                    Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Enhanced_History_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
                     break;
                 case ("EGE"):
                     Logo.Source = new BitmapImage(new Uri(@"/Resources/Logo_Enhanced_Gold_Edition_" + Properties.Settings.Default.Language + @"_200px.png", UriKind.RelativeOrAbsolute));
