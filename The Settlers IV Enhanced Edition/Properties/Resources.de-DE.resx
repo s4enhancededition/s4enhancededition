@@ -251,6 +251,9 @@ ordner verschoben. Dadurch wird der Spielstände-Ordner klein gehalten.</value>
   <data name="App_Misc_Title" xml:space="preserve">
     <value>SPIEL EINSTELLUNGEN</value>
   </data>
+  <data name="App_Misc_Tools" xml:space="preserve">
+    <value>TOOLS</value>
+  </data>
   <data name="App_Misc_VIDEO" xml:space="preserve">
     <value>VIDEOS ABSPIELEN</value>
   </data>
@@ -277,7 +280,7 @@ die mindestens einmal gestartet wurde.</value>
     <value>DIE SIEDLER IV – ENHANCED EDITION LAUNCHER</value>
   </data>
   <data name="App_RND" xml:space="preserve">
-    <value>Zufallsgenerator</value>
+    <value>VÖLKER ZUFALLSGENERATOR</value>
   </data>
   <data name="App_RND_M" xml:space="preserve">
     <value>Maya</value>

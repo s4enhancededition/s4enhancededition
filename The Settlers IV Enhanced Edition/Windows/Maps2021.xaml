@@ -63,11 +63,6 @@
                             Width="110"
                             Margin="5"
                             Click="Button_REMOVEMAP_Click" />
-                    <Button Content="{x:Static p:Resources.App_RND}"
-                            Height="20"
-                            Width="110"
-                            Margin="5"
-                            Click="Button_RND_Click" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>

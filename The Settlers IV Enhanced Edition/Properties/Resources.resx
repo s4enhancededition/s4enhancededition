@@ -254,6 +254,9 @@ This keeps the game saves folder small.</value>
   <data name="App_Misc_Title" xml:space="preserve">
     <value>GAME SETTINGS</value>
   </data>
+  <data name="App_Misc_Tools" xml:space="preserve">
+    <value>TOOLS</value>
+  </data>
   <data name="App_Misc_VIDEO" xml:space="preserve">
     <value>PLAY INGAME VIDEOS</value>
   </data>
@@ -280,7 +283,7 @@ at least once is required.</value>
     <value>THE SETTLERS IV – ENHANCED EDITION LAUNCHER</value>
   </data>
   <data name="App_RND" xml:space="preserve">
-    <value>Random generator</value>
+    <value>RACES RANDOM GENERATOR</value>
   </data>
   <data name="App_RND_M" xml:space="preserve">
     <value>Mayans</value>

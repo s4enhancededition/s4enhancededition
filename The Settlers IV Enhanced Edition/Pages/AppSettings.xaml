@@ -1,9 +1,24 @@
-﻿<Page x:Class="S4EE.AppSettings" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Properties="clr-namespace:S4EE.Properties" xmlns:local="clr-namespace:S4EE" xmlns:p="clr-namespace:S4EE.Properties" mc:Ignorable="d" d:DesignHeight="660" d:DesignWidth="880" Title="AppSettings">
+﻿<Page x:Class="S4EE.AppSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:Properties="clr-namespace:S4EE.Properties"
+      xmlns:local="clr-namespace:S4EE"
+      xmlns:p="clr-namespace:S4EE.Properties"
+      mc:Ignorable="d"
+      d:DesignHeight="660"
+      d:DesignWidth="880"
+      Title="AppSettings">
     <Page.Background>
-        <ImageBrush ImageSource="/Resources/AppStartBackground.png" AlignmentX="Center" AlignmentY="Center" Stretch="Uniform" />
+        <ImageBrush ImageSource="/Resources/AppStartBackground.png"
+                    AlignmentX="Center"
+                    AlignmentY="Center"
+                    Stretch="Uniform" />
     </Page.Background>
     <Page.Resources>
-        <Style TargetType="{x:Type Button}" x:Key="Button_Settings_Maps_Folder_en-US">
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_Settings_Maps_Folder_en-US">
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/Resources/Button_Settings_Maps_Folder_en-US.png" />
@@ -13,13 +28,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
+                <Trigger Property="IsMouseOver"
+                         Value="True">
                     <Setter Property="Background">
                         <Setter.Value>
                             <ImageBrush ImageSource="/Resources/Button_Settings_Maps_Folder_hell_en-US.png" />
@@ -28,7 +45,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style TargetType="{x:Type Button}" x:Key="Button_Settings_Maps_Folder_de-DE">
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_Settings_Maps_Folder_de-DE">
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/Resources/Button_Settings_Maps_Folder_de-DE.png" />
@@ -38,13 +56,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
+                <Trigger Property="IsMouseOver"
+                         Value="True">
                     <Setter Property="Background">
                         <Setter.Value>
                             <ImageBrush ImageSource="/Resources/Button_Settings_Maps_Folder_hell_de-DE.png" />
@@ -55,30 +75,44 @@
         </Style>
     </Page.Resources>
     <Grid>
-        <StackPanel VerticalAlignment="Center" Margin="0,0,0,0">
-            <TabControl Height="500" Width="664" Margin="176,0,0,0" BorderBrush="{x:Null}" BorderThickness="0">
+        <StackPanel VerticalAlignment="Center"
+                    Margin="0,0,0,0">
+            <TabControl Height="500"
+                        Width="664"
+                        Margin="176,0,0,0"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0">
                 <TabControl.Background>
                     <ImageBrush ImageSource="/Resources/AppSettingsBackground.png" />
                 </TabControl.Background>
-                <TabItem Height="36" Width="110" Margin="0,0,0,-2">
+                <TabItem Height="36"
+                         Width="110"
+                         Margin="0,0,0,-2">
                     <TabItem.Style>
                         <Style TargetType="TabItem">
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="TabItem">
                                         <Grid Name="Panel">
-                                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" />
+                                            <ContentPresenter x:Name="ContentSite"
+                                                              VerticalAlignment="Center"
+                                                              HorizontalAlignment="Center"
+                                                              ContentSource="Header" />
                                         </Grid>
                                         <ControlTemplate.Triggers>
-                                            <Trigger Property="IsSelected" Value="False">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="False">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Edition1.png" />
                                                     </Setter.Value>
                                                 </Setter>
                                             </Trigger>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="True">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Edition3.png" />
                                                     </Setter.Value>
@@ -86,10 +120,14 @@
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>
-                                                    <Condition Property="IsMouseOver" SourceName="Panel" Value="True" />
-                                                    <Condition Property="IsSelected" Value="False" />
+                                                    <Condition Property="IsMouseOver"
+                                                               SourceName="Panel"
+                                                               Value="True" />
+                                                    <Condition Property="IsSelected"
+                                                               Value="False" />
                                                 </MultiTrigger.Conditions>
-                                                <Setter TargetName="Panel" Property="Background">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Edition2.png" />
                                                     </Setter.Value>
@@ -102,51 +140,132 @@
                         </Style>
                     </TabItem.Style>
                     <StackPanel Margin="6">
-                        <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Edition_Enhanced_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Edition_Enhanced_Title}" />
-                        <StackPanel Background="#000000" Margin="3" MouseLeftButtonUp="App_Edition_EHE_Button_Checked">
-                            <RadioButton Margin="24,0,0,0" VerticalContentAlignment="Center" Name="App_Edition_EHE_Button" Checked="App_Edition_EHE_Button_Checked">
-                                <Label Content="{x:Static p:Resources.App_Edition_EHE}" Name="App_Edition_EHE" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_Edition_Enhanced_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Edition_Enhanced_Title}" />
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Edition_EHE_Button_Checked">
+                            <RadioButton Margin="24,0,0,0"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Edition_EHE_Button"
+                                         Checked="App_Edition_EHE_Button_Checked">
+                                <Label Content="{x:Static p:Resources.App_Edition_EHE}"
+                                       Name="App_Edition_EHE"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
                             </RadioButton>
                         </StackPanel>
-                        <StackPanel Background="#000000" Margin="3" MouseLeftButtonUp="App_Edition_EGE_Button_Checked">
-                            <RadioButton Margin="24,0,0,0" VerticalContentAlignment="Center" Name="App_Edition_EGE_Button" Checked="App_Edition_EGE_Button_Checked">
-                                <Label Content="{x:Static p:Resources.App_Edition_EGE}" Name="App_Edition_EGE" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Edition_EGE_Button_Checked">
+                            <RadioButton Margin="24,0,0,0"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Edition_EGE_Button"
+                                         Checked="App_Edition_EGE_Button_Checked">
+                                <Label Content="{x:Static p:Resources.App_Edition_EGE}"
+                                       Name="App_Edition_EGE"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
                             </RadioButton>
                         </StackPanel>
-                        <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Edition_Classic_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Edition_Classic_Title}" />
-                        <StackPanel Background="#000000" Margin="3" MouseLeftButtonUp="App_Edition_HE_Button_Checked">
-                            <RadioButton Margin="24,0,0,0" VerticalContentAlignment="Center" Name="App_Edition_HE_Button" Checked="App_Edition_HE_Button_Checked">
-                                <Label Content="{x:Static p:Resources.App_Edition_HE}" Name="App_Edition_HE" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_Edition_Classic_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Edition_Classic_Title}" />
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Edition_HE_Button_Checked">
+                            <RadioButton Margin="24,0,0,0"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Edition_HE_Button"
+                                         Checked="App_Edition_HE_Button_Checked">
+                                <Label Content="{x:Static p:Resources.App_Edition_HE}"
+                                       Name="App_Edition_HE"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
                             </RadioButton>
                         </StackPanel>
-                        <StackPanel Background="#000000" Margin="3" MouseLeftButtonUp="App_Edition_GE_Button_Checked">
-                            <RadioButton Margin="24,0,0,0" VerticalContentAlignment="Center" Name="App_Edition_GE_Button" Checked="App_Edition_GE_Button_Checked">
-                                <Label Content="{x:Static p:Resources.App_Edition_GE}" Name="App_Edition_GE" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Edition_GE_Button_Checked">
+                            <RadioButton Margin="24,0,0,0"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Edition_GE_Button"
+                                         Checked="App_Edition_GE_Button_Checked">
+                                <Label Content="{x:Static p:Resources.App_Edition_GE}"
+                                       Name="App_Edition_GE"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
                             </RadioButton>
                         </StackPanel>
-                        <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Edition_Information_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Edition_Information_Title}" />
-                        <Label Foreground="#ffffff" Background="Black" FontSize="14" Name="App_Edition_Information_Text" FontWeight="SemiBold" Margin="3" Padding="10,15,10,15" Content="{x:Static p:Resources.App_Edition_Information_Text}" />
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_Edition_Information_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Edition_Information_Title}" />
+                        <Label Foreground="#ffffff"
+                               Background="Black"
+                               FontSize="14"
+                               Name="App_Edition_Information_Text"
+                               FontWeight="SemiBold"
+                               Margin="3"
+                               Padding="10,15,10,15"
+                               Content="{x:Static p:Resources.App_Edition_Information_Text}" />
                     </StackPanel>
                 </TabItem>
-                <TabItem Height="36" Width="110" Margin="0,0,0,-2">
+                <TabItem Height="36"
+                         Width="110"
+                         Margin="0,0,0,-2">
                     <TabItem.Style>
                         <Style TargetType="TabItem">
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="TabItem">
                                         <Grid Name="Panel">
-                                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" />
+                                            <ContentPresenter x:Name="ContentSite"
+                                                              VerticalAlignment="Center"
+                                                              HorizontalAlignment="Center"
+                                                              ContentSource="Header" />
                                         </Grid>
                                         <ControlTemplate.Triggers>
-                                            <Trigger Property="IsSelected" Value="False">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="False">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Textures1.png" />
                                                     </Setter.Value>
                                                 </Setter>
                                             </Trigger>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="True">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Textures3.png" />
                                                     </Setter.Value>
@@ -154,10 +273,14 @@
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>
-                                                    <Condition Property="IsMouseOver" SourceName="Panel" Value="True" />
-                                                    <Condition Property="IsSelected" Value="False" />
+                                                    <Condition Property="IsMouseOver"
+                                                               SourceName="Panel"
+                                                               Value="True" />
+                                                    <Condition Property="IsSelected"
+                                                               Value="False" />
                                                 </MultiTrigger.Conditions>
-                                                <Setter TargetName="Panel" Property="Background">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Textures2.png" />
                                                     </Setter.Value>
@@ -170,38 +293,76 @@
                         </Style>
                     </TabItem.Style>
                     <StackPanel Margin="6">
-                        <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Textures_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Textures_Title}" />
-                        <StackPanel Background="#000000" Margin="3" MouseLeftButtonUp="App_Textures_ORG_Button_Checked">
-                            <RadioButton Margin="24,0,0,0" VerticalContentAlignment="Center" Name="App_Textures_ORG_Button" Checked="App_Textures_ORG_Button_Checked">
-                                <Label Content="{x:Static p:Resources.App_Textures_ORG}" Name="App_Textures_ORG" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_Textures_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Textures_Title}" />
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Textures_ORG_Button_Checked">
+                            <RadioButton Margin="24,0,0,0"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Textures_ORG_Button"
+                                         Checked="App_Textures_ORG_Button_Checked">
+                                <Label Content="{x:Static p:Resources.App_Textures_ORG}"
+                                       Name="App_Textures_ORG"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
                             </RadioButton>
                         </StackPanel>
-                        <StackPanel Background="#000000" Margin="3" MouseLeftButtonUp="App_Textures_NW_Button_Checked">
-                            <RadioButton Margin="24,0,0,0" VerticalContentAlignment="Center" Name="App_Textures_NW_Button" Checked="App_Textures_NW_Button_Checked">
-                                <Label Content="{x:Static p:Resources.App_Textures_NW}" Name="App_Textures_NW" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                        <StackPanel Background="#000000"
+                                    Margin="3"
+                                    MouseLeftButtonUp="App_Textures_NW_Button_Checked">
+                            <RadioButton Margin="24,0,0,0"
+                                         VerticalContentAlignment="Center"
+                                         Name="App_Textures_NW_Button"
+                                         Checked="App_Textures_NW_Button_Checked">
+                                <Label Content="{x:Static p:Resources.App_Textures_NW}"
+                                       Name="App_Textures_NW"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
                             </RadioButton>
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
-                <TabItem Height="36" Width="110" Margin="0,0,0,-2">
+                <TabItem Height="36"
+                         Width="110"
+                         Margin="0,0,0,-2">
                     <TabItem.Style>
                         <Style TargetType="TabItem">
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="TabItem">
                                         <Grid Name="Panel">
-                                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" />
+                                            <ContentPresenter x:Name="ContentSite"
+                                                              VerticalAlignment="Center"
+                                                              HorizontalAlignment="Center"
+                                                              ContentSource="Header" />
                                         </Grid>
                                         <ControlTemplate.Triggers>
-                                            <Trigger Property="IsSelected" Value="False">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="False">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Mods1.png" />
                                                     </Setter.Value>
                                                 </Setter>
                                             </Trigger>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="True">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Mods3.png" />
                                                     </Setter.Value>
@@ -209,10 +370,14 @@
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>
-                                                    <Condition Property="IsMouseOver" SourceName="Panel" Value="True" />
-                                                    <Condition Property="IsSelected" Value="False" />
+                                                    <Condition Property="IsMouseOver"
+                                                               SourceName="Panel"
+                                                               Value="True" />
+                                                    <Condition Property="IsSelected"
+                                                               Value="False" />
                                                 </MultiTrigger.Conditions>
-                                                <Setter TargetName="Panel" Property="Background">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Mods2.png" />
                                                     </Setter.Value>
@@ -225,17 +390,51 @@
                         </Style>
                     </TabItem.Style>
                     <StackPanel Margin="6">
-                        <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Mod_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Mod_Title}" />
-                        <Grid Background="Black" Margin="3">
-                            <CheckBox Name="App_Mod_Zoom_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Mod_Zoom_CheckBox_Check" Unchecked="App_Mod_Zoom_CheckBox_Check">
-                                <Label Content="{x:Static p:Resources.App_Mod_Zoom}" Name="App_Mod_Zoom" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_Mod_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Mod_Title}" />
+                        <Grid Background="Black"
+                              Margin="3">
+                            <CheckBox Name="App_Mod_Zoom_CheckBox"
+                                      Margin="24,0,0,0"
+                                      VerticalContentAlignment="Center"
+                                      Checked="App_Mod_Zoom_CheckBox_Check"
+                                      Unchecked="App_Mod_Zoom_CheckBox_Check">
+                                <Label Content="{x:Static p:Resources.App_Mod_Zoom}"
+                                       Name="App_Mod_Zoom"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
                             </CheckBox>
                         </Grid>
-                        <Grid Background="Black" Margin="3">
-                            <CheckBox Name="App_Mod_Hotkeys_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Mod_Hotkeys_CheckBox_Check" Unchecked="App_Mod_Hotkeys_CheckBox_Check">
-                                <Label Content="{x:Static p:Resources.App_Mod_Hotkeys}" Name="App_Mod_Hotkeys" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                        <Grid Background="Black"
+                              Margin="3">
+                            <CheckBox Name="App_Mod_Hotkeys_CheckBox"
+                                      Margin="24,0,0,0"
+                                      VerticalContentAlignment="Center"
+                                      Checked="App_Mod_Hotkeys_CheckBox_Check"
+                                      Unchecked="App_Mod_Hotkeys_CheckBox_Check">
+                                <Label Content="{x:Static p:Resources.App_Mod_Hotkeys}"
+                                       Name="App_Mod_Hotkeys"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
                             </CheckBox>
-                            <Button Click="Button_Hotkeys" Name="Button_Hotkeys_Info" Width="37" Height="37" Margin="10,10,10,10" HorizontalAlignment="Right">
+                            <Button Click="Button_Hotkeys"
+                                    Name="Button_Hotkeys_Info"
+                                    Width="37"
+                                    Height="37"
+                                    Margin="10,10,10,10"
+                                    HorizontalAlignment="Right">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
                                         <Setter Property="Background">
@@ -247,13 +446,15 @@
                                             <Setter.Value>
                                                 <ControlTemplate TargetType="{x:Type Button}">
                                                     <Border Background="{TemplateBinding Background}">
-                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                        <ContentPresenter HorizontalAlignment="Center"
+                                                                          VerticalAlignment="Center" />
                                                     </Border>
                                                 </ControlTemplate>
                                             </Setter.Value>
                                         </Setter>
                                         <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
+                                            <Trigger Property="IsMouseOver"
+                                                     Value="True">
                                                 <Setter Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Settings_Info_hell.png" />
@@ -267,25 +468,34 @@
                         </Grid>
                     </StackPanel>
                 </TabItem>
-                <TabItem Height="36" Width="110" Margin="0,0,0,-2">
+                <TabItem Height="36"
+                         Width="110"
+                         Margin="0,0,0,-2">
                     <TabItem.Style>
                         <Style TargetType="TabItem">
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="TabItem">
                                         <Grid Name="Panel">
-                                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" />
+                                            <ContentPresenter x:Name="ContentSite"
+                                                              VerticalAlignment="Center"
+                                                              HorizontalAlignment="Center"
+                                                              ContentSource="Header" />
                                         </Grid>
                                         <ControlTemplate.Triggers>
-                                            <Trigger Property="IsSelected" Value="False">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="False">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Music1.png" />
                                                     </Setter.Value>
                                                 </Setter>
                                             </Trigger>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="True">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Music3.png" />
                                                     </Setter.Value>
@@ -293,10 +503,14 @@
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>
-                                                    <Condition Property="IsMouseOver" SourceName="Panel" Value="True" />
-                                                    <Condition Property="IsSelected" Value="False" />
+                                                    <Condition Property="IsMouseOver"
+                                                               SourceName="Panel"
+                                                               Value="True" />
+                                                    <Condition Property="IsSelected"
+                                                               Value="False" />
                                                 </MultiTrigger.Conditions>
-                                                <Setter TargetName="Panel" Property="Background">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Music2.png" />
                                                     </Setter.Value>
@@ -309,34 +523,68 @@
                         </Style>
                     </TabItem.Style>
                     <StackPanel Margin="6">
-                        <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Music_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Music_Title}" />
-                        <StackPanel Background="Black" Margin="3">
-                            <CheckBox Name="App_Music_S3_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Music_S3_CheckBox_Check" Unchecked="App_Music_S3_CheckBox_Check">
-                                <Label Content="{x:Static p:Resources.App_Music_S3}" Name="App_Music_S3" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_Music_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_Music_Title}" />
+                        <StackPanel Background="Black"
+                                    Margin="3">
+                            <CheckBox Name="App_Music_S3_CheckBox"
+                                      Margin="24,0,0,0"
+                                      VerticalContentAlignment="Center"
+                                      Checked="App_Music_S3_CheckBox_Check"
+                                      Unchecked="App_Music_S3_CheckBox_Check">
+                                <Label Content="{x:Static p:Resources.App_Music_S3}"
+                                       Name="App_Music_S3"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
                             </CheckBox>
-                            <Label Foreground="#ffffff" Background="Black" FontSize="14" Name="App_Music_S3_Information_Text" FontWeight="SemiBold" Margin="3" Padding="58,0,10,15" Content="{x:Static p:Resources.App_Music_S3_Information_Text}" />
+                            <Label Foreground="#ffffff"
+                                   Background="Black"
+                                   FontSize="14"
+                                   Name="App_Music_S3_Information_Text"
+                                   FontWeight="SemiBold"
+                                   Margin="3"
+                                   Padding="58,0,10,15"
+                                   Content="{x:Static p:Resources.App_Music_S3_Information_Text}" />
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
-                <TabItem Height="36" Width="110" Margin="0,0,0,-2">
+                <TabItem Height="36"
+                         Width="110"
+                         Margin="0,0,0,-2">
                     <TabItem.Style>
                         <Style TargetType="TabItem">
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="TabItem">
                                         <Grid Name="Panel">
-                                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" />
+                                            <ContentPresenter x:Name="ContentSite"
+                                                              VerticalAlignment="Center"
+                                                              HorizontalAlignment="Center"
+                                                              ContentSource="Header" />
                                         </Grid>
                                         <ControlTemplate.Triggers>
-                                            <Trigger Property="IsSelected" Value="False">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="False">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Maps1.png" />
                                                     </Setter.Value>
                                                 </Setter>
                                             </Trigger>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="True">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Maps3.png" />
                                                     </Setter.Value>
@@ -344,10 +592,14 @@
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>
-                                                    <Condition Property="IsMouseOver" SourceName="Panel" Value="True" />
-                                                    <Condition Property="IsSelected" Value="False" />
+                                                    <Condition Property="IsMouseOver"
+                                                               SourceName="Panel"
+                                                               Value="True" />
+                                                    <Condition Property="IsSelected"
+                                                               Value="False" />
                                                 </MultiTrigger.Conditions>
-                                                <Setter TargetName="Panel" Property="Background">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Maps2.png" />
                                                     </Setter.Value>
@@ -360,12 +612,25 @@
                         </Style>
                     </TabItem.Style>
                     <StackPanel Margin="6">
-                        <ScrollViewer Height="445" VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer Height="445"
+                                      VerticalScrollBarVisibility="Auto">
                             <Grid>
                                 <StackPanel>
                                     <Grid>
-                                        <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Maps_Title_Orignal" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Maps_Orignal}"></Label>
-                                        <Button Click="Button_Maps" Name="Button_Maps1" Width="200" Height="37" Margin="10,10,10,10" HorizontalAlignment="Right">
+                                        <Label Foreground="#b4875e"
+                                               Background="Black"
+                                               FontSize="24"
+                                               Name="App_Maps_Title_Orignal"
+                                               FontWeight="Bold"
+                                               Margin="3"
+                                               Padding="10"
+                                               Content="{x:Static p:Resources.App_Maps_Orignal}"></Label>
+                                        <Button Click="Button_Maps"
+                                                Name="Button_Maps1"
+                                                Width="200"
+                                                Height="37"
+                                                Margin="10,10,10,10"
+                                                HorizontalAlignment="Right">
                                             <Button.Style>
                                                 <Style TargetType="{x:Type Button}">
                                                     <Setter Property="Background">
@@ -377,13 +642,15 @@
                                                         <Setter.Value>
                                                             <ControlTemplate TargetType="{x:Type Button}">
                                                                 <Border Background="{TemplateBinding Background}">
-                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                                    <ContentPresenter HorizontalAlignment="Center"
+                                                                                      VerticalAlignment="Center" />
                                                                 </Border>
                                                             </ControlTemplate>
                                                         </Setter.Value>
                                                     </Setter>
                                                     <Style.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                        <Trigger Property="IsMouseOver"
+                                                                 Value="True">
                                                             <Setter Property="Background">
                                                                 <Setter.Value>
                                                                     <ImageBrush ImageSource="/Resources/Button_Settings_Maps_Folder_hell_en-US.png" />
@@ -395,35 +662,109 @@
                                             </Button.Style>
                                         </Button>
                                     </Grid>
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Maps_O01_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Maps_O01_CheckBox_Checked" Unchecked="App_Maps_O01_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Maps_O01}" Name="App_Maps_O01" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_O01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_O01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_O01_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_O01}"
+                                                   Name="App_Maps_O01"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
                                     <Grid>
-                                        <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Maps_Title_SINGLEPLAYER" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Maps_Title_SINGLEPLAYER}"></Label>
+                                        <Label Foreground="#b4875e"
+                                               Background="Black"
+                                               FontSize="24"
+                                               Name="App_Maps_Title_SINGLEPLAYER"
+                                               FontWeight="Bold"
+                                               Margin="3"
+                                               Padding="10"
+                                               Content="{x:Static p:Resources.App_Maps_Title_SINGLEPLAYER}"></Label>
                                     </Grid>
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Maps_S01_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Maps_S01_CheckBox_Checked" Unchecked="App_Maps_S01_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Maps_S01}" Name="App_Maps_S01" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_S01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_S01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_S01_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_S01}"
+                                                   Name="App_Maps_S01"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Maps_R01_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Maps_R01_CheckBox_Checked" Unchecked="App_Maps_R01_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Maps_R01}" Name="App_Maps_R01" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_R01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_R01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_R01_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_R01}"
+                                                   Name="App_Maps_R01"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Maps_Title_TOURNAMENTS" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Maps_Title_TOURNAMENTS}" />
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Maps_T01_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Maps_T01_CheckBox_Checked" Unchecked="App_Maps_T01_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Maps_T01}" Name="App_Maps_T01" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_TOURNAMENTS"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_TOURNAMENTS}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_T01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_T01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_T01_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_T01}"
+                                                   Name="App_Maps_T01"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Maps_T02_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Maps_T02_CheckBox_Checked" Unchecked="App_Maps_T02_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Maps_T02}" Name="App_Maps_T02" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_T02_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_T02_CheckBox_Checked"
+                                                  Unchecked="App_Maps_T02_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_T02}"
+                                                   Name="App_Maps_T02"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
-                                        <Button Click="Button_TM2021Maps" Name="Button_MapsTR" Width="150" Height="37" Margin="10,10,10,10" HorizontalAlignment="Right">
+                                        <Button Click="Button_TM2021Maps"
+                                                Name="Button_MapsTR"
+                                                Width="150"
+                                                Height="37"
+                                                Margin="10,10,10,10"
+                                                HorizontalAlignment="Right">
                                             <Button.Style>
                                                 <Style TargetType="{x:Type Button}">
                                                     <Setter Property="Background">
@@ -435,13 +776,15 @@
                                                         <Setter.Value>
                                                             <ControlTemplate TargetType="{x:Type Button}">
                                                                 <Border Background="{TemplateBinding Background}">
-                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                                    <ContentPresenter HorizontalAlignment="Center"
+                                                                                      VerticalAlignment="Center" />
                                                                 </Border>
                                                             </ControlTemplate>
                                                         </Setter.Value>
                                                     </Setter>
                                                     <Style.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                        <Trigger Property="IsMouseOver"
+                                                                 Value="True">
                                                             <Setter Property="Background">
                                                                 <Setter.Value>
                                                                     <ImageBrush ImageSource="/Resources/Button_Settings_Maps_Manager_hell.png" />
@@ -453,28 +796,100 @@
                                             </Button.Style>
                                         </Button>
                                     </Grid>
-                                    <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Maps_Title_COOP" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Maps_Title_COOP}" />
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Maps_C01_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Maps_C01_CheckBox_Checked" Unchecked="App_Maps_C01_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Maps_C01}" Name="App_Maps_C01" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_COOP"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_COOP}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_C01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_C01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_C01_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_C01}"
+                                                   Name="App_Maps_C01"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Maps_Title_BUDDEL" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Maps_Title_BUDDEL}" />
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Maps_B01_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Maps_B01_CheckBox_Checked" Unchecked="App_Maps_B01_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Maps_B01}" Name="App_Maps_B01" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_BUDDEL"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_BUDDEL}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_B01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_B01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_B01_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_B01}"
+                                                   Name="App_Maps_B01"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Maps_Title_METZEL" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Maps_Title_METZEL}" />
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Maps_M01_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Maps_M01_CheckBox_Checked" Unchecked="App_Maps_M01_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Maps_M01}" Name="App_Maps_M01" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_METZEL"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_METZEL}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_M01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_M01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_M01_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_M01}"
+                                                   Name="App_Maps_M01"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Maps_Title_TRAINING" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Maps_Title_TRAINING}" />
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Maps_TR01_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Checked="App_Maps_TR01_CheckBox_Checked" Unchecked="App_Maps_TR01_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Maps_TR01}" Name="App_Maps_TR01" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_TRAINING"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_TRAINING}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_TR01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_TR01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_TR01_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_TR01}"
+                                                   Name="App_Maps_TR01"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
                                 </StackPanel>
@@ -482,25 +897,34 @@
                         </ScrollViewer>
                     </StackPanel>
                 </TabItem>
-                <TabItem Height="36" Width="110" Margin="0,0,0,-2">
+                <TabItem Height="36"
+                         Width="110"
+                         Margin="0,0,0,-2">
                     <TabItem.Style>
                         <Style TargetType="TabItem">
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="TabItem">
                                         <Grid Name="Panel">
-                                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" />
+                                            <ContentPresenter x:Name="ContentSite"
+                                                              VerticalAlignment="Center"
+                                                              HorizontalAlignment="Center"
+                                                              ContentSource="Header" />
                                         </Grid>
                                         <ControlTemplate.Triggers>
-                                            <Trigger Property="IsSelected" Value="False">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="False">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Misc1.png" />
                                                     </Setter.Value>
                                                 </Setter>
                                             </Trigger>
-                                            <Trigger Property="IsSelected" Value="True">
-                                                <Setter TargetName="Panel" Property="Background">
+                                            <Trigger Property="IsSelected"
+                                                     Value="True">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Misc3.png" />
                                                     </Setter.Value>
@@ -508,10 +932,14 @@
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>
-                                                    <Condition Property="IsMouseOver" SourceName="Panel" Value="True" />
-                                                    <Condition Property="IsSelected" Value="False" />
+                                                    <Condition Property="IsMouseOver"
+                                                               SourceName="Panel"
+                                                               Value="True" />
+                                                    <Condition Property="IsSelected"
+                                                               Value="False" />
                                                 </MultiTrigger.Conditions>
-                                                <Setter TargetName="Panel" Property="Background">
+                                                <Setter TargetName="Panel"
+                                                        Property="Background">
                                                     <Setter.Value>
                                                         <ImageBrush ImageSource="/Resources/Button_Setting_Misc2.png" />
                                                     </Setter.Value>
@@ -524,59 +952,247 @@
                         </Style>
                     </TabItem.Style>
                     <StackPanel Margin="6">
-                        <ScrollViewer Height="445" VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer Height="445"
+                                      VerticalScrollBarVisibility="Auto">
                             <Grid>
                                 <StackPanel>
-                                    <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Language_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Language_Title}" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Language_Title"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Language_Title}" />
                                     <StackPanel Orientation="Horizontal">
-                                        <StackPanel Background="#000000" Margin="3" MouseLeftButtonUp="App_Language_enUS_Button_Checked" Width="318">
-                                            <RadioButton Margin="24,0,0,0" VerticalContentAlignment="Center" Name="App_Language_enUS_Button" Checked="App_Language_enUS_Button_Checked">
-                                                <Label Content="{x:Static p:Resources.App_Language_enUS}" Name="App_Language_enUS" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                        <StackPanel Background="#000000"
+                                                    Margin="3"
+                                                    MouseLeftButtonUp="App_Language_enUS_Button_Checked"
+                                                    Width="318">
+                                            <RadioButton Margin="24,0,0,0"
+                                                         VerticalContentAlignment="Center"
+                                                         Name="App_Language_enUS_Button"
+                                                         Checked="App_Language_enUS_Button_Checked">
+                                                <Label Content="{x:Static p:Resources.App_Language_enUS}"
+                                                       Name="App_Language_enUS"
+                                                       Foreground="White"
+                                                       FontSize="16"
+                                                       Margin="6"
+                                                       FontWeight="Bold"
+                                                       FontFamily="Segoe UI" />
                                             </RadioButton>
                                         </StackPanel>
-                                        <StackPanel Background="#000000" Margin="3" MouseLeftButtonUp="App_Language_deDE_Button_Checked" Width="318">
-                                            <RadioButton Margin="24,0,0,0" VerticalContentAlignment="Center" Name="App_Language_deDE_Button" Checked="App_Language_deDE_Button_Checked">
-                                                <Label Content="{x:Static p:Resources.App_Language_deDE}" Name="App_Language_deDE" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                        <StackPanel Background="#000000"
+                                                    Margin="3"
+                                                    MouseLeftButtonUp="App_Language_deDE_Button_Checked"
+                                                    Width="318">
+                                            <RadioButton Margin="24,0,0,0"
+                                                         VerticalContentAlignment="Center"
+                                                         Name="App_Language_deDE_Button"
+                                                         Checked="App_Language_deDE_Button_Checked">
+                                                <Label Content="{x:Static p:Resources.App_Language_deDE}"
+                                                       Name="App_Language_deDE"
+                                                       Foreground="White"
+                                                       FontSize="16"
+                                                       Margin="6"
+                                                       FontWeight="Bold"
+                                                       FontFamily="Segoe UI" />
                                             </RadioButton>
                                         </StackPanel>
                                     </StackPanel>
-                                    <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Misc_SAVE_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Misc_SAVE_Title}" />
-                                    <Grid Background="Black" Margin="3,3,3,0">
-                                        <CheckBox Name="App_Misc_SAVE_AUTOSAVE_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Click="App_Misc_SAVE_AUTOSAVE_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Misc_SAVE_AUTOSAVE}" Name="App_Misc_SAVE_AUTOSAVE" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Misc_Tools"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Misc_Tools}" />
+                                    <Grid Background="Black"
+                                          Margin="3,3,3,0">
+                                        <Grid Background="Black"
+                                              Margin="3,3,3,0">
+                                            <Label Content="{x:Static p:Resources.App_RND}"
+                                                   Name="App_Misc_RNG"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI"
+                                                   VerticalAlignment="Center"/>
+                                            <Button Click="Button_RND_Click"
+                                                    Name="Button_RNG"
+                                                    Width="150"
+                                                    Height="37"
+                                                    Margin="10,10,10,10"
+                                                    HorizontalAlignment="Right">
+                                                <Button.Style>
+                                                    <Style TargetType="{x:Type Button}">
+                                                        <Setter Property="Background">
+                                                            <Setter.Value>
+                                                                <ImageBrush ImageSource="/Resources/Button_Settings_Misc_Generator.png" />
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Setter Property="Template">
+                                                            <Setter.Value>
+                                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                                    <Border Background="{TemplateBinding Background}">
+                                                                        <ContentPresenter HorizontalAlignment="Center"
+                                                                                          VerticalAlignment="Center" />
+                                                                    </Border>
+                                                                </ControlTemplate>
+                                                            </Setter.Value>
+                                                        </Setter>
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver"
+                                                                     Value="True">
+                                                                <Setter Property="Background">
+                                                                    <Setter.Value>
+                                                                        <ImageBrush ImageSource="/Resources/Button_Settings_Misc_Generator_hell.png" />
+                                                                    </Setter.Value>
+                                                                </Setter>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                            </Button>
+                                        </Grid>
+                                    </Grid>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Misc_SAVE_Title"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Misc_SAVE_Title}" />
+                                    <Grid Background="Black"
+                                          Margin="3,3,3,0">
+                                        <CheckBox Name="App_Misc_SAVE_AUTOSAVE_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_SAVE_AUTOSAVE_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Misc_SAVE_AUTOSAVE}"
+                                                   Name="App_Misc_SAVE_AUTOSAVE"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Grid Background="Black" Margin="3,3,3,0">
-                                        <CheckBox Name="App_Misc_SAVE_SAVECLEANER_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Click="App_Misc_SAVE_SAVECLEANER_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Misc_SAVE_SAVECLEANER}" Name="App_Misc_SAVE_SAVECLEANER" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Grid Background="Black"
+                                          Margin="3,3,3,0">
+                                        <CheckBox Name="App_Misc_SAVE_SAVECLEANER_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_SAVE_SAVECLEANER_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Misc_SAVE_SAVECLEANER}"
+                                                   Name="App_Misc_SAVE_SAVECLEANER"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Label Foreground="#ffffff" Background="Black" FontSize="14" Name="App_Misc_SAVE_SAVECLEANER_Information_Text" FontWeight="SemiBold" Margin="3,0,3,3" Padding="58,0,10,15" Content="{x:Static p:Resources.App_Misc_SAVE_SAVECLEANER_Information_Text}" />
-                                    <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Misc_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Misc_Title}" />
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Misc_VIDEO_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Click="App_Misc_VIDEO_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Misc_VIDEO}" Name="App_Misc_VIDEO" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Label Foreground="#ffffff"
+                                           Background="Black"
+                                           FontSize="14"
+                                           Name="App_Misc_SAVE_SAVECLEANER_Information_Text"
+                                           FontWeight="SemiBold"
+                                           Margin="3,0,3,3"
+                                           Padding="58,0,10,15"
+                                           Content="{x:Static p:Resources.App_Misc_SAVE_SAVECLEANER_Information_Text}" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Misc_Title"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Misc_Title}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_VIDEO_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_VIDEO_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Misc_VIDEO}"
+                                                   Name="App_Misc_VIDEO"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Misc_MISSIONS_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Click="App_Misc_MISSIONS_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Misc_MISSIONS}" Name="App_Misc_MISSIONS" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_MISSIONS_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_MISSIONS_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Misc_MISSIONS}"
+                                                   Name="App_Misc_MISSIONS"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Misc_MINE_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Click="App_Misc_MINE_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Misc_MINE}" Name="App_Misc_MINE" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_MINE_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_MINE_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Misc_MINE}"
+                                                   Name="App_Misc_MINE"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Misc_LEGACYCONTROLS_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Click="App_Misc_LEGACYCONTROLS_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Misc_LEGACYCONTROLS}" Name="App_Misc_LEGACYCONTROLS" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_LEGACYCONTROLS_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_LEGACYCONTROLS_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Misc_LEGACYCONTROLS}"
+                                                   Name="App_Misc_LEGACYCONTROLS"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
-                                    <Label Foreground="#b4875e" Background="Black" FontSize="24" Name="App_Misc_FIXES_Title" FontWeight="Bold" Margin="3" Padding="10" Content="{x:Static p:Resources.App_Misc_FIXES_Title}" />
-                                    <Grid Background="Black" Margin="3">
-                                        <CheckBox Name="App_Misc_FIXES_EDITOR_CheckBox" Margin="24,0,0,0" VerticalContentAlignment="Center" Click="App_Misc_FIXES_EDITOR_CheckBox_Checked">
-                                            <Label Content="{x:Static p:Resources.App_Misc_FIXES_EDITOR}" Name="App_Misc_FIXES_EDITOR" Foreground="White" FontSize="16" Margin="6" FontWeight="Bold" FontFamily="Segoe UI" />
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Misc_FIXES_Title"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Misc_FIXES_Title}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Misc_FIXES_EDITOR_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Click="App_Misc_FIXES_EDITOR_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Misc_FIXES_EDITOR}"
+                                                   Name="App_Misc_FIXES_EDITOR"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
                                 </StackPanel>
@@ -586,8 +1202,26 @@
                 </TabItem>
             </TabControl>
         </StackPanel>
-        <Image Margin="0,0,0,0" Height="93" Width="241" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Resources/AppSettingsSiedler2.png" />
-        <Image Margin="0,0,0,0" Height="435" Width="217" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Resources/AppSettingsSiedler3.png" />
-        <Image Margin="0,0,0,0" Height="627" Width="182" Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Left" Source="/Resources/AppSettingsSiedler4.png" />
+        <Image Margin="0,0,0,0"
+               Height="93"
+               Width="241"
+               Stretch="Uniform"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Source="/Resources/AppSettingsSiedler2.png" />
+        <Image Margin="0,0,0,0"
+               Height="435"
+               Width="217"
+               Stretch="Uniform"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Source="/Resources/AppSettingsSiedler3.png" />
+        <Image Margin="0,0,0,0"
+               Height="627"
+               Width="182"
+               Stretch="Uniform"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Left"
+               Source="/Resources/AppSettingsSiedler4.png" />
     </Grid>
 </Page>

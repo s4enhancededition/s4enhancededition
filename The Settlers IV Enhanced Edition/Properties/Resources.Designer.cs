@@ -468,6 +468,15 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die TOOLS ähnelt.
+        /// </summary>
+        public static string App_Misc_Tools {
+            get {
+                return ResourceManager.GetString("App_Misc_Tools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die PLAY INGAME VIDEOS ähnelt.
         /// </summary>
         public static string App_Misc_VIDEO {
@@ -541,7 +550,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Random generator ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die RACES RANDOM GENERATOR ähnelt.
         /// </summary>
         public static string App_RND {
             get {

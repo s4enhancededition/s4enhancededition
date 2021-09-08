@@ -70,11 +70,6 @@ namespace S4EE.Windows
                 this.Close();
             }
         }
-        private void Button_RND_Click(object sender, RoutedEventArgs e)
-        {
-
-            Window RND = new S4EE.Windows.RND();
-            RND.ShowDialog();
-        }
+       
     }
 }

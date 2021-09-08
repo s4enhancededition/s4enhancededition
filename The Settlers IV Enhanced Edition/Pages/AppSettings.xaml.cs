@@ -14,9 +14,12 @@ namespace S4EE
         private static readonly string LogName = "AppSettings.xaml.cs";
         public AppSettings()
         {
+            
             InitializeComponent();
             SpracheFestlegen();
             Load();
+            //ToDo Reaktivern sobald wieder eine Weltmeisterschaft oder Turnier ist
+            Button_MapsTR.Visibility = Visibility.Hidden;
         }
         public void Load()
         {
@@ -395,6 +398,13 @@ namespace S4EE
                     }
             }
         }
+
+        private void Button_RND_Click(object sender, RoutedEventArgs e)
+        {
+
+            Window RND = new S4EE.Windows.RND();
+            RND.ShowDialog();
+        }
         private void App_Maps_O01_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Map_O01 = App_Maps_O01_CheckBox.IsChecked switch
@@ -648,6 +658,8 @@ namespace S4EE
             App_Language_Title.Content = Properties.Resources.App_Language_Title;
             App_Language_enUS.Content = Properties.Resources.App_Language_enUS;
             App_Language_deDE.Content = Properties.Resources.App_Language_deDE;
+            App_Misc_Tools.Content = Properties.Resources.App_Misc_Tools;
+            App_Misc_RNG.Content = Properties.Resources.App_RND;
             App_Misc_SAVE_Title.Content = Properties.Resources.App_Misc_SAVE_Title;
             App_Misc_SAVE_AUTOSAVE.Content = Properties.Resources.App_Misc_SAVE_AUTOSAVE;
             App_Misc_SAVE_SAVECLEANER.Content = Properties.Resources.App_Misc_SAVE_SAVECLEANER;
@@ -659,6 +671,8 @@ namespace S4EE
             App_Misc_LEGACYCONTROLS.Content = Properties.Resources.App_Misc_LEGACYCONTROLS;
             App_Misc_FIXES_Title.Content = Properties.Resources.App_Misc_FIXES_Title;
             App_Misc_FIXES_EDITOR.Content = Properties.Resources.App_Misc_FIXES_EDITOR;
+         
+
             //Sprache der Buttons Festlegen
             if (Properties.Settings.Default.Language != "")
             {
@@ -680,7 +694,5 @@ namespace S4EE
             Window Info = new S4EE.Windows.Info();
             Info.ShowDialog();
         }
-
-
     }
 }

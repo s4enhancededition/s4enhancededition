@@ -28,6 +28,8 @@
     <None Remove="Resources\Button_Settings_Info_hell.png" />
     <None Remove="Resources\Button_Settings_Maps_Manager.png" />
     <None Remove="Resources\Button_Settings_Maps_Manager_hell.png" />
+    <None Remove="Resources\Button_Settings_Misc_Generator.png" />
+    <None Remove="Resources\Button_Settings_Misc_Generator_hell.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,6 +62,8 @@
     <Resource Include="Resources\Button_Settings_Maps_Folder_hell_en-US.png" />
     <Resource Include="Resources\Button_Settings_Maps_Manager.png" />
     <Resource Include="Resources\Button_Settings_Maps_Manager_hell.png" />
+    <Resource Include="Resources\Button_Settings_Misc_Generator.png" />
+    <Resource Include="Resources\Button_Settings_Misc_Generator_hell.png" />
     <Resource Include="Resources\Button_Setting_Edition1.png" />
     <Resource Include="Resources\Button_Setting_Edition2.png" />
     <Resource Include="Resources\Button_Setting_Edition3.png" />
