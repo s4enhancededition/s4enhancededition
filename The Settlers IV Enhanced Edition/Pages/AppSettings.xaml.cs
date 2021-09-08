@@ -381,7 +381,6 @@ namespace S4EE
                     }
             }
         }
-        //ToDo: v1.2 Maps: TM2021
         private void Button_TM2021Maps(object sender, RoutedEventArgs e)
         {
             switch (Properties.Settings.Default.EditionInstalled)

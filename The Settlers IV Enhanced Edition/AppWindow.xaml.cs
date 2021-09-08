@@ -158,7 +158,7 @@ namespace S4EE
                 else
                 {
                     MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                    //ToDo auskomentieren
+                    //ToDo V1.4 Cleanup
                     //Environment.Exit(1);
                 }
             }
@@ -180,7 +180,7 @@ namespace S4EE
                 else
                 {
                     MessageBox.Show(Properties.Resources.MSB_Error_Text, Properties.Resources.MSB_Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                    //ToDo auskomentieren
+                    //ToDo V1.4 Cleanup
                     //Environment.Exit(1);
                 }
             }
@@ -581,7 +581,8 @@ namespace S4EE
                 case ("1"):
                     {
                         InstallprogressLogger(Installieren, Properties.Resources.App_Maps_T02, 17, maxProgess);
-                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TOURNAMENT_WC2021.zip");
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TOURNAMENT_WC2021_Part1.zip");
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_TOURNAMENT_WC2021_Part2.zip");
                         InstallprogressLogger(Installiert, Properties.Resources.App_Maps_T02, 18, maxProgess);
                         break;
                     }
@@ -922,7 +923,7 @@ namespace S4EE
             }
             InstallprogressLogger(Installiert, Properties.Resources.App_Misc_LEGACYCONTROLS, 40, maxProgess);
 
-            //ToDo: V1.3 "Ressourcen Gefunden abschalten"
+            //ToDo V1.4 Cleanup "Ressourcen Gefunden abschalten"
             //IniFile s4settings = new(App.S4GE_AppPath + @"Config\GAMESETTINGS.cfg");
             //s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
 
