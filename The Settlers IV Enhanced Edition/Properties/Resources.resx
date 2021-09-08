@@ -274,22 +274,22 @@ at least once is required.</value>
     <value>THE SETTLERS IV – ENHANCED EDITION LAUNCHER</value>
   </data>
   <data name="App_RND" xml:space="preserve">
-    <value>Zufallsgenerator</value>
+    <value>Random generator</value>
   </data>
   <data name="App_RND_M" xml:space="preserve">
-    <value>Maya</value>
+    <value>Mayans</value>
   </data>
   <data name="App_RND_R" xml:space="preserve">
-    <value>Römer</value>
+    <value>Romans</value>
   </data>
   <data name="App_RND_Roll" xml:space="preserve">
-    <value>Würfeln</value>
+    <value>Roll</value>
   </data>
   <data name="App_RND_T" xml:space="preserve">
-    <value>Trojaner</value>
+    <value>Trojans</value>
   </data>
   <data name="App_RND_W" xml:space="preserve">
-    <value>Wikinger</value>
+    <value>Vikings</value>
   </data>
   <data name="App_Textures_NW" xml:space="preserve">
     <value>NEW WORLD ADD-ON TEXTURES</value>

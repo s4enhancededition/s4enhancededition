@@ -7,9 +7,9 @@
     <RootNamespace>S4EE</RootNamespace>
     <UseWPF>true</UseWPF>
     <StartupObject>S4EE.App</StartupObject>
-    <AssemblyVersion>1.2.0.1107</AssemblyVersion>
-    <FileVersion>1.2.0.1107</FileVersion>
-    <Version>1.2.0.1107</Version>
+    <AssemblyVersion>1.3.0.1111</AssemblyVersion>
+    <FileVersion>1.3.0.1111</FileVersion>
+    <Version>1.3.0.1111</Version>
     <Copyright>© 2019-2021 Ortner MEDIA</Copyright>
     <Company>Ortner MEDIA</Company>
     <ApplicationIcon>Resources\S4EE_ICON.ico</ApplicationIcon>
@@ -101,7 +101,7 @@
 
   <ItemGroup>
     <PackageReference Include="DotNetZip" Version="1.15.0" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.864.35" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.902.49" />
     <PackageReference Include="Octokit" Version="0.50.0" />
   </ItemGroup>
 

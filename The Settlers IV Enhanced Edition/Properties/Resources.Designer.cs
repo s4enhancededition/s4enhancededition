@@ -523,7 +523,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Zufallsgenerator ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Random generator ähnelt.
         /// </summary>
         public static string App_RND {
             get {
@@ -532,7 +532,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Maya ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Mayans ähnelt.
         /// </summary>
         public static string App_RND_M {
             get {
@@ -541,7 +541,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Römer ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Romans ähnelt.
         /// </summary>
         public static string App_RND_R {
             get {
@@ -550,7 +550,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Würfeln ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Roll ähnelt.
         /// </summary>
         public static string App_RND_Roll {
             get {
@@ -559,7 +559,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Trojaner ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Trojans ähnelt.
         /// </summary>
         public static string App_RND_T {
             get {
@@ -568,7 +568,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Wikinger ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Vikings ähnelt.
         /// </summary>
         public static string App_RND_W {
             get {

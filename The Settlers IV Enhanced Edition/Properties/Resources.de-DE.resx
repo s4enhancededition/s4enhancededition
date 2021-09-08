@@ -274,7 +274,7 @@ die mindestens einmal gestartet wurde.</value>
     <value>Zufallsgenerator</value>
   </data>
   <data name="App_RND_M" xml:space="preserve">
-    <value>Maya</value>
+    <value>Mayas</value>
   </data>
   <data name="App_RND_R" xml:space="preserve">
     <value>Römer</value>
@@ -287,9 +287,6 @@ die mindestens einmal gestartet wurde.</value>
   </data>
   <data name="App_RND_W" xml:space="preserve">
     <value>Wikinger</value>
-  </data>
-  <data name="App_Textures_NW" xml:space="preserve">
-    <value>NEUE WELT ADD-ON TEXTUREN</value>
   </data>
   <data name="App_Textures_ORG" xml:space="preserve">
     <value>ORIGINALE TEXTUREN</value>

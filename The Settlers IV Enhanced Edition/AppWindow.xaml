@@ -1,9 +1,27 @@
-﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:S4EE" xmlns:Properties="clr-namespace:S4EE.Properties" x:Class="S4EE.AppWindow" mc:Ignorable="d" xmlns:p="clr-namespace:S4EE.Properties" Title="{x:Static p:Resources.App_Name}" Height="670" Width="1200" MinHeight="670" MinWidth="1200" MaxHeight="670" MaxWidth="1200" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:S4EE"
+        xmlns:Properties="clr-namespace:S4EE.Properties"
+        x:Class="S4EE.AppWindow"
+        mc:Ignorable="d"
+        xmlns:p="clr-namespace:S4EE.Properties"
+        Title="{x:Static p:Resources.App_Name}"
+        Height="670"
+        Width="1200"
+        MinHeight="670"
+        MinWidth="1200"
+        MaxHeight="670"
+        MaxWidth="1200"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
     <Window.Background>
         <ImageBrush ImageSource="/Resources/AppBackground.png" />
     </Window.Background>
     <Window.Resources>
-        <Style TargetType="{x:Type Button}" x:Key="Button_PLAY_en-US">
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_PLAY_en-US">
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/Resources/Button_PLAY_en-US.png" />
@@ -13,13 +31,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
+                <Trigger Property="IsMouseOver"
+                         Value="True">
                     <Setter Property="Background">
                         <Setter.Value>
                             <ImageBrush ImageSource="/Resources/Button_PLAY_hell_en-US.png" />
@@ -28,7 +48,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style TargetType="{x:Type Button}" x:Key="Button_PLAY_de-DE">
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_PLAY_de-DE">
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/Resources/Button_PLAY_de-DE.png" />
@@ -38,13 +59,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
+                <Trigger Property="IsMouseOver"
+                         Value="True">
                     <Setter Property="Background">
                         <Setter.Value>
                             <ImageBrush ImageSource="/Resources/Button_PLAY_hell_de-DE.png" />
@@ -53,7 +76,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style TargetType="{x:Type Button}" x:Key="Button_Settings_en-US">
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_Settings_en-US">
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/Resources/Button_Settings_en-US.png" />
@@ -63,13 +87,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
+                <Trigger Property="IsMouseOver"
+                         Value="True">
                     <Setter Property="Background">
                         <Setter.Value>
                             <ImageBrush ImageSource="/Resources/Button_Settings_hell_en-US.png" />
@@ -78,7 +104,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        <Style TargetType="{x:Type Button}" x:Key="Button_Settings_de-DE">
+        <Style TargetType="{x:Type Button}"
+               x:Key="Button_Settings_de-DE">
             <Setter Property="Background">
                 <Setter.Value>
                     <ImageBrush ImageSource="/Resources/Button_Settings_de-DE.png" />
@@ -88,13 +115,15 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
+                <Trigger Property="IsMouseOver"
+                         Value="True">
                     <Setter Property="Background">
                         <Setter.Value>
                             <ImageBrush ImageSource="/Resources/Button_Settings_hell_de-DE.png" />
@@ -110,8 +139,10 @@
             <ColumnDefinition Width="552*" />
             <ColumnDefinition Width="305" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Grid.ColumnSpan="2">
-            <Frame x:Name="FrameContent" NavigationUIVisibility="Hidden"></Frame>
+        <Grid Grid.Column="0"
+              Grid.ColumnSpan="2">
+            <Frame x:Name="FrameContent"
+                   NavigationUIVisibility="Hidden"></Frame>
             <!--Navigated="FrameContent_Navigated" />-->
         </Grid>
         <Grid Grid.Column="2">
@@ -122,10 +153,18 @@
                 <RowDefinition Height="25" />
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <Image Name="Logo" Source="/Resources/Logo_Enhanced_History_Edition_en-US_200px.png" Margin="0,18,0,18" />
+                <Image Name="Logo"
+                       Source="/Resources/Logo_Enhanced_History_Edition_en-US_200px.png"
+                       Margin="0,18,0,18" />
             </StackPanel>
-            <StackPanel Grid.Row="1" x:Name="ButtonMainPannel" Visibility="Visible">
-                <Button Click="Button_PlayClick" Name="Button_PlayClick2" Height="63" Width="250" Margin="5">
+            <StackPanel Grid.Row="1"
+                        x:Name="ButtonMainPannel"
+                        Visibility="Visible">
+                <Button Click="Button_PlayClick"
+                        Name="Button_PlayClick2"
+                        Height="63"
+                        Width="250"
+                        Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
@@ -137,13 +176,15 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
                                             <ImageBrush ImageSource="/Resources/Button_PLAY_hell_en-US.png" />
@@ -154,7 +195,10 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Click="Button_NewsClick" Height="63" Width="250" Margin="5">
+                <Button Click="Button_NewsClick"
+                        Height="63"
+                        Width="250"
+                        Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
@@ -166,13 +210,15 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
                                             <ImageBrush ImageSource="/Resources/Button_News_hell.png" />
@@ -183,7 +229,10 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Click="Button_Editor" Height="63" Width="250" Margin="5">
+                <Button Click="Button_Editor"
+                        Height="63"
+                        Width="250"
+                        Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
@@ -195,13 +244,15 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
                                             <ImageBrush ImageSource="/Resources/Button_Editor+_hell.png" />
@@ -212,7 +263,10 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Click="Button_ChangeLogClick" Height="63" Width="250" Margin="5">
+                <Button Click="Button_ChangeLogClick"
+                        Height="63"
+                        Width="250"
+                        Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
@@ -224,13 +278,15 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
                                             <ImageBrush ImageSource="/Resources/Button_ChangeLog_hell.png" />
@@ -241,7 +297,11 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Click="Button_Settings" Name="Button_Settings2" Height="63" Width="250" Margin="5">
+                <Button Click="Button_Settings"
+                        Name="Button_Settings2"
+                        Height="63"
+                        Width="250"
+                        Margin="5">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
@@ -253,13 +313,15 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
                                             <ImageBrush ImageSource="/Resources/Button_Settings_hell_en-US.png" />
@@ -271,8 +333,12 @@
                     </Button.Style>
                 </Button>
             </StackPanel>
-            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Click="ButtonZL_Click" Height="60" Width="60">
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button Click="ButtonZL_Click"
+                        Height="60"
+                        Width="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
@@ -284,13 +350,15 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
                                             <ImageBrush ImageSource="/Resources/Button_ZockerLounge_Web_hell.png" />
@@ -301,7 +369,9 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Click="ButtonDC_Click" Height="60" Width="60">
+                <Button Click="ButtonDC_Click"
+                        Height="60"
+                        Width="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
@@ -313,13 +383,15 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
                                             <ImageBrush ImageSource="/Resources/Button_ZockerLounge_discord_hell.png" />
@@ -330,7 +402,9 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Click="ButtonYT_Click" Height="60" Width="60">
+                <Button Click="ButtonYT_Click"
+                        Height="60"
+                        Width="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
@@ -342,13 +416,15 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
                                             <ImageBrush ImageSource="/Resources/Button_ZockerLounge_youtube_hell.png" />
@@ -359,7 +435,9 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Click="ButtonTW_Click" Height="60" Width="60">
+                <Button Click="ButtonTW_Click"
+                        Height="60"
+                        Width="60">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background">
@@ -371,13 +449,15 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ContentPresenter HorizontalAlignment="Center"
+                                                              VerticalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                             <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
                                     <Setter Property="Background">
                                         <Setter.Value>
                                             <ImageBrush ImageSource="/Resources/Button_ZockerLounge_twitch_hell.png" />
@@ -389,20 +469,46 @@
                     </Button.Style>
                 </Button>
             </StackPanel>
-            <StackPanel Grid.Row="3" VerticalAlignment="Center">
-                <Label Content="Version: " x:Name="Versiontext" Height="25" Foreground="White" HorizontalAlignment="Center" />
+            <StackPanel Grid.Row="3"
+                        VerticalAlignment="Center">
+                <Label Content="Version: "
+                       x:Name="Versiontext"
+                       Height="25"
+                       Foreground="White"
+                       HorizontalAlignment="Center" />
             </StackPanel>
         </Grid>
         <!-- Downloader -->
-        <StackPanel Grid.ColumnSpan="3" x:Name="DownlaodPanel" Visibility="Hidden" Orientation="Vertical">
+        <StackPanel Grid.ColumnSpan="3"
+                    x:Name="DownlaodPanel"
+                    Visibility="Hidden"
+                    Orientation="Vertical">
             <StackPanel.Background>
                 <ImageBrush ImageSource="/Resources/AppSettingsBackground.png" />
             </StackPanel.Background>
-            <StackPanel VerticalAlignment="Center" Margin="0,220,0,0">
-                <Label x:Name="DownlaodLabel" Content="DOWNLOAD" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" Foreground="White" Margin="10,10,10,0" VerticalAlignment="Center" HorizontalContentAlignment="Center" />
-                <ProgressBar x:Name="ProgressBar" Margin="10" Height="60" Value="0" FontSize="28" />
+            <StackPanel VerticalAlignment="Center"
+                        Margin="0,220,0,0">
+                <Label x:Name="DownlaodLabel"
+                       Content="DOWNLOAD"
+                       HorizontalAlignment="Center"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       Foreground="White"
+                       Margin="10,10,10,0"
+                       VerticalAlignment="Center"
+                       HorizontalContentAlignment="Center" />
+                <ProgressBar x:Name="ProgressBar"
+                             Margin="10"
+                             Height="60"
+                             Value="0"
+                             FontSize="28" />
             </StackPanel>
-            <ScrollViewer x:Name="LogInfoScroller" Margin="20" Height="250" FontWeight="Bold" Foreground="White" VerticalScrollBarVisibility="Hidden">
+            <ScrollViewer x:Name="LogInfoScroller"
+                          Margin="20"
+                          Height="250"
+                          FontWeight="Bold"
+                          Foreground="White"
+                          VerticalScrollBarVisibility="Hidden">
                 <TextBlock x:Name="LogInfo"></TextBlock>
             </ScrollViewer>
         </StackPanel>
