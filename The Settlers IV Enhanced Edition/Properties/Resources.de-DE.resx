@@ -280,7 +280,7 @@ die mindestens einmal gestartet wurde.</value>
     <value>Zufallsgenerator</value>
   </data>
   <data name="App_RND_M" xml:space="preserve">
-    <value>Mayas</value>
+    <value>Maya</value>
   </data>
   <data name="App_RND_R" xml:space="preserve">
     <value>Römer</value>
