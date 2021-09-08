@@ -214,6 +214,12 @@ für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
   <data name="App_Maps_TR01" xml:space="preserve">
     <value>TRAIN MAP PACK (by ramseslein &amp; Sl4nger)</value>
   </data>
+  <data name="App_Map_add" xml:space="preserve">
+    <value>Map hinzufügen</value>
+  </data>
+  <data name="App_Map_remove" xml:space="preserve">
+    <value>Map entfernen</value>
+  </data>
   <data name="App_Misc_FIXES_EDITOR" xml:space="preserve">
     <value>EDITOR+ FIX (KANN BEI PROBLEMEN HELFEN)</value>
   </data>

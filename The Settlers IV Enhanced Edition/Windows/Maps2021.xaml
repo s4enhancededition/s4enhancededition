@@ -53,19 +53,19 @@
                 <StackPanel Orientation="Horizontal"></StackPanel>
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right">
-                    <Button Content="ADD-MAP"
+                    <Button Content="{x:Static p:Resources.App_Map_add}"
                             Height="20"
-                            Width="100"
+                            Width="110"
                             Margin="5"
                             Click="Button_MAPSADD_Click" />
-                    <Button Content="REMOVE-MAP"
+                    <Button Content="{x:Static p:Resources.App_Map_remove}"
                             Height="20"
-                            Width="100"
+                            Width="110"
                             Margin="5"
                             Click="Button_REMOVEMAP_Click" />
-                    <Button Content="RND"
+                    <Button Content="{x:Static p:Resources.App_RND}"
                             Height="20"
-                            Width="100"
+                            Width="110"
                             Margin="5"
                             Click="Button_RND_Click" />
                 </StackPanel>

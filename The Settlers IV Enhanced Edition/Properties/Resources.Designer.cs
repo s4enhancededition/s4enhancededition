@@ -206,6 +206,24 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add-Map ähnelt.
+        /// </summary>
+        public static string App_Map_add {
+            get {
+                return ResourceManager.GetString("App_Map_add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Remove-Map ähnelt.
+        /// </summary>
+        public static string App_Map_remove {
+            get {
+                return ResourceManager.GetString("App_Map_remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die BUDDEL MAP PACK (by ramseslein) ähnelt.
         /// </summary>
         public static string App_Maps_B01 {

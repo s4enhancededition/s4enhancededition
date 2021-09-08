@@ -83,7 +83,7 @@
                            FontWeight="Bold"
                            Margin="3"
                            Padding="10"
-                           Content="{x:Static p:Resources.App_RND}" />
+                           Content="" />
                 </StackPanel>
             </StackPanel>
         </StackPanel>
