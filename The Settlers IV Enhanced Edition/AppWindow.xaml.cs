@@ -161,6 +161,10 @@ namespace S4EE
                     {
                         Properties.Settings.Default.TexturesInstalled = "NW";
                     }
+                    else
+                    {
+                        Properties.Settings.Default.TexturesInstalled = "ORG";
+                    }
                     Properties.Settings.Default.Save();
                     Log.LogWriter("Texturen", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
                 }
@@ -173,6 +177,10 @@ namespace S4EE
                     else if (GetMD5Hash(App.S4GE_AppPath + @"\Gfx\2.gl5") == "2BECBFD70680D91BFFB29888EBA5D79A1E178C9F1A13AEB7598C83EA90481B9D")
                     {
                         Properties.Settings.Default.TexturesInstalled = "NW";
+                    }
+                    else
+                    {
+                        Properties.Settings.Default.TexturesInstalled = "ORG";
                     }
                     Properties.Settings.Default.Save();
                     Log.LogWriter("Texturen", "Texturen Installed " + Properties.Settings.Default.TexturesInstalled);
@@ -190,14 +198,17 @@ namespace S4EE
                 if (App.S4HE_AppPath != null)
                 {
                     string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
-                    IniFile s4settings = new(settings);
-                    Properties.Settings.Default.LegacyControls = s4settings.Read("LegacyMouse", "GAMESETTINGS") switch
+                    if (File.Exists(settings))
                     {
-                        ("1") => "1",
-                        _ => "0",
-                    };
-                    Properties.Settings.Default.Save();
-                    Log.LogWriter("VersionChange", "LegacyControls Installed " + Properties.Settings.Default.LegacyControls);
+                        IniFile s4settings = new(settings);
+                        Properties.Settings.Default.LegacyControls = s4settings.Read("LegacyMouse", "GAMESETTINGS") switch
+                        {
+                            ("1") => "1",
+                            _ => "0",
+                        };
+                        Properties.Settings.Default.Save();
+                        Log.LogWriter("VersionChange", "LegacyControls Installed " + Properties.Settings.Default.LegacyControls);
+                    }
                 }
                 else
                 {
