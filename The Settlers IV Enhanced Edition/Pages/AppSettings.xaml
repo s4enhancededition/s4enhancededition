@@ -916,6 +916,30 @@
                                                    FontFamily="Segoe UI" />
                                         </CheckBox>
                                     </Grid>
+                                    <Label Foreground="#b4875e"
+                                           Background="Black"
+                                           FontSize="24"
+                                           Name="App_Maps_Title_MISC"
+                                           FontWeight="Bold"
+                                           Margin="3"
+                                           Padding="10"
+                                           Content="{x:Static p:Resources.App_Maps_Title_MISC}" />
+                                    <Grid Background="Black"
+                                          Margin="3">
+                                        <CheckBox Name="App_Maps_MS01_CheckBox"
+                                                  Margin="24,0,0,0"
+                                                  VerticalContentAlignment="Center"
+                                                  Checked="App_Maps_MS01_CheckBox_Checked"
+                                                  Unchecked="App_Maps_MS01_CheckBox_Checked">
+                                            <Label Content="{x:Static p:Resources.App_Maps_MS01}"
+                                                   Name="App_Maps_MS01"
+                                                   Foreground="White"
+                                                   FontSize="16"
+                                                   Margin="6"
+                                                   FontWeight="Bold"
+                                                   FontFamily="Segoe UI" />
+                                        </CheckBox>
+                                    </Grid>
                                 </StackPanel>
                             </Grid>
                         </ScrollViewer>

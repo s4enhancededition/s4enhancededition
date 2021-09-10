@@ -14,7 +14,7 @@ namespace S4EE
         private static readonly string LogName = "AppSettings.xaml.cs";
         public AppSettings()
         {
-            
+
             InitializeComponent();
             SpracheFestlegen();
             Load();
@@ -163,7 +163,11 @@ namespace S4EE
                 ("1") => true,
                 _ => false,
             };
-
+            App_Maps_MS01_CheckBox.IsChecked = Properties.Settings.Default.Map_MS01 switch
+            {
+                ("1") => true,
+                _ => false,
+            };
             App_Misc_SAVE_AUTOSAVE_CheckBox.IsChecked = Properties.Settings.Default.AutoSave switch
             {
                 ("0") => false,
@@ -358,7 +362,7 @@ namespace S4EE
             {
                 true => "1",
                 false => "0",
-            };        
+            };
             Properties.Settings.Default.Save();
         }
         #endregion
@@ -424,6 +428,7 @@ namespace S4EE
             Window RND = new S4EE.Windows.RND();
             RND.ShowDialog();
         }
+
         private void App_Maps_O01_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Map_O01 = App_Maps_O01_CheckBox.IsChecked switch
@@ -500,6 +505,15 @@ namespace S4EE
         private void App_Maps_R01_CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.Map_R01 = App_Maps_R01_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };
+            Properties.Settings.Default.Save();
+        }
+        private void App_Maps_MS01_CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Map_MS01 = App_Maps_MS01_CheckBox.IsChecked switch
             {
                 true => "1",
                 false => "0",
@@ -676,6 +690,8 @@ namespace S4EE
             App_Maps_M01.Content = Properties.Resources.App_Maps_M01;
             App_Maps_Title_TRAINING.Content = Properties.Resources.App_Maps_Title_TRAINING;
             App_Maps_TR01.Content = Properties.Resources.App_Maps_TR01;
+            App_Maps_Title_MISC.Content = Properties.Resources.App_Maps_Title_MISC;
+            App_Maps_MS01.Content = Properties.Resources.App_Maps_MS01;
             App_Language_Title.Content = Properties.Resources.App_Language_Title;
             App_Language_enUS.Content = Properties.Resources.App_Language_enUS;
             App_Language_deDE.Content = Properties.Resources.App_Language_deDE;
@@ -692,7 +708,7 @@ namespace S4EE
             App_Misc_LEGACYCONTROLS.Content = Properties.Resources.App_Misc_LEGACYCONTROLS;
             App_Misc_FIXES_Title.Content = Properties.Resources.App_Misc_FIXES_Title;
             App_Misc_FIXES_EDITOR.Content = Properties.Resources.App_Misc_FIXES_EDITOR;
-         
+
 
             //Sprache der Buttons Festlegen
             if (Properties.Settings.Default.Language != "")
@@ -715,5 +731,7 @@ namespace S4EE
             Window Info = new S4EE.Windows.Info();
             Info.ShowDialog();
         }
+
+
     }
 }

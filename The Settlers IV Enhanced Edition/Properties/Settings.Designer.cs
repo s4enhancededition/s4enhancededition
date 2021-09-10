@@ -322,5 +322,17 @@ namespace S4EE.Properties {
                 this["Mod_UBO"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Map_MS01 {
+            get {
+                return ((string)(this["Map_MS01"]));
+            }
+            set {
+                this["Map_MS01"] = value;
+            }
+        }
     }
 }

@@ -681,6 +681,24 @@ namespace S4EE
                         break;
                     }
             }
+            switch (Properties.Settings.Default.Map_MS01)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Installieren, Properties.Resources.App_Maps_MS01, 27, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_MISC_Pack01.zip");
+                        InstallprogressLogger(Installiert, Properties.Resources.App_Maps_MS01, 28, maxProgess);
+                        break;
+                    }
+                default:
+                case ("0"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Maps_MS01, 27, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\MapPack_MISC_Pack01_Un.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Maps_MS01, 28, maxProgess);
+                        break;
+                    }
+            }
             //AUTOSAVE
             InstallprogressLogger(Installieren, Properties.Resources.App_Misc_SAVE_AUTOSAVE, 29, maxProgess);
             switch (Properties.Settings.Default.EditionInstalled)

@@ -166,6 +166,9 @@ and the ENHANCED GOLD EDITION for local multiplayer (LAN).</value>
   <data name="App_Language_Title" xml:space="preserve">
     <value>LANGUAGE</value>
   </data>
+  <data name="App_Maps_MS01" xml:space="preserve">
+    <value>FuelTheWaves MAP PACK (by Phottor)</value>
+  </data>
   <data name="App_Maps_B01" xml:space="preserve">
     <value>BUDDEL MAP PACK (by ramseslein)</value>
   </data>
@@ -192,6 +195,9 @@ and the ENHANCED GOLD EDITION for local multiplayer (LAN).</value>
   </data>
   <data name="App_Maps_T02" xml:space="preserve">
     <value>THE SETTLERS WORLD CHAMPIONSHIP 2021 MAPS</value>
+  </data>
+  <data name="App_Maps_Title_MISC" xml:space="preserve">
+    <value>MISC</value>
   </data>
   <data name="App_Maps_Title_BUDDEL" xml:space="preserve">
     <value>BUDDEL</value>

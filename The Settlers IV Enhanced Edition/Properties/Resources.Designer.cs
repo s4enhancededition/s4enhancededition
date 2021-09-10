@@ -251,6 +251,15 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die FuelTheWaves MAP PACK (by Phottor) ähnelt.
+        /// </summary>
+        public static string App_Maps_MS01 {
+            get {
+                return ResourceManager.GetString("App_Maps_MS01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die STANDARD UBISOFT MAPS ähnelt.
         /// </summary>
         public static string App_Maps_O01 {
@@ -328,6 +337,15 @@ namespace S4EE.Properties {
         public static string App_Maps_Title_METZEL {
             get {
                 return ResourceManager.GetString("App_Maps_Title_METZEL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die MISC ähnelt.
+        /// </summary>
+        public static string App_Maps_Title_MISC {
+            get {
+                return ResourceManager.GetString("App_Maps_Title_MISC", resourceCulture);
             }
         }
         
