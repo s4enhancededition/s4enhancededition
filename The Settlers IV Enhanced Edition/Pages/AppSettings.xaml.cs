@@ -106,6 +106,11 @@ namespace S4EE
                 ("1") => true,
                 _ => false,
             };
+            App_ModCustom_UBO_CheckBox.IsChecked = Properties.Settings.Default.Mod_UBO switch
+            {
+                ("1") => true,
+                _ => false,
+            };
             App_Music_S3_CheckBox.IsChecked = Properties.Settings.Default.Music_S3 switch
             {
                 ("1") => true,
@@ -340,6 +345,20 @@ namespace S4EE
                 true => "1",
                 false => "0",
             };
+            Properties.Settings.Default.Save();
+        }
+
+        private void App_ModCustom_UBO_CheckBox_Check(object sender, RoutedEventArgs e)
+        {
+            if ((bool)App_ModCustom_UBO_CheckBox.IsChecked && Properties.Settings.Default.Mod_UBO == "0")
+            {
+                MessageBox.Show(Properties.Resources.MSB_ModCustom_UBO_Text, Properties.Resources.MSB_ModCustom_UBO, MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            Properties.Settings.Default.Mod_UBO = App_ModCustom_UBO_CheckBox.IsChecked switch
+            {
+                true => "1",
+                false => "0",
+            };        
             Properties.Settings.Default.Save();
         }
         #endregion
@@ -637,6 +656,8 @@ namespace S4EE
             App_Mod_Title.Content = Properties.Resources.App_Mod_Title;
             App_Mod_Zoom.Content = Properties.Resources.App_Mod_Zoom;
             App_Mod_Hotkeys.Content = Properties.Resources.App_Mod_Hotkeys;
+            App_ModCustom_Title.Content = Properties.Resources.App_ModCustom_Title;
+            App_ModCustom_UBO.Content = Properties.Resources.App_ModCustom_UBO;
             App_Music_Title.Content = Properties.Resources.App_Music_Title;
             App_Music_S3.Content = Properties.Resources.App_Music_S3;
             App_Music_S3_Information_Text.Content = Properties.Resources.App_Music_S3_Information_Text;

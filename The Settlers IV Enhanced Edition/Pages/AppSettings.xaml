@@ -466,6 +466,30 @@
                                 </Button.Style>
                             </Button>
                         </Grid>
+                        <Label Foreground="#b4875e"
+                               Background="Black"
+                               FontSize="24"
+                               Name="App_ModCustom_Title"
+                               FontWeight="Bold"
+                               Margin="3"
+                               Padding="10"
+                               Content="{x:Static p:Resources.App_ModCustom_Title}" />
+                        <Grid Background="Black"
+                              Margin="3">
+                            <CheckBox Name="App_ModCustom_UBO_CheckBox"
+                                      Margin="24,0,0,0"
+                                      VerticalContentAlignment="Center"
+                                      Checked="App_ModCustom_UBO_CheckBox_Check"
+                                      Unchecked="App_ModCustom_UBO_CheckBox_Check">
+                                <Label Content="{x:Static p:Resources.App_ModCustom_UBO}"
+                                       Name="App_ModCustom_UBO"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="6"
+                                       FontWeight="Bold"
+                                       FontFamily="Segoe UI" />
+                            </CheckBox>
+                        </Grid>
                     </StackPanel>
                 </TabItem>
                 <TabItem Height="36"
@@ -1019,7 +1043,7 @@
                                                    Margin="6"
                                                    FontWeight="Bold"
                                                    FontFamily="Segoe UI"
-                                                   VerticalAlignment="Center"/>
+                                                   VerticalAlignment="Center" />
                                             <Button Click="Button_RND_Click"
                                                     Name="Button_RNG"
                                                     Width="150"

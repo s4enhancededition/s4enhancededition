@@ -495,7 +495,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die MODS ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die STANDARD MODS ähnelt.
         /// </summary>
         public static string App_Mod_Title {
             get {
@@ -509,6 +509,24 @@ namespace S4EE.Properties {
         public static string App_Mod_Zoom {
             get {
                 return ResourceManager.GetString("App_Mod_Zoom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die CUSTOM MODS ähnelt.
+        /// </summary>
+        public static string App_ModCustom_Title {
+            get {
+                return ResourceManager.GetString("App_ModCustom_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ULTIMATE BALANCE OVERHAUL (Alpha) ähnelt.
+        /// </summary>
+        public static string App_ModCustom_UBO {
+            get {
+                return ResourceManager.GetString("App_ModCustom_UBO", resourceCulture);
             }
         }
         
@@ -717,6 +735,26 @@ namespace S4EE.Properties {
         public static string MSB_Info_Text {
             get {
                 return ResourceManager.GetString("MSB_Info_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die ATTENTION ähnelt.
+        /// </summary>
+        public static string MSB_ModCustom_UBO {
+            get {
+                return ResourceManager.GetString("MSB_ModCustom_UBO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Attention!
+        ///You have activated a custom mod.
+        ///Multiplayer matches will therefore only work if all participants have the same mod/s activated as well. ähnelt.
+        /// </summary>
+        public static string MSB_ModCustom_UBO_Text {
+            get {
+                return ResourceManager.GetString("MSB_ModCustom_UBO_Text", resourceCulture);
             }
         }
     }

@@ -294,10 +294,20 @@ namespace S4EE
                         break;
                     }
             }
+
+
             if (Error)
             {
-                MessageBox.Show(Properties.Resources.MSB_Error_Mod_Text + Filename, Properties.Resources.MSB_Error_Mod, MessageBoxButton.OK, MessageBoxImage.Error);
-                Environment.Exit(0);
+                if (Properties.Settings.Default.Mod_UBO == "1")
+                {
+                    //MessageBox.Show(Properties.Resources.MSB_Error_Mod_Text + Filename, Properties.Resources.MSB_Error_Mod, MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Properties.Resources.MSB_ModCustom_UBO_Text, Properties.Resources.MSB_ModCustom_UBO, MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(Properties.Resources.MSB_Error_Mod_Text + Filename, Properties.Resources.MSB_Error_Mod, MessageBoxButton.OK, MessageBoxImage.Error);
+                    Environment.Exit(0);
+                }
             }
         }
         private void CheckMD5Hash(string Path, string File, string MD256)
@@ -478,6 +488,17 @@ namespace S4EE
                         break;
                     }
             }
+            switch (Properties.Settings.Default.Mod_UBO)
+            {
+                case ("1"):
+                    {
+                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_ModCustom_UBO, 9, maxProgess);
+                        await Worker.ZipInstallerAsync(@"Artifacts\ModCustom_UBO.zip");
+                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_ModCustom_UBO, 10, maxProgess);
+                        break;
+                    }
+            }
+
             switch (Properties.Settings.Default.Music_S3)
             {
                 case ("1"):
