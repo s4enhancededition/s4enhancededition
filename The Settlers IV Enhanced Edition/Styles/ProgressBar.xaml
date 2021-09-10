@@ -63,8 +63,8 @@
                                 <Rectangle x:Name="Animation"
                                            Grid.ColumnSpan="3"
                                            Grid.RowSpan="2"
-                                           Fill="{StaticResource GradientAnimated}"
-                                           OpacityMask="{StaticResource ProgressBarIndicatorAnimatedFill}"
+                                           Fill="Transparent"
+                                           OpacityMask="Transparent"
                                            RenderTransformOrigin="0,0.5">
                                     <Rectangle.RenderTransform>
                                         <TransformGroup>
