@@ -31,6 +31,7 @@ namespace S4EE
         /// </summary>
         public AppWindow()
         {
+            Log.LogWriter(LogName, "InitializeComponent");
             InitializeComponent();
             if (App.DeinstallierenFlag)
             {
@@ -38,39 +39,28 @@ namespace S4EE
             }
             else
             {
-                //CHECKS
-                Installationscheck();
+                //Installation Überprüfen
                 Log.LogWriter(LogName, "Installationscheck");
-                //CHECKS
-                CleanUp();
+                Installationscheck();
+                //Bereinigungen alter Updates
                 Log.LogWriter(LogName, "CleanUp");
-                //INIT
-                Log.LogWriter(LogName, "InitializeComponent");
+                CleanUp();
+                //Anwendung Starten
                 AppStart = new AppStart();
                 Log.LogWriter(LogName, "AppStart");
                 AppWebView = new AppWebView();
                 Log.LogWriter(LogName, "AppWebView");
                 AppSettings = new AppSettings();
                 Log.LogWriter(LogName, "AppSettings");
-                //NAV
                 FrameContent.Navigate(AppStart);
-                Log.LogWriter(LogName, "AppStart");
+                Log.LogWriter(LogName, "AppNavigation");
+                //Anwendung auf Updates überprüfen
                 CheckUpdate();
                 Log.LogWriter(LogName, "CheckUpdate");
             }
-
         }
-        #region Updater
-        private static void CleanUp()
-        {
-            if (File.Exists("TheSettlersIVEnhancedEditionSetup.exe"))
-            {
-                Log.LogWriter(LogName, "CleanUp Old Update File");
-                File.Delete("TheSettlersIVEnhancedEditionSetup.exe");
-            }
-            Log.LogWriter(LogName, "No CleanUp");
-        }
-        public void Installationscheck()
+        #region Main
+        private void Installationscheck()
         {
             Title = Properties.Resources.App_Name;
             // Versionsinfo der Assembly
@@ -104,12 +94,19 @@ namespace S4EE
                     {
                         Properties.Settings.Default.Language = "en-US";
                         Properties.Settings.Default.Save();
-                        //AppSettings.App_Language_enUS_Button.IsChecked = true;
                     }
                 }
                 else if (App.S4GE_AppPath != null)
                 {
-                    string S4GE_Lang = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", "[1337]").ToString() == "[1337]" ? null : Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", "").ToString();
+                    string S4GE_Lang = null;
+                    try
+                    {
+                        S4GE_Lang = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Language", null);
+                    }
+                    catch
+                    {
+
+                    }
                     if (S4GE_Lang != null)
                     {
                         Properties.Settings.Default.Language = S4GE_Lang switch
@@ -132,13 +129,11 @@ namespace S4EE
                 if (App.S4HE_AppPath != null)
                 {
                     Properties.Settings.Default.EditionInstalled = "EHE";
-                    //AppSettings.App_Edition_EHE_Button.IsChecked = true;
                     Properties.Settings.Default.Save();
                 }
                 else if (App.S4GE_AppPath != null)
                 {
                     Properties.Settings.Default.EditionInstalled = "EGE";
-                    //AppSettings.App_Edition_EGE_Button.IsChecked = true;
                     Properties.Settings.Default.Save();
                 }
                 else
@@ -187,10 +182,9 @@ namespace S4EE
                 }
                 else
                 {
-                    Log.LogWriter("Texturen", "Keine LegacyControls gefunden: Suche nach LegacyControls abgeschlossen mit Fehler");
+                    Log.LogWriter("Texturen", "Keine Texturen gefunden: Suche nach Texturen abgeschlossen mit Fehler");
                 }
             }
-
             if (Properties.Settings.Default.LegacyControls == "")
             {
                 Log.LogWriter("LegacyControls", "Keine LegacyControls gefunden: Suche nach LegacyControls");
@@ -216,6 +210,15 @@ namespace S4EE
                 }
             }
             SpracheFestlegen();
+        }
+        private static void CleanUp()
+        {
+            if (File.Exists("TheSettlersIVEnhancedEditionSetup.exe"))
+            {
+                Log.LogWriter(LogName, "CleanUp Old Update File");
+                File.Delete("TheSettlersIVEnhancedEditionSetup.exe");
+            }
+            Log.LogWriter(LogName, "No CleanUp");
         }
         private void Checksumme()
         {
@@ -312,7 +315,6 @@ namespace S4EE
 
             }
         }
-
         public void SpracheFestlegen()
         {
             //GUI
@@ -914,7 +916,6 @@ namespace S4EE
                 Properties.Settings.Default.EditionInstalled = "GE";
                 await Worker.ZipInstallerAsync(@"Artifacts\Edition_GE_Deinstallieren.zip");
             }
-
             Environment.Exit(0);
         }
         private static void CopyS3()
@@ -958,7 +959,7 @@ namespace S4EE
             }
         }
         #endregion
-        #region Downloader&ZIP
+        #region Downloader
         private void DownloadFileAsync(string URI, string File, string Name)
         {
             DownlaodPanel.Visibility = Visibility.Visible;
