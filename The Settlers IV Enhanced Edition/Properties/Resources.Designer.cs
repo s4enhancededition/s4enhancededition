@@ -522,7 +522,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ULTIMATE BALANCE OVERHAUL (Alpha) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ULTIMATE BALANCE OVERHAUL (Alpha) (by UltimateSpinDash) ähnelt.
         /// </summary>
         public static string App_ModCustom_UBO {
             get {

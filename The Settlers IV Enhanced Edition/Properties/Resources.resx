@@ -264,7 +264,7 @@ This keeps the game saves folder small.</value>
     <value>CUSTOM MODS</value>
   </data>
   <data name="App_ModCustom_UBO" xml:space="preserve">
-    <value>ULTIMATE BALANCE OVERHAUL (Alpha)</value>
+    <value>ULTIMATE BALANCE OVERHAUL (Alpha) (by UltimateSpinDash)</value>
   </data>
   <data name="App_Mod_Hotkeys" xml:space="preserve">
     <value>HOTKEYS MOD v2 (by Wizzardmaker &amp; kdsystem1337 - HISTORY E.)</value>
