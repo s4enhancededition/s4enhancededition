@@ -22,6 +22,10 @@ namespace S4EE
             {
                 var webView2Environment = await CoreWebView2Environment.CreateAsync(null, _cacheFolderPath);
                 await webView.EnsureCoreWebView2Async(webView2Environment);
+                webView.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
+                webView.CoreWebView2.Settings.AreDevToolsEnabled = false;
+                webView.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
+                webView.CoreWebView2.Settings.IsZoomControlEnabled = false;
             }
             catch (Exception)
             {

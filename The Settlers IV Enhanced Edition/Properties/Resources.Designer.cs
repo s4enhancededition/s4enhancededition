@@ -233,7 +233,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die DEFEAT MAP PACK (by Sl4nger) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die DEFEAT MAP PACK (by sl4ng3r) ähnelt.
         /// </summary>
         public static string App_Maps_C01 {
             get {
