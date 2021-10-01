@@ -386,7 +386,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die TRAIN MAP PACK (by ramseslein &amp; Sl4nger) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die TRAIN MAP PACK (by ramseslein &amp; sl4ng3r) ähnelt.
         /// </summary>
         public static string App_Maps_TR01 {
             get {
