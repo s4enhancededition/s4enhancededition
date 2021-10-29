@@ -316,10 +316,10 @@ die mindestens einmal gestartet wurde.</value>
     <value>TEXTURE PACKS</value>
   </data>
   <data name="App_Update_Abgeschlossen" xml:space="preserve">
-    <value>DOWNLOAD ABGESCHLOSSEN - STARTE INSTALLATION </value>
+    <value>Update heruntergeladen, Neustart...</value>
   </data>
   <data name="App_Update_Downlaod" xml:space="preserve">
-    <value>DOWNLOAD</value>
+    <value>Herunterladen des Updates...</value>
   </data>
   <data name="MSB_Error" xml:space="preserve">
     <value>FATALER FEHLER</value>
@@ -354,5 +354,11 @@ die mindestens einmal gestartet wurde.</value>
     <value>Achtung!
 Du hast eine Custom Mod aktiviert.
 Multiplayer Matches funktionieren daher nur wenn alle Teilnehmer die selbe/n Mod/s ebenfalls aktiviert haben.</value>
+  </data>
+  <data name="App_SettlersUnited_upgrade" xml:space="preserve">
+    <value>Upgrade auf Settlers United (Beta)</value>
+  </data>
+  <data name="App_Update_Text" xml:space="preserve">
+    <value>Die Installation kann einige Zeit dauern</value>
   </data>
 </root>

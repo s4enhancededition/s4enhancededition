@@ -53,10 +53,16 @@ namespace S4EE
                 AppSettings = new AppSettings();
                 Log.LogWriter(LogName, "AppSettings");
                 FrameContent.Navigate(AppStart);
+               
                 Log.LogWriter(LogName, "AppNavigation");
                 //Anwendung auf Updates überprüfen
                 CheckUpdate();
                 Log.LogWriter(LogName, "CheckUpdate");
+
+
+                Log.LogWriter(LogName, "AppNavigationtoSettlesUnited");
+                SettlersUnitedNews();
+
             }
         }
         #region Main
@@ -999,7 +1005,16 @@ namespace S4EE
         }
         #endregion
         #region Downloader
-        private void DownloadFileAsync(string URI, string File, string Name)
+        private void UpgradetoSettlersUnited(object sender, RoutedEventArgs e)
+        {
+            UpgradetoSettlersUnited();
+        }
+        private void UpgradetoSettlersUnited()
+        {
+            string URI = "https://files.settlers-united.com/Settlers-United.exe";
+            DownloadFileAsync(URI, "SettlersUnitedSetup.exe", Properties.Resources.App_SettlersUnited_upgrade, true);
+        }
+        private void DownloadFileAsync(string URI, string File, string Name, bool SettlersUnited = false)
         {
             DownlaodPanel.Visibility = Visibility.Visible;
             try
@@ -1007,7 +1022,7 @@ namespace S4EE
                 using WebClient wc = new();
                 DownlaodLabel.Content = Properties.Resources.App_Update_Downlaod + "\n" + Name;
                 wc.DownloadProgressChanged += DownloadProgressChanged;
-                wc.DownloadFileCompleted += DownloadFileEventCompleted;
+                wc.DownloadFileCompleted += SettlersUnited ? DownloadFileEventCompletedUnited : DownloadFileEventCompleted;
                 wc.DownloadFileAsync(new Uri(URI), File);
                 Log.LogWriter(LogName, "Download New File Async");
             }
@@ -1021,16 +1036,30 @@ namespace S4EE
             Log.LogWriter(LogName, "Download New File Abgeschlossen");
             DownlaodLabel.Content = Properties.Resources.App_Update_Abgeschlossen;
             Log.LogWriter(LogName, "Install Update");
-            //Process.Start("TheSettlersIVEnhancedEditionSetup.exe", "/silent");
             var startInfo = new ProcessStartInfo
             {
-                FileName = "TheSettlersIVEnhancedEditionSetup.exe"
-                //,
-                //Arguments = @"/silent"
+                FileName = "TheSettlersIVEnhancedEditionSetup.exe",
+                Verb = "runas"
             };
             Process.Start(startInfo);
             Environment.Exit(0);
         }
+
+        private void DownloadFileEventCompletedUnited(object sender, AsyncCompletedEventArgs e)
+        {
+            Log.LogWriter(LogName, "Download New File Abgeschlossen");
+            DownlaodLabel.Content = Properties.Resources.App_Update_Abgeschlossen;
+            Log.LogWriter(LogName, "Install Update");
+            var startInfo = new ProcessStartInfo
+            {
+                FileName = "SettlersUnitedSetup.exe",
+               
+                Verb = "runas"
+            };
+            Process.Start(startInfo);
+            Environment.Exit(0);
+        }
+
         private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             DownlaodPanel.Visibility = Visibility.Visible;
@@ -1097,9 +1126,34 @@ namespace S4EE
                     }
             }
         }
+
         /// <summary>
         /// Navigation zur News Page
         /// </summary>
+
+        private void SettlersUnitedNews()
+        {
+            FrameContent.Navigate(AppWebView);
+            switch (Properties.Settings.Default.Language)
+            {
+                default:
+                case ("en-US"):
+                    {
+                        AppWebView.webView.Source = new Uri("https://settlers-united.com/");
+                        break;
+                    }
+                case ("de-DE"):
+                    {
+                        AppWebView.webView.Source = new Uri("https://settlers-united.com/");
+                        break;
+                    }
+            }
+            Log.LogWriter(LogName, "Navigate AppWebView");
+        }
+        /// <summary>
+        /// Navigation zur News Page
+        /// </summary>
+
         private void Button_NewsClick(object sender, RoutedEventArgs e)
         {
             FrameContent.Navigate(AppWebView);
@@ -1304,5 +1358,7 @@ namespace S4EE
             return true;
         }
         #endregion
+
+
     }
 }

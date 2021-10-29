@@ -640,6 +640,15 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Upgrade to Settlers United (Beta) ähnelt.
+        /// </summary>
+        public static string App_SettlersUnited_upgrade {
+            get {
+                return ResourceManager.GetString("App_SettlersUnited_upgrade", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die NEW WORLD ADD-ON TEXTURES ähnelt.
         /// </summary>
         public static string App_Textures_NW {
@@ -667,7 +676,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die DOWNLOAD COMPLETED - START INSTALLATION ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Update downloaded, restarting... ähnelt.
         /// </summary>
         public static string App_Update_Abgeschlossen {
             get {
@@ -676,11 +685,20 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die DOWNLOAD ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Downloading update... ähnelt.
         /// </summary>
         public static string App_Update_Downlaod {
             get {
                 return ResourceManager.GetString("App_Update_Downlaod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The installation may take some time... ähnelt.
+        /// </summary>
+        public static string App_Update_Text {
+            get {
+                return ResourceManager.GetString("App_Update_Text", resourceCulture);
             }
         }
         

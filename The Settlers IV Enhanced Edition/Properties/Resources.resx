@@ -322,10 +322,10 @@ at least once is required.</value>
     <value>TEXTURE PACKS</value>
   </data>
   <data name="App_Update_Abgeschlossen" xml:space="preserve">
-    <value>DOWNLOAD COMPLETED - START INSTALLATION</value>
+    <value>Update downloaded, restarting...</value>
   </data>
   <data name="App_Update_Downlaod" xml:space="preserve">
-    <value>DOWNLOAD</value>
+    <value>Downloading update...</value>
   </data>
   <data name="MSB_Error" xml:space="preserve">
     <value>FATAL ERROR</value>
@@ -358,5 +358,11 @@ at least once is required.</value>
     <value>Attention!
 You have activated a custom mod.
 Multiplayer matches will therefore only work if all participants have the same mod/s activated as well.</value>
+  </data>
+  <data name="App_SettlersUnited_upgrade" xml:space="preserve">
+    <value>Upgrade to Settlers United (Beta)</value>
+  </data>
+  <data name="App_Update_Text" xml:space="preserve">
+    <value>The installation may take some time...</value>
   </data>
 </root>

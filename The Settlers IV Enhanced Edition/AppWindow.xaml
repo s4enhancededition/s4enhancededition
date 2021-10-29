@@ -141,21 +141,22 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0"
               Grid.ColumnSpan="2">
+            
             <Frame x:Name="FrameContent"
                    NavigationUIVisibility="Hidden"></Frame>
             <!--Navigated="FrameContent_Navigated" />-->
         </Grid>
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="185" />
+                <RowDefinition Height="170" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="60" />
-                <RowDefinition Height="25" />
+                <RowDefinition Height="40" />
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
                 <Image Name="Logo"
                        Source="/Resources/Logo_Enhanced_History_Edition_en-US_200px.png"
-                       Margin="0,18,0,18" />
+                       Margin="0,10,0,10" />
             </StackPanel>
             <StackPanel Grid.Row="1"
                         x:Name="ButtonMainPannel"
@@ -336,6 +337,7 @@
             <StackPanel Grid.Row="2"
                         Orientation="Horizontal"
                         HorizontalAlignment="Center">
+               
                 <Button Click="ButtonZL_Click"
                         Height="60"
                         Width="60">
@@ -470,12 +472,18 @@
                 </Button>
             </StackPanel>
             <StackPanel Grid.Row="3"
-                        VerticalAlignment="Center">
-                <Label Content="Version: "
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                <Label Content="Version: 1.4.0.1150"
                        x:Name="Versiontext"
                        Height="25"
                        Foreground="White"
                        HorizontalAlignment="Center" />
+                <Button Content="{x:Static p:Resources.App_SettlersUnited_upgrade}"
+                        Click="UpgradetoSettlersUnited"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Height="25" />
             </StackPanel>
         </Grid>
         <!-- Downloader -->
@@ -489,7 +497,7 @@
             <StackPanel VerticalAlignment="Center"
                         Margin="0,220,0,0">
                 <Label x:Name="DownlaodLabel"
-                       Content="DOWNLOAD"
+                       Content="Downloading update..."
                        HorizontalAlignment="Center"
                        FontSize="28"
                        FontWeight="Bold"
@@ -502,6 +510,15 @@
                              Height="60"
                              Value="0"
                              FontSize="28" />
+                <Label x:Name="DownlaodLabel2"
+                       Content="{x:Static p:Resources.App_Update_Text}"
+                       HorizontalAlignment="Center"
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Foreground="Gray"
+                       Margin="10,0,10,0"
+                       VerticalAlignment="Center"
+                       HorizontalContentAlignment="Center" />
             </StackPanel>
             <ScrollViewer x:Name="LogInfoScroller"
                           Margin="20"
@@ -512,5 +529,6 @@
                 <TextBlock x:Name="LogInfo"></TextBlock>
             </ScrollViewer>
         </StackPanel>
+        
     </Grid>
 </Window>
