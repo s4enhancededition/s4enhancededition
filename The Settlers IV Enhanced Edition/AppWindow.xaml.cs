@@ -1008,9 +1008,12 @@ namespace S4EE
         private void UpgradetoSettlersUnited(object sender, RoutedEventArgs e)
         {
             UpgradetoSettlersUnited();
+            
         }
         private void UpgradetoSettlersUnited()
         {
+            FrameContent.Navigate(AppStart);
+            Log.LogWriter(LogName, "Navigate AppStart");
             string URI = "https://files.settlers-united.com/Settlers-United.exe";
             DownloadFileAsync(URI, "SettlersUnitedSetup.exe", Properties.Resources.App_SettlersUnited_upgrade, true);
         }
