@@ -1131,9 +1131,8 @@ namespace S4EE
         }
 
         /// <summary>
-        /// Navigation zur News Page
+        /// Navigation zur Settlers United News Page
         /// </summary>
-
         private void SettlersUnitedNews()
         {
             FrameContent.Navigate(AppWebView);
