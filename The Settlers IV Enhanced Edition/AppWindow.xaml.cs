@@ -1007,8 +1007,11 @@ namespace S4EE
         #region Downloader
         private void UpgradetoSettlersUnited(object sender, RoutedEventArgs e)
         {
+            Log.LogWriter(LogName, "Uninstaller");
+            Deinstaller();
+            Log.LogWriter(LogName, "Upgrade");
             UpgradetoSettlersUnited();
-            
+
         }
         private void UpgradetoSettlersUnited()
         {
