@@ -54,11 +54,7 @@ namespace S4EE
                         using StreamReader file = new(entry.Open());
                         while ((line = file.ReadLine()) != null)
                         {
-                            if (line.EndsWith(@"Plugins\") && App.DebugFlag)
-                            {
-
-                            }
-                            else if (line.EndsWith(@"\"))
+                            if (line.EndsWith(@"\"))
                             {
                                 if (Directory.Exists(InstallPath + line[..^1]))
                                 {
@@ -72,7 +68,7 @@ namespace S4EE
                                     File.Delete(InstallPath + line);
                                 }
                             }
-                            Log.LogWriter(LogName, "Delete File" + InstallPath + line);
+                            Log.LogWriter(LogName, "Delete File: " + InstallPath + line);
                         }
                     }
                     else if (entry.FullName.EndsWith(@"Rename_Map.txt", StringComparison.OrdinalIgnoreCase))
@@ -87,7 +83,7 @@ namespace S4EE
                                 {
                                     File.Move(InstallPath + line[..^4] + ".ma2", InstallPath + line[..^4] + ".map");
                                 }
-                                Log.LogWriter(LogName, "Rename Ma2 to Map" + InstallPath + line);
+                                Log.LogWriter(LogName, "Rename Ma2 to Map: " + InstallPath + line);
                             }
                         }
                         else if (mode == "Ma2")
@@ -98,7 +94,7 @@ namespace S4EE
                                 {
                                     File.Move(InstallPath + line, InstallPath + line[..^4] + ".ma2");
                                 }
-                                Log.LogWriter(LogName, "Rename Map to Ma2" + InstallPath + line);
+                                Log.LogWriter(LogName, "Rename Map to Ma2: " + InstallPath + line);
                             }
                         }
                     }

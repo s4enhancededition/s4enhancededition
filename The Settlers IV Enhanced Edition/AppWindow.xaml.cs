@@ -1083,7 +1083,20 @@ namespace S4EE
             if (CheckUpdate())
             {
                 Log.LogWriter(LogName, "Kein Update gefunden");
-                Play();
+                switch (Properties.Settings.Default.EditionInstalled)
+                {
+                    case ("HE"):
+                    case ("EHE"):
+                        {
+                            Deinstaller();
+                            break;
+                        }
+                    default:
+                        {
+                            Play();
+                            break;
+                        }
+                }
             }
             Log.LogWriter(LogName, "Update gefunden");
         }
