@@ -61,8 +61,10 @@ namespace S4EE
 
 
                 Log.LogWriter(LogName, "AppNavigationtoSettlesUnited");
-                SettlersUnitedNews();
-
+                if(Properties.Settings.Default.EditionInstalled == "EHE" || Properties.Settings.Default.EditionInstalled == "HE")
+                {
+                    SettlersUnitedNews();
+                }
             }
         }
         #region Main
@@ -132,12 +134,12 @@ namespace S4EE
             if (Properties.Settings.Default.EditionInstalled == "")
             {
                 Log.LogWriter("Version", "Keine Installation gefunden: Suche nach Installationen");
-                if (App.S4HE_AppPath != null)
+                if (App.S4GE_AppPath != null)
                 {
-                    Properties.Settings.Default.EditionInstalled = "EHE";
+                    Properties.Settings.Default.EditionInstalled = "EGE";
                     Properties.Settings.Default.Save();
                 }
-                else if (App.S4GE_AppPath != null)
+                if (App.S4HE_AppPath != null)
                 {
                     Properties.Settings.Default.EditionInstalled = "EGE";
                     Properties.Settings.Default.Save();
@@ -411,20 +413,20 @@ namespace S4EE
             }
             switch (Properties.Settings.Default.EditionInstalled)
             {
-                case ("EHE"):
-                    {
-                        InstallprogressLogger(Installieren, Properties.Resources.App_Edition_EHE, 1, maxProgess);
-                        await Worker.ZipInstallerAsync(@"Artifacts\Edition_EHE.zip");
-                        InstallprogressLogger(Installiert, Properties.Resources.App_Edition_EHE, 2, maxProgess);
-                        break;
-                    }
-                case ("HE"):
-                    {
-                        InstallprogressLogger(Installieren, Properties.Resources.App_Edition_HE, 1, maxProgess);
-                        await Worker.ZipInstallerAsync(@"Artifacts\Edition_HE.zip");
-                        InstallprogressLogger(Installiert, Properties.Resources.App_Edition_HE, 2, maxProgess);
-                        break;
-                    }
+                //case ("EHE"):
+                //    {
+                //        InstallprogressLogger(Installieren, Properties.Resources.App_Edition_EHE, 1, maxProgess);
+                //        await Worker.ZipInstallerAsync(@"Artifacts\Edition_EHE.zip");
+                //        InstallprogressLogger(Installiert, Properties.Resources.App_Edition_EHE, 2, maxProgess);
+                //        break;
+                //    }
+                //case ("HE"):
+                //    {
+                //        InstallprogressLogger(Installieren, Properties.Resources.App_Edition_HE, 1, maxProgess);
+                //        await Worker.ZipInstallerAsync(@"Artifacts\Edition_HE.zip");
+                //        InstallprogressLogger(Installiert, Properties.Resources.App_Edition_HE, 2, maxProgess);
+                //        break;
+                //    }
                 case ("EGE"):
                     {
                         InstallprogressLogger(Installieren, Properties.Resources.App_Edition_EGE, 1, maxProgess);
@@ -476,24 +478,25 @@ namespace S4EE
                         break;
                     }
             }
-            switch (Properties.Settings.Default.Mod_HotKeys)
-            {
-                case ("1"):
-                    {
-                        InstallprogressLogger(Installieren, Properties.Resources.App_Mod_Hotkeys, 7, maxProgess);
-                        await Worker.ZipInstallerAsync(@"Artifacts\Mod_HotKey.zip");
-                        InstallprogressLogger(Installiert, Properties.Resources.App_Mod_Hotkeys, 8, maxProgess);
-                        break;
-                    }
-                default:
-                case ("0"):
-                    {
-                        InstallprogressLogger(Deinstallieren, Properties.Resources.App_Mod_Hotkeys, 7, maxProgess);
-                        await Worker.ZipInstallerAsync(@"Artifacts\Mod_Hotkey_Deinstallieren.zip");
-                        InstallprogressLogger(Deinstalliert, Properties.Resources.App_Mod_Hotkeys, 8, maxProgess);
-                        break;
-                    }
-            }
+
+            //switch (Properties.Settings.Default.Mod_HotKeys)
+            // {
+            //     case ("1"):
+            //         {
+            //             InstallprogressLogger(Installieren, Properties.Resources.App_Mod_Hotkeys, 7, maxProgess);
+            //             await Worker.ZipInstallerAsync(@"Artifacts\Mod_HotKey.zip");
+            //             InstallprogressLogger(Installiert, Properties.Resources.App_Mod_Hotkeys, 8, maxProgess);
+            //             break;
+            //         }
+            //     default:
+            //     case ("0"):
+            //         {
+            //             InstallprogressLogger(Deinstallieren, Properties.Resources.App_Mod_Hotkeys, 7, maxProgess);
+            //             await Worker.ZipInstallerAsync(@"Artifacts\Mod_Hotkey_Deinstallieren.zip");
+            //             InstallprogressLogger(Deinstalliert, Properties.Resources.App_Mod_Hotkeys, 8, maxProgess);
+            //             break;
+            //         }
+            //        }
             switch (Properties.Settings.Default.Mod_UBO)
             {
                 case ("1"):
@@ -889,67 +892,67 @@ namespace S4EE
                     }
             }
             InstallprogressLogger(Installiert, Properties.Resources.App_Misc_MISSIONS, 36, maxProgess);
-            //MINEN
-            InstallprogressLogger(Installieren, Properties.Resources.App_Misc_MINE, 37, maxProgess);
-            switch (Properties.Settings.Default.EditionInstalled)
-            {
-                case ("HE"):
-                case ("EHE"):
-                    {
-                        switch (Properties.Settings.Default.Minen)
-                        {
-                            case ("1"):
-                                {
-                                    IniFile s4settings = new(App.S4HE_AppPath + @"Config\WarningTypes.cfg");
-                                    s4settings.Write("GUI_WARN_MINE_EMPTY", "<WARNING_ECO_MISSING_RESOURCES>", "WARNINGMSG_CLASSIFICATION");
-                                    break;
-                                }
-                            default:
-                            case ("0"):
-                                {
-                                    IniFile s4settings = new(App.S4HE_AppPath + @"Config\WarningTypes.cfg");
-                                    s4settings.Write("GUI_WARN_MINE_EMPTY", "", "WARNINGMSG_CLASSIFICATION");
-                                    break;
-                                }
-                        }
-                        break;
-                    }
-            }
-            InstallprogressLogger(Installiert, Properties.Resources.App_Misc_MINE, 38, maxProgess);
-            //LegacyControls
-            InstallprogressLogger(Installieren, Properties.Resources.App_Misc_LEGACYCONTROLS, 39, maxProgess);
-            switch (Properties.Settings.Default.EditionInstalled)
-            {
-                case ("HE"):
-                case ("EHE"):
-                    {
-                        string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
-                        IniFile s4settings = new(settings);
-                        switch (Properties.Settings.Default.LegacyControls)
-                        {
-                            case ("1"):
-                                {
-                                    s4settings.Write("LegacyMouse", "1", "GAMESETTINGS");
-                                    break;
-                                }
-                            case ("0"):
-                                {
-                                    s4settings.Write("LegacyMouse", "0", "GAMESETTINGS");
-                                    break;
-                                }
-                        }
-                        break;
-                    }
-            }
-            InstallprogressLogger(Installiert, Properties.Resources.App_Misc_LEGACYCONTROLS, 40, maxProgess);
+            ////MINEN
+            //InstallprogressLogger(Installieren, Properties.Resources.App_Misc_MINE, 37, maxProgess);
+            //switch (Properties.Settings.Default.EditionInstalled)
+            //{
+            //    case ("HE"):
+            //    case ("EHE"):
+            //        {
+            //            switch (Properties.Settings.Default.Minen)
+            //            {
+            //                case ("1"):
+            //                    {
+            //                        IniFile s4settings = new(App.S4HE_AppPath + @"Config\WarningTypes.cfg");
+            //                        s4settings.Write("GUI_WARN_MINE_EMPTY", "<WARNING_ECO_MISSING_RESOURCES>", "WARNINGMSG_CLASSIFICATION");
+            //                        break;
+            //                    }
+            //                default:
+            //                case ("0"):
+            //                    {
+            //                        IniFile s4settings = new(App.S4HE_AppPath + @"Config\WarningTypes.cfg");
+            //                        s4settings.Write("GUI_WARN_MINE_EMPTY", "", "WARNINGMSG_CLASSIFICATION");
+            //                        break;
+            //                    }
+            //            }
+            //            break;
+            //        }
+            //}
+            //InstallprogressLogger(Installiert, Properties.Resources.App_Misc_MINE, 38, maxProgess);
+            ////LegacyControls
+            //InstallprogressLogger(Installieren, Properties.Resources.App_Misc_LEGACYCONTROLS, 39, maxProgess);
+            //switch (Properties.Settings.Default.EditionInstalled)
+            //{
+            //    case ("HE"):
+            //    case ("EHE"):
+            //        {
+            //            string settings = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TheSettlers4\Config\GameSettings.cfg";
+            //            IniFile s4settings = new(settings);
+            //            switch (Properties.Settings.Default.LegacyControls)
+            //            {
+            //                case ("1"):
+            //                    {
+            //                        s4settings.Write("LegacyMouse", "1", "GAMESETTINGS");
+            //                        break;
+            //                    }
+            //                case ("0"):
+            //                    {
+            //                        s4settings.Write("LegacyMouse", "0", "GAMESETTINGS");
+            //                        break;
+            //                    }
+            //            }
+            //            break;
+            //        }
+            //}
+            //InstallprogressLogger(Installiert, Properties.Resources.App_Misc_LEGACYCONTROLS, 40, maxProgess);
 
-            //ToDo V1.4 Cleanup "Ressourcen Gefunden abschalten"
-            //IniFile s4settings = new(App.S4GE_AppPath + @"Config\GAMESETTINGS.cfg");
-            //s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
+            ////ToDo V1.4 Cleanup "Ressourcen Gefunden abschalten"
+            ////IniFile s4settings = new(App.S4GE_AppPath + @"Config\GAMESETTINGS.cfg");
+            ////s4settings.Write("MsgLevelMask ", "-83886081", "GAMESETTINGS");
 
             DownlaodPanel.Visibility = Visibility.Hidden;
         }
-        async static void Deinstaller()
+        async static void Deinstaller(bool flag = true)
         {
             if (App.S4HE_AppPath != null)
             {
@@ -961,8 +964,12 @@ namespace S4EE
                 Properties.Settings.Default.EditionInstalled = "GE";
                 await Worker.ZipInstallerAsync(@"Artifacts\Edition_GE_Deinstallieren.zip");
             }
-            Environment.Exit(0);
+            if(flag)
+            {
+                Environment.Exit(0);
+            }
         }
+
         private static void CopyS3()
         {
             DirectoryInfo dir = new(App.S3HE_AppPath + @"\Theme");
@@ -1007,18 +1014,21 @@ namespace S4EE
         #region Downloader
         private void UpgradetoSettlersUnited(object sender, RoutedEventArgs e)
         {
-            Log.LogWriter(LogName, "Uninstaller");
-            Deinstaller();
-            Log.LogWriter(LogName, "Upgrade");
             UpgradetoSettlersUnited();
-
         }
         private void UpgradetoSettlersUnited()
         {
-            FrameContent.Navigate(AppStart);
-            Log.LogWriter(LogName, "Navigate AppStart");
-            string URI = "https://files.settlers-united.com/Settlers-United.exe";
-            DownloadFileAsync(URI, "SettlersUnitedSetup.exe", Properties.Resources.App_SettlersUnited_upgrade, true);
+            if (MessageBoxResult.Yes == MessageBox.Show(Properties.Resources.MSB_SettlersUnited_upgrade_text, Properties.Resources.App_SettlersUnited_upgrade, MessageBoxButton.YesNo, MessageBoxImage.Question))
+            {
+                Log.LogWriter(LogName, "Uninstaller");
+                Deinstaller(false);
+                Log.LogWriter(LogName, "Upgrade");
+                FrameContent.Navigate(AppStart);
+                Log.LogWriter(LogName, "Navigate AppStart");
+                string URI = "https://files.settlers-united.com/Settlers-United.exe";
+                DownloadFileAsync(URI, "SettlersUnitedSetup.exe", Properties.Resources.App_SettlersUnited_upgrade, true);
+            }
+
         }
         private void DownloadFileAsync(string URI, string File, string Name, bool SettlersUnited = false)
         {
@@ -1088,7 +1098,7 @@ namespace S4EE
                     case ("HE"):
                     case ("EHE"):
                         {
-                            Deinstaller();
+                            UpgradetoSettlersUnited();
                             break;
                         }
                     default:

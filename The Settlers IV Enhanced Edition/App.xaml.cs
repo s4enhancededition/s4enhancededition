@@ -77,7 +77,12 @@ namespace S4EE
         {
             try
             {
-                return (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Path", null) + @"/";
+                string key = (string)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\BlueByte\Settlers4", "Path", null);
+                if (key != null)
+                {
+                    return key + @"/";
+                }
+                return null;
             }
             catch
             {

@@ -88,7 +88,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die ENHANCED HISTORY EDITION ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die ENHANCED HISTORY EDITION - Necessary to upgrade to Settlers United! ähnelt.
         /// </summary>
         public static string App_Edition_EHE {
             get {
@@ -115,7 +115,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die HISTORY EDITION (2018) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die HISTORY EDITION (2018) - Necessary to upgrade to Settlers United! ähnelt.
         /// </summary>
         public static string App_Edition_HE {
             get {
@@ -124,7 +124,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die We recommend the ENHANCED HISTORY EDITION for singleplayer and online multiplayer, 
+        ///   Sucht eine lokalisierte Zeichenfolge, die We recommend the Settlers United for singleplayer and online multiplayer, 
         ///and the ENHANCED GOLD EDITION for local multiplayer (LAN). ähnelt.
         /// </summary>
         public static string App_Edition_Information_Text {
@@ -640,7 +640,7 @@ namespace S4EE.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Upgrade to Settlers United (Beta) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Upgrade to Settlers United ähnelt.
         /// </summary>
         public static string App_SettlersUnited_upgrade {
             get {
@@ -791,6 +791,17 @@ namespace S4EE.Properties {
         public static string MSB_ModCustom_UBO_Text {
             get {
                 return ResourceManager.GetString("MSB_ModCustom_UBO_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die It is necessary to upgrade to Settlers United.
+        ///The Enhanced Edition features are available as part of Settlers United.
+        ///Upgrade now? ähnelt.
+        /// </summary>
+        public static string MSB_SettlersUnited_upgrade_text {
+            get {
+                return ResourceManager.GetString("MSB_SettlersUnited_upgrade_text", resourceCulture);
             }
         }
     }

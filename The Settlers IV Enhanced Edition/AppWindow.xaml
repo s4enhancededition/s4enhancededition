@@ -473,7 +473,8 @@
             </StackPanel>
             <StackPanel Grid.Row="3"
                         VerticalAlignment="Center"
-                        Orientation="Horizontal">
+                        Orientation="Horizontal"
+                        Margin="15,0,15,0">
                 <Label Content="Version: 1.4.0.1150"
                        x:Name="Versiontext"
                        Height="25"
@@ -483,6 +484,7 @@
                         Click="UpgradetoSettlersUnited"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
+                        Width="160"
                         Height="25" />
             </StackPanel>
         </Grid>

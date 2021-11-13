@@ -127,7 +127,7 @@
     <value>ENHANCED GOLD EDITION</value>
   </data>
   <data name="App_Edition_EHE" xml:space="preserve">
-    <value>ENHANCED HISTORY EDITION</value>
+    <value>ENHANCED HISTORY EDITION - Es ist notwendig auf Settlers United upzugraden!</value>
   </data>
   <data name="App_Edition_Enhanced_Title" xml:space="preserve">
     <value>ENHANCED</value>
@@ -136,10 +136,10 @@
     <value>GOLD EDITION (2003)</value>
   </data>
   <data name="App_Edition_HE" xml:space="preserve">
-    <value>HISTORY EDITION (2018)</value>
+    <value>HISTORY EDITION (2018) - Es ist notwendig auf Settlers United upzugraden!</value>
   </data>
   <data name="App_Edition_Information_Text" xml:space="preserve">
-    <value>Für Singleplayer und Online-Multiplayer empfehlen wir die ENHANCED HISTORY EDITION, 
+    <value>Für Singleplayer und Online-Multiplayer empfehlen wir Settlers United, 
 für lokalen-Multiplayer (LAN) die ENHANCED GOLD EDITION.</value>
   </data>
   <data name="App_Edition_Information_Title" xml:space="preserve">
@@ -356,9 +356,14 @@ Du hast eine Custom Mod aktiviert.
 Multiplayer Matches funktionieren daher nur wenn alle Teilnehmer die selbe/n Mod/s ebenfalls aktiviert haben.</value>
   </data>
   <data name="App_SettlersUnited_upgrade" xml:space="preserve">
-    <value>Upgrade auf Settlers United (Beta)</value>
+    <value>Upgrade auf Settlers United</value>
   </data>
   <data name="App_Update_Text" xml:space="preserve">
     <value>Die Installation kann einige Zeit dauern</value>
+  </data>
+  <data name="MSB_SettlersUnited_upgrade_text" xml:space="preserve">
+    <value>Es ist notwendig auf Settlers United upzugraden.
+Die Enhanced Edition Features sind als Teil von Settlers-United verfügbar.
+Jetzt Upgraden?</value>
   </data>
 </root>

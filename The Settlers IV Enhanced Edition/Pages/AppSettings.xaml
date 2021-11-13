@@ -157,8 +157,8 @@
                                          Checked="App_Edition_EHE_Button_Checked">
                                 <Label Content="{x:Static p:Resources.App_Edition_EHE}"
                                        Name="App_Edition_EHE"
-                                       Foreground="White"
-                                       FontSize="16"
+                                       Foreground="Gray"
+                                       FontSize="15"
                                        Margin="6"
                                        FontWeight="Bold"
                                        FontFamily="Segoe UI" />
@@ -174,9 +174,10 @@
                                 <Label Content="{x:Static p:Resources.App_Edition_EGE}"
                                        Name="App_Edition_EGE"
                                        Foreground="White"
-                                       FontSize="16"
+                                       FontSize="15"
                                        Margin="6"
                                        FontWeight="Bold"
+
                                        FontFamily="Segoe UI" />
                             </RadioButton>
                         </StackPanel>
@@ -197,8 +198,8 @@
                                          Checked="App_Edition_HE_Button_Checked">
                                 <Label Content="{x:Static p:Resources.App_Edition_HE}"
                                        Name="App_Edition_HE"
-                                       Foreground="White"
-                                       FontSize="16"
+                                       Foreground="Gray"
+                                       FontSize="15"
                                        Margin="6"
                                        FontWeight="Bold"
                                        FontFamily="Segoe UI" />
@@ -214,7 +215,7 @@
                                 <Label Content="{x:Static p:Resources.App_Edition_GE}"
                                        Name="App_Edition_GE"
                                        Foreground="White"
-                                       FontSize="16"
+                                       FontSize="15"
                                        Margin="6"
                                        FontWeight="Bold"
                                        FontFamily="Segoe UI" />
@@ -415,7 +416,8 @@
                             </CheckBox>
                         </Grid>
                         <Grid Background="Black"
-                              Margin="3">
+                              Margin="3"
+                              Visibility="Collapsed">
                             <CheckBox Name="App_Mod_Hotkeys_CheckBox"
                                       Margin="24,0,0,0"
                                       VerticalContentAlignment="Center"
@@ -1115,7 +1117,8 @@
                                            Padding="10"
                                            Content="{x:Static p:Resources.App_Misc_SAVE_Title}" />
                                     <Grid Background="Black"
-                                          Margin="3,3,3,0">
+                                          Margin="3,3,3,0"
+                                          Visibility="Collapsed">
                                         <CheckBox Name="App_Misc_SAVE_AUTOSAVE_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
@@ -1191,7 +1194,8 @@
                                         </CheckBox>
                                     </Grid>
                                     <Grid Background="Black"
-                                          Margin="3">
+                                          Margin="3"
+                                          Visibility="Collapsed">
                                         <CheckBox Name="App_Misc_MINE_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
@@ -1206,7 +1210,8 @@
                                         </CheckBox>
                                     </Grid>
                                     <Grid Background="Black"
-                                          Margin="3">
+                                          Margin="3"
+                                          Visibility="Collapsed">
                                         <CheckBox Name="App_Misc_LEGACYCONTROLS_CheckBox"
                                                   Margin="24,0,0,0"
                                                   VerticalContentAlignment="Center"
