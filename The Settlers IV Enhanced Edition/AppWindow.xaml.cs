@@ -1018,10 +1018,10 @@ namespace S4EE
         }
         private void UpgradetoSettlersUnited()
         {
+            Log.LogWriter(LogName, "Uninstaller");
+            Deinstaller(false);
             if (MessageBoxResult.Yes == MessageBox.Show(Properties.Resources.MSB_SettlersUnited_upgrade_text, Properties.Resources.App_SettlersUnited_upgrade, MessageBoxButton.YesNo, MessageBoxImage.Question))
-            {
-                Log.LogWriter(LogName, "Uninstaller");
-                Deinstaller(false);
+            {  
                 Log.LogWriter(LogName, "Upgrade");
                 FrameContent.Navigate(AppStart);
                 Log.LogWriter(LogName, "Navigate AppStart");
