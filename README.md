@@ -1,2 +1,2 @@
 # s4enhancededition
-The Settlers IV Enhanced Edition Repository
+The Settlers IV Enhanced Edition Repository.
