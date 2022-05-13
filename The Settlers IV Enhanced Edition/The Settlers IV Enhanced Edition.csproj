@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <PlatformTarget>x64</PlatformTarget>
     <RootNamespace>S4EE</RootNamespace>
     <UseWPF>true</UseWPF>
     <StartupObject>S4EE.App</StartupObject>
-    <AssemblyVersion>1.5.0.1180</AssemblyVersion>
-    <FileVersion>1.5.0.1180</FileVersion>
-    <Version>1.5.0.1180</Version>
-    <Copyright>© 2019-2021 Ortner MEDIA</Copyright>
+    <AssemblyVersion>1.5.1.1200</AssemblyVersion>
+    <FileVersion>1.5.1.1200</FileVersion>
+    <Version>1.5.1.1200</Version>
+    <Copyright>© 2019-2022 Ortner MEDIA</Copyright>
     <Company>Ortner MEDIA</Company>
     <ApplicationIcon>Resources\S4EE_ICON.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -104,9 +104,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetZip" Version="1.15.0" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.961.33" />
-    <PackageReference Include="Octokit" Version="0.50.0" />
+    <PackageReference Include="DotNetZip" Version="1.16.0" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1210.39" />
+    <PackageReference Include="Octokit" Version="0.51.0" />
   </ItemGroup>
 
   <ItemGroup>
