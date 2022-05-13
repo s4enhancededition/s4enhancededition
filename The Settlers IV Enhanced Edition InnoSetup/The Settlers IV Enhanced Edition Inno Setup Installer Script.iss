@@ -77,11 +77,9 @@ function InitializeSetup: Boolean;
 begin
   //x86
   Dependency_ForceX86 := True; 
-  Dependency_AddVC2013;
   Dependency_AddVC2015To2022;
   Dependency_ForceX86 := False;
   //x64
-  Dependency_AddVC2013;
   Dependency_AddVC2015To2022;
   //Generic
   Dependency_AddDotNet48;
